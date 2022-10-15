@@ -1,15 +1,5 @@
 require 'minitest/autorun'
-class Coordinates
-  attr_reader :x, :y
-  def initialize(x:, y:)
-    @x = x
-    @y = y
-  end
-
-  def ==(coordinates)
-    x == coordinates.x && y == coordinates.y
-  end
-end
+require_relative '../lib/coordinates'
 
 class MarsRover
   attr_reader :direction
