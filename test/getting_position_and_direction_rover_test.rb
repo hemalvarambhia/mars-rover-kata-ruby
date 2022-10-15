@@ -6,6 +6,10 @@ class Coordinates
     @x = x
     @y = y
   end
+
+  def ==(coordinates)
+    x == coordinates.x && y == coordinates.y
+  end
 end
 
 class MarsRover
@@ -70,7 +74,6 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
   private
 
   def assert_positioned_at(expected_coordinates, coordinates)
-    assert_equal(expected_coordinates.x, coordinates.x)
-    assert_equal(expected_coordinates.y, coordinates.y)
+    assert_equal(expected_coordinates, coordinates)
   end
 end
