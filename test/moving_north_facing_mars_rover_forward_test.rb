@@ -42,7 +42,7 @@ class MovingNorthFacingMarsRoverForward < MiniTest::Test
     assert_equal(Coordinates.new(x: 0, y: 2), coordinates)
   end
 
-  def test_moving_three_steps_forward
+  def test_moving_multiple_steps_forward
     mars_rover =
       MarsRover.new(
         starting_coordinates: Coordinates.new(x: 0, y: 0),
@@ -68,7 +68,7 @@ class MovingNorthFacingMarsRoverForward < MiniTest::Test
     assert_equal(Coordinates.new(x: 2, y: -1), coordinates)
   end
 
-  def test_rover_moves_four_steps_backward
+  def test_rover_moves_multiple_steps_backward
     mars_rover =
       MarsRover.new(
         starting_coordinates: Coordinates.new(x: -3, y: 0),
@@ -81,7 +81,7 @@ class MovingNorthFacingMarsRoverForward < MiniTest::Test
     assert_equal(Coordinates.new(x: -3, y: -4), coordinates)
   end
 
-  def test_rover_moves_three_steps_forward_and_two_steps_backward
+  def test_rover_moves_multiple_steps_forward_and_multiple_steps_backward
     mars_rover =
       MarsRover.new(
         starting_coordinates: Coordinates.new(x: 3, y: 0),
