@@ -11,10 +11,10 @@ class MarsRover
     return if command.empty?
 
     if command == 'f'
-      movements = [ movement_for('f') ]
+      movements = command.split('').map { |instruction| movement_for(instruction) }
       delta = movements.reduce(:+)
     elsif command == 'ff'
-      movements = [ movement_for('f'), movement_for('f') ]
+      movements = command.split('').map { |instruction| movement_for(instruction) }
       delta = movements.reduce(:+)
     end
     @current_coordinates = move_forward_by(delta)
