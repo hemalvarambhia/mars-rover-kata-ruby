@@ -9,11 +9,13 @@ class MarsRover
 
   def execute(command)
     return if command.empty?
-    
+
     if command == 'f'
-      delta = Coordinates.new(x: 0, y: 1)
+      movements = [ Coordinates.new(x: 0, y: 1) ]
+      delta = movements.reduce(:+)
     elsif command == 'ff'
-      delta = [Coordinates.new(x: 0, y: 1), Coordinates.new(x: 0, y: 1)].reduce(:+)
+      movements = [ Coordinates.new(x: 0, y: 1), Coordinates.new(x: 0, y: 1) ]
+      delta = movements.reduce(:+)
     end
     @current_coordinates = move_forward_by(delta)
   end
