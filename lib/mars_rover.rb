@@ -12,7 +12,7 @@ class MarsRover
 
     movements = command.split('').map { |instruction| movement_for(instruction) }
     delta = movements.reduce(:+)
-    @current_coordinates = move_by(delta)
+    @current_coordinates += delta
   end
 
   def coordinates
@@ -26,9 +26,5 @@ class MarsRover
       'f' => Coordinates.new(x: 0, y: 1),
       'b' => Coordinates.new(x: 0, y: -1)
     }[instruction] || Coordinates.new(x: 0, y: 0)
-  end
-
-  def move_by(delta)
-    @current_coordinates + delta
   end
 end
