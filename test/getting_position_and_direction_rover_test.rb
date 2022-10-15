@@ -13,8 +13,9 @@ class Coordinates
 end
 
 class MarsRover
-  def initialize(starting_coordinates:)
+  def initialize(starting_coordinates:, direction: 'N')
     @current_coordinates = starting_coordinates
+    @direction = direction
   end
 
   def coordinates
@@ -22,7 +23,7 @@ class MarsRover
   end
 
   def direction
-    'N'
+    @direction
   end
 end
 
@@ -64,7 +65,12 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
   end
 
   def test_current_position_and_direction_of_east_facing_mars_rover
-    skip('Test list')
+    mars_rover =
+      MarsRover.new(starting_coordinates: Coordinates.new(x: 0, y: 0), direction: 'E')
+
+    direction = mars_rover.direction
+
+    assert_equal('E', direction)
   end
 
   def test_current_position_and_direction_of_west_facing_mars_rover
