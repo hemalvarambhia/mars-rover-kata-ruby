@@ -15,7 +15,7 @@ end
 class MarsRover
   attr_reader :direction
 
-  def initialize(starting_coordinates:, direction: 'N')
+  def initialize(starting_coordinates:, direction:)
     @current_coordinates = starting_coordinates
     @direction = direction
   end
