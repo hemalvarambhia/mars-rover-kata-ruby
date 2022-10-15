@@ -41,7 +41,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
 
   def test_current_position_of_north_facing_mars_rover_anywhere_on_x_axis
     mars_rover =
-    MarsRover.new(starting_coordinates: Coordinates.new(x: 1, y: 0))
+      MarsRover.new(starting_coordinates: Coordinates.new(x: 1, y: 0))
 
     coordinates = mars_rover.coordinates
     direction = mars_rover.direction
