@@ -24,7 +24,7 @@ class MarsRover
   def movement_for(instruction)
     {
       'f' => Coordinates.new(x: 0, y: 1)
-    }[instruction]
+    }[instruction] || Coordinates.new(x: 0, y: 0)
   end
 
   def move_forward_by(delta)
