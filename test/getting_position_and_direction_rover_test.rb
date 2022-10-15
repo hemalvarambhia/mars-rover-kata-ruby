@@ -2,7 +2,6 @@ require 'minitest/autorun'
 require 'ostruct'
 class MarsRover
   def initialize(x: 0, y: 0, starting_coordinates: nil)
-    @current_coordinates = OpenStruct.new(x: x, y: y)
     @current_coordinates = starting_coordinates
   end
 
