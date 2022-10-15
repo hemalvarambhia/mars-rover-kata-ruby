@@ -35,7 +35,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     direction = mars_rover.direction
 
     expected_coordinates = Coordinates.new(x: 0, y: 0)
-    assert_positioned_at(expected_coordinates, coordinates)
+    assert_equal(expected_coordinates, coordinates)
     assert_equal('N', direction)
   end
 
@@ -47,7 +47,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     direction = mars_rover.direction
 
     expected_coordinates = Coordinates.new(x: 1, y: 0)
-    assert_positioned_at(expected_coordinates, coordinates)
+    assert_equal(expected_coordinates, coordinates)
     assert_equal('N', direction)
   end
 
@@ -59,7 +59,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     direction = mars_rover.direction
 
     expected_coordinates = Coordinates.new(x: 0, y: 5)
-    assert_positioned_at(expected_coordinates, coordinates)
+    assert_equal(expected_coordinates, coordinates)
     assert_equal('N', direction)
   end
 
@@ -69,11 +69,5 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
 
   def test_current_position_and_direction_of_west_facing_mars_rover
     skip('Test list')
-  end
-
-  private
-
-  def assert_positioned_at(expected_coordinates, coordinates)
-    assert_equal(expected_coordinates, coordinates)
   end
 end
