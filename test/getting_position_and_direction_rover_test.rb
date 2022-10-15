@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'ostruct'
 class MarsRover
-  def initialize(x: 0, y: 0)
+  def initialize(x: 0, y: 0, starting_coordinates: nil)
     @current_coordinates = OpenStruct.new(x: x, y: y)
   end
 
@@ -16,7 +16,8 @@ end
 
 class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
   def test_current_position_and_direction_of_north_facing_mars_rover
-    mars_rover = MarsRover.new
+    mars_rover =
+      MarsRover.new(starting_coordinates: OpenStruct.new(x: 0, y: 0))
 
     coordinates = mars_rover.coordinates
     direction = mars_rover.direction
@@ -27,7 +28,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
   end
 
   def test_current_position_of_north_facing_mars_rover_anywhere_on_x_axis
-    mars_rover = MarsRover.new(x: 1, y: 0)
+    mars_rover =
+    MarsRover.new(x: 1, y: 0, starting_coordinates: OpenStruct.new(x: 1, y: 0))
 
     coordinates = mars_rover.coordinates
     direction = mars_rover.direction
@@ -38,7 +40,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
   end
 
   def test_current_position_of_north_facing_mars_rover_anywhere_on_y_axis
-    mars_rover = MarsRover.new(x: 0, y: 5)
+    mars_rover =
+      MarsRover.new(x: 0, y: 5, starting_coordinates: OpenStruct.new(x: 0, y: 5))
 
     coordinates = mars_rover.coordinates
     direction = mars_rover.direction
