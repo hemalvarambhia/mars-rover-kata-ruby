@@ -1,5 +1,4 @@
 require 'minitest/autorun'
-require 'ostruct'
 class Coordinates
   attr_reader :x, :y
   def initialize(x:, y:)
