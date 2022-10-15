@@ -35,6 +35,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     expected_coordinates = OpenStruct.new(x: 1, y: 0)
     assert_equal(expected_coordinates.x, coordinates.x)
     assert_equal(expected_coordinates.y, coordinates.y)
+    assert_positioned_at(expected_coordinates, coordinates)
     assert_equal('N', direction)
   end
 
