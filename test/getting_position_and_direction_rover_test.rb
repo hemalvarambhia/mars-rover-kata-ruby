@@ -82,8 +82,4 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
 
     assert_equal('E', direction)
   end
-
-  def test_current_position_and_direction_of_west_facing_mars_rover
-    skip('Test list')
-  end
 end
