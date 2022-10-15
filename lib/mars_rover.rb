@@ -23,7 +23,8 @@ class MarsRover
 
   def movement_for(instruction)
     {
-      'f' => Coordinates.new(x: 0, y: 1)
+      'f' => Coordinates.new(x: 0, y: 1),
+      'b' => Coordinates.new(x: 0, y: -1)
     }[instruction] || Coordinates.new(x: 0, y: 0)
   end
 
