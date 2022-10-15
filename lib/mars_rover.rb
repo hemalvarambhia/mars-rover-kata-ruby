@@ -8,9 +8,12 @@ class MarsRover
 
 
   def execute(command)
-    return if command.empty?
+    movements = if command.empty?
+                  [ movement_for(command) ]
+                else
+                  command.split('').map { |instruction| movement_for(instruction) }
+                end
 
-    movements = command.split('').map { |instruction| movement_for(instruction) }
     delta = movements.reduce(:+)
     @current_coordinates += delta
   end
