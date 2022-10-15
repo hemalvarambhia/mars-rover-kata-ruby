@@ -4,10 +4,12 @@ class MarsRover
   def initialize(x: 0, y: 0)
     @x = x
     @y = y
+    @current_coordinates = OpenStruct.new(x: x, y: y)
   end
 
   def coordinates
     OpenStruct.new(x: @x, y: @y)
+    @current_coordinates
   end
 
   def direction
