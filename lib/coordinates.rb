@@ -5,6 +5,10 @@ class Coordinates
     @y = y
   end
 
+  def +(delta)
+    Coordinates.new(x: x + delta.x, y: y + delta.y)
+  end
+
   def ==(coordinates)
     x == coordinates.x && y == coordinates.y
   end

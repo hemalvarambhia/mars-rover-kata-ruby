@@ -24,6 +24,6 @@ class MarsRover
   private
 
   def move_forward_by(delta)
-    Coordinates.new(x: @current_coordinates.x + delta.x, y: @current_coordinates.y + delta.y)
+    @current_coordinates + delta
   end
 end
