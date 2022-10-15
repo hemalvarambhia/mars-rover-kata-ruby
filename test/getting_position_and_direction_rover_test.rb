@@ -1,18 +1,6 @@
 require 'minitest/autorun'
 require_relative '../lib/coordinates'
-
-class MarsRover
-  attr_reader :direction
-
-  def initialize(starting_coordinates:, direction:)
-    @current_coordinates = starting_coordinates
-    @direction = direction
-  end
-
-  def coordinates
-    @current_coordinates
-  end
-end
+require_relative '../lib/mars_rover'
 
 class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
   def test_current_position_and_direction_of_north_facing_mars_rover
