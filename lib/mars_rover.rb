@@ -10,6 +10,8 @@ class MarsRover
   def execute(command)
     if command == 'f'
       @current_coordinates = Coordinates.new(x: 0, y: 1)
+    elsif command == 'ff'
+      @current_coordinates = Coordinates.new(x: 0, y: 2)
     end
   end
 
