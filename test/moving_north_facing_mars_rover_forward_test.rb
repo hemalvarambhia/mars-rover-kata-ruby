@@ -10,6 +10,10 @@ class Coordinates
   def ==(coordinates)
     x == coordinates.x && y == coordinates.y
   end
+
+  def inspect
+    "(#{x}, #{y})"
+  end
 end
 
 class MarsRover
@@ -21,7 +25,10 @@ class MarsRover
   end
 
 
-  def execute(_)
+  def execute(command)
+    if command == 'f'
+      @current_coordinates = Coordinates.new(x: 0, y: 1)
+    end
   end
 
   def coordinates
@@ -41,5 +48,18 @@ class MovingNorthFacingMarsRoverForward < MiniTest::Test
 
     coordinates = mars_rover.coordinates
     assert_equal(Coordinates.new(x: 0, y: 0), coordinates)
+  end
+
+  def test_moving_one_step_forward
+    mars_rover =
+      MarsRover.new(
+        starting_coordinates: Coordinates.new(x: 0, y: 0),
+        direction: 'N'
+      )
+
+    mars_rover.execute('f')
+
+    coordinates = mars_rover.coordinates
+    assert_equal(Coordinates.new(x: 0, y: 1), coordinates)
   end
 end
