@@ -3,6 +3,23 @@ require_relative '../lib/coordinates'
 require_relative '../lib/mars_rover'
 
 class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
+  def test_moving_nowhere
+    mars_rover =
+      MarsRover.new(
+        starting_coordinates: Coordinates.new(x: -1, y: -1),
+        direction: 'E'
+      )
+
+    mars_rover.execute('')
+
+    coordinates = mars_rover.coordinates
+    direction = mars_rover.direction
+
+    expected_coordinates = Coordinates.new(x: -1, y: -1)
+    assert_equal(expected_coordinates, coordinates)
+    assert_equal('E', direction)
+  end
+
   def test_moving_one_step_forward
     mars_rover =
       MarsRover.new(

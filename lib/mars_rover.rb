@@ -36,7 +36,7 @@ class MarsRover
       {
         'f' => Translation.new(delta_x: 1, delta_y: 0),
         'b' => Translation.new(delta_x: -1, delta_y: 0)
-      }[instruction]
+      }[instruction] || Translation.new(delta_x: 0, delta_y: 0)
     end
   end
 end
