@@ -14,8 +14,8 @@ class MarsRover
                   command.split('').map { |instruction| movement_for(instruction) }
                 end
 
-    delta = movements.reduce(:+)
-    @current_coordinates = @current_coordinates.translate(delta)
+    translation = movements.reduce(:+)
+    @current_coordinates = @current_coordinates.translate(translation)
   end
 
   def coordinates
