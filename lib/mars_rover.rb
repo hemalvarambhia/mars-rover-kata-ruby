@@ -15,7 +15,7 @@ class MarsRover
                 end
 
     delta = movements.reduce(:+)
-    @current_coordinates += delta
+    @current_coordinates = @current_coordinates.translate(delta)
   end
 
   def coordinates

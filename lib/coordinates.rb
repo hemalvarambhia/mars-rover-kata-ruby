@@ -5,6 +5,10 @@ class Coordinates
     @y = y
   end
 
+  def translate(translation)
+    Coordinates.new(x: x + translation.x, y: y + translation.y)
+  end
+
   def +(delta)
     Coordinates.new(x: x + delta.x, y: y + delta.y)
   end
