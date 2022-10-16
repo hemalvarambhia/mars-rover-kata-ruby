@@ -32,7 +32,10 @@ class MarsRover
         'b' => Coordinates.new(x: 0, y: -1)
       }[instruction] || Coordinates.new(x: 0, y: 0)
     when 'E'
-      Coordinates.new(x: 1, y: 0)
+      {
+        'f' => Coordinates.new(x: 1, y: 0),
+        'b' => Coordinates.new(x: -1, y: 0)
+      }[instruction]
     end
   end
 end
