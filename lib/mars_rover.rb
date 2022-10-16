@@ -30,7 +30,7 @@ class MarsRover
     when 'N'
       {
         'f' => Translation.new(delta_x: 0, delta_y: 1),
-        'b' => Coordinates.new(x: 0, y: -1)
+        'b' => Translation.new(delta_x: 0, delta_y: -1)
       }[instruction] || Coordinates.new(x: 0, y: 0)
     when 'E'
       {
