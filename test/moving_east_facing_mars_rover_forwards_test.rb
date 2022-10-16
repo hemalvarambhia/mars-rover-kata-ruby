@@ -4,7 +4,6 @@ require_relative '../lib/mars_rover'
 
 class MovingEastFacingMarsRoverForwardTest < MiniTest::Test
   def test_moving_one_step_forward
-    skip('Test list')
     mars_rover =
       MarsRover.new(
         starting_coordinates: Coordinates.new(x: 0, y: 0),
