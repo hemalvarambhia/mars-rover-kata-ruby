@@ -9,7 +9,7 @@ class Translation
 
   def +(translation)
     Translation.new(
-      delta_x: x + translation.delta_x,
+      delta_x: delta_x + translation.delta_x,
       delta_y: y + translation.y
     )
   end

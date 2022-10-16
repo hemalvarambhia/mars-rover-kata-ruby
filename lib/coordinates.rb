@@ -6,9 +6,9 @@ class Coordinates
   end
 
   def translate(translation)
-    Coordinates.new(x: x + translation.x, y: y + translation.y)
+    Coordinates.new(x: x + translation.delta_x, y: y + translation.y)
   end
-  
+
   def ==(coordinates)
     x == coordinates.x && y == coordinates.y
   end
