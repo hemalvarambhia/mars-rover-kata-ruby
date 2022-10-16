@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require_relative '../lib/coordinates'
 require_relative '../lib/mars_rover'
 
-class MovingNorthFacingMarsRoverForward < MiniTest::Test
+class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_moving_nowhere
     mars_rover =
       MarsRover.new(
