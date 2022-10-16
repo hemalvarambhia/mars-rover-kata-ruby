@@ -1,3 +1,4 @@
+require_relative './translation'
 class MarsRover
   attr_reader :direction
 
@@ -28,7 +29,7 @@ class MarsRover
     case direction
     when 'N'
       {
-        'f' => Coordinates.new(x: 0, y: 1),
+        'f' => Translation.new(delta_x: 0, delta_y: 1),
         'b' => Coordinates.new(x: 0, y: -1)
       }[instruction] || Coordinates.new(x: 0, y: 0)
     when 'E'
