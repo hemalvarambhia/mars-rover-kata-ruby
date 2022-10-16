@@ -1,5 +1,5 @@
 class Translation
-  attr_reader :x, :y, :delta_x, :delta_y
+  attr_reader :delta_x, :delta_y
 
   def initialize(delta_x:, delta_y:)
     @x = delta_x
