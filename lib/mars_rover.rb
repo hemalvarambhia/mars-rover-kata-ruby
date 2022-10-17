@@ -11,7 +11,7 @@ class MarsRover
     @current_coordinates = @current_coordinates.translate(translation)
   end
 
-  def location
+  def position
     OpenStruct.new(
       coordinates: coordinates,
       direction: direction
