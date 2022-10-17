@@ -1,8 +1,11 @@
 require 'minitest/autorun'
+require_relative './location_assertion'
 require_relative '../lib/coordinates'
 require_relative '../lib/mars_rover'
 
 class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
+  include LocationAssertion
+
   def test_moving_nowhere
     mars_rover =
       MarsRover.new(
@@ -61,14 +64,5 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover.execute('z')
 
     assert_at_point(Coordinates.new(x: -3, y: -2), 'E', mars_rover)
-  end
-
-  private
-
-  def assert_at_point(expected_coordinates, expected_direction, mars_rover)
-    coordinates = mars_rover.coordinates
-    direction = mars_rover.direction
-    assert_equal(expected_coordinates, coordinates)
-    assert_equal(expected_direction, direction)
   end
 end
