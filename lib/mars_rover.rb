@@ -42,7 +42,7 @@ class MarsRover
       }[instruction] || Translation.no_where
     when 'S'
       {
-        'f' => Translation.new(delta_x: 0, delta_y: -1),
+        'f' => Translation.forward('S'),
         'b' => Translation.new(delta_x: 0, delta_y: 1)
       }[instruction] || Translation.no_where
     end
