@@ -12,12 +12,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('')
 
-    coordinates = mars_rover.coordinates
-    direction = mars_rover.direction
-
-    expected_coordinates = Coordinates.new(x: -1, y: -1)
-    assert_equal(expected_coordinates, coordinates)
-    assert_equal('E', direction)
+    assert_at_point(Coordinates.new(x: -1, y: -1), 'E', mars_rover)
   end
 
   def test_moving_one_step_forward
@@ -29,12 +24,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('f')
 
-    coordinates = mars_rover.coordinates
-    direction = mars_rover.direction
-
-    expected_coordinates = Coordinates.new(x: 1, y: 0)
-    assert_equal(expected_coordinates, coordinates)
-    assert_equal('E', direction)
+    assert_at_point(Coordinates.new(x: 1, y: 0), 'E', mars_rover)
   end
 
   def test_moving_one_step_backward
@@ -46,12 +36,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('b')
 
-    coordinates = mars_rover.coordinates
-    direction = mars_rover.direction
-
-    expected_coordinates = Coordinates.new(x: 1, y: 2)
-    assert_equal(expected_coordinates, coordinates)
-    assert_equal('E', direction)
+    assert_at_point(Coordinates.new(x: 1, y: 2), 'E', mars_rover)
   end
 
   def test_moving_multiple_steps_forwards_and_multiple_steps_backwards
@@ -63,11 +48,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('ffbbb')
 
-    coordinates = mars_rover.coordinates
-    direction = mars_rover.direction
-    expected_coordinates = Coordinates.new(x: -1, y: 4)
-    assert_equal(expected_coordinates, coordinates)
-    assert_equal('E', direction)
+    assert_at_point(Coordinates.new(x: -1, y: 4), 'E', mars_rover)
   end
 
   def test_rover_moves_nowhere_for_any_unrecognised_command
@@ -79,10 +60,15 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('z')
 
+    assert_at_point(Coordinates.new(x: -3, y: -2), 'E', mars_rover)
+  end
+
+  private
+
+  def assert_at_point(expected_coordinates, expected_direction, mars_rover)
     coordinates = mars_rover.coordinates
     direction = mars_rover.direction
-    expected_coordinates = Coordinates.new(x: -3, y: -2)
     assert_equal(expected_coordinates, coordinates)
-    assert_equal('E', direction)
+    assert_equal(expected_direction, direction)
   end
 end
