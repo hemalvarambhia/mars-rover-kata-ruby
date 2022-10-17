@@ -32,12 +32,12 @@ class MarsRover
     case direction
     when 'N'
       {
-        'f' => Translation.forward,
+        'f' => Translation.forward('N'),
         'b' => Translation.new(delta_x: 0, delta_y: -1)
       }[instruction] || Translation.no_where
     when 'E'
       {
-        'f' => Translation.new(delta_x: 1, delta_y: 0),
+        'f' => Translation.forward('E'),
         'b' => Translation.new(delta_x: -1, delta_y: 0)
       }[instruction] || Translation.no_where
     when 'S'

@@ -6,7 +6,12 @@ class Translation
   end
 
   def self.forward(direction = 'N')
-    new(delta_x: 0, delta_y: 1)
+    case direction
+    when 'N'
+      new(delta_x: 0, delta_y: 1)
+    else
+      new(delta_x: 1, delta_y: 0)
+    end
   end
 
   def initialize(delta_x:, delta_y:)
