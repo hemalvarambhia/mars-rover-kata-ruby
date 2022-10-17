@@ -31,16 +31,16 @@ class MarsRover
       {
         'f' => Translation.new(delta_x: 0, delta_y: 1),
         'b' => Translation.new(delta_x: 0, delta_y: -1)
-      }[instruction] || Translation.new(delta_x: 0, delta_y: 0)
+      }[instruction] || Translation.no_where
     when 'E'
       {
         'f' => Translation.new(delta_x: 1, delta_y: 0),
         'b' => Translation.new(delta_x: -1, delta_y: 0)
-      }[instruction] || Translation.new(delta_x: 0, delta_y: 0)
+      }[instruction] || Translation.no_where
     when 'S'
       {
         'f' => Translation.new(delta_x: 0, delta_y: -1)
-      }[instruction] || Translation.new(delta_x: 0, delta_y: 0)
+      }[instruction] || Translation.no_where
     end
   end
 end
