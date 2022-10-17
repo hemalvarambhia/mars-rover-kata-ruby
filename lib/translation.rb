@@ -5,7 +5,7 @@ class Translation
     new(delta_x: 0, delta_y: 0)
   end
 
-  def self.forward(direction = 'N')
+  def self.forward(direction)
     case direction
     when 'N'
       new(delta_x: 0, delta_y: 1)
