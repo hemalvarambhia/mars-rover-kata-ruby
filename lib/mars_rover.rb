@@ -22,7 +22,7 @@ class MarsRover
 
   def to_movements(command)
     if command.empty?
-      [ movement_for(command) ]
+      [ Translation.no_where ]
     else
       command.split('').map { |instruction| movement_for(instruction) }
     end
