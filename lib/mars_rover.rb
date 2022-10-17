@@ -9,8 +9,7 @@ class MarsRover
 
 
   def execute(command)
-    movements = to_movements(command)
-    translation = movements.reduce(:+)
+    translation = to_movements(command).reduce(:+)
     @current_coordinates = @current_coordinates.translate(translation)
   end
 
