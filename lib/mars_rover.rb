@@ -9,12 +9,7 @@ class MarsRover
 
 
   def execute(command)
-    movements = if command.empty?
-                  [ movement_for(command) ]
-                else
-                  command.split('').map { |instruction| movement_for(instruction) }
-                end
-
+    movements = to_movements(command)
     translation = movements.reduce(:+)
     @current_coordinates = @current_coordinates.translate(translation)
   end
@@ -24,6 +19,14 @@ class MarsRover
   end
 
   private
+
+  def to_movements(command)
+    if command.empty?
+      [ movement_for(command) ]
+    else
+      command.split('').map { |instruction| movement_for(instruction) }
+    end
+  end
 
   def movement_for(instruction)
     case direction
