@@ -3,11 +3,7 @@ module LocationAssertion
   private
 
   def assert_at_point(expected_coordinates, expected_direction, mars_rover)
-    location =
-      OpenStruct.new(
-        coordinates: mars_rover.coordinates,
-        direction: mars_rover.direction
-      )
+    location = mars_rover.location
     expected_location =
       OpenStruct.new(
         coordinates: expected_coordinates,
