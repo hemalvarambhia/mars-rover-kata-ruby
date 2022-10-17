@@ -29,22 +29,9 @@ class MarsRover
   end
 
   def movement_for(instruction)
-    case direction
-    when 'N'
-      {
-        'f' => Translation.forward(direction),
-        'b' => Translation.backward(direction)
-      }[instruction] || Translation.no_where
-    when 'E'
-      {
-        'f' => Translation.forward(direction),
-        'b' => Translation.backward(direction)
-      }[instruction] || Translation.no_where
-    when 'S'
-      {
-        'f' => Translation.forward(direction),
-        'b' => Translation.backward(direction)
-      }[instruction] || Translation.no_where
-    end
+    {
+      'f' => Translation.forward(direction),
+      'b' => Translation.backward(direction)
+    }[instruction] || Translation.no_where
   end
 end
