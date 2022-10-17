@@ -35,7 +35,6 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_one_step_backward
-    skip('Next test to get passing')
     mars_rover =
       MarsRover.new(
         starting_coordinates: Coordinates.new(x: 3, y: 0),
