@@ -69,4 +69,20 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     assert_equal(expected_coordinates, coordinates)
     assert_equal('E', direction)
   end
+
+  def test_rover_moves_nowhere_for_any_unrecognised_command
+    mars_rover =
+      MarsRover.new(
+        starting_coordinates: Coordinates.new(x: -3, y: -2),
+        direction: 'E'
+      )
+
+    mars_rover.execute('z')
+
+    coordinates = mars_rover.coordinates
+    direction = mars_rover.direction
+    expected_coordinates = Coordinates.new(x: -3, y: -2)
+    assert_equal(expected_coordinates, coordinates)
+    assert_equal('E', direction)
+  end
 end
