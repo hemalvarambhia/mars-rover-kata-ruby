@@ -16,6 +16,10 @@ class Translation
     end
   end
 
+  def self.backward(direction)
+    new(delta_x: 0, delta_y: -1)
+  end
+
   def initialize(delta_x:, delta_y:)
     @delta_x = delta_x
     @delta_y = delta_y
