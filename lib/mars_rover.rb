@@ -38,7 +38,7 @@ class MarsRover
     when 'E'
       {
         'f' => Translation.forward(direction),
-        'b' => Translation.new(delta_x: -1, delta_y: 0)
+        'b' => Translation.backward(direction)
       }[instruction] || Translation.no_where
     when 'S'
       {
