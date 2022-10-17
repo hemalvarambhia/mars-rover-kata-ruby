@@ -11,11 +11,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('')
 
-    direction = mars_rover.direction
-    coordinates = mars_rover.coordinates
-    expected_coordinates = Coordinates.new(x: 0, y: -1)
-    assert_equal(expected_coordinates, coordinates)
-    assert_equal('S', direction)
+    assert_at_point(Coordinates.new(x: 0, y: -1), 'S', mars_rover)
   end
 
   def test_moving_one_step_forward
@@ -27,11 +23,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('f')
 
-    direction = mars_rover.direction
-    coordinates = mars_rover.coordinates
-    expected_coordinates = Coordinates.new(x: 2, y: 2)
-    assert_equal(expected_coordinates, coordinates)
-    assert_equal('S', direction)
+    assert_at_point(Coordinates.new(x: 2, y: 2), 'S', mars_rover)
   end
 
   def test_moving_one_step_backward
@@ -42,10 +34,15 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
       )
     mars_rover.execute('b')
 
-    direction = mars_rover.direction
+    assert_at_point(Coordinates.new(x: 3, y: 1), 'S', mars_rover)
+  end
+
+  private
+
+  def assert_at_point(expected_coordinates, expected_direction, mars_rover)
     coordinates = mars_rover.coordinates
-    expected_coordinates = Coordinates.new(x: 3, y: 1)
+    direction = mars_rover.direction
     assert_equal(expected_coordinates, coordinates)
-    assert_equal('S', direction)
+    assert_equal(expected_direction, direction)
   end
 end
