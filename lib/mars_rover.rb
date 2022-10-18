@@ -7,7 +7,6 @@ class MarsRover
   def_delegator :@current_location, :direction
 
   def initialize(starting_coordinates:, direction:)
-    @direction = direction
     @current_location = Location.new(coordinates: starting_coordinates, direction: direction)
   end
 
