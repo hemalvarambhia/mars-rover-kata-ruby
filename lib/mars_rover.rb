@@ -1,4 +1,5 @@
 require_relative './translation'
+require_relative './location'
 class MarsRover
   attr_reader :direction
 
@@ -14,7 +15,7 @@ class MarsRover
   end
 
   def position
-    OpenStruct.new(
+    Location.new(
       coordinates: coordinates,
       direction: direction
     )
