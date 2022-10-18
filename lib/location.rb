@@ -16,13 +16,12 @@ class Location
   end
 
   def turn_left
-    if direction == 'N'
-      Location.new(coordinates: coordinates, direction: 'W')
-    elsif direction == 'E'
-      Location.new(coordinates: coordinates, direction: 'N')
-    else
-      Location.new(coordinates: coordinates, direction: 'E')
-    end
+    on_left_turn = {
+      'N' => 'W',
+      'E' => 'N',
+      'S' => 'E'
+    }
+    Location.new(coordinates: coordinates, direction: on_left_turn[direction])
   end
 
   def ==(location)
