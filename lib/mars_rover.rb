@@ -1,5 +1,7 @@
 require_relative './translation'
 class MarsRover
+  attr_reader :direction
+
   def initialize(starting_coordinates:, direction:)
     @current_coordinates = starting_coordinates
     @direction = direction
@@ -19,8 +21,6 @@ class MarsRover
   end
 
   private
-
-  attr_reader :direction
 
   def coordinates
     @current_coordinates

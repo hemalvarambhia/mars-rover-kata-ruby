@@ -1,8 +1,11 @@
 require 'minitest/autorun'
+require_relative './location_assertion'
 require_relative '../lib/coordinates'
 require_relative '../lib/mars_rover'
 
 class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
+  include LocationAssertion
+
   def test_current_position_and_direction_of_north_facing_mars_rover
     mars_rover =
       MarsRover.new(
@@ -10,12 +13,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         direction: 'N'
       )
 
-    coordinates = mars_rover.coordinates
-    direction = mars_rover.direction
-
-    expected_coordinates = Coordinates.new(x: 0, y: 0)
-    assert_equal(expected_coordinates, coordinates)
-    assert_equal('N', direction)
+    assert_at_point(Coordinates.new(x: 0, y: 0), 'N', mars_rover)
   end
 
   def test_current_position_of_north_facing_mars_rover_anywhere_on_x_axis
@@ -25,12 +23,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         direction: 'N'
       )
 
-    coordinates = mars_rover.coordinates
-    direction = mars_rover.direction
-
-    expected_coordinates = Coordinates.new(x: 1, y: 0)
-    assert_equal(expected_coordinates, coordinates)
-    assert_equal('N', direction)
+    assert_at_point(Coordinates.new(x: 1, y: 0), 'N', mars_rover)
   end
 
   def test_current_position_of_north_facing_mars_rover_anywhere_on_y_axis
@@ -40,12 +33,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         direction: 'N'
       )
 
-    coordinates = mars_rover.coordinates
-    direction = mars_rover.direction
-
-    expected_coordinates = Coordinates.new(x: 0, y: 5)
-    assert_equal(expected_coordinates, coordinates)
-    assert_equal('N', direction)
+    assert_at_point(Coordinates.new(x: 0, y: 5), 'N', mars_rover)
   end
 
   def test_current_position_and_direction_of_east_facing_mars_rover
