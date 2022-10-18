@@ -16,14 +16,12 @@ class MarsRover
       case instruction
       when 'f'
         command_instruction = :move_forward
-        @current_location = @current_location.public_send(command_instruction)
       when 'b'
         command_instruction = :move_backward
-        @current_location = @current_location.public_send(command_instruction)
       when 'l'
         command_instruction = :turn_left
-        @current_location = @current_location.public_send(command_instruction)
       end
+      @current_location = @current_location.public_send(command_instruction)
     end
   end
 
