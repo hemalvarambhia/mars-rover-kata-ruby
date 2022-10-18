@@ -12,7 +12,7 @@ class MarsRover
 
 
   def execute(command)
-    command.split('').each do |instruction|
+    command.split('').select(&method(:supported?)).each do |instruction|
       case instruction
       when 'f'
         command_instruction = :move_forward
@@ -29,5 +29,11 @@ class MarsRover
 
   def position
     @current_location
+  end
+
+  private
+
+  def supported?(instruction)
+    ['f', 'b', 'l'].include?(instruction)
   end
 end
