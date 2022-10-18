@@ -25,7 +25,9 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         direction: 'N'
       )
 
-    assert_at_point(Coordinates.new(x: 1, y: 0), 'N', mars_rover)
+    expected_location =
+      Location.new(coordinates: Coordinates.new(x: 1, y: 0), direction: 'N')
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_current_position_of_north_facing_mars_rover_anywhere_on_y_axis
@@ -35,7 +37,9 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         direction: 'N'
       )
 
-    assert_at_point(Coordinates.new(x: 0, y: 5), 'N', mars_rover)
+    expected_location =
+      Location.new(coordinates: Coordinates.new(x: 0, y: 5), direction: 'N')
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_current_position_and_direction_of_east_facing_mars_rover
@@ -47,6 +51,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
 
     direction = mars_rover.direction
 
-    assert_equal('E', direction)
+    expected_location =
+      Location.new(coordinates: Coordinates.new(x: 0, y: 0), direction: 'E')
+    assert_located_at(expected_location, mars_rover)
   end
 end
