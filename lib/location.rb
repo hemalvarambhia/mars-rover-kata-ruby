@@ -5,4 +5,9 @@ class Location
     @coordinates = coordinates
     @direction = direction
   end
+
+  def translate(translation)
+    @coordinates = @coordinates.translate(translation)
+    Location.new(coordinates: @coordinates, direction: @direction)
+  end
 end

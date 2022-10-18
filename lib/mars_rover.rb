@@ -13,7 +13,7 @@ class MarsRover
   def execute(command)
     translation = to_movements(command).reduce(:+)
     @current_coordinates = @current_coordinates.translate(translation)
-    @current_location = Location.new(coordinates: @current_coordinates, direction: @direction)
+    @current_location = @current_location.translate(translation)
   end
 
   def position
