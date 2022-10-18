@@ -15,11 +15,14 @@ class MarsRover
     command.split('').each do |instruction|
       case instruction
       when 'f'
-        @current_location = @current_location.public_send(:move_forward)
+        command_instruction = :move_forward
+        @current_location = @current_location.public_send(command_instruction)
       when 'b'
-        @current_location = @current_location.public_send(:move_backward)
+        command_instruction = :move_backward
+        @current_location = @current_location.public_send(command_instruction)
       when 'l'
-        @current_location = @current_location.public_send(:turn_left)
+        command_instruction = :turn_left
+        @current_location = @current_location.public_send(command_instruction)
       end
     end
   end
