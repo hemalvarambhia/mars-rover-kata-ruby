@@ -6,6 +6,7 @@ class MarsRover
   def initialize(starting_coordinates:, direction:)
     @current_coordinates = starting_coordinates
     @direction = direction
+    @current_location = Location.new(coordinates: starting_coordinates, direction: direction)
   end
 
 
