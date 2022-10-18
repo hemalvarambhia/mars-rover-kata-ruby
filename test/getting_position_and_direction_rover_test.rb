@@ -13,7 +13,9 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         direction: 'N'
       )
 
-    assert_at_point(Coordinates.new(x: 0, y: 0), 'N', mars_rover)
+    expected_location =
+      Location.new(coordinates: Coordinates.new(x: 0, y: 0), direction: 'N')
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_current_position_of_north_facing_mars_rover_anywhere_on_x_axis
