@@ -19,16 +19,18 @@ class Location
     Location.new(coordinates: coordinates, direction: 'W')
   end
 
-  def translate(translation)
-    @coordinates = @coordinates.translate(translation)
-    Location.new(coordinates: @coordinates, direction: @direction)
-  end
-
   def ==(location)
     coordinates == location.coordinates && direction == location.direction
   end
 
   def inspect
     "#{coordinates.inspect} facing #{direction}"
+  end
+
+  private
+
+  def translate(translation)
+    @coordinates = @coordinates.translate(translation)
+    Location.new(coordinates: @coordinates, direction: @direction)
   end
 end
