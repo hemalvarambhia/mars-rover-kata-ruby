@@ -6,6 +6,14 @@ class Location
     @direction = direction
   end
 
+  def move_forward
+    translate(Translation.forward(direction))
+  end
+
+  def move_backward
+    translate(Translation.backward(direction))
+  end
+
   def translate(translation)
     @coordinates = @coordinates.translate(translation)
     Location.new(coordinates: @coordinates, direction: @direction)

@@ -12,8 +12,14 @@ class MarsRover
 
 
   def execute(command)
-    translation = to_movements(command).reduce(:+)
-    @current_location = @current_location.translate(translation)
+    command.split('').each do |instruction|
+      case instruction
+      when 'f'
+        @current_location = @current_location.public_send(:move_forward)
+      when 'b'
+        @current_location = @current_location.public_send(:move_backward)
+      end
+    end
   end
 
   def position
