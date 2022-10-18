@@ -35,7 +35,6 @@ class Location
   private
 
   def translate(translation)
-    @coordinates = @coordinates.translate(translation)
-    Location.new(coordinates: @coordinates, direction: @direction)
+    Location.new(coordinates: @coordinates.translate(translation), direction: @direction)
   end
 end
