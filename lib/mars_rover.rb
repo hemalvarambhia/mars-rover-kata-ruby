@@ -1,7 +1,10 @@
+require 'forwardable'
 require_relative './translation'
 require_relative './location'
 class MarsRover
-  attr_reader :direction
+  extend Forwardable
+
+  def_delegator :@current_location, :direction
 
   def initialize(starting_coordinates:, direction:)
     @direction = direction
