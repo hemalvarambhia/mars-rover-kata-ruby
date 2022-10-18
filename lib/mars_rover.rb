@@ -1,5 +1,4 @@
 require 'forwardable'
-require_relative './translation'
 require_relative './location'
 class MarsRover
   extend Forwardable
