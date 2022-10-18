@@ -4,7 +4,6 @@ class MarsRover
   attr_reader :direction
 
   def initialize(starting_coordinates:, direction:)
-    @current_coordinates = starting_coordinates
     @direction = direction
     @current_location = Location.new(coordinates: starting_coordinates, direction: direction)
   end
@@ -12,7 +11,6 @@ class MarsRover
 
   def execute(command)
     translation = to_movements(command).reduce(:+)
-    @current_coordinates = @current_coordinates.translate(translation)
     @current_location = @current_location.translate(translation)
   end
 
