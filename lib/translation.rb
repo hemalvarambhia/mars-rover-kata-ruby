@@ -11,8 +11,10 @@ class Translation
       new(delta_x: 0, delta_y: 1)
     when 'E'
       new(delta_x: 1, delta_y: 0)
-    else
+    when 'S'
       new(delta_x: 0, delta_y: -1)
+    when 'W'
+      new(delta_x: -1, delta_y: 0)
     end
   end
 
