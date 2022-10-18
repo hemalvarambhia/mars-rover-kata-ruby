@@ -14,4 +14,8 @@ class Location
   def ==(location)
     coordinates == location.coordinates && direction == location.direction
   end
+
+  def inspect
+    "#{coordinates.inspect} facing #{direction}"
+  end
 end
