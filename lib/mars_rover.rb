@@ -10,14 +10,14 @@ class MarsRover
   end
 
 
-  def execute(command)
-    command.split('').select(&method(:supported?)).each do |instruction|
-      command_instruction = {
+  def execute(commands)
+    commands.split('').select(&method(:supported?)).each do |command|
+      instruction = {
         'f' => :move_forward,
         'b' => :move_backward,
         'l' => :turn_left
-      }[instruction]
-      @current_location = @current_location.public_send(command_instruction)
+      }[command]
+      @current_location = @current_location.public_send(instruction)
     end
   end
 
