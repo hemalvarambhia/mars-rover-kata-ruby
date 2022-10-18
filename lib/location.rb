@@ -14,6 +14,10 @@ class Location
     translate(Translation.backward(direction))
   end
 
+  def turn_left
+    Location.new(coordinates: coordinates, direction: 'W')
+  end
+
   def translate(translation)
     @coordinates = @coordinates.translate(translation)
     Location.new(coordinates: @coordinates, direction: @direction)

@@ -18,28 +18,13 @@ class MarsRover
         @current_location = @current_location.public_send(:move_forward)
       when 'b'
         @current_location = @current_location.public_send(:move_backward)
+      when 'l'
+        @current_location = @current_location.public_send(:turn_left)
       end
     end
   end
 
   def position
     @current_location
-  end
-
-  private
-
-  def to_movements(command)
-    if command.empty?
-      [ Translation.no_where ]
-    else
-      command.split('').map { |instruction| movement_for(instruction) }
-    end
-  end
-
-  def movement_for(instruction)
-    {
-      'f' => Translation.forward(direction),
-      'b' => Translation.backward(direction)
-    }[instruction] || Translation.no_where
   end
 end
