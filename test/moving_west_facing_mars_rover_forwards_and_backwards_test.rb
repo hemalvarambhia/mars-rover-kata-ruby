@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require_relative './location_assertion'
 require_relative '../lib/coordinates'
 require_relative '../lib/mars_rover'
+require_relative './mars_rover_on_cartesian_coordinates'
 class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
   include LocationAssertion
 
