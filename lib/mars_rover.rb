@@ -13,14 +13,11 @@ class MarsRover
 
   def execute(command)
     command.split('').select(&method(:supported?)).each do |instruction|
-      case instruction
-      when 'f'
-        command_instruction = :move_forward
-      when 'b'
-        command_instruction = :move_backward
-      when 'l'
-        command_instruction = :turn_left
-      end
+      command_instruction = {
+        'f' => :move_forward,
+        'b' => :move_backward,
+        'l' => :turn_left
+      }[instruction]
       @current_location = @current_location.public_send(command_instruction)
     end
   end
