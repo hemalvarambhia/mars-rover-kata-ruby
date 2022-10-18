@@ -30,4 +30,17 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
     expected_location = Location.new(coordinates: Coordinates.new(x: 2, y: 1), direction: 'W')
     assert_located_at(expected_location, mars_rover)
   end
+
+  def test_moving_one_step_backward
+    mars_rover =
+      MarsRover.new(
+        starting_coordinates: Coordinates.new(x: -1, y: -1),
+        direction: 'W'
+      )
+
+    mars_rover.execute('b')
+
+    expected_location = Location.new(coordinates: Coordinates.new(x: 0, y: -1), direction: 'W')
+    assert_located_at(expected_location, mars_rover)
+  end
 end
