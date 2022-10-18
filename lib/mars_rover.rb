@@ -22,10 +22,6 @@ class MarsRover
 
   private
 
-  def coordinates
-    @current_location.coordinates
-  end
-
   def to_movements(command)
     if command.empty?
       [ Translation.no_where ]
