@@ -10,4 +10,8 @@ class Location
     @coordinates = @coordinates.translate(translation)
     Location.new(coordinates: @coordinates, direction: @direction)
   end
+
+  def ==(location)
+    coordinates == location.coordinates && direction == location.direction
+  end
 end

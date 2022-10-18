@@ -10,7 +10,6 @@ module LocationAssertion
         coordinates: expected_coordinates,
         direction: expected_direction
       )
-    assert_equal(expected_position.coordinates, position.coordinates)
-    assert_equal(expected_position.direction, position.direction)
+    assert_equal(expected_position, position)
   end
 end
