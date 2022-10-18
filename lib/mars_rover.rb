@@ -17,17 +17,12 @@ class MarsRover
   end
 
   def position
-    Location.new(
-      coordinates: coordinates,
-      direction: direction
-    )
     @current_location
   end
 
   private
 
   def coordinates
-    @current_coordinates
     @current_location.coordinates
   end
 
