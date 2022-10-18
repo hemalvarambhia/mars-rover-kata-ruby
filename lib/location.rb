@@ -18,8 +18,10 @@ class Location
   def turn_left
     if direction == 'N'
       Location.new(coordinates: coordinates, direction: 'W')
-    else
+    elsif direction == 'E'
       Location.new(coordinates: coordinates, direction: 'N')
+    else
+      Location.new(coordinates: coordinates, direction: 'E')
     end
   end
 
