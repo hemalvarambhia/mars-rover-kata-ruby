@@ -39,4 +39,22 @@ class TurningMarsRoverLeftTest < Minitest::Test
     expected_location = Location.new(coordinates: Coordinates.new(x: 3, y: 3), direction: 'S')
     assert_located_at(expected_location, mars_rover)
   end
+
+  def test_turning_north_facing_mars_rover_twice
+    mars_rover = MarsRover.new(starting_coordinates: Coordinates.new(x: -1, y: 2), direction: 'N')
+
+    mars_rover.execute('ll')
+
+    expected_location = Location.new(coordinates: Coordinates.new(x: -1, y: 2), direction: 'S')
+    assert_located_at(expected_location, mars_rover)
+  end
+
+  def test_turning_north_facing_mars_rover_four_times
+    mars_rover = MarsRover.new(starting_coordinates: Coordinates.new(x: -1, y: 2), direction: 'N')
+
+    mars_rover.execute('llll')
+
+    expected_location = Location.new(coordinates: Coordinates.new(x: -1, y: 2), direction: 'N')
+    assert_located_at(expected_location, mars_rover)
+  end
 end
