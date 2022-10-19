@@ -8,7 +8,7 @@ class Location
   end
 
   def move_forward
-    translate(forward_translation)
+    translate(forward)
   end
 
   def move_backward
@@ -49,7 +49,7 @@ class Location
     Location.new(coordinates: @coordinates.translate(translation), direction: @direction)
   end
 
-  def forward_translation
+  def forward
     case direction
     when 'N'
       Translation.new(delta_x: 0, delta_y: 1)
