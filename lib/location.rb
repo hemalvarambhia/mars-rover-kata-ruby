@@ -25,6 +25,10 @@ class Location
     Location.new(coordinates: coordinates, direction: on_left_turn[direction])
   end
 
+  def turn_right
+    Location.new(coordinates: coordinates, direction: 'E')
+  end
+
   def ==(location)
     coordinates == location.coordinates && direction == location.direction
   end

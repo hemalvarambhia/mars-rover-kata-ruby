@@ -15,7 +15,8 @@ class MarsRover
       instruction = {
         'f' => :move_forward,
         'b' => :move_backward,
-        'l' => :turn_left
+        'l' => :turn_left,
+        'r' => :turn_right
       }[command]
       @current_location = @current_location.public_send(instruction)
     end
@@ -28,6 +29,6 @@ class MarsRover
   private
 
   def supported?(instruction)
-    ['f', 'b', 'l'].include?(instruction)
+    ['f', 'b', 'l', 'r'].include?(instruction)
   end
 end
