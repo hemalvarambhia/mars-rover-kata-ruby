@@ -28,6 +28,8 @@ class Location
   def turn_right
     if direction == 'E'
       Location.new(coordinates: coordinates, direction: 'N')
+    elsif direction == 'S'
+      Location.new(coordinates: coordinates, direction: 'W')
     else
       Location.new(coordinates: coordinates, direction: 'E')
     end
