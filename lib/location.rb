@@ -8,11 +8,11 @@ class Location
   end
 
   def move_forward
-    translate(forward)
+    Location.new(coordinates: @coordinates.translate(forward), direction: @direction)
   end
 
   def move_backward
-    translate(backward)
+    Location.new(coordinates: @coordinates.translate(backward), direction: @direction)
   end
 
   def turn_left
@@ -44,10 +44,6 @@ class Location
   end
 
   private
-
-  def translate(translation)
-    Location.new(coordinates: @coordinates.translate(translation), direction: @direction)
-  end
 
   def forward
     case direction
