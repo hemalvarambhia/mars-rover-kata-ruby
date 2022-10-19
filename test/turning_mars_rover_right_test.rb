@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-class MarsRoverTurningRightTest < Minitest::Test
+class TurningMarsRoverRightTest < Minitest::Test
   def test_turning_north_facing_mars_rover
     skip('Test list')
   end
