@@ -12,7 +12,7 @@ class Location
   end
 
   def move_backward
-    translate(Translation.backward(direction))
+    translate(backward)
   end
 
   def turn_left
@@ -59,6 +59,19 @@ class Location
       Translation.new(delta_x: 0, delta_y: -1)
     when 'W'
       Translation.new(delta_x: -1, delta_y: 0)
+    end
+  end
+
+  def backward
+    case direction
+    when 'N'
+      Translation.new(delta_x: 0, delta_y: -1)
+    when 'E'
+      Translation.new(delta_x: -1, delta_y: 0)
+    when 'S'
+      Translation.new(delta_x: 0, delta_y: 1)
+    when 'W'
+      Translation.new(delta_x: 1, delta_y: 0)
     end
   end
 end
