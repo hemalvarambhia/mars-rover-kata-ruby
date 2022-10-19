@@ -26,7 +26,11 @@ class Location
   end
 
   def turn_right
-    Location.new(coordinates: coordinates, direction: 'E')
+    if direction == 'E'
+      Location.new(coordinates: coordinates, direction: 'N')
+    else
+      Location.new(coordinates: coordinates, direction: 'E')
+    end
   end
 
   def ==(location)
