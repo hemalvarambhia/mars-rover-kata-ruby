@@ -18,7 +18,7 @@ class TurningMarsRoverRightTest < Minitest::Test
 
     mars_rover.execute('r')
 
-    expected_location = Location.new(coordinates: Coordinates.new(x: 2, y: -3), direction: 'N')
+    expected_location = Location.new(coordinates: Coordinates.new(x: 2, y: -3), direction: 'S')
     assert_located_at(expected_location, mars_rover)
   end
 
