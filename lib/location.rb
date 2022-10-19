@@ -29,7 +29,8 @@ class Location
     on_right_turn = {
       'N' => 'E',
       'E' => 'S',
-      'S' => 'W'
+      'S' => 'W',
+      'W' => 'N'
     }
     Location.new(coordinates: coordinates, direction: on_right_turn[direction])
   end
