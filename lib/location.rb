@@ -1,4 +1,5 @@
-require_relative './translation'
+
+require 'ostruct'
 class Location
   attr_reader :coordinates, :direction
 
@@ -48,26 +49,26 @@ class Location
   def forward
     case direction
     when 'N'
-      Translation.new(delta_x: 0, delta_y: 1)
+      OpenStruct.new(delta_x: 0, delta_y: 1)
     when 'E'
-      Translation.new(delta_x: 1, delta_y: 0)
+      OpenStruct.new(delta_x: 1, delta_y: 0)
     when 'S'
-      Translation.new(delta_x: 0, delta_y: -1)
+      OpenStruct.new(delta_x: 0, delta_y: -1)
     when 'W'
-      Translation.new(delta_x: -1, delta_y: 0)
+      OpenStruct.new(delta_x: -1, delta_y: 0)
     end
   end
 
   def backward
     case direction
     when 'N'
-      Translation.new(delta_x: 0, delta_y: -1)
+      OpenStruct.new(delta_x: 0, delta_y: -1)
     when 'E'
-      Translation.new(delta_x: -1, delta_y: 0)
+      OpenStruct.new(delta_x: -1, delta_y: 0)
     when 'S'
-      Translation.new(delta_x: 0, delta_y: 1)
+      OpenStruct.new(delta_x: 0, delta_y: 1)
     when 'W'
-      Translation.new(delta_x: 1, delta_y: 0)
+      OpenStruct.new(delta_x: 1, delta_y: 0)
     end
   end
 end
