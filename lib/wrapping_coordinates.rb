@@ -15,6 +15,10 @@ class WrappingCoordinates
   end
 
   def backward
-    WrappingCoordinates.new(x: @x_range.last, y: y)
+    if x == @x_range.first
+      WrappingCoordinates.new(x: @x_range.last, y: y)
+    else
+      WrappingCoordinates.new(x: x - 1, y: y)
+    end
   end
 end
