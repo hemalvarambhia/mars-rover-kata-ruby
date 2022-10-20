@@ -6,7 +6,7 @@ class WrappingLocation
     @x_range = x_range
   end
 
-  def forward
+  def move_forward
     if at_right_edge?
       WrappingLocation.new(x: @x_range.first, y: y)
     else
@@ -14,7 +14,7 @@ class WrappingLocation
     end
   end
 
-  def backward
+  def move_backward
     if at_left_edge?
       WrappingLocation.new(x: @x_range.last, y: y)
     else
