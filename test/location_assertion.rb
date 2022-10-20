@@ -1,4 +1,4 @@
-require 'ostruct'
+
 require_relative '../lib/location'
 module LocationAssertion
   private
