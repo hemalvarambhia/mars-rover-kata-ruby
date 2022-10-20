@@ -7,7 +7,7 @@ class WrappingCoordinates
   end
 
   def forward
-    if x == @x_range.last
+    if at_right_edge?
       WrappingCoordinates.new(x: @x_range.first, y: y)
     else
       WrappingCoordinates.new(x: x + 1, y: y)
@@ -15,10 +15,20 @@ class WrappingCoordinates
   end
 
   def backward
-    if x == @x_range.first
+    if at_left_edge?
       WrappingCoordinates.new(x: @x_range.last, y: y)
     else
       WrappingCoordinates.new(x: x - 1, y: y)
     end
+  end
+
+  private
+
+  def at_left_edge?
+    x == @x_range.first
+  end
+
+  def at_right_edge?
+    x == @x_range.last
   end
 end
