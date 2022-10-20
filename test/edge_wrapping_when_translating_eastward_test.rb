@@ -12,7 +12,6 @@ class EdgeWrappingWhenTranslatingEastwardTest < Minitest::Test
   end
 
   def test_x_coordinate_wraps_when_at_the_right_hand_edge
-    skip('Test list')
     starting_coordinate = WrappingCoordinates.new(x: 4, y: 0)
 
     coordinate = starting_coordinate.translate(OpenStruct.new(delta_x: 1, delta_y: 0))
