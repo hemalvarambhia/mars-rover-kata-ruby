@@ -1,6 +1,6 @@
 class WrappingCoordinates
   attr_reader :x, :y
-  def initialize(x:, y:)
+  def initialize(x_range: (-4..4), x:, y:)
     @x = x
     @y = y
   end
