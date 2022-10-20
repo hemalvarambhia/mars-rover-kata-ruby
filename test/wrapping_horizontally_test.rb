@@ -7,8 +7,7 @@ class WrappingHorizontallyTest < Minitest::Test
     coordinate = starting_coordinate.move_forward
 
     expected_coordinate = WrappingLocation.new(x_range: (-4..4), x: 1, y: 0)
-    assert_equal(expected_coordinate.x, coordinate.x)
-    assert_equal(expected_coordinate.y, coordinate.y)
+    assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
   def test_x_coordinate_wraps_when_at_the_right_hand_edge
@@ -17,8 +16,7 @@ class WrappingHorizontallyTest < Minitest::Test
     coordinate = starting_coordinate.move_forward
 
     expected_coordinate = WrappingLocation.new(x_range: (-4..4), x: -4, y: 0)
-    assert_equal(expected_coordinate.x, coordinate.x)
-    assert_equal(expected_coordinate.y, coordinate.y)
+    assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
   def test_x_coordinate_wraps_when_translates_past_the_right_hand_edge
@@ -27,8 +25,7 @@ class WrappingHorizontallyTest < Minitest::Test
     coordinate = starting_coordinate.move_forward.move_forward
 
     expected_coordinate = WrappingLocation.new(x_range: (-4..4), x: -4, y: 0)
-    assert_equal(expected_coordinate.x, coordinate.x)
-    assert_equal(expected_coordinate.y, coordinate.y)
+    assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
   def test_x_coordinate_starting_away_from_origin_and_wrapping_back_to_origin
@@ -37,8 +34,7 @@ class WrappingHorizontallyTest < Minitest::Test
     7.times { coordinate = coordinate.move_forward }
 
     expected_coordinate = WrappingLocation.new(x_range: (-4..4), x: 0, y: 0)
-    assert_equal(expected_coordinate.x, coordinate.x)
-    assert_equal(expected_coordinate.y, coordinate.y)
+    assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
   def test_x_coordinate_wraps_when_at_the_left_hand_edge
@@ -47,8 +43,7 @@ class WrappingHorizontallyTest < Minitest::Test
     coordinate = starting_coordinate.move_backward
 
     expected_coordinate = WrappingLocation.new(x_range: (-4..4), x: 4, y: 0)
-    assert_equal(expected_coordinate.x, coordinate.x)
-    assert_equal(expected_coordinate.y, coordinate.y)
+    assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
   def test_x_coordinate_wraps_when_past_the_left_hand_edge
@@ -57,6 +52,12 @@ class WrappingHorizontallyTest < Minitest::Test
     coordinate = starting_coordinate.move_backward.move_backward
 
     expected_coordinate = WrappingLocation.new(x_range: (-4..4), x: 3, y: 0)
+    assert_coordinates_equal(coordinate, expected_coordinate)
+  end
+
+  private
+
+  def assert_coordinates_equal(coordinate, expected_coordinate)
     assert_equal(expected_coordinate.x, coordinate.x)
     assert_equal(expected_coordinate.y, coordinate.y)
   end
