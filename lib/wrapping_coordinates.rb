@@ -14,13 +14,7 @@ class WrappingCoordinates
     end
   end
 
-  def translate(translation)
-    if x == @x_range.last
-      WrappingCoordinates.new(x: @x_range.first, y: y + translation.delta_y)
-    elsif x == @x_range.first
-      WrappingCoordinates.new(x: @x_range.last, y: y + translation.delta_y)
-    else
-      WrappingCoordinates.new(x: x + translation.delta_x, y: y + translation.delta_y)
-    end
+  def backward
+    WrappingCoordinates.new(x: @x_range.last, y: y)
   end
 end

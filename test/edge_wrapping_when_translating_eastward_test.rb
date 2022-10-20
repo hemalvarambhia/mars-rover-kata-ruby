@@ -34,8 +34,7 @@ class EdgeWrappingWhenTranslatingEastwardTest < Minitest::Test
   def test_x_coordinate_wraps_when_at_the_left_hand_edge
     starting_coordinate = WrappingCoordinates.new(x_range: (-4..4), x: -4, y: 0)
 
-    coordinate = starting_coordinate
-      .translate(OpenStruct.new(delta_x: -1, delta_y: 0))
+    coordinate = starting_coordinate.backward
 
     expected_coordinate = WrappingCoordinates.new(x_range: (-4..4), x: 4, y: 0)
     assert_equal(expected_coordinate.x, coordinate.x)
