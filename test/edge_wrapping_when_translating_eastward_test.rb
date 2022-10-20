@@ -50,5 +50,15 @@ class EdgeWrappingWhenTranslatingEastwardTest < Minitest::Test
     assert_equal(expected_coordinate.x, coordinate.x)
     assert_equal(expected_coordinate.y, coordinate.y)
   end
+
+  def test_x_coordinate_starting_away_from_origin_and_wrapping_back_to_origin
+    starting_coordinate = WrappingCoordinates.new(x_range: (-4..4), x: 2, y: 0)
+    coordinate = starting_coordinate
+    7.times { coordinate = coordinate.forward }
+
+    expected_coordinate = WrappingCoordinates.new(x_range: (-4..4), x: 0, y: 0)
+    assert_equal(expected_coordinate.x, coordinate.x)
+    assert_equal(expected_coordinate.y, coordinate.y)
+  end
 end
 
