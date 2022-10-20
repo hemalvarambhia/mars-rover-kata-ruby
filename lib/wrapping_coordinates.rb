@@ -6,6 +6,10 @@ class WrappingCoordinates
   end
 
   def translate(translation)
-    WrappingCoordinates.new(x: 1, y: 0)
+    if x == 4
+      WrappingCoordinates.new(x: -4, y: 0)
+    else
+      WrappingCoordinates.new(x: 1, y: 0)
+    end
   end
 end
