@@ -12,6 +12,10 @@ class WrappingLocationTest < Minitest::Test
     skip('Test list')
   end
 
+  def test_two_locations_with_the_same_x_and_y_coordinates_are_equal
+    skip('Test list')
+  end
+
   def test_that_two_locations_with_different_x_coordinates_are_unequal
     skip('Test list')
   end
