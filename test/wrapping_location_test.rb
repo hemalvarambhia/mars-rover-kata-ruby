@@ -23,4 +23,8 @@ class WrappingLocationTest < Minitest::Test
   def test_that_a_location_is_not_equal_to_an_object_of_a_different_type
     skip('Test list')
   end
+
+  def test_that_a_location_is_not_equal_to_nil
+    skip('Test list')
+  end
 end

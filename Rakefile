@@ -4,7 +4,8 @@ Minitest::TestTask.create(:test) do |t|
   t.libs << "test"
   t.libs << "lib"
   t.warning = false
-  t.test_globs = ["test/**/*_test.rb"]
+  t.test_globs = ["test/**/*_test.rb", "test/moving_mars_rover_backwards_and_forwards/*_test.rb"]
+  puts
 end
 
 task :default => :test
