@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require_relative '../lib/wrapping_coordinates'
-class EdgeWrappingWhenTranslatingEastwardTest < Minitest::Test
+class WrappingHorizontallyTest < Minitest::Test
   def test_x_coordinate_does_not_wrap_when_well_inside_grid
     starting_coordinate = WrappingCoordinates.new(x_range: (-4..4), x: 0, y: 0)
 
