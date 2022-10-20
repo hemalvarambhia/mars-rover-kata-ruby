@@ -6,6 +6,14 @@ class WrappingCoordinates
     @x_range = x_range
   end
 
+  def forward
+    if x == @x_range.last
+      WrappingCoordinates.new(x: @x_range.first, y: y)
+    else
+      WrappingCoordinates.new(x: x + 1, y: y)
+    end
+  end
+
   def translate(translation)
     if x == @x_range.last
       WrappingCoordinates.new(x: @x_range.first, y: y + translation.delta_y)
