@@ -55,6 +55,22 @@ class HorizontalWrappingTest < Minitest::Test
     assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
+  def test_wrapping_when_at_the_top_edge
+    skip('Test list')
+  end
+
+  def test_wrapping_past_the_top_edge
+    skip('Test list')
+  end
+
+  def test_wrapping_when_at_bottom_edge
+    skip('Test list')
+  end
+
+  def test_wrapping_past_bottom_edge
+    skip('Test list')
+  end
+
   private
 
   def assert_coordinates_equal(coordinate, expected_coordinate)
@@ -62,4 +78,3 @@ class HorizontalWrappingTest < Minitest::Test
     assert_equal(expected_coordinate.y, coordinate.y)
   end
 end
-
