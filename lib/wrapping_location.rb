@@ -6,6 +6,7 @@ class WrappingLocation
     @y = y
     @x_range = x_range
     @y_range = y_range
+    @world = World.new(x_range: x_range, y_range: y_range)
     @direction = direction
   end
 
@@ -33,6 +34,7 @@ class WrappingLocation
 
   def at_left_edge?
     World.new(x_range: x_range, y_range: y_range).at_left_edge?(self)
+    @world.at_left_edge?(self)
   end
 
   def at_right_edge?
