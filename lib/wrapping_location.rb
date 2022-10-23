@@ -4,8 +4,6 @@ class WrappingLocation
   def initialize(x_range: (-4..4), y_range: (-4..4), x:, y:, direction: 'E')
     @x = x
     @y = y
-    @x_range = x_range
-    @y_range = y_range
     @world = World.new(x_range: x_range, y_range: y_range)
     @direction = direction
   end
@@ -30,7 +28,7 @@ class WrappingLocation
 
   private
 
-  attr_reader :world, :x_range, :y_range, :direction
+  attr_reader :world, :direction
 
   def at_left_edge?
     world.at_left_edge?(self)
