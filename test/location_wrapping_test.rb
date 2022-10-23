@@ -57,11 +57,11 @@ class LocationWrappingTest < Minitest::Test
 
   def test_wrapping_when_at_the_top_edge
     skip('Test list')
-    starting_coordinate = WrappingLocation.new(x_range: (-4..4), x: 3, y: -4, direction: 'N')
+    starting_coordinate = WrappingLocation.new(x_range: (-4..4), x: 3, y: 4, direction: 'N')
 
     coordinate = starting_coordinate.move_forward
 
-    expected_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), x: 3, y: 0, direction: 'N')
+    expected_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), x: 3, y: -4, direction: 'N')
     assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
@@ -80,7 +80,7 @@ class LocationWrappingTest < Minitest::Test
   private
 
   def assert_coordinates_equal(coordinate, expected_coordinate)
-    assert_equal(expected_coordinate.x, coordinate.x)
-    assert_equal(expected_coordinate.y, coordinate.y)
+    assert_equal(expected_coordinate.x, coordinate.x, "x-coordinate")
+    assert_equal(expected_coordinate.y, coordinate.y, "y-coordinate")
   end
 end
