@@ -41,6 +41,6 @@ class WrappingLocation
   end
 
   def at_top_edge?
-    y == y_range.last
+    world.at_top_edge?(self)
   end
 end
