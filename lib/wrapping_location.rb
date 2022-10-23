@@ -8,21 +8,23 @@ class WrappingLocation
 
   def move_forward
     if at_right_edge?
-      WrappingLocation.new(x: @x_range.first, y: y)
+      WrappingLocation.new(x_range: x_range, x: @x_range.first, y: y)
     else
-      WrappingLocation.new(x: x + 1, y: y)
+      WrappingLocation.new(x_range: x_range, x: x + 1, y: y)
     end
   end
 
   def move_backward
     if at_left_edge?
-      WrappingLocation.new(x: @x_range.last, y: y)
+      WrappingLocation.new(x_range: x_range, x: @x_range.last, y: y)
     else
-      WrappingLocation.new(x: x - 1, y: y)
+      WrappingLocation.new(x_range: x_range, x: x - 1, y: y)
     end
   end
 
   private
+
+  attr_reader :x_range
 
   def at_left_edge?
     x == @x_range.first
