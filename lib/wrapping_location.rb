@@ -4,11 +4,15 @@ class WrappingLocation
     @x = x
     @y = y
     @x_range = x_range
+    @y_range = y_range
+    @direction = direction
   end
 
   def move_forward
-    if at_right_edge?
+    if at_right_edge? && direction == 'E'
       WrappingLocation.new(x_range: x_range, x: @x_range.first, y: y)
+    elsif @y == y_range.last && direction == 'N'
+       WrappingLocation.new(x_range: x_range, y_range: y_range, x: 3, y: -4)
     else
       WrappingLocation.new(x_range: x_range, x: x + 1, y: y)
     end
@@ -24,7 +28,7 @@ class WrappingLocation
 
   private
 
-  attr_reader :x_range
+  attr_reader :x_range, :y_range, :direction
 
   def at_left_edge?
     x == @x_range.first

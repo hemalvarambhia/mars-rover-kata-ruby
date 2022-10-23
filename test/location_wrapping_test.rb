@@ -56,7 +56,6 @@ class LocationWrappingTest < Minitest::Test
   end
 
   def test_wrapping_when_at_the_top_edge
-    skip('Test list')
     starting_coordinate = WrappingLocation.new(x_range: (-4..4), x: 3, y: 4, direction: 'N')
 
     coordinate = starting_coordinate.move_forward
