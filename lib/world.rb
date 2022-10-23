@@ -1,4 +1,6 @@
 class World
+  attr_reader :x_range, :y_range
+
   def initialize(x_range:, y_range:)
     @x_range = x_range
     @y_range = y_range
@@ -23,9 +25,4 @@ class World
   def at_top_edge?(location)
     location.y == y_range.last
   end
-
-
-  private
-
-  attr_reader :x_range, :y_range
 end
