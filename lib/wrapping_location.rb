@@ -30,10 +30,10 @@ class WrappingLocation
 
   private
 
-  attr_reader :x_range, :y_range, :direction
+  attr_reader :world, :x_range, :y_range, :direction
 
   def at_left_edge?
-    @world.at_left_edge?(self)
+    world.at_left_edge?(self)
   end
 
   def at_right_edge?
