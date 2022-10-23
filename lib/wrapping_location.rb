@@ -33,7 +33,6 @@ class WrappingLocation
   attr_reader :x_range, :y_range, :direction
 
   def at_left_edge?
-    World.new(x_range: x_range, y_range: y_range).at_left_edge?(self)
     @world.at_left_edge?(self)
   end
 
