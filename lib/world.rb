@@ -4,6 +4,10 @@ class World
     @y_range = y_range
   end
 
+  def left_edge
+    x_range.first
+  end
+
   def at_left_edge?(location)
     location.x == x_range.first
   end
