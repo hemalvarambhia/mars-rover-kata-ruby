@@ -37,7 +37,6 @@ class WrappingLocation
   end
 
   def at_right_edge?
-    x == @x_range.last
     world.at_right_edge?(self)
   end
 
