@@ -2,29 +2,32 @@ require 'minitest/autorun'
 require_relative '../lib/wrapping_location'
 class LocationWrappingTest < Minitest::Test
   def test_inside_grid_and_no_possibility_of_wrapping
-    starting_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), x: 0, y: 0)
+    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    starting_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), world: world, x: 0, y: 0)
 
     coordinate = starting_coordinate.move_forward
 
-    expected_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), x: 1, y: 0)
+    expected_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), world: world, x: 1, y: 0)
     assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
   def test_wrapping_when_at_the_right_hand_edge
-    starting_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), x: 4, y: 0)
+    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    starting_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), world: world, x: 4, y: 0)
 
     coordinate = starting_coordinate.move_forward
 
-    expected_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), x: -4, y: 0)
+    expected_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), world: world, x: -4, y: 0)
     assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
   def test_wrapping_past_the_right_hand_edge
-    starting_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), x: 3, y: 0)
+    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    starting_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), world: world, x: 3, y: 0)
 
     coordinate = starting_coordinate.move_forward.move_forward
 
-    expected_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), x: -4, y: 0)
+    expected_coordinate = WrappingLocation.new(x_range: (-4..4), y_range: (-4..4), world: world, x: -4, y: 0)
     assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
