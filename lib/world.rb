@@ -7,6 +7,11 @@ class World
     location.x == x_range.first
   end
 
+  def at_right_edge?(location)
+    location.x == x_range.last
+  end
+
+
   private
 
   attr_reader :x_range
