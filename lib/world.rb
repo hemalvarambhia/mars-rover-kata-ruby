@@ -13,11 +13,11 @@ class World
   end
 
   def at_left_edge?(location)
-    location.x == x_range.first
+    location.x == left_edge
   end
 
   def at_right_edge?(location)
-    location.x == x_range.last
+    location.x == right_edge
   end
 
   def at_top_edge?(location)
