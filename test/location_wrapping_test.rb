@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require_relative '../lib/wrapping_location'
-class HorizontalWrappingTest < Minitest::Test
+class LocationWrappingTest < Minitest::Test
   def test_inside_grid_and_no_possibility_of_wrapping
     starting_coordinate = WrappingLocation.new(x_range: (-4..4), x: 0, y: 0)
 
