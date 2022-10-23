@@ -1,3 +1,4 @@
+require_relative './world'
 class WrappingLocation
   attr_reader :x, :y
   def initialize(x_range: (-4..4), y_range: (-4..4), x:, y:, direction: 'E')
@@ -31,7 +32,7 @@ class WrappingLocation
   attr_reader :x_range, :y_range, :direction
 
   def at_left_edge?
-    x == @x_range.first
+    World.new(x_range: x_range, y_range: y_range).at_left_edge?(self)
   end
 
   def at_right_edge?
