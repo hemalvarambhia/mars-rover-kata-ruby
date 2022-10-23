@@ -1,7 +1,7 @@
 require_relative './world'
 class WrappingLocation
   attr_reader :x, :y
-  def initialize(x_range: (-4..4), y_range: (-4..4), x:, y:, direction: 'E')
+  def initialize(x_range:, y_range:, x:, y:, direction: 'E')
     @x = x
     @y = y
     @world = World.new(x_range: x_range, y_range: y_range)
