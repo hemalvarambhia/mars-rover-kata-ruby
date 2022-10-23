@@ -14,15 +14,15 @@ class WrappingLocation
     elsif @y == y_range.last && direction == 'N'
        WrappingLocation.new(x_range: x_range, y_range: y_range, x: 3, y: -4)
     else
-      WrappingLocation.new(x_range: x_range, x: x + 1, y: y)
+      WrappingLocation.new(x_range: x_range, y_range: y_range, x: x + 1, y: y)
     end
   end
 
   def move_backward
     if at_left_edge?
-      WrappingLocation.new(x_range: x_range, x: @x_range.last, y: y)
+      WrappingLocation.new(x_range: x_range, x: @x_range.last, y_range: y_range, y: y)
     else
-      WrappingLocation.new(x_range: x_range, x: x - 1, y: y)
+      WrappingLocation.new(x_range: x_range, y_range: y_range, x: x - 1, y: y)
     end
   end
 
