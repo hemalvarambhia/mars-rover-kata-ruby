@@ -8,6 +8,10 @@ class World
     x_range.first
   end
 
+  def right_edge
+    x_range.last
+  end
+
   def at_left_edge?(location)
     location.x == x_range.first
   end
