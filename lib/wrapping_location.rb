@@ -16,9 +16,8 @@ class WrappingLocation
       else
         return WrappingLocation.new(world: world, x: x + 1, y: y, direction: direction)
       end
-    end
-    if at_top_edge? && direction == 'N'
-      return WrappingLocation.new(world: world, x: x, y: world.bottom_edge, direction: direction)
+    when 'N'
+      return WrappingLocation.new(world: world, x: x, y: world.bottom_edge, direction: direction) if world.at_top_edge?(self)
     end
   end
 
