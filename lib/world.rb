@@ -6,6 +6,10 @@ class World
     @y_range = y_range
   end
 
+  def bottom_edge
+    y_range.first
+  end
+
   def left_edge
     x_range.first
   end
