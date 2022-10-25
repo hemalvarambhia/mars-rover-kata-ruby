@@ -84,7 +84,13 @@ class LocationWrappingTest < Minitest::Test
   end
 
   def test_wrapping_when_at_bottom_edge
-    skip('Test list')
+    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    starting_coordinate = WrappingLocation.new(world: world, x: 1, y: 3, direction: 'N')
+
+    coordinate = starting_coordinate.move_backward
+
+    expected_coordinate = WrappingLocation.new(world: world, x: 1, y: 4, direction: 'N')
+    assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
   def test_wrapping_past_bottom_edge
