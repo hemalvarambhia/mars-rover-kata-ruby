@@ -11,7 +11,7 @@ class WrappingLocation
   def move_forward
     case direction
     when 'E'
-      if at_right_edge? && direction == 'E'
+      if at_right_edge?
         return WrappingLocation.new(world: world, x: world.left_edge, y: y, direction: direction)
       else
         return WrappingLocation.new(world: world, x: x + 1, y: y, direction: direction)
