@@ -93,6 +93,10 @@ class LocationWrappingTest < Minitest::Test
     assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
+  def test_moving_backwards_with_no_wrapping
+    skip('Test list')
+  end
+
   def test_wrapping_past_bottom_edge
     skip('Test list')
   end
