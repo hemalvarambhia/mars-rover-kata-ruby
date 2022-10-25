@@ -9,12 +9,16 @@ class WrappingLocation
   end
 
   def move_forward
-    if at_right_edge? && direction == 'E'
-      WrappingLocation.new(world: world, x: world.left_edge, y: y, direction: direction)
-    elsif at_top_edge? && direction == 'N'
-       WrappingLocation.new(world: world, x: x, y: world.bottom_edge, direction: direction)
-    else
-      WrappingLocation.new(world: world, x: x + 1, y: y, direction: direction)
+    case direction
+    when 'E'
+      if at_right_edge? && direction == 'E'
+        return WrappingLocation.new(world: world, x: world.left_edge, y: y, direction: direction)
+      else
+        return WrappingLocation.new(world: world, x: x + 1, y: y, direction: direction)
+      end
+    end
+    if at_top_edge? && direction == 'N'
+      return WrappingLocation.new(world: world, x: x, y: world.bottom_edge, direction: direction)
     end
   end
 
