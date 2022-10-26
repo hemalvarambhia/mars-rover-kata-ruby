@@ -33,4 +33,8 @@ class World
   def at_top_edge?(location)
     location.y == y_range.last
   end
+
+  def at_bottom_edge?(location)
+    location.y == y_range.first
+  end
 end
