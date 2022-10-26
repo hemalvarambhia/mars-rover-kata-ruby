@@ -29,12 +29,12 @@ class WrappingLocation
     case direction
     when 'E'
       if at_left_edge?
-        WrappingLocation.new(world: world, x: world.right_edge, y: y, direction: 'E')
+        WrappingLocation.new(world: world, x: world.right_edge, y: y, direction: direction)
       else
-        WrappingLocation.new(world: world, x: x - 1, y: y, direction: 'E')
+        WrappingLocation.new(world: world, x: x - 1, y: y, direction: direction)
       end
     else
-      WrappingLocation.new(world: world, x: x, y: 4, direction: 'N')
+      WrappingLocation.new(world: world, x: x, y: 4, direction: direction)
     end
   end
 
