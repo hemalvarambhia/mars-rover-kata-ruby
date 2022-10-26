@@ -34,7 +34,7 @@ class WrappingLocation
         WrappingLocation.new(world: world, x: x - 1, y: y, direction: direction)
       end
     else
-      WrappingLocation.new(world: world, x: x, y: 4, direction: direction)
+      WrappingLocation.new(world: world, x: x, y: world.top_edge, direction: direction)
     end
   end
 
