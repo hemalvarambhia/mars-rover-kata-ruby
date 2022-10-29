@@ -21,7 +21,7 @@ class WrappingLocationWhenFacingSouthTest < Minitest::Test
     skip('Test list')
   end
 
-  def test_wrapping_past_top_edge_when_moving_forwards
+  def test_wrapping_past_top_edge_when_moving_backwards
     skip('Test list')
   end
 end
