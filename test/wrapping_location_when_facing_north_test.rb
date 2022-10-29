@@ -42,7 +42,7 @@ class WrappingLocationWhenFacingNorthTest < Minitest::Test
     assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
-  def test_wrapping_past_bottom_edge
+  def test_wrapping_past_the_bottom_edge
     world = World.new(x_range: (-4..4), y_range: (-4..4))
     starting_coordinate = WrappingLocation.new(world: world, x: 0, y: -2, direction: 'N')
 
