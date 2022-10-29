@@ -71,4 +71,11 @@ class WrappingLocationWhenFacingEast < Minitest::Test
     expected_coordinate = WrappingLocation.new(world: world, x: 3, y: 0, direction: 'E')
     assert_coordinates_equal(coordinate, expected_coordinate)
   end
+
+  private
+
+  def assert_coordinates_equal(coordinate, expected_coordinate)
+    assert_equal(expected_coordinate.x, coordinate.x, "x-coordinate")
+    assert_equal(expected_coordinate.y, coordinate.y, "y-coordinate")
+  end
 end
