@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require_relative '../lib/wrapping_location'
-class LocationWrappingTest < Minitest::Test
+class WrappingLocationWhenFacingNorthTest < Minitest::Test
   def test_wrapping_when_at_the_top_edge
     world = World.new(x_range: (-4..4), y_range: (-4..4))
     starting_coordinate = WrappingLocation.new(world: world, x: 3, y: 4, direction: 'N')
