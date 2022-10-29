@@ -33,7 +33,7 @@ class WrappingLocation
       else
         WrappingLocation.new(world: world, x: x - 1, y: y, direction: direction)
       end
-    else
+    when 'N'
       if world.at_bottom_edge?(self)
         WrappingLocation.new(world: world, x: x, y: world.top_edge, direction: direction)
       else
