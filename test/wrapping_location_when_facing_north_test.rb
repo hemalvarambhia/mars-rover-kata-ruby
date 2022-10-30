@@ -11,6 +11,16 @@ class WrappingLocationWhenFacingNorthTest < Minitest::Test
     assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
+  def test_no_wrapping_when_moving_forward_to_the_top_edge
+    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    starting_coordinate = WrappingLocation.new(world: world, x: 2, y: 3, direction: 'N')
+
+    coordinate = starting_coordinate.move_forward
+
+    expected_coordinate = WrappingLocation.new(world: world, x: 2, y: 4, direction: 'N')
+    assert_coordinates_equal(coordinate, expected_coordinate)
+  end
+
   def test_wrapping_when_at_the_top_edge_and_moving_forward
     world = World.new(x_range: (-4..4), y_range: (-4..4))
     starting_coordinate = WrappingLocation.new(world: world, x: 3, y: 4, direction: 'N')
@@ -39,6 +49,16 @@ class WrappingLocationWhenFacingNorthTest < Minitest::Test
     coordinate = starting_coordinate.move_backward
 
     expected_coordinate = WrappingLocation.new(world: world, x: 0, y: 0, direction: 'N')
+    assert_coordinates_equal(coordinate, expected_coordinate)
+  end
+
+  def test_no_wrapping_when_moving_backward_to_the_bottom_edge
+    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    starting_coordinate = WrappingLocation.new(world: world, x: 0, y: -3, direction: 'N')
+
+    coordinate = starting_coordinate.move_backward
+
+    expected_coordinate = WrappingLocation.new(world: world, x: 0, y: -4, direction: 'N')
     assert_coordinates_equal(coordinate, expected_coordinate)
   end
 
