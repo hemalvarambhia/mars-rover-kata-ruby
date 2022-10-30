@@ -54,6 +54,10 @@ class WrappingLocationWhenFacingSouthTest < Minitest::Test
     assert_coordinates_equal(expected_coordinate, coordinate)
   end
 
+  def test_no_wrapping_when_moving_backward_to_the_top_edge
+    skip('Test list')
+  end
+
   def test_wrapping_when_at_top_edge_and_moving_backwards
     skip('Test list')
   end
