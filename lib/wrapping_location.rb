@@ -23,7 +23,11 @@ class WrappingLocation
         WrappingLocation.new(world: world, x: x, y: y + 1, direction: direction)
       end
     when 'S'
-      WrappingLocation.new(world: world, x: x, y: y - 1, direction: direction)
+      if world.at_bottom_edge?(self)
+        WrappingLocation.new(world: world, x: x, y: world.top_edge, direction: direction)
+      else
+        WrappingLocation.new(world: world, x: x, y: y - 1, direction: direction)
+      end
     end
   end
 
