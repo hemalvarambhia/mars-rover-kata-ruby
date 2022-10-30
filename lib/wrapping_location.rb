@@ -11,7 +11,7 @@ class WrappingLocation
   def move_forward
     case direction
     when 'E'
-      if at_right_edge?
+      if world.at_right_edge?(self)
         WrappingLocation.new(world: world, x: world.left_edge, y: y, direction: direction)
       else
         WrappingLocation.new(world: world, x: x + 1, y: y, direction: direction)
@@ -34,7 +34,7 @@ class WrappingLocation
   def move_backward
     case direction
     when 'E'
-      if at_left_edge?
+      if world.at_left_edge?(self)
         WrappingLocation.new(world: world, x: world.right_edge, y: y, direction: direction)
       else
         WrappingLocation.new(world: world, x: x - 1, y: y, direction: direction)
@@ -51,16 +51,4 @@ class WrappingLocation
   private
 
   attr_reader :world, :direction
-
-  def at_left_edge?
-    world.at_left_edge?(self)
-  end
-
-  def at_right_edge?
-    world.at_right_edge?(self)
-  end
-
-  def at_top_edge?
-    world.at_top_edge?(self)
-  end
 end
