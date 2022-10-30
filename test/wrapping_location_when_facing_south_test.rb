@@ -32,7 +32,15 @@ class WrappingLocationWhenFacingSouthTest < Minitest::Test
   end
 
   def test_wrapping_past_bottom_edge_when_moving_forward
-    skip('Test list')
+    world = World.new(x_range: (-5..5), y_range: (-5..5))
+    starting_coordinate = WrappingLocation.new(world: world, x: -1, y: -3, direction: 'S')
+
+    coordinate = starting_coordinate
+
+    5.times { coordinate = coordinate.move_forward }
+
+    expected_coordinate = WrappingLocation.new(world: world, x: -1, y: 3, direction: 'S')
+    assert_coordinates_equal(expected_coordinate, coordinate)
   end
 
   def test_no_wrapping_when_moving_backward
