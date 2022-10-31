@@ -9,7 +9,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
 
     mars_rover.execute('l')
 
-    expected_location = Location.new(coordinates: Coordinates.new(x: -1, y: 2), direction: 'W')
+    expected_location = WrappingLocation.infinite(coordinates: Coordinates.new(x: -1, y: 2), direction: 'W')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -18,7 +18,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
 
     mars_rover.execute('l')
 
-    expected_location = Location.new(coordinates: Coordinates.new(x: 1, y: -2), direction: 'N')
+    expected_location = WrappingLocation.infinite(coordinates: Coordinates.new(x: 1, y: -2), direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -27,7 +27,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
 
     mars_rover.execute('l')
 
-    expected_location = Location.new(coordinates: Coordinates.new(x: 0, y: -2), direction: 'E')
+    expected_location = WrappingLocation.infinite(coordinates: Coordinates.new(x: 0, y: -2), direction: 'E')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -36,7 +36,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
 
     mars_rover.execute('l')
 
-    expected_location = Location.new(coordinates: Coordinates.new(x: 3, y: 3), direction: 'S')
+    expected_location = WrappingLocation.infinite(coordinates: Coordinates.new(x: 3, y: 3), direction: 'S')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -45,7 +45,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
 
     mars_rover.execute('ll')
 
-    expected_location = Location.new(coordinates: Coordinates.new(x: -1, y: 2), direction: 'S')
+    expected_location = WrappingLocation.infinite(coordinates: Coordinates.new(x: -1, y: 2), direction: 'S')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -54,7 +54,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
 
     mars_rover.execute('llll')
 
-    expected_location = Location.new(coordinates: Coordinates.new(x: -1, y: 2), direction: 'N')
+    expected_location = WrappingLocation.infinite(coordinates: Coordinates.new(x: -1, y: 2), direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 end
