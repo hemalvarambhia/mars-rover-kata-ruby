@@ -14,7 +14,8 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('')
 
-    assert_at_point(Coordinates.new(x: -1, y: -1), 'E', mars_rover)
+    expected_location = Location.new(coordinates: Coordinates.new(x: -1, y: -1), direction: 'E')
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_moving_one_step_forward
@@ -26,7 +27,8 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('f')
 
-    assert_at_point(Coordinates.new(x: 1, y: 0), 'E', mars_rover)
+    expected_location = Location.new(coordinates: Coordinates.new(x: 1, y: 0), direction: 'E')
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_moving_one_step_backward
@@ -38,7 +40,8 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('b')
 
-    assert_at_point(Coordinates.new(x: 1, y: 2), 'E', mars_rover)
+    expected_location = Location.new(coordinates: Coordinates.new(x: 1, y: 2), direction: 'E')
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_moving_multiple_steps_forwards_and_multiple_steps_backwards
@@ -50,7 +53,8 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('ffbbb')
 
-    assert_at_point(Coordinates.new(x: -1, y: 4), 'E', mars_rover)
+    expected_location = Location.new(coordinates: Coordinates.new(x: -1, y: 4), direction: 'E')
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_rover_moves_nowhere_for_any_unrecognised_command
@@ -62,6 +66,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('z')
 
-    assert_at_point(Coordinates.new(x: -3, y: -2), 'E', mars_rover)
+    expected_location = Location.new(coordinates: Coordinates.new(x: -3, y: -2), direction: 'E')
+    assert_located_at(expected_location, mars_rover)
   end
 end
