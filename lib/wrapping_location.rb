@@ -4,8 +4,8 @@ class WrappingLocation
   def initialize(world:, x:, y:, direction:)
     @x = x
     @y = y
-    @world = world
     @direction = direction
+    @world = world
   end
 
   def move_forward
