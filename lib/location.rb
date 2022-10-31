@@ -1,5 +1,3 @@
-
-require 'ostruct'
 class Location
   attr_reader :coordinates, :direction
 
