@@ -13,7 +13,7 @@ class WrappingLocationWhenFacingWestTest < Minitest::Test
     skip('Test list')
   end
 
-  def test_wrapping_past_the_left_hand_edge_and_moving_forward
+  def test_wrapping_past_the_left_hand_edge_when_moving_forward
     skip('Test list')
   end
 
@@ -26,6 +26,10 @@ class WrappingLocationWhenFacingWestTest < Minitest::Test
   end
 
   def test_wrapping_when_at_the_right_hand_edge_and_moving_backward
+    skip('Test list')
+  end
+
+  def test_wrapping_past_the_right_hand_edge_when_moving_backward
     skip('Test list')
   end
 end
