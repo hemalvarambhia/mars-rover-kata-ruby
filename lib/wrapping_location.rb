@@ -12,11 +12,23 @@ class WrappingLocation < Location
   end
 
   def turn_left
-    super
+    on_left_turn = {
+      'N' => 'W',
+      'E' => 'N',
+      'S' => 'E',
+      'W' => 'S'
+    }
+    WrappingLocation.new(world: world, x: x, y: y, direction: on_left_turn[direction])
   end
 
   def turn_right
-    super
+    on_right_turn = {
+      'N' => 'E',
+      'E' => 'S',
+      'S' => 'W',
+      'W' => 'N'
+    }
+    WrappingLocation.new(world: world, x: x, y: y, direction: on_right_turn[direction])
   end
 
   def move_forward
