@@ -1,6 +1,6 @@
 require_relative './world'
 class WrappingLocation
-  attr_reader :x, :y
+  attr_reader :x, :y, :direction
   def initialize(world:, x:, y:, direction:)
     @x = x
     @y = y
@@ -60,5 +60,5 @@ class WrappingLocation
 
   private
 
-  attr_reader :world, :direction
+  attr_reader :world
 end
