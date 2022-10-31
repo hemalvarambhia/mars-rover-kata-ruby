@@ -8,7 +8,7 @@ class MarsRover
   def initialize(starting_coordinates:, direction:)
     @current_location =
       WrappingLocation.new(
-        world: World.new(x_range: (-Float::INFINITY..Float::INFINITY), y_range: (-Float::INFINITY..Float::INFINITY)),
+        world: World.infinite,
         x: starting_coordinates.x,
         y: starting_coordinates.y,
         direction: direction
