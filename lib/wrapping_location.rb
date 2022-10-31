@@ -91,7 +91,7 @@ class WrappingLocation < Location
   end
 
   def ==(location)
-    coordinates == location.coordinates && direction == location.direction
+    x == location.x && y == location.y && direction == location.direction
   end
 
   def to_s
