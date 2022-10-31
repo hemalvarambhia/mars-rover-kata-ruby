@@ -46,7 +46,7 @@ class WrappingLocation
         WrappingLocation.new(world: world, x: x, y: y - 1, direction: direction)
       end
     when 'S'
-      WrappingLocation.new(world: world, x: -2, y: 3, direction: direction)
+      WrappingLocation.new(world: world, x: x, y: y + 1, direction: direction)
     end
   end
 
