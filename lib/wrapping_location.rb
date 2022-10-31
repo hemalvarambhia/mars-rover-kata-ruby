@@ -11,6 +11,14 @@ class WrappingLocation < Location
     @world = world
   end
 
+  def turn_left
+    super
+  end
+
+  def turn_right
+    super
+  end
+
   def move_forward
     case direction
     when 'E'
