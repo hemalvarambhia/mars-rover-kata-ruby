@@ -1,11 +1,12 @@
 require_relative './coordinates'
 require_relative './location'
-class WrappingLocation
+class WrappingLocation < Location
   attr_reader :x, :y, :direction
 
   def initialize(world:, x:, y:, direction:)
     @x = x
     @y = y
+    @coordinates = Coordinates.new(x: x, y: y)
     @direction = direction
     @world = world
   end
@@ -58,6 +59,10 @@ class WrappingLocation
     when 'W'
       WrappingLocation.new(world: world, x: x + 1, y: y, direction: direction)
     end
+  end
+
+  def ==(location)
+    coordinates == location.coordinates && direction == location.direction
   end
 
   def to_s

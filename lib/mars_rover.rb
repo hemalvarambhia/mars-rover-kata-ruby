@@ -1,12 +1,19 @@
 require 'forwardable'
 require_relative './location'
+require_relative './wrapping_location'
 class MarsRover
   extend Forwardable
 
   def_delegator :@current_location, :direction
 
   def initialize(starting_coordinates:, direction:)
-    @current_location = Location.new(coordinates: starting_coordinates, direction: direction)
+    @current_location =
+      WrappingLocation.new(
+        world: World.new(x_range: (-Float::INFINITY..Float::INFINITY), y_range: (-Float::INFINITY..Float::INFINITY)),
+        x: starting_coordinates.x,
+        y: starting_coordinates.y,
+        direction: direction
+      )
   end
 
 
