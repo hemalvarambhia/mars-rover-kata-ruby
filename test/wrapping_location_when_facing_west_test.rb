@@ -15,7 +15,13 @@ class WrappingLocationWhenFacingWestTest < Minitest::Test
   end
 
   def test_no_wrapping_when_moving_forward_to_the_left_hand_edge
-    skip('Test list')
+    world = World.new(x_range: (-3..3), y_range: (-3..3))
+    starting_coordinates = WrappingLocation.new(world: world, x: 2, y: -2, direction: 'W')
+
+    coordinates = starting_coordinates.move_forward
+
+    expected_coordinates = WrappingLocation.new(world: world, x: 1, y: -2, direction: 'W')
+    assert_equals(expected_coordinates, coordinates)
   end
 
   def test_wrapping_when_at_the_left_hand_edge_and_moving_forward
