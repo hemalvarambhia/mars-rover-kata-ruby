@@ -1,6 +1,9 @@
 require 'minitest/autorun'
+require_relative './coordinate_assertion'
 require_relative '../lib/wrapping_location'
 class WrappingLocationWhenFacingSouthTest < Minitest::Test
+  include CoordinateAssertion
+
   def test_no_wrapping_when_moving_forward
     world = World.new(x_range: (-5..5), y_range: (-5..5))
     starting_coordinate = WrappingLocation.new(world: world, x: 0, y: 1, direction: 'S')
