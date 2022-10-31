@@ -1,4 +1,3 @@
-require_relative './coordinates'
 class WrappingLocation
   attr_reader :x, :y, :direction
 
