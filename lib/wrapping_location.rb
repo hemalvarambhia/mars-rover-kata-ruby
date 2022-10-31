@@ -54,6 +54,10 @@ class WrappingLocation
     end
   end
 
+  def to_s
+    "(#{x}, #{y})"
+  end
+
   private
 
   attr_reader :world, :direction

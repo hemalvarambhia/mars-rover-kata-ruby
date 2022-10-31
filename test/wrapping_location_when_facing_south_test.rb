@@ -74,7 +74,14 @@ class WrappingLocationWhenFacingSouthTest < Minitest::Test
   end
 
   def test_wrapping_past_top_edge_when_moving_backwards
-    skip('Test list')
+    world = World.new(x_range: (-6..6), y_range: (-6..6))
+    starting_coordinate = WrappingLocation.new(world: world, x: 0, y: 4, direction: 'S')
+
+    coordinate = starting_coordinate
+    6.times {coordinate = coordinate.move_backward }
+
+    expected_coordinate = WrappingLocation.new(world: world, x: 0, y: -3, direction: 'S')
+    assert_coordinates_equal(expected_coordinate, coordinate)
   end
 
   def assert_coordinates_equal(coordinate, expected_coordinate)
