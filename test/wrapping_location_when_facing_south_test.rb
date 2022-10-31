@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require_relative './coordinate_assertion'
+require_relative '../lib/world'
 require_relative '../lib/wrapping_location'
 class WrappingLocationWhenFacingSouthTest < Minitest::Test
   include CoordinateAssertion
