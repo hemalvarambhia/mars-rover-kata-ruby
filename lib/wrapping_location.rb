@@ -15,7 +15,6 @@ class WrappingLocation
   def initialize(world:, x:, y:, direction:)
     @x = x
     @y = y
-    @coordinates = Coordinates.new(x: x, y: y)
     @direction = direction
     @world = world
   end
