@@ -2,11 +2,11 @@ require_relative './coordinates'
 require_relative './location'
 class WrappingLocation
   attr_reader :x, :y, :direction
+
   def initialize(world:, x:, y:, direction:)
     @x = x
     @y = y
     @direction = direction
-    @location = Location.new(coordinates: Coordinates.new(x: x, y: y), direction: direction)
     @world = world
   end
 
