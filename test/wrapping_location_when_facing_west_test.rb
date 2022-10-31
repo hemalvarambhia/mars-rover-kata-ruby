@@ -5,7 +5,6 @@ class WrappingLocationWhenFacingWestTest < Minitest::Test
   include CoordinateAssertion
 
   def test_no_wrapping_when_moving_forward
-    skip('Test list')
     world = World.new(x_range: (-3..3), y_range: (-3..3))
     starting_coordinates = WrappingLocation.new(world: world, x: 3, y: 1, direction: 'W')
 
