@@ -4,7 +4,7 @@ class WrappingLocation
 
   def self.infinite(coordinates:, direction:)
     new(
-      world: World.new(x_range: (-Float::INFINITY..Float::INFINITY), y_range: (-Float::INFINITY..Float::INFINITY)),
+      world: World.infinite,
       x: coordinates.x,
       y: coordinates.y,
       direction: direction

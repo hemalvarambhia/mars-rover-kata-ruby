@@ -1,6 +1,13 @@
 class World
   attr_reader :x_range, :y_range
 
+  def self.infinite
+    new(
+      x_range: (-Float::INFINITY..Float::INFINITY),
+      y_range: (-Float::INFINITY..Float::INFINITY)
+    )
+  end
+
   def initialize(x_range:, y_range:)
     @x_range = x_range
     @y_range = y_range
