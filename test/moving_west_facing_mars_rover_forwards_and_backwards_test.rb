@@ -15,7 +15,7 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('')
 
-    expected_location = Location.new(coordinates: Coordinates.new(x: 3, y: 0), direction: 'W')
+    expected_location = WrappingLocation.infinite(coordinates: Coordinates.new(x: 3, y: 0), direction: 'W')
     assert_located_at(expected_location, mars_rover)
   end
 
