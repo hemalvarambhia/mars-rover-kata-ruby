@@ -59,7 +59,11 @@ class WrappingLocation
         WrappingLocation.new(world: world, x: x, y: y - 1, direction: direction)
       end
     when 'W'
-      WrappingLocation.new(world: world, x: x - 1, y: y, direction: direction)
+      if world.at_left_edge?(self)
+        WrappingLocation.new(world: world, x: 5, y: 5, direction: 'W')
+      else
+        WrappingLocation.new(world: world, x: x - 1, y: y, direction: direction)
+      end
     end
   end
 
