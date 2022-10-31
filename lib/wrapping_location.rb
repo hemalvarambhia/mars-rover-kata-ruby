@@ -3,6 +3,15 @@ require_relative './location'
 class WrappingLocation < Location
   attr_reader :x, :y, :direction
 
+  def self.infinite(coordinates:, direction:)
+    new(
+      world: World.new(x_range: (-Float::INFINITY..Float::INFINITY), y_range: (-Float::INFINITY..Float::INFINITY)),
+      x: coordinates.x,
+      y: coordinates.y,
+      direction: direction
+    )
+  end
+
   def initialize(world:, x:, y:, direction:)
     @x = x
     @y = y
