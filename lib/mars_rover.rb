@@ -1,5 +1,5 @@
 require 'forwardable'
-require_relative './wrapping_location'
+require_relative './location'
 class MarsRover
   extend Forwardable
 
@@ -7,7 +7,7 @@ class MarsRover
 
   def initialize(starting_coordinates:, direction:)
     @current_location =
-      WrappingLocation.new(
+      Location.new(
         world: World.infinite,
         x: starting_coordinates.x,
         y: starting_coordinates.y,

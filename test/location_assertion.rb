@@ -10,7 +10,7 @@ module LocationAssertion
 
   def assert_at_point(expected_coordinates, expected_direction, mars_rover)
     expected_position =
-      WrappingLocation.infinite(
+      Location.infinite(
         coordinates: expected_coordinates,
         direction: expected_direction
       )
