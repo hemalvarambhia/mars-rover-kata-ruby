@@ -40,12 +40,12 @@ class WrappingLocationWhenFacingEast < Minitest::Test
 
   def test_wrapping_past_the_right_hand_edge_when_moving_forward
     world = World.new(x_range: (-4..4), y_range: (-4..4))
-    starting_coordinate = Location.new(world: world, x: 3, y: 0, direction: 'E')
+    mars_rover = MarsRover.new(world: world, starting_coordinates: Coordinates.new(x: 3, y: 0), direction: 'E')
 
-    coordinate = starting_coordinate.move_forward.move_forward
+    mars_rover.execute('ff')
 
     expected_coordinate = Location.new(world: world, x: -4, y: 0, direction: 'E')
-    assert_equals(expected_coordinate, coordinate)
+    assert_located_at(expected_coordinate, mars_rover)
   end
 
   def test_starting_away_from_origin_and_wrapping_back_to_origin
