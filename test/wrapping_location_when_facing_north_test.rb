@@ -1,6 +1,4 @@
 require 'minitest/autorun'
-require_relative '../lib/world'
-require_relative '../lib/location'
 require_relative './mars_rover_on_cartesian_coordinates'
 require_relative './location_assertion'
 class WrappingLocationWhenFacingNorthTest < Minitest::Test
