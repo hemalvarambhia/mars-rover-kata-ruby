@@ -29,10 +29,10 @@ class Location
 
   def turn_right
     on_right_turn = {
+      'W' => 'N'
       'N' => 'E',
       'E' => 'S',
-      'S' => 'W',
-      'W' => 'N'
+      'S' => 'W'
     }
     Location.new(world: world, x: x, y: y, direction: on_right_turn[direction])
   end
