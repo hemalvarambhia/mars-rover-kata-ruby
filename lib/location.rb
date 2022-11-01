@@ -100,7 +100,7 @@ class Location
   end
 
   def to_s
-    "(#{x}, #{y})"
+    "(#{x}, #{y}), facing #{direction}"
   end
 
   private
