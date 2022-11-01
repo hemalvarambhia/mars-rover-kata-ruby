@@ -5,7 +5,7 @@ require_relative '../lib/location'
 class WrappingLocationWhenFacingNorthTest < Minitest::Test
   include CoordinateAssertion
 
-  def no_wrapping_when_moving_forward
+  def test_no_wrapping_when_moving_forward
     world = World.new(x_range: (-4..4), y_range: (-4..4))
     starting_coordinate = Location.new(world: world, x: 2, y: 1, direction: 'N')
 
