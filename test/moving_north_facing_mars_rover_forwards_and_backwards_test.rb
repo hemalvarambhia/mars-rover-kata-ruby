@@ -53,7 +53,8 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('fff')
 
-    assert_at_point(Coordinates.new(x: 0, y: 3), 'N', mars_rover)
+    expected_location = Location.infinite(coordinates: Coordinates.new(x: 0, y: 3), direction: 'N')
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_rover_moves_back_one_step
@@ -65,7 +66,8 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('b')
 
-    assert_at_point(Coordinates.new(x: 2, y: -1), 'N', mars_rover)
+    expected_location = Location.infinite(coordinates: Coordinates.new(x: 2, y: -1), direction: 'N')
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_rover_moves_multiple_steps_backward
@@ -77,7 +79,8 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('bbbb')
 
-    assert_at_point(Coordinates.new(x: -3, y: -4), 'N', mars_rover)
+    expected_location = Location.infinite(coordinates: Coordinates.new(x: -3, y: -4), direction: 'N')
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_rover_moves_multiple_steps_forward_and_multiple_steps_backward
@@ -89,7 +92,8 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('fffbb')
 
-    assert_at_point(Coordinates.new(x: 3, y: 1), 'N', mars_rover)
+    expected_location = Location.infinite(coordinates: Coordinates.new(x: 3, y: 1), direction: 'N')
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_rover_moves_nowhere_for_any_unrecognised_command
@@ -101,6 +105,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('z')
 
-    assert_at_point(Coordinates.new(x: 1, y: 0), 'N', mars_rover)
+    expected_location = Location.infinite(coordinates: Coordinates.new(x: 1, y: 0), direction: 'N')
+    assert_located_at(expected_location, mars_rover)
   end
 end
