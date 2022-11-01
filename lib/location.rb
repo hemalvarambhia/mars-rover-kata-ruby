@@ -87,7 +87,11 @@ class Location
         Location.new(world: world, x: x, y: y + 1, direction: direction)
       end
     when 'W'
-      Location.new(world: world, x: x + 1, y: y, direction: direction)
+      if world.at_right_edge?(self)
+        Location.new(world: world, x: world.left_edge, y: y, direction: direction)
+      else
+        Location.new(world: world, x: x + 1, y: y, direction: direction)
+      end
     end
   end
 
