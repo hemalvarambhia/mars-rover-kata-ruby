@@ -90,9 +90,9 @@ class WrappingLocationWhenFacingEast < Minitest::Test
 
   def test_wrapping_past_the_left_hand_edge_when_moving_backward
     world = World.new(x_range: (-4..4), y_range: (-4..4))
-    mars_rover = MarsRover.new(world: world, starting_coordinates: Coordinates.new(x: -4, y: 0), direction: 'E')
+    mars_rover = MarsRover.new(world: world, starting_coordinates: Coordinates.new(x: -3, y: 0), direction: 'E')
 
-    mars_rover.execute('bb')
+    mars_rover.execute('bbb')
 
     expected_coordinate = Location.new(world: world, x: 3, y: 0, direction: 'E')
     assert_located_at(expected_coordinate, mars_rover)
