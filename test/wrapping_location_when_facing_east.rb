@@ -1,18 +1,21 @@
 require 'minitest/autorun'
-require_relative './coordinate_assertion'
+require_relative './mars_rover_on_cartesian_coordinates'
 require_relative '../lib/world'
 require_relative '../lib/location'
+require_relative './coordinate_assertion'
+require_relative './location_assertion'
 class WrappingLocationWhenFacingEast < Minitest::Test
   include CoordinateAssertion
+  include LocationAssertion
 
   def test_no_wrapping_when_moving_forward
     world = World.new(x_range: (-4..4), y_range: (-4..4))
-    starting_coordinate = Location.new(world: world, x: 0, y: 0, direction: 'E')
+    mars_rover = MarsRover.new(world: world, starting_coordinates: Coordinates.new(x: 0, y: 0), direction: 'E')
 
-    coordinate = starting_coordinate.move_forward
+    mars_rover.execute('f')
 
     expected_coordinate = Location.new(world: world, x: 1, y: 0, direction: 'E')
-    assert_equals(expected_coordinate, coordinate)
+    assert_located_at(expected_coordinate, mars_rover)
   end
 
   def test_no_wrapping_when_moving_forward_to_the_right_hand_edge
