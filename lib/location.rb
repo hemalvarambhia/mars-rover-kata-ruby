@@ -33,16 +33,7 @@ class Location
   end
 
   def move_backward
-    case direction
-    when 'E'
-      Backward.new(world).move(self)
-    when 'N'
-      Backward.new(world).move(self)
-    when 'S'
-      Backward.new(world).move(self)
-    when 'W'
-      Backward.new(world).move(self)
-    end
+    Backward.new(world).move(self)
   end
 
   def ==(location)
