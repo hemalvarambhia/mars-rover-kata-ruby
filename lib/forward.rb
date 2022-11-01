@@ -1,6 +1,11 @@
+require_relative './backward'
 class Forward
   def initialize(world)
     @world = world
+  end
+
+  def invert
+    Backward.new(world)
   end
 
   def move(location)
