@@ -22,12 +22,7 @@ class Location
   end
 
   def turn_right
-    on_right_turn = {
-      'N' => 'W',
-      'E' => 'N',
-      'S' => 'E',
-      'W' => 'S'
-    }.invert
+    on_right_turn = LEFT.invert
     Location.new(world: world, x: x, y: y, direction: on_right_turn[direction])
   end
 
