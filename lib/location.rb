@@ -18,13 +18,7 @@ class Location
   end
 
   def turn_left
-    on_left_turn = {
-      'N' => 'W',
-      'E' => 'N',
-      'S' => 'E',
-      'W' => 'S'
-    }
-    Location.new(world: world, x: x, y: y, direction: on_left_turn[direction])
+    Location.new(world: world, x: x, y: y, direction: LEFT[direction])
   end
 
   def turn_right
@@ -106,4 +100,12 @@ class Location
   private
 
   attr_reader :world
+
+  LEFT = {
+    'N' => 'W',
+    'E' => 'N',
+    'S' => 'E',
+    'W' => 'S'
+  }.freeze
+  private_constant :LEFT
 end
