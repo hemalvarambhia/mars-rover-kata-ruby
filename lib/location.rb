@@ -37,23 +37,11 @@ class Location
     when 'E'
       Backward.new(world).move(self)
     when 'N'
-      if world.at_bottom_edge?(self)
-        Location.new(world: world, x: x, y: world.top_edge, direction: direction)
-      else
-        Location.new(world: world, x: x, y: y - 1, direction: direction)
-      end
+      Backward.new(world).move(self)
     when 'S'
-      if world.at_top_edge?(self)
-        Location.new(world: world, x: x, y: world.bottom_edge, direction: direction)
-      else
-        Location.new(world: world, x: x, y: y + 1, direction: direction)
-      end
+      Backward.new(world).move(self)
     when 'W'
-      if world.at_right_edge?(self)
-        Location.new(world: world, x: world.left_edge, y: y, direction: direction)
-      else
-        Location.new(world: world, x: x + 1, y: y, direction: direction)
-      end
+      Backward.new(world).move(self)
     end
   end
 
