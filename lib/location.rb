@@ -29,28 +29,7 @@ class Location
   end
 
   def move_forward
-    case direction
-    when 'E'
-      Forward.new(world).move(self)
-    when 'N'
-      if world.at_top_edge?(self)
-        Location.new(world: world, x: x, y: world.bottom_edge, direction: direction)
-      else
-        Location.new(world: world, x: x, y: y + 1, direction: direction)
-      end
-    when 'S'
-      if world.at_bottom_edge?(self)
-        Location.new(world: world, x: x, y: world.top_edge, direction: direction)
-      else
-        Location.new(world: world, x: x, y: y - 1, direction: direction)
-      end
-    when 'W'
-      if world.at_left_edge?(self)
-        Location.new(world: world, x: world.right_edge, y: y, direction: direction)
-      else
-        Location.new(world: world, x: x - 1, y: y, direction: direction)
-      end
-    end
+    Forward.new(world).move(self)
   end
 
   def move_backward
