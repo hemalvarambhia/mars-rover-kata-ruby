@@ -5,10 +5,10 @@ class MarsRover
 
   def_delegator :@current_location, :direction
 
-  def initialize(starting_coordinates:, direction:)
+  def initialize(world: World.infinite, starting_coordinates:, direction:)
     @current_location =
       Location.new(
-        world: World.infinite,
+        world: world,
         x: starting_coordinates.x,
         y: starting_coordinates.y,
         direction: direction
