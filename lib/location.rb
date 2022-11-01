@@ -1,4 +1,5 @@
 require_relative './forward'
+require_relative './backward'
 
 class Location
   attr_reader :x, :y, :direction
@@ -55,11 +56,7 @@ class Location
   def move_backward
     case direction
     when 'E'
-      if world.at_left_edge?(self)
-        Location.new(world: world, x: world.right_edge, y: y, direction: direction)
-      else
-        Location.new(world: world, x: x - 1, y: y, direction: direction)
-      end
+      Backward.new(world).move(self)
     when 'N'
       if world.at_bottom_edge?(self)
         Location.new(world: world, x: x, y: world.top_edge, direction: direction)
