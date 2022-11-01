@@ -5,7 +5,12 @@ class TurningMarsRoverLeftTest < Minitest::Test
   include LocationAssertion
 
   def test_turning_north_facing_mars_rover
-    mars_rover = MarsRover.new(starting_coordinates: Coordinates.new(x: -1, y: 2), direction: 'N')
+    mars_rover =
+      MarsRover.new(
+        world: World.infinite,
+        starting_coordinates: Coordinates.new(x: -1, y: 2),
+        direction: 'N'
+      )
 
     mars_rover.execute('l')
 
@@ -14,7 +19,12 @@ class TurningMarsRoverLeftTest < Minitest::Test
   end
 
   def test_turning_east_facing_mars_rover
-    mars_rover = MarsRover.new(starting_coordinates: Coordinates.new(x: 1, y: -2), direction: 'E')
+    mars_rover =
+      MarsRover.new(
+        world: World.infinite,
+        starting_coordinates: Coordinates.new(x: 1, y: -2),
+        direction: 'E'
+      )
 
     mars_rover.execute('l')
 
@@ -23,7 +33,12 @@ class TurningMarsRoverLeftTest < Minitest::Test
   end
 
   def test_turning_south_facing_mars_rover
-    mars_rover = MarsRover.new(starting_coordinates: Coordinates.new(x: 0, y: -2), direction: 'S')
+    mars_rover =
+      MarsRover.new(
+        world: World.infinite,
+        starting_coordinates: Coordinates.new(x: 0, y: -2),
+        direction: 'S'
+      )
 
     mars_rover.execute('l')
 
@@ -32,7 +47,12 @@ class TurningMarsRoverLeftTest < Minitest::Test
   end
 
   def test_turning_west_facing_mars_rover
-    mars_rover = MarsRover.new(starting_coordinates: Coordinates.new(x: 3, y: 3), direction: 'W')
+    mars_rover =
+      MarsRover.new(
+        world: World.infinite,
+        starting_coordinates: Coordinates.new(x: 3, y: 3),
+        direction: 'W'
+      )
 
     mars_rover.execute('l')
 
@@ -41,7 +61,12 @@ class TurningMarsRoverLeftTest < Minitest::Test
   end
 
   def test_turning_north_facing_mars_rover_twice
-    mars_rover = MarsRover.new(starting_coordinates: Coordinates.new(x: -1, y: 2), direction: 'N')
+    mars_rover =
+      MarsRover.new(
+        world: World.infinite,
+        starting_coordinates: Coordinates.new(x: -1, y: 2),
+        direction: 'N'
+      )
 
     mars_rover.execute('ll')
 
@@ -50,7 +75,12 @@ class TurningMarsRoverLeftTest < Minitest::Test
   end
 
   def test_turning_north_facing_mars_rover_four_times
-    mars_rover = MarsRover.new(starting_coordinates: Coordinates.new(x: -1, y: 2), direction: 'N')
+    mars_rover =
+      MarsRover.new(
+        world: World.infinite,
+        starting_coordinates: Coordinates.new(x: -1, y: 2),
+        direction: 'N'
+      )
 
     mars_rover.execute('llll')
 
