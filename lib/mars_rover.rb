@@ -4,6 +4,14 @@ class MarsRover
 
   def_delegator :@current_location, :direction
 
+  def self.positioned_at(location)
+    new(
+      world: location.world,
+      starting_coordinates: Coordinates.new(x: location.x, y: location.y),
+      direction: location.direction
+    )
+  end
+
   def initialize(world:, starting_coordinates:, direction:)
     @current_location =
       Location.new(

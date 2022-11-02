@@ -1,7 +1,7 @@
 require_relative './forward'
 
 class Location
-  attr_reader :x, :y, :direction
+  attr_reader :world, :x, :y, :direction
 
   def initialize(world:, x:, y:, direction:)
     @x = x
@@ -33,10 +33,6 @@ class Location
   def inspect
     "(#{x}, #{y}), facing #{direction}"
   end
-
-  private
-
-  attr_reader :world
 
   LEFT = {
     'N' => 'W',
