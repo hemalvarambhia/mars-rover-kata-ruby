@@ -30,7 +30,7 @@ class Location
     x == location.x && y == location.y && direction == location.direction
   end
 
-  def to_s
+  def inspect
     "(#{x}, #{y}), facing #{direction}"
   end
 
