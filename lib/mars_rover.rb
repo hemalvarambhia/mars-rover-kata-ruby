@@ -1,9 +1,4 @@
-require 'forwardable'
 class MarsRover
-  extend Forwardable
-
-  def_delegator :@current_location, :direction
-
   def self.positioned_at(location)
     new(
       world: location.world,
