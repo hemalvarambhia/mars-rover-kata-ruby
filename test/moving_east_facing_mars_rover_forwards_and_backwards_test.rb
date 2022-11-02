@@ -7,10 +7,12 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_moving_nowhere
     mars_rover =
-      MarsRover.new(
-        world: World.infinite,
-        starting_coordinates: Coordinates.new(x: -1, y: -1),
-        direction: 'E'
+      MarsRover.positioned_at(
+        Location.new(
+          world: World.infinite,
+          x: -1, y: -1,
+          direction: 'E'
+        )
       )
 
     mars_rover.execute('')
