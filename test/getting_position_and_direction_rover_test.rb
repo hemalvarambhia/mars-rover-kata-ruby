@@ -13,8 +13,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         direction: 'N'
       )
 
-    expected_location =
-      Location.infinite(coordinates: Coordinates.new(x: 0, y: 0), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: 0, y: 0, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -26,8 +25,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         direction: 'N'
       )
 
-    expected_location =
-      Location.infinite(coordinates: Coordinates.new(x: 1, y: 0), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: 1, y: 0, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -39,8 +37,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         direction: 'N'
       )
 
-    expected_location =
-      Location.infinite(coordinates: Coordinates.new(x: 0, y: 5), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: 0, y: 5, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -52,10 +49,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         direction: 'E'
       )
 
-    direction = mars_rover.direction
-
-    expected_location =
-      Location.infinite(coordinates: Coordinates.new(x: 0, y: 0), direction: 'E')
+    expected_location = Location.new(world: World.infinite, x: 0, y: 0, direction: 'E')
     assert_located_at(expected_location, mars_rover)
   end
 end
