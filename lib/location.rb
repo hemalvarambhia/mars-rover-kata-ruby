@@ -3,15 +3,6 @@ require_relative './forward'
 class Location
   attr_reader :x, :y, :direction
 
-  def self.infinite(coordinates:, direction:)
-    new(
-      world: World.infinite,
-      x: coordinates.x,
-      y: coordinates.y,
-      direction: direction
-    )
-  end
-
   def initialize(world:, x:, y:, direction:)
     @x = x
     @y = y
