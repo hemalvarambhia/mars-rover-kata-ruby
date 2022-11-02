@@ -14,7 +14,7 @@ class TurningMarsRoverRightTest < Minitest::Test
 
     mars_rover.execute('r')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 4, y: 1), direction: 'E')
+    expected_location = Location.new(world: World.infinite, x: 4, y: 1, direction: 'E')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -28,7 +28,7 @@ class TurningMarsRoverRightTest < Minitest::Test
 
     mars_rover.execute('r')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 2, y: -3), direction: 'S')
+    expected_location = Location.new(world: World.infinite, x: 2, y: -3, direction: 'S')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -42,7 +42,7 @@ class TurningMarsRoverRightTest < Minitest::Test
 
     mars_rover.execute('r')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 2, y: -3), direction: 'W')
+    expected_location = Location.new(world: World.infinite, x: 2, y: -3, direction: 'W')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -56,7 +56,7 @@ class TurningMarsRoverRightTest < Minitest::Test
 
     mars_rover.execute('r')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 0, y: 0), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: 0, y: 0, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -70,7 +70,7 @@ class TurningMarsRoverRightTest < Minitest::Test
 
     mars_rover.execute('rr')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 3, y: 3), direction: 'S')
+    expected_location = Location.new(world: World.infinite, x: 3, y: 3, direction: 'S')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -84,7 +84,7 @@ class TurningMarsRoverRightTest < Minitest::Test
 
     mars_rover.execute('rr')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 2, y: 1), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: 2, y: 1, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 end
