@@ -8,11 +8,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
   def test_current_position_and_direction_of_north_facing_mars_rover
     mars_rover =
       MarsRover.positioned_at(
-        Location.new(
-          world: World.infinite,
-          x: 0, y: 0,
-          direction: 'N'
-        )
+        Location.new(world: World.infinite, x: 0, y: 0, direction: 'N')
       )
 
     expected_location = Location.new(world: World.infinite, x: 0, y: 0, direction: 'N')
@@ -21,10 +17,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
 
   def test_current_position_of_north_facing_mars_rover_anywhere_on_x_axis
     mars_rover =
-      MarsRover.new(
-        world: World.infinite,
-        starting_coordinates: Coordinates.new(x: 1, y: 0),
-        direction: 'N'
+      MarsRover.positioned_at(
+        Location.new(world: World.infinite, x: 1, y: 0, direction: 'N')
       )
 
     expected_location = Location.new(world: World.infinite, x: 1, y: 0, direction: 'N')
@@ -33,10 +27,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
 
   def test_current_position_of_north_facing_mars_rover_anywhere_on_y_axis
     mars_rover =
-      MarsRover.new(
-        world: World.infinite,
-        starting_coordinates: Coordinates.new(x: 0, y: 5),
-        direction: 'N'
+      MarsRover.positioned_at(
+        Location.new(world: World.infinite, x: 0, y: 5, direction: 'N')
       )
 
     expected_location = Location.new(world: World.infinite, x: 0, y: 5, direction: 'N')
@@ -45,10 +37,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
 
   def test_current_position_and_direction_of_east_facing_mars_rover
     mars_rover =
-      MarsRover.new(
-        world: World.infinite,
-        starting_coordinates: Coordinates.new(x: 0, y: 0),
-        direction: 'E'
+      MarsRover.positioned_at(
+        Location.new(world: World.infinite, x: 0, y: 0, direction: 'E')
       )
 
     expected_location = Location.new(world: World.infinite, x: 0, y: 0, direction: 'E')
