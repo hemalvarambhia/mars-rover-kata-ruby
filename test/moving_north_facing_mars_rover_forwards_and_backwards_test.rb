@@ -15,7 +15,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 0, y: 0), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: 0, y: 0, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -29,7 +29,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('f')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 0, y: 1), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: 0, y: 1, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -43,7 +43,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('ff')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 0, y: 2), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: 0, y: 2, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -57,7 +57,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('fff')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 0, y: 3), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: 0, y: 3, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -71,7 +71,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('b')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 2, y: -1), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: 2, y: -1, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -85,7 +85,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('bbbb')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: -3, y: -4), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: -3, y: -4, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -99,7 +99,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('fffbb')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 3, y: 1), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: 3, y: 1, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -113,7 +113,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('z')
 
-    expected_location = Location.infinite(coordinates: Coordinates.new(x: 1, y: 0), direction: 'N')
+    expected_location = Location.new(world: World.infinite, x: 1, y: 0, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 end
