@@ -91,7 +91,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_rover_moves_nowhere_for_any_unrecognised_command
     mars_rover =
-      MarsRover.new(
+      MarsRover.positioned_at(
         Location.new(world: World.infinite, x: 1, y: 0, direction: 'N')
       )
 

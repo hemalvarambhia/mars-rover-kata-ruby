@@ -7,10 +7,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_moving_nowhere
     mars_rover =
-      MarsRover.new(
-        world: World.infinite,
-        starting_coordinates: Coordinates.new(x: 0, y: -1),
-        direction: 'S'
+      MarsRover.positioned_at(
+        Location.new(world: World.infinite, x: 0, y: -1, direction: 'S')
       )
 
     mars_rover.execute('')
@@ -21,10 +19,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_moving_one_step_forward
     mars_rover =
-      MarsRover.new(
-        world: World.infinite,
-        starting_coordinates: Coordinates.new(x: 2, y: 3),
-        direction: 'S'
+      MarsRover.positioned_at(
+        Location.new(world: World.infinite, x: 2, y: 3, direction: 'S')
       )
 
     mars_rover.execute('f')
