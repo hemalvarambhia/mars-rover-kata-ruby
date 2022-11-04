@@ -2,17 +2,17 @@ class MarsRover
   def self.positioned_at(location)
     new(
       world: location.world,
-      starting_coordinates: Coordinates.new(x: location.x, y: location.y),
+      x: location.x, y: location.y,
       direction: location.direction
     )
   end
 
-  def initialize(world:, starting_coordinates:, direction:)
+  def initialize(world:, x:, y: , direction:)
     @current_location =
       Location.new(
         world: world,
-        x: starting_coordinates.x,
-        y: starting_coordinates.y,
+        x: x,
+        y: y,
         direction: direction
       )
   end
