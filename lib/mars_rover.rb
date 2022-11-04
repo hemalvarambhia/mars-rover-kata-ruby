@@ -1,22 +1,11 @@
 class MarsRover
   def self.positioned_at(location)
-    new(
-      world: location.world,
-      x: location.x, y: location.y,
-      direction: location.direction
-    )
+    new(location)
   end
 
-  def initialize(world:, x:, y: , direction:)
-    @current_location =
-      Location.new(
-        world: world,
-        x: x,
-        y: y,
-        direction: direction
-      )
+  def initialize(location)
+    @current_location = location
   end
-
 
   def execute(commands)
     commands.split('').select(&method(:supported?)).each do |command|
