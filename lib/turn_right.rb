@@ -1,5 +1,5 @@
 class TurnRight
-  def initialize(world)
+  def initialize(world = nil)
 
   end
 

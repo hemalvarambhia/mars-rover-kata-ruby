@@ -1,6 +1,6 @@
 class MoveBackward
-  def initialize(world)
-    
+  def initialize(world = nil)
+
   end
 
   def execute(location)

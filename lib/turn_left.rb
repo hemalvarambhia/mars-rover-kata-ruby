@@ -1,6 +1,6 @@
 require_relative './turn_right'
 class TurnLeft
-  def initialize(world)
+  def initialize(world = nil)
 
   end
 
