@@ -1,6 +1,11 @@
+require_relative './turn_right'
 class TurnLeft
   def initialize(world)
     @world = world
+  end
+
+  def invert
+    TurnRight.new(world)
   end
 
   def execute(location)
