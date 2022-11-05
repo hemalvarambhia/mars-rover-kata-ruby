@@ -1,8 +1,4 @@
 class MoveBackward
-  def initialize(world = nil)
-
-  end
-
   def execute(location)
     world = location.world
     case location.direction

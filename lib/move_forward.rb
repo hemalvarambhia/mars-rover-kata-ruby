@@ -1,9 +1,5 @@
 require_relative './move_backward'
 class MoveForward
-  def initialize(world = nil)
-
-  end
-
   def invert
     MoveBackward.new
   end
