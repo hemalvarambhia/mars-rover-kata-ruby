@@ -11,22 +11,6 @@ class Location
     @world = world
   end
 
-  def turn_left
-    TurnLeft.new(world).execute(self)
-  end
-
-  def turn_right
-    TurnLeft.new(world).invert.execute(self)
-  end
-
-  def move_forward
-    MoveForward.new(world).execute(self)
-  end
-
-  def move_backward
-    MoveForward.new(world).invert.execute(self)
-  end
-
   def ==(location)
     x == location.x && y == location.y && direction == location.direction
   end
@@ -34,12 +18,4 @@ class Location
   def inspect
     "(#{x}, #{y}), facing #{direction}"
   end
-
-  LEFT = {
-    'N' => 'W',
-    'E' => 'N',
-    'S' => 'E',
-    'W' => 'S'
-  }.freeze
-  private_constant :LEFT
 end
