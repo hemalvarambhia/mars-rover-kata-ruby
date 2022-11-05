@@ -5,7 +5,7 @@ class MoveForward
   end
 
   def invert
-    MoveBackward.new(nil)
+    MoveBackward.new
   end
 
   def execute(location)

@@ -5,7 +5,7 @@ class TurnLeft
   end
 
   def invert
-    TurnRight.new(nil)
+    TurnRight.new
   end
 
   def execute(location)

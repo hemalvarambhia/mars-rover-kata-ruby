@@ -30,19 +30,19 @@ class MarsRover
   end
 
   def turn_left
-    TurnLeft.new(@current_location.world).execute(@current_location)
+    TurnLeft.new.execute(@current_location)
   end
 
   def turn_right
-    TurnLeft.new(@current_location.world).invert.execute(@current_location)
+    TurnLeft.new.invert.execute(@current_location)
   end
 
   def move_forward
-    MoveForward.new(@current_location.world).execute(@current_location)
+    MoveForward.new.execute(@current_location)
   end
 
   def move_backward
-    MoveForward.new(@current_location.world).invert.execute(@current_location)
+    MoveForward.new.invert.execute(@current_location)
   end
 
 end
