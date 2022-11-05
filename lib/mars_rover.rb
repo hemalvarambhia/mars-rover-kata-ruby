@@ -10,12 +10,12 @@ class MarsRover
   def execute(commands)
     commands.split('').select { |command| MarsRover.supported?(command) }.each do |command|
       instruction = {
-        'f' => MoveForward.new,
-        'b' => MoveBackward.new,
-        'l' => TurnLeft.new,
-        'r' => TurnRight.new
+        'f' => :move_forward,
+        'b' => :move_backward,
+        'l' => :turn_left,
+        'r' => :turn_right
       }[command]
-      @current_location = instruction.execute(@current_location)
+      @current_location = @current_location.public_send(instruction)
     end
   end
 
