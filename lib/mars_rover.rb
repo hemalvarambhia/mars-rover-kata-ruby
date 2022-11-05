@@ -10,12 +10,12 @@ class MarsRover
   def execute(commands)
     commands.split('').select { |instruction| MarsRover.supported?(instruction) }.each do |command|
       instruction = {
-        'f' => :move_forward,
-        'b' => :move_backward,
-        'l' => :turn_left,
-        'r' => :turn_right
+        'f' => MoveForward.new,
+        'b' => MoveBackward.new,
+        'l' => TurnLeft.new,
+        'r' => TurnRight.new
       }[command]
-      @current_location = send(instruction)
+      @current_location = instruction.execute(@current_location)
     end
   end
 
@@ -28,21 +28,4 @@ class MarsRover
   def self.supported?(instruction)
     ['f', 'b', 'l', 'r'].include?(instruction)
   end
-
-  def turn_left
-    TurnLeft.new.execute(@current_location)
-  end
-
-  def turn_right
-    TurnLeft.new.invert.execute(@current_location)
-  end
-
-  def move_forward
-    MoveForward.new.execute(@current_location)
-  end
-
-  def move_backward
-    MoveForward.new.invert.execute(@current_location)
-  end
-
 end
