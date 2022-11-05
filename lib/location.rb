@@ -73,7 +73,19 @@ class Location
     end
   end
 
+  def turn_left
+    Location.new(world: world, x: x, y: y, direction: LEFT[direction])
+  end
+
   def inspect
     "(#{x}, #{y}), facing #{direction}"
   end
+
+  LEFT = {
+    'N' => 'W',
+    'E' => 'N',
+    'S' => 'E',
+    'W' => 'S'
+  }.freeze
+  private_constant :LEFT
 end
