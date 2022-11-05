@@ -1,6 +1,6 @@
 class TurnRight
   def execute(location)
-    Location.new(world: location.world, x: location.x, y: location.y, direction: RIGHT[location.direction])
+    location.turn_right
   end
 
   RIGHT = {

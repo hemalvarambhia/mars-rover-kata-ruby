@@ -77,6 +77,10 @@ class Location
     Location.new(world: world, x: x, y: y, direction: LEFT[direction])
   end
 
+  def turn_right
+    Location.new(world: world, x: x, y: y, direction: LEFT.invert[direction])
+  end
+
   def inspect
     "(#{x}, #{y}), facing #{direction}"
   end
