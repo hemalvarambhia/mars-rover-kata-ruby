@@ -9,6 +9,7 @@ class MoveForward
   end
 
   def execute(location)
+    world = location.world
     case location.direction
     when 'E'
       if world.at_right_edge?(location)

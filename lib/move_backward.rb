@@ -4,6 +4,7 @@ class MoveBackward
   end
 
   def execute(location)
+    world = location.world
     case location.direction
     when 'E'
       if world.at_left_edge?(location)

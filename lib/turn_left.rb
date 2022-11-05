@@ -9,7 +9,7 @@ class TurnLeft
   end
 
   def execute(location)
-    Location.new(world: world, x: location.x, y: location.y, direction: LEFT[location.direction])
+    Location.new(world: location.world, x: location.x, y: location.y, direction: LEFT[location.direction])
   end
 
   private
