@@ -8,7 +8,7 @@ class MarsRover
   end
 
   def execute(commands)
-    commands.split('').select { |instruction| MarsRover.supported?(instruction) }.each do |command|
+    commands.split('').select { |command| MarsRover.supported?(command) }.each do |command|
       instruction = {
         'f' => MoveForward.new,
         'b' => MoveBackward.new,
@@ -25,7 +25,7 @@ class MarsRover
 
   private
 
-  def self.supported?(instruction)
-    ['f', 'b', 'l', 'r'].include?(instruction)
+  def self.supported?(command)
+    ['f', 'b', 'l', 'r'].include?(command)
   end
 end
