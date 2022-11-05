@@ -71,7 +71,16 @@ class Location
   end
 
   def turn_left
-    Location.new(world: world, x: x, y: y, direction: LEFT[direction])
+    case direction
+    when 'E'
+      Location.new(world: world, x: x, y: y, direction: 'N')
+    when 'N'
+      Location.new(world: world, x: x, y: y, direction: 'W')
+    when 'S'
+      Location.new(world: world, x: x, y: y, direction: 'E')
+    when 'W'
+      Location.new(world: world, x: x, y: y, direction: 'S')
+    end
   end
 
   def turn_right
