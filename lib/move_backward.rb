@@ -1,6 +1,6 @@
 class MoveBackward
   def initialize(world)
-    @world = world
+    
   end
 
   def execute(location)
@@ -32,8 +32,4 @@ class MoveBackward
       end
     end
   end
-
-  private
-
-  attr_reader :world
 end

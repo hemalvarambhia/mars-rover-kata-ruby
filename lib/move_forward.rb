@@ -1,11 +1,11 @@
 require_relative './move_backward'
 class MoveForward
   def initialize(world)
-    @world = world
+
   end
 
   def invert
-    MoveBackward.new(world)
+    MoveBackward.new(nil)
   end
 
   def execute(location)
@@ -37,8 +37,4 @@ class MoveForward
       end
     end
   end
-
-  private
-
-  attr_reader :world
 end
