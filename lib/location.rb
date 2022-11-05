@@ -1,6 +1,3 @@
-require_relative './move_forward'
-require_relative './turn_left'
-
 class Location
   attr_reader :world, :x, :y, :direction
 
