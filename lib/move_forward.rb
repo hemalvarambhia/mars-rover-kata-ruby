@@ -1,14 +1,14 @@
-require_relative './backward'
-class Forward
+require_relative './move_backward'
+class MoveForward
   def initialize(world)
     @world = world
   end
 
   def invert
-    Backward.new(world)
+    MoveBackward.new(world)
   end
 
-  def move(location)
+  def execute(location)
     case location.direction
     when 'E'
       if world.at_right_edge?(location)

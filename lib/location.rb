@@ -1,4 +1,4 @@
-require_relative './forward'
+require_relative './move_forward'
 
 class Location
   attr_reader :world, :x, :y, :direction
@@ -19,11 +19,11 @@ class Location
   end
 
   def move_forward
-    Forward.new(world).move(self)
+    MoveForward.new(world).execute(self)
   end
 
   def move_backward
-    Forward.new(world).invert.move(self)
+    MoveForward.new(world).invert.execute(self)
   end
 
   def ==(location)

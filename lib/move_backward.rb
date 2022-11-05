@@ -1,9 +1,9 @@
-class Backward
+class MoveBackward
   def initialize(world)
     @world = world
   end
 
-  def move(location)
+  def execute(location)
     case location.direction
     when 'E'
       if world.at_left_edge?(location)
