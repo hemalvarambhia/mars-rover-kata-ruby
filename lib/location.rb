@@ -1,5 +1,6 @@
 require_relative './move_forward'
 require_relative './turn_left'
+require_relative './turn_right'
 
 class Location
   attr_reader :world, :x, :y, :direction
@@ -16,7 +17,7 @@ class Location
   end
 
   def turn_right
-    Location.new(world: world, x: x, y: y, direction: LEFT.invert[direction])
+    TurnRight.new(world).execute(self)
   end
 
   def move_forward
