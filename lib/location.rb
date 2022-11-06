@@ -1,3 +1,4 @@
+require_relative './facing_east'
 class Location
   attr_reader :world, :x, :y, :direction
 
@@ -15,11 +16,7 @@ class Location
   def move_forward
     case direction
     when 'E'
-      if world.at_right_edge?(self)
-        Location.new(world: world, x: world.left_edge, y: y, direction: direction)
-      else
-        Location.new(world: world, x: x + 1, y: y, direction: direction)
-      end
+      FacingEast.new.move_forward(self)
     when 'N'
       if world.at_top_edge?(self)
         Location.new(world: world, x: x, y: world.bottom_edge, direction: direction)
@@ -44,11 +41,7 @@ class Location
   def move_backward
     case direction
     when 'E'
-      if world.at_left_edge?(self)
-        Location.new(world: world, x: world.right_edge, y: y, direction: direction)
-      else
-        Location.new(world: world, x: x - 1, y: y, direction: direction)
-      end
+      FacingEast.new.move_backward(self)
     when 'N'
       if world.at_bottom_edge?(self)
         Location.new(world: world, x: x, y: world.top_edge, direction: direction)
