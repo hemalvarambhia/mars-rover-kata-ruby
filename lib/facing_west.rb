@@ -27,5 +27,7 @@ class FacingWest
     Location.new(world: location.world, x: location.x, y: location.y, direction: 'N')
   end
 
+  private
+
   attr_reader :location
 end

@@ -1,4 +1,6 @@
 class FacingSouth
+  attr_reader :location
+
   def initialize(location)
     @location = location
   end
@@ -26,8 +28,4 @@ class FacingSouth
   def turn_right
     Location.new(world: location.world, x: location.x, y: location.y, direction: 'W')
   end
-
-  private
-
-  attr_reader :location
 end
