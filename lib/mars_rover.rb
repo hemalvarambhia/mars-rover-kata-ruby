@@ -25,7 +25,6 @@ class MarsRover
   end
 
   def position
-    @current_location
     @current_position.location
   end
 
