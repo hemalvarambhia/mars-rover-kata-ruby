@@ -1,4 +1,5 @@
 require_relative './facing_east'
+require_relative './facing_north'
 class Location
   attr_reader :world, :x, :y, :direction
 
@@ -18,11 +19,7 @@ class Location
     when 'E'
       FacingEast.new.move_forward(self)
     when 'N'
-      if world.at_top_edge?(self)
-        Location.new(world: world, x: x, y: world.bottom_edge, direction: direction)
-      else
-        Location.new(world: world, x: x, y: y + 1, direction: direction)
-      end
+      FacingNorth.new.move_forward(self)
     when 'S'
       if world.at_bottom_edge?(self)
         Location.new(world: world, x: x, y: world.top_edge, direction: direction)
@@ -43,11 +40,7 @@ class Location
     when 'E'
       FacingEast.new.move_backward(self)
     when 'N'
-      if world.at_bottom_edge?(self)
-        Location.new(world: world, x: x, y: world.top_edge, direction: direction)
-      else
-        Location.new(world: world, x: x, y: y - 1, direction: direction)
-      end
+      FacingNorth.new.move_backward(self)
     when 'S'
       if world.at_top_edge?(self)
         Location.new(world: world, x: x, y: world.bottom_edge, direction: direction)
@@ -68,7 +61,7 @@ class Location
     when 'E'
       FacingEast.new.turn_left(self)
     when 'N'
-      Location.new(world: world, x: x, y: y, direction: 'W')
+      FacingNorth.new.turn_left(self)
     when 'S'
       Location.new(world: world, x: x, y: y, direction: 'E')
     when 'W'
