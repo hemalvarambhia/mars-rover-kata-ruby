@@ -1,5 +1,5 @@
 class FacingNorth
-  def initialize(location = nil)
+  def initialize(location)
     @location = location
   end
 
