@@ -17,42 +17,15 @@ class Location
   end
 
   def move_forward
-    case direction
-    when 'E'
-      FacingEast.new.move_forward(self)
-    when 'N'
-      FacingNorth.new.move_forward(self)
-    when 'S'
-      FacingSouth.new.move_forward(self)
-    when 'W'
-      FacingWest.new.move_forward(self)
-    end
+    facing_direction.move_forward(self)
   end
 
   def move_backward
-    case direction
-    when 'E'
-      FacingEast.new.move_backward(self)
-    when 'N'
-      FacingNorth.new.move_backward(self)
-    when 'S'
-      FacingSouth.new.move_backward(self)
-    when 'W'
-      FacingWest.new.move_backward(self)
-    end
+    facing_direction.move_backward(self)
   end
 
   def turn_left
-    case direction
-    when 'E'
-      FacingEast.new.turn_left(self)
-    when 'N'
-      FacingNorth.new.turn_left(self)
-    when 'S'
-      FacingSouth.new.turn_left(self)
-    when 'W'
-      FacingWest.new.turn_left(self)
-    end
+    facing_direction.turn_left(self)
   end
 
   def turn_right
@@ -70,4 +43,19 @@ class Location
     'W' => 'S'
   }.freeze
   private_constant :LEFT
+
+  private
+
+  def facing_direction
+    case direction
+    when 'E'
+      FacingEast.new
+    when 'N'
+      FacingNorth.new
+    when 'S'
+      FacingSouth.new
+    when 'W'
+      FacingWest.new
+    end
+  end
 end
