@@ -3,7 +3,7 @@ class FacingWest
     @location = location
   end
 
-  def move_forward(location = nil)
+  def move_forward
     if @location.world.at_left_edge?(@location)
       Location.new(world: @location.world, x: @location.world.right_edge, y: @location.y, direction: @location.direction)
     else
@@ -11,7 +11,7 @@ class FacingWest
     end
   end
 
-  def move_backward(location = nil)
+  def move_backward
     if @location.world.at_right_edge?(@location)
       Location.new(world: @location.world, x: @location.world.left_edge, y: @location.y, direction: @location.direction)
     else
@@ -19,7 +19,7 @@ class FacingWest
     end
   end
 
-  def turn_left(location = nil)
+  def turn_left
     Location.new(world: @location.world, x: @location.x, y: @location.y, direction: 'S')
   end
 end
