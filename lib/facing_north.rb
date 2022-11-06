@@ -1,4 +1,8 @@
 class FacingNorth
+  def initialize(location = nil)
+    @location = location
+  end
+
   def move_forward(location)
     if location.world.at_top_edge?(location)
       Location.new(world: location.world, x: location.x, y: location.world.bottom_edge, direction: location.direction)

@@ -49,13 +49,13 @@ class Location
   def facing_direction
     case direction
     when 'E'
-      FacingEast.new
+      FacingEast.new(self)
     when 'N'
-      FacingNorth.new
+      FacingNorth.new(self)
     when 'S'
-      FacingSouth.new
+      FacingSouth.new(self)
     when 'W'
-      FacingWest.new
+      FacingWest.new(self)
     end
   end
 end
