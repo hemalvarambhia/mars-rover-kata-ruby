@@ -29,7 +29,7 @@ class Location
   end
 
   def turn_right
-    Location.new(world: world, x: x, y: y, direction: LEFT.invert[direction])
+    facing_direction.turn_right
   end
 
   def inspect
