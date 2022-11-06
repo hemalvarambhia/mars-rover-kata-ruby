@@ -38,11 +38,7 @@ class Location
     when 'S'
       FacingSouth.new.move_backward(self)
     when 'W'
-      if world.at_right_edge?(self)
-        Location.new(world: world, x: world.left_edge, y: y, direction: direction)
-      else
-        Location.new(world: world, x: x + 1, y: y, direction: direction)
-      end
+      FacingWest.new.move_backward(self)
     end
   end
 
@@ -55,7 +51,7 @@ class Location
     when 'S'
       FacingSouth.new.turn_left(self)
     when 'W'
-      Location.new(world: world, x: x, y: y, direction: 'S')
+      FacingWest.new.turn_left(self)
     end
   end
 
