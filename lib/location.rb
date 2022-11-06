@@ -17,15 +17,15 @@ class Location
   end
 
   def move_forward
-    facing_direction.move_forward(self)
+    facing_direction.move_forward
   end
 
   def move_backward
-    facing_direction.move_backward(self)
+    facing_direction.move_backward
   end
 
   def turn_left
-    facing_direction.turn_left(self)
+    facing_direction.turn_left
   end
 
   def turn_right
