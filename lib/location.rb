@@ -16,38 +16,7 @@ class Location
     x == location.x && y == location.y && direction == location.direction
   end
 
-  def move_forward
-    facing_direction.move_forward
-  end
-
-  def move_backward
-    facing_direction.move_backward
-  end
-
-  def turn_left
-    facing_direction.turn_left
-  end
-
-  def turn_right
-    facing_direction.turn_right
-  end
-
   def inspect
     "(#{x}, #{y}), facing #{direction}"
-  end
-
-  private
-
-  def facing_direction
-    case direction
-    when 'E'
-      FacingEast.new(self)
-    when 'N'
-      FacingNorth.new(self)
-    when 'S'
-      FacingSouth.new(self)
-    when 'W'
-      FacingWest.new(self)
-    end
   end
 end
