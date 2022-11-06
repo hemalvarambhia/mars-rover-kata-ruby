@@ -36,14 +36,6 @@ class Location
     "(#{x}, #{y}), facing #{direction}"
   end
 
-  LEFT = {
-    'N' => 'W',
-    'E' => 'N',
-    'S' => 'E',
-    'W' => 'S'
-  }.freeze
-  private_constant :LEFT
-
   private
 
   def facing_direction
