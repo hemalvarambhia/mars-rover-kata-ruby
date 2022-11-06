@@ -66,7 +66,7 @@ class Location
   def turn_left
     case direction
     when 'E'
-      Location.new(world: world, x: x, y: y, direction: 'N')
+      FacingEast.new.turn_left(self)
     when 'N'
       Location.new(world: world, x: x, y: y, direction: 'W')
     when 'S'

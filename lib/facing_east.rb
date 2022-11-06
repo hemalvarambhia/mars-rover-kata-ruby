@@ -14,4 +14,8 @@ class FacingEast
       Location.new(world: location.world, x: location.x - 1, y: location.y, direction: location.direction)
     end
   end
+
+  def turn_left(location)
+    Location.new(world: location.world, x: location.x, y: location.y, direction: 'N')
+  end
 end
