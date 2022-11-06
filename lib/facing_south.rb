@@ -22,10 +22,10 @@ class FacingSouth
   end
 
   def turn_left
-    Location.new(world: location.world, x: location.x, y: location.y, direction: 'E')
+    FacingEast.new(Location.new(world: location.world, x: location.x, y: location.y, direction: 'E')).location
   end
 
   def turn_right
-    Location.new(world: location.world, x: location.x, y: location.y, direction: 'W')
+    FacingWest.new(Location.new(world: location.world, x: location.x, y: location.y, direction: 'W')).location
   end
 end
