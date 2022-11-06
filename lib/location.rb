@@ -1,6 +1,7 @@
 require_relative './facing_east'
 require_relative './facing_north'
 require_relative './facing_south'
+require_relative './facing_west'
 class Location
   attr_reader :world, :x, :y, :direction
 
@@ -24,11 +25,7 @@ class Location
     when 'S'
       FacingSouth.new.move_forward(self)
     when 'W'
-      if world.at_left_edge?(self)
-        Location.new(world: world, x: world.right_edge, y: y, direction: direction)
-      else
-        Location.new(world: world, x: x - 1, y: y, direction: direction)
-      end
+      FacingWest.new.move_forward(self)
     end
   end
 
