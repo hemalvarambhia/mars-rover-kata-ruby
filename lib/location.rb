@@ -1,7 +1,3 @@
-require_relative './facing_east'
-require_relative './facing_north'
-require_relative './facing_south'
-require_relative './facing_west'
 class Location
   attr_reader :world, :x, :y, :direction
 

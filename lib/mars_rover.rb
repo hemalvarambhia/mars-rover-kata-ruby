@@ -1,3 +1,7 @@
+require_relative './facing_east'
+require_relative './facing_north'
+require_relative './facing_south'
+require_relative './facing_west'
 class MarsRover
   def self.positioned_at(location)
     new(location)
