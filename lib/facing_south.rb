@@ -1,31 +1,34 @@
+require 'forwardable'
 class FacingSouth
+  extend Forwardable
   attr_reader :location
+  def_delegators :@location, :x, :y, :direction, :world
 
   def initialize(location)
     @location = location
   end
 
   def move_forward
-    if location.world.at_bottom_edge?(location)
-      Location.new(world: location.world, x: location.x, y: location.world.top_edge, direction: location.direction)
+    if world.at_bottom_edge?(location)
+      Location.new(world: world, x: x, y: world.top_edge, direction: direction)
     else
-      Location.new(world: location.world, x: location.x, y: location.y - 1, direction: location.direction)
+      Location.new(world: world, x: x, y: y - 1, direction: direction)
     end
   end
 
   def move_backward
-    if location.world.at_top_edge?(location)
-      Location.new(world: location.world, x: location.x, y: location.world.bottom_edge, direction: location.direction)
+    if world.at_top_edge?(location)
+      Location.new(world: world, x: x, y: world.bottom_edge, direction: location.direction)
     else
       Location.new(world: location.world, x: location.x, y: location.y + 1, direction: location.direction)
     end
   end
 
   def turn_left
-    FacingEast.new(Location.new(world: location.world, x: location.x, y: location.y, direction: 'E')).location
+    FacingEast.new(Location.new(world: world, x: x, y: y, direction: 'E')).location
   end
 
   def turn_right
-    FacingWest.new(Location.new(world: location.world, x: location.x, y: location.y, direction: 'W')).location
+    FacingWest.new(Location.new(world: world, x: x, y: y, direction: 'W')).location
   end
 end
