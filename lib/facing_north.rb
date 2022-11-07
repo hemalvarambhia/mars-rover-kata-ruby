@@ -9,11 +9,6 @@ class FacingNorth
   end
 
   def move_forward
-    if location.world.at_top_edge?(location)
-      Location.new(world: world, x: x, y: world.bottom_edge, direction: direction)
-    else
-      Location.new(world: world, x: x, y: y + 1, direction: direction)
-    end
     world.next_location(location)
   end
 
