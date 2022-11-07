@@ -33,6 +33,12 @@ class World
       else
         Location.new(world: self, x: location.x, y: location.y - 1, direction: location.direction)
       end
+    when 'W'
+      if at_left_edge?(location)
+        Location.new(world: self, x: right_edge, y: location.y, direction: location.direction)
+      else
+        Location.new(world: self, x: location.x - 1, y: location.y, direction: location.direction)
+      end
     end
   end
 
