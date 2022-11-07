@@ -14,6 +14,7 @@ class FacingNorth
     else
       Location.new(world: world, x: x, y: y + 1, direction: direction)
     end
+    world.next_location(location)
   end
 
   def move_backward
