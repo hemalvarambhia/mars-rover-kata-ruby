@@ -13,11 +13,7 @@ class FacingEast
   end
 
   def move_backward
-    if world.at_left_edge?(location)
-      Location.new(world: world, x: world.right_edge, y: y, direction: direction)
-    else
-      Location.new(world: world, x: x - 1, y: y, direction: direction)
-    end
+    world.previous_location(location)
   end
 
   def turn_left
