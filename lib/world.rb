@@ -13,6 +13,14 @@ class World
     @y_range = y_range
   end
 
+  def next_location(location)
+    if at_right_edge?(location)
+      Location.new(world: self, x: left_edge, y: location.y, direction: location.direction)
+    else
+      Location.new(world: self, x: location.x + 1, y: location.y, direction: location.direction)
+    end
+  end
+
   def top_edge
     y_range.last
   end
