@@ -56,6 +56,12 @@ class World
       else
         Location.new(world: self, x: location.x - 1, y: location.y, direction: location.direction)
       end
+    when 'S'
+      if at_top_edge?(location)
+        Location.new(world: self, x: location.x, y: bottom_edge, direction: location.direction)
+      else
+        Location.new(world: self, x: location.x, y: location.y + 1, direction: location.direction)
+      end
     end
   end
 
