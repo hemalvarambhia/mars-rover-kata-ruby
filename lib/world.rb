@@ -43,10 +43,19 @@ class World
   end
 
   def previous_location(location)
-    if at_left_edge?(location)
-      Location.new(world: self, x: right_edge, y: location.y, direction: location.direction)
-    else
-      Location.new(world: self, x: location.x - 1, y: location.y, direction: location.direction)
+    case location.direction
+    when 'N'
+      if at_bottom_edge?(location)
+        Location.new(world: self, x: location.x, y: top_edge, direction: location.direction)
+      else
+        Location.new(world: self, x: location.x, y: location.y - 1, direction: location.direction)
+      end
+    when 'E'
+      if at_left_edge?(location)
+        Location.new(world: self, x: right_edge, y: location.y, direction: location.direction)
+      else
+        Location.new(world: self, x: location.x - 1, y: location.y, direction: location.direction)
+      end
     end
   end
 
