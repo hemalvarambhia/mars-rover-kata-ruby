@@ -15,17 +15,17 @@ class World
 
   def next_location(location)
     case location.direction
-    when 'E'
-      if at_right_edge?(location)
-        Location.new(world: self, x: left_edge, y: location.y, direction: location.direction)
-      else
-        Location.new(world: self, x: location.x + 1, y: location.y, direction: location.direction)
-      end
     when 'N'
       if at_top_edge?(location)
         Location.new(world: self, x: location.x, y: bottom_edge, direction: location.direction)
       else
         Location.new(world: self, x: location.x, y: location.y + 1, direction: location.direction)
+      end
+    when 'E'
+      if at_right_edge?(location)
+        Location.new(world: self, x: left_edge, y: location.y, direction: location.direction)
+      else
+        Location.new(world: self, x: location.x + 1, y: location.y, direction: location.direction)
       end
     when 'S'
       if at_bottom_edge?(location)
