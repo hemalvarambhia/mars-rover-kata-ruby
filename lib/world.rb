@@ -71,6 +71,8 @@ class World
     end
   end
 
+  private
+
   def top_edge
     y_range.last
   end
