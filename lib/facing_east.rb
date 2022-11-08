@@ -2,10 +2,11 @@ require 'forwardable'
 class FacingEast
   extend Forwardable
   attr_reader :location
-  def_delegators :@location, :x, :y, :direction, :world
+  def_delegators :@location, :x, :y, :direction
 
   def initialize(location)
     @location = location
+    @world = location.world
   end
 
   def move_forward
@@ -23,4 +24,8 @@ class FacingEast
   def turn_right
     FacingSouth.new(Location.new(world: world, x: x, y: y, direction: 'S')).location
   end
+
+  private
+
+  attr_reader :world
 end
