@@ -1,6 +1,4 @@
 class World
-  attr_reader :x_range, :y_range
-
   def self.infinite
     new(
       x_range: (-Float::INFINITY..Float::INFINITY),
@@ -72,6 +70,8 @@ class World
   end
 
   private
+
+  attr_reader :x_range, :y_range
 
   def top_edge
     y_range.last
