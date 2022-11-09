@@ -95,7 +95,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     assert_located_at(expected_coordinate, mars_rover)
   end
 
-  def test_moving_foward_past_the_right_hand_edge
+  def test_moving_forward_past_the_right_hand_edge
     world = World.new(x_range: (-4..4), y_range: (-4..4))
     mars_rover = MarsRover.positioned_at(Location.new(world: world, x: 3, y: 0, direction: 'E'))
 
