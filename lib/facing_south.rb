@@ -2,7 +2,7 @@ require 'forwardable'
 class FacingSouth
   extend Forwardable
   attr_reader :location
-  def_delegators :@location, :x, :y, :direction, :world
+  def_delegators :@location, :x, :y, :direction
 
   def initialize(location)
     @location = location
