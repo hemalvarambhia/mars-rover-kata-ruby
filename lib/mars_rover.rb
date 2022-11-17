@@ -8,6 +8,7 @@ class MarsRover
   end
 
   def initialize(location)
+    @world = location.world
     @current_position = facing_direction(location)
   end
 
@@ -19,7 +20,11 @@ class MarsRover
         'l' => :turn_left,
         'r' => :turn_right
       }[command]
-      current_location = @current_position.public_send(instruction)
+      current_location = if instruction == :move_forward
+                           public_send(instruction)
+                         else
+                           @current_position.public_send(instruction)
+                         end
       @current_position = facing_direction(current_location)
     end
   end
@@ -32,7 +37,13 @@ class MarsRover
     @current_position.direction
   end
 
+  def move_forward
+    world.next_location(@current_position)
+  end
+
   private
+
+  attr_reader :world
 
   def self.supported?(command)
     ['f', 'b', 'l', 'r'].include?(command)
