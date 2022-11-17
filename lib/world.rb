@@ -16,29 +16,29 @@ class World
     case location.direction
     when 'N'
       if at_top_edge?(location)
-        Position.new(world: self, x: location.x, y: bottom_edge, direction: location.direction)
+        Position.new(x: location.x, y: bottom_edge, direction: location.direction)
       else
-        Position.new(world: self, x: location.x, y: location.y + 1, direction: location.direction)
+        Position.new(x: location.x, y: location.y + 1, direction: location.direction)
       end
     when 'E'
       if at_right_edge?(location)
-        Position.new(world: self, x: left_edge, y: location.y, direction: location.direction)
+        Position.new(x: left_edge, y: location.y, direction: location.direction)
       else
-        next_location = Position.new(world: self, x: location.x + 1, y: location.y, direction: location.direction)
+        next_location = Position.new(x: location.x + 1, y: location.y, direction: location.direction)
         return location if obstacle_at?(next_location)
         next_location
       end
     when 'S'
       if at_bottom_edge?(location)
-        Position.new(world: self, x: location.x, y: top_edge, direction: location.direction)
+        Position.new(x: location.x, y: top_edge, direction: location.direction)
       else
-        Position.new(world: self, x: location.x, y: location.y - 1, direction: location.direction)
+        Position.new(x: location.x, y: location.y - 1, direction: location.direction)
       end
     when 'W'
       if at_left_edge?(location)
-        Position.new(world: self, x: right_edge, y: location.y, direction: location.direction)
+        Position.new(x: right_edge, y: location.y, direction: location.direction)
       else
-        Position.new(world: self, x: location.x - 1, y: location.y, direction: location.direction)
+        Position.new(x: location.x - 1, y: location.y, direction: location.direction)
       end
     end
   end
@@ -47,27 +47,27 @@ class World
     case location.direction
     when 'N'
       if at_bottom_edge?(location)
-        Position.new(world: self, x: location.x, y: top_edge, direction: location.direction)
+        Position.new(x: location.x, y: top_edge, direction: location.direction)
       else
-        Position.new(world: self, x: location.x, y: location.y - 1, direction: location.direction)
+        Position.new(x: location.x, y: location.y - 1, direction: location.direction)
       end
     when 'E'
       if at_left_edge?(location)
-        Position.new(world: self, x: right_edge, y: location.y, direction: location.direction)
+        Position.new(x: right_edge, y: location.y, direction: location.direction)
       else
-        Position.new(world: self, x: location.x - 1, y: location.y, direction: location.direction)
+        Position.new(x: location.x - 1, y: location.y, direction: location.direction)
       end
     when 'S'
       if at_top_edge?(location)
-        Position.new(world: self, x: location.x, y: bottom_edge, direction: location.direction)
+        Position.new(x: location.x, y: bottom_edge, direction: location.direction)
       else
-        Position.new(world: self, x: location.x, y: location.y + 1, direction: location.direction)
+        Position.new(x: location.x, y: location.y + 1, direction: location.direction)
       end
     when 'W'
       if at_right_edge?(location)
-        Position.new(world: self, x: left_edge, y: location.y, direction: location.direction)
+        Position.new(x: left_edge, y: location.y, direction: location.direction)
       else
-        Position.new(world: self, x: location.x + 1, y: location.y, direction: location.direction)
+        Position.new(x: location.x + 1, y: location.y, direction: location.direction)
       end
     end
   end

@@ -9,12 +9,12 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(world: World.infinite, x: 0, y: -1, direction: 'S')
+        Position.new(x: 0, y: -1, direction: 'S')
       )
 
     mars_rover.execute('')
 
-    expected_location = Position.new(world: World.infinite, x: 0, y: -1, direction: 'S')
+    expected_location = Position.new(x: 0, y: -1, direction: 'S')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -22,12 +22,12 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(world: World.infinite, x: 2, y: 3, direction: 'S')
+        Position.new(x: 2, y: 3, direction: 'S')
       )
 
     mars_rover.execute('f')
 
-    expected_location = Position.new(world: World.infinite, x: 2, y: 2, direction: 'S')
+    expected_location = Position.new(x: 2, y: 2, direction: 'S')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -35,12 +35,12 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(world: World.infinite, x: 3, y: 0, direction: 'S')
+        Position.new(x: 3, y: 0, direction: 'S')
       )
 
     mars_rover.execute('b')
 
-    expected_location = Position.new(world: World.infinite, x: 3, y: 1, direction: 'S')
+    expected_location = Position.new(x: 3, y: 1, direction: 'S')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -48,12 +48,12 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(world: World.infinite, x: 0, y: 0, direction: 'S')
+        Position.new(x: 0, y: 0, direction: 'S')
       )
 
     mars_rover.execute('e')
 
-    expected_location = Position.new(world: World.infinite, x: 0, y: 0, direction: 'S')
+    expected_location = Position.new( x: 0, y: 0, direction: 'S')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -62,12 +62,12 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(world: world, x: 0, y: -4, direction: 'S')
+        Position.new(x: 0, y: -4, direction: 'S')
       )
 
     mars_rover.execute('f')
 
-    expected_coordinate = Position.new(world: world, x: 0, y: -5, direction: 'S')
+    expected_coordinate = Position.new(x: 0, y: -5, direction: 'S')
     assert_located_at(expected_coordinate, mars_rover)
   end
 
@@ -76,12 +76,12 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(world: world, x: 0, y: -5, direction: 'S')
+        Position.new(x: 0, y: -5, direction: 'S')
       )
 
     mars_rover.execute('f')
 
-    expected_coordinate = Position.new(world: world, x: 0, y: 5, direction: 'S')
+    expected_coordinate = Position.new(x: 0, y: 5, direction: 'S')
     assert_located_at(expected_coordinate, mars_rover)
   end
 
@@ -90,12 +90,12 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(world: world, x: -1, y: -3, direction: 'S')
+        Position.new(x: -1, y: -3, direction: 'S')
       )
 
     mars_rover.execute('fffff')
 
-    expected_coordinate = Position.new(world: world, x: -1, y: 3, direction: 'S')
+    expected_coordinate = Position.new(x: -1, y: 3, direction: 'S')
     assert_located_at(expected_coordinate, mars_rover)
   end
 
@@ -104,12 +104,12 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(world: world, x: -2, y: 2, direction: 'S')
+        Position.new(x: -2, y: 2, direction: 'S')
       )
 
     mars_rover.execute('b')
 
-    expected_coordinate = Position.new(world: world, x: -2, y: 3, direction: 'S')
+    expected_coordinate = Position.new(x: -2, y: 3, direction: 'S')
     assert_located_at(expected_coordinate, mars_rover)
   end
 
@@ -118,12 +118,12 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(world: world, x: -2, y: 5, direction: 'S')
+        Position.new(x: -2, y: 5, direction: 'S')
       )
 
     mars_rover.execute('b')
 
-    expected_coordinate = Position.new(world: world, x: -2, y: 6, direction: 'S')
+    expected_coordinate = Position.new(x: -2, y: 6, direction: 'S')
     assert_located_at(expected_coordinate, mars_rover)
   end
 
@@ -132,12 +132,12 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(world: world, x: -5, y: 6, direction: 'S')
+        Position.new(x: -5, y: 6, direction: 'S')
       )
 
     mars_rover.execute('b')
 
-    expected_coordinate = Position.new(world: world, x: -5, y: -6, direction: 'S')
+    expected_coordinate = Position.new(x: -5, y: -6, direction: 'S')
     assert_located_at(expected_coordinate, mars_rover)
   end
 
@@ -146,12 +146,12 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(world: world, x: 0, y: 4, direction: 'S')
+        Position.new(x: 0, y: 4, direction: 'S')
       )
 
     mars_rover.execute('bbbbbb')
 
-    expected_coordinate = Position.new(world: world, x: 0, y: -3, direction: 'S')
+    expected_coordinate = Position.new(x: 0, y: -3, direction: 'S')
     assert_located_at(expected_coordinate, mars_rover)
   end
 end

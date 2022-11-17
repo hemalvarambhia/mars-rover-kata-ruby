@@ -9,10 +9,10 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(world: World.infinite, x: 0, y: 0, direction: 'N')
+        Position.new(x: 0, y: 0, direction: 'N')
       )
 
-    expected_location = Position.new(world: World.infinite, x: 0, y: 0, direction: 'N')
+    expected_location = Position.new(x: 0, y: 0, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -20,10 +20,10 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(world: World.infinite, x: 1, y: 0, direction: 'N')
+        Position.new(x: 1, y: 0, direction: 'N')
       )
 
-    expected_location = Position.new(world: World.infinite, x: 1, y: 0, direction: 'N')
+    expected_location = Position.new(x: 1, y: 0, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -31,10 +31,10 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(world: World.infinite, x: 0, y: 5, direction: 'N')
+        Position.new(x: 0, y: 5, direction: 'N')
       )
 
-    expected_location = Position.new(world: World.infinite, x: 0, y: 5, direction: 'N')
+    expected_location = Position.new(x: 0, y: 5, direction: 'N')
     assert_located_at(expected_location, mars_rover)
   end
 
@@ -42,10 +42,10 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(world: World.infinite, x: 0, y: 0, direction: 'E')
+        Position.new(x: 0, y: 0, direction: 'E')
       )
 
-    expected_location = Position.new(world: World.infinite, x: 0, y: 0, direction: 'E')
+    expected_location = Position.new(x: 0, y: 0, direction: 'E')
     assert_located_at(expected_location, mars_rover)
   end
 end
