@@ -9,10 +9,10 @@ class Position
   end
 
   def ==(location)
-    x == location.x && y == location.y && direction == location.direction
+    x == location.x && y == location.y
   end
 
   def inspect
-    "(#{x}, #{y}), facing #{direction}"
+    "(#{x}, #{y})"
   end
 end
