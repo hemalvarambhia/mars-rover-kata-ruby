@@ -237,10 +237,6 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     assert_located_at(expected_coordinate, mars_rover)
   end
 
-  def test_moving_nowhere_when_obstacle_is_adjacent_and_behind
-    skip('Test list')
-  end
-
   def test_moving_one_step_backward_before_encountering_an_obstacle
     skip('Test list')
   end
