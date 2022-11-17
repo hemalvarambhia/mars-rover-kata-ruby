@@ -28,6 +28,10 @@ class MarsRover
     @current_position.location
   end
 
+  def direction
+    @current_position.direction
+  end
+
   private
 
   def self.supported?(command)
