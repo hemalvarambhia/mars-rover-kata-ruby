@@ -210,7 +210,17 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_one_step_forward_before_encountering_an_obstacle
-    skip('Test list')
+    world = World.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(x: -2, y: 0, direction: 'E')])
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(x: -4, y: 0, direction: 'E')
+      )
+
+    mars_rover.execute('f')
+
+    expected_coordinate = Position.new(x: -3, y: 0, direction: 'E')
+    assert_located_at(expected_coordinate, mars_rover)
   end
 
   def test_moving_two_steps_forward_before_encountering_an_obstacle
