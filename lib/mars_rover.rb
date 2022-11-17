@@ -22,6 +22,8 @@ class MarsRover
       }[command]
       current_location = if instruction == :move_forward
                            public_send(instruction)
+                         elsif instruction == :move_backward
+                           public_send(instruction)
                          else
                            @current_position.public_send(instruction)
                          end
@@ -39,6 +41,10 @@ class MarsRover
 
   def move_forward
     world.next_location(@current_position)
+  end
+
+  def move_backward
+    world.previous_location(@current_position)
   end
 
   private
