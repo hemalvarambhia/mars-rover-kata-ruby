@@ -13,6 +13,6 @@ class FacingWest
   end
 
   def turn_right
-    FacingNorth.new(Position.new(x: location.x, y: location.y, direction: 'N')).location
+    FacingNorth.new(Position.new(x: x, y: y, direction: 'N')).location
   end
 end
