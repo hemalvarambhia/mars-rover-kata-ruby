@@ -1,11 +1,10 @@
 class Position
   attr_reader :world, :x, :y, :direction
 
-  def initialize(world:, x:, y:, direction:)
+  def initialize(world: nil, x:, y:, direction:)
     @x = x
     @y = y
     @direction = direction
-    @world = world
   end
 
   def ==(location)
