@@ -5,7 +5,7 @@ detectors:
     enabled: false
   UncommunicativeVariableName:
     exclude:
-      - "Location"
+      - "Position"
   UncommunicativeParameterName:
     exclude:
-      - "Location#initialize"
+      - "Position#initialize"

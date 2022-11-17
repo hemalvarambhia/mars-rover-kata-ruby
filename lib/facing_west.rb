@@ -17,10 +17,10 @@ class FacingWest
   end
 
   def turn_left
-    FacingSouth.new(Location.new(world: world, x: x, y: y, direction: 'S')).location
+    FacingSouth.new(Position.new(world: world, x: x, y: y, direction: 'S')).location
   end
 
   def turn_right
-    FacingNorth.new(Location.new(world: location.world, x: location.x, y: location.y, direction: 'N')).location
+    FacingNorth.new(Position.new(world: location.world, x: location.x, y: location.y, direction: 'N')).location
   end
 end

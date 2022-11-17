@@ -1,4 +1,4 @@
-class Location
+class Position
   attr_reader :world, :x, :y, :direction
 
   def initialize(world:, x:, y:, direction:)
