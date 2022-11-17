@@ -9,10 +9,6 @@ class FacingEast
     @world = location.world
   end
 
-  def move_backward
-    world.previous_location(location)
-  end
-
   def turn_left
     FacingNorth.new(Position.new(world: world, x: x, y: y, direction: 'N')).location
   end
