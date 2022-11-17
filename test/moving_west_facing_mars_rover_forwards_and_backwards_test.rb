@@ -58,7 +58,11 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
   def test_no_wrapping_when_moving_forward_to_the_left_hand_edge
     world = World.new(x_range: (-3..3), y_range: (-3..3))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: 2, y: -2, direction: 'W'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: 2, y: -2, direction: 'W')
+      )
 
     mars_rover.execute('f')
 
@@ -68,7 +72,11 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
   def test_wrapping_when_at_the_left_hand_edge_and_moving_forward
     world = World.new(x_range: (-5..5), y_range: (-5..5))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: -5, y: 5, direction: 'W'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: -5, y: 5, direction: 'W')
+      )
 
     mars_rover.execute('f')
 
@@ -78,7 +86,11 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
   def test_wrapping_past_the_left_hand_edge_when_moving_forward
     world = World.new(x_range: (-6..6), y_range: (-6..6))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: -4, y: 7, direction: 'W'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: -4, y: 7, direction: 'W')
+      )
 
     mars_rover.execute('ffff')
 
@@ -88,7 +100,11 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
   def test_no_wrapping_when_moving_backward
     world = World.new(x_range: (-3..3), y_range: (-3..3))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: 1, y: 2, direction: 'W'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: 1, y: 2, direction: 'W')
+      )
 
     mars_rover.execute('b')
 
@@ -98,7 +114,11 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
   def test_no_wrapping_when_moving_backward_to_the_right_hand_edge
     world = World.new(x_range: (-3..3), y_range: (-3..3))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: 2, y: 0, direction: 'W'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: 2, y: 0, direction: 'W')
+      )
 
     mars_rover.execute('b')
 
@@ -108,7 +128,11 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
   def test_wrapping_when_at_the_right_hand_edge_and_moving_backward
     world = World.new(x_range: (-7..7), y_range: (-7..7))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: 7, y: 4, direction: 'W'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: 7, y: 4, direction: 'W')
+      )
 
     mars_rover.execute('b')
 
@@ -118,7 +142,11 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
   def test_wrapping_past_the_right_hand_edge_when_moving_backward
     world = World.new(x_range: (-7..7), y_range: (-7..7))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: 5, y: 2, direction: 'W'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: 5, y: 2, direction: 'W')
+      )
 
     mars_rover.execute('bbbbbb')
 
