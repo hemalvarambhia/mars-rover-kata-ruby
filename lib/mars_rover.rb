@@ -3,12 +3,12 @@ require_relative './facing_north'
 require_relative './facing_south'
 require_relative './facing_west'
 class MarsRover
-  def self.positioned_at(world = nil, location)
+  def self.positioned_at(world, location)
     new(world, location)
   end
 
   def initialize(world, location)
-    @world = world || location.world
+    @world = world
     @current_position = facing_direction(location)
   end
 
