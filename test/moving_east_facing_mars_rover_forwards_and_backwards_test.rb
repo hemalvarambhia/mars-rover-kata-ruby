@@ -8,6 +8,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_moving_nowhere
     mars_rover =
       MarsRover.positioned_at(
+        World.infinite,
         Position.new(world: World.infinite, x: -1, y: -1, direction: 'E')
       )
 
@@ -20,6 +21,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_moving_one_step_forward
     mars_rover =
       MarsRover.positioned_at(
+        World.infinite,
         Position.new(world: World.infinite, x: 0, y: 0, direction: 'E')
       )
 
@@ -32,6 +34,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_moving_one_step_backward
     mars_rover =
       MarsRover.positioned_at(
+        World.infinite,
         Position.new(world: World.infinite, x: 2, y: 2, direction: 'E')
       )
 
@@ -44,6 +47,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_moving_multiple_steps_forwards_and_multiple_steps_backwards
     mars_rover =
       MarsRover.positioned_at(
+        World.infinite,
         Position.new(world: World.infinite, x: 0, y: 4, direction: 'E')
       )
 
@@ -56,6 +60,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_rover_moves_nowhere_for_any_unrecognised_command
     mars_rover =
       MarsRover.positioned_at(
+        World.infinite,
         Position.new(world: World.infinite, x: -3, y: -2, direction: 'E')
       )
 
@@ -67,7 +72,11 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_no_wrapping_when_moving_forward
     world = World.new(x_range: (-4..4), y_range: (-4..4))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: 1, y: 0, direction: 'E'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: 1, y: 0, direction: 'E')
+      )
 
     mars_rover.execute('f')
 
@@ -77,7 +86,11 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_moving_forward_to_the_right_hand_edge
     world = World.new(x_range: (-4..4), y_range: (-4..4))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: 3, y: 3, direction: 'E'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: 3, y: 3, direction: 'E')
+      )
 
     mars_rover.execute('f')
 
@@ -87,7 +100,10 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_moving_forward_from_the_right_hand_edge
     world = World.new(x_range: (-4..4), y_range: (-4..4))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: 4, y: 0, direction: 'E'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: 4, y: 0, direction: 'E'))
 
     mars_rover.execute('f')
 
@@ -97,7 +113,11 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_moving_forward_past_the_right_hand_edge
     world = World.new(x_range: (-4..4), y_range: (-4..4))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: 3, y: 0, direction: 'E'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: 3, y: 0, direction: 'E')
+      )
 
     mars_rover.execute('ff')
 
@@ -107,7 +127,11 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_starting_away_from_origin_and_returning_to_origin
     world = World.new(x_range: (-4..4), y_range: (-4..4))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: 2, y: 0, direction: 'E'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: 2, y: 0, direction: 'E')
+      )
 
     mars_rover.execute('fffffff')
 
@@ -117,7 +141,11 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_no_wrapping_when_moving_backward
     world = World.new(x_range: (-4..4), y_range: (-4..4))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: 2, y: 0, direction: 'E'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: 2, y: 0, direction: 'E')
+      )
 
     mars_rover.execute('b')
 
@@ -127,7 +155,11 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_moving_backward_to_the_left_hand_edge
     world = World.new(x_range: (-4..4), y_range: (-4..4))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: -3, y: 0, direction: 'E'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: -3, y: 0, direction: 'E')
+      )
 
     mars_rover.execute('b')
 
@@ -137,7 +169,11 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_moving_backward_from_the_left_hand_edge
     world = World.new(x_range: (-4..4), y_range: (-4..4))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: -4, y: 0, direction: 'E'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: -4, y: 0, direction: 'E')
+      )
 
     mars_rover.execute('b')
 
@@ -147,7 +183,11 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_moving_backward_past_the_left_hand_edge
     world = World.new(x_range: (-4..4), y_range: (-4..4))
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: -3, y: 0, direction: 'E'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: -3, y: 0, direction: 'E')
+      )
 
     mars_rover.execute('bbb')
 
@@ -157,7 +197,11 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_moving_nowhere_when_obstacle_is_adjacent_and_in_front
     world = World.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(world: nil, x: -2, y: 0, direction: 'E')])
-    mars_rover = MarsRover.positioned_at(Position.new(world: world, x: -3, y: 0, direction: 'E'))
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(world: world, x: -3, y: 0, direction: 'E')
+      )
 
     mars_rover.execute('f')
 
