@@ -6,9 +6,10 @@ class World
     )
   end
 
-  def initialize(x_range:, y_range:)
+  def initialize(x_range:, y_range:, obstacles: [])
     @x_range = x_range
     @y_range = y_range
+    @obstacles = obstacles
   end
 
   def next_location(location)
@@ -23,7 +24,9 @@ class World
       if at_right_edge?(location)
         Location.new(world: self, x: left_edge, y: location.y, direction: location.direction)
       else
-        Location.new(world: self, x: location.x + 1, y: location.y, direction: location.direction)
+        next_location = Location.new(world: self, x: location.x + 1, y: location.y, direction: location.direction)
+        return location if obstacle_at?(next_location)
+        next_location
       end
     when 'S'
       if at_bottom_edge?(location)
@@ -72,6 +75,10 @@ class World
   private
 
   attr_reader :x_range, :y_range
+
+  def obstacle_at?(location)
+    @obstacles.include? location
+  end
 
   def top_edge
     y_range.last
