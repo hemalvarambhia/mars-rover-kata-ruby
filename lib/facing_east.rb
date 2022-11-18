@@ -10,10 +10,6 @@ class FacingEast
     @right = 'S'
   end
 
-  def turn_left
-    FacingNorth.new(Position.new(x: x, y: y, direction: 'N')).location
-  end
-
   def turn_right
     FacingSouth.new(Position.new(x: x, y: y, direction: 'S')).location
   end
