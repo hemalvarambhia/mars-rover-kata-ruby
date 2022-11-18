@@ -9,7 +9,8 @@ class MarsRover
 
   def initialize(world, location)
     @world = world
-    @current_position = facing_direction(location, location.direction)
+    @direction = location.direction
+    @current_position = facing_direction(location, @direction)
   end
 
   def execute(commands)
@@ -22,6 +23,7 @@ class MarsRover
       }[command]
       current_location = send(instruction)
       @current_position = facing_direction(current_location, current_location.direction)
+      @direction = @current_position.direction
     end
   end
 
@@ -30,7 +32,7 @@ class MarsRover
   end
 
   def direction
-    @current_position.direction
+    @direction
   end
 
   private
