@@ -20,13 +20,7 @@ class MarsRover
         'l' => :turn_left,
         'r' => :turn_right
       }[command]
-      current_location = if instruction == :move_forward
-                           send(instruction)
-                         elsif instruction == :move_backward
-                           send(instruction)
-                         else
-                           send(instruction)
-                         end
+      current_location = send(instruction)
       @current_position = facing_direction(current_location)
     end
   end
