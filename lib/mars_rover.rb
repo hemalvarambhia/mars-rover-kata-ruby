@@ -23,9 +23,15 @@ class MarsRover
         'l' => :turn_left,
         'r' => :turn_right
       }[command]
-      current_location = send(instruction)
-      @direction = current_location.direction
-      @current_position = facing_direction(current_location, current_location.direction)
+      case instruction
+      when :turn_left
+        @direction = facing_direction(send(instruction), @direction).left
+        @current_position = facing_direction(Position.new(x: @current_position.x, y: @current_position.y, direction: @direction), @direction)
+      else
+        current_location = send(instruction)
+        @direction = current_location.direction
+        @current_position = facing_direction(current_location, current_location.direction)
+      end
     end
   end
 
