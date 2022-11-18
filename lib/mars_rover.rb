@@ -29,7 +29,7 @@ class MarsRover
         @current_position = facing_direction(Position.new(x: @current_position.x, y: @current_position.y, direction: @direction), @direction)
       else
         current_location = send(instruction)
-        @current_position = facing_direction(current_location, current_location.direction)
+        @current_position = facing_direction(current_location, @direction)
       end
     end
   end
