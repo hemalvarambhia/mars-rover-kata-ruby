@@ -24,7 +24,7 @@ class MarsRover
         'r' => :turn_right
       }[command]
       case instruction
-      when :turn_left
+      when :turn_left, :turn_right
         @direction = send(instruction)
         @current_position = facing_direction(Position.new(x: @current_position.x, y: @current_position.y, direction: @direction), @direction)
       else
@@ -78,6 +78,11 @@ class MarsRover
   end
 
   def turn_right
-    @current_position.public_send(:turn_right)
+    {
+      'N' => 'W',
+      'E' => 'N',
+      'S' => 'E',
+      'W' => 'S'
+    }.invert[@direction]
   end
 end
