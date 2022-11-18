@@ -25,7 +25,7 @@ class MarsRover
                          elsif instruction == :move_backward
                            public_send(instruction)
                          else
-                           @current_position.public_send(instruction)
+                           public_send(instruction)
                          end
       @current_position = facing_direction(current_location)
     end
@@ -45,6 +45,14 @@ class MarsRover
 
   def move_backward
     world.previous_location(@current_position)
+  end
+
+  def turn_left
+    @current_position.public_send(:turn_left)
+  end
+
+  def turn_right
+    @current_position.public_send(:turn_right)
   end
 
   private
