@@ -25,8 +25,7 @@ class MarsRover
       }[command]
       case instruction
       when :turn_left, :turn_right
-        @direction = send(instruction)
-        @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: @direction)
+        send(instruction)
       else
         send(instruction)
       end
