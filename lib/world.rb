@@ -44,7 +44,7 @@ class World
   end
 
   def previous_location(location, direction)
-    case location.direction
+    case direction
     when 'N'
       if at_bottom_edge?(location)
         Position.new(x: location.x, y: top_edge, direction: location.direction)
