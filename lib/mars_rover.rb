@@ -13,7 +13,6 @@ class MarsRover
     @world = world
     @direction = location.direction
     @current_location = location
-    @current_position = facing_direction(location, @direction)
   end
 
   def execute(commands)
@@ -27,17 +26,14 @@ class MarsRover
       case instruction
       when :turn_left, :turn_right
         @direction = send(instruction)
-        @current_position = facing_direction(Position.new(x: @current_position.x, y: @current_position.y, direction: @direction), @direction)
         @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: @direction)
       else
-        current_location = send(instruction)
-        @current_position = facing_direction(current_location, @direction)
+        send(instruction)
       end
     end
   end
 
   def position
-    @current_position.location
     @current_location
   end
 
@@ -49,27 +45,12 @@ class MarsRover
     ['f', 'b', 'l', 'r'].include?(command)
   end
 
-  def facing_direction(location, direction)
-    case direction
-    when 'E'
-      FacingEast.new(location)
-    when 'N'
-      FacingNorth.new(location)
-    when 'S'
-      FacingSouth.new(location)
-    when 'W'
-      FacingWest.new(location)
-    end
-  end
-
   def move_forward
     @current_location = world.next_location(@current_location)
-    world.next_location(@current_position)
   end
 
   def move_backward
     @current_location = world.previous_location(@current_location)
-    world.previous_location(@current_position)
   end
 
   def turn_left
