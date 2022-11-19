@@ -251,6 +251,10 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     assert_located_at(expected_coordinate, mars_rover)
   end
 
+  def test_rover_cannot_move_past_right_hand_edge_when_it_has_an_obstable
+    skip('Test list')
+  end
+
   def test_moving_two_steps_backward_before_encountering_an_obstacle
     skip('Test list')
   end
