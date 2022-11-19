@@ -238,7 +238,6 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_we_cannot_move_one_step_backward_when_an_obstacle_is_adjacent
-    skip('Test list')
     world = World.new(x_range: (-10..10), y_range: (-10..10), obstacles: [Position.new(x: -1, y: -1, direction: 'E')])
     mars_rover =
       MarsRover.positioned_at(
