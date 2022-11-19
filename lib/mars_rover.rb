@@ -41,11 +41,11 @@ class MarsRover
   end
 
   def move_forward
-    @current_location = world.next_location(@current_location)
+    @current_location = world.next_location(@current_location, @direction)
   end
 
   def move_backward
-    @current_location = world.previous_location(@current_location)
+    @current_location = world.previous_location(@current_location, @direction)
   end
 
   def turn_left

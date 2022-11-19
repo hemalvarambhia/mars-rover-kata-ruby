@@ -12,8 +12,8 @@ class World
     @obstacles = obstacles
   end
 
-  def next_location(location)
-    case location.direction
+  def next_location(location, direction)
+    case direction
     when 'N'
       if at_top_edge?(location)
         Position.new(x: location.x, y: bottom_edge, direction: location.direction)
@@ -43,7 +43,7 @@ class World
     end
   end
 
-  def previous_location(location)
+  def previous_location(location, direction)
     case location.direction
     when 'N'
       if at_bottom_edge?(location)
