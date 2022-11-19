@@ -23,12 +23,8 @@ class MarsRover
         'l' => :turn_left,
         'r' => :turn_right
       }[command]
-      case instruction
-      when :turn_left, :turn_right
-        send(instruction)
-      else
-        send(instruction)
-      end
+
+      send(instruction)
     end
   end
 
