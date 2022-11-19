@@ -54,20 +54,24 @@ class MarsRover
   end
 
   def turn_left
-    {
+    @direction = {
       'N' => 'W',
       'E' => 'N',
       'S' => 'E',
       'W' => 'S'
     }[@direction]
+    @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: @direction)
+    @direction
   end
 
   def turn_right
-    {
+    @direction = {
       'N' => 'W',
       'E' => 'N',
       'S' => 'E',
       'W' => 'S'
     }.invert[@direction]
+    @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: @direction)
+    @direction
   end
 end
