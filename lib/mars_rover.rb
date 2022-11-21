@@ -51,7 +51,7 @@ class MarsRover
       'S' => 'E',
       'W' => 'S'
     }[@direction]
-    @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: @direction)
+    @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: nil)
   end
 
   def turn_right
@@ -61,6 +61,6 @@ class MarsRover
       'S' => 'E',
       'W' => 'S'
     }.invert[@direction]
-    @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: @direction)
+    @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: nil)
   end
 end
