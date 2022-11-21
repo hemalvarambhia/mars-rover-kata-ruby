@@ -3,8 +3,6 @@ require_relative './facing_north'
 require_relative './facing_south'
 require_relative './facing_west'
 class MarsRover
-  attr_reader :direction
-
   def self.positioned_at(world, location)
     new(world, location)
   end
