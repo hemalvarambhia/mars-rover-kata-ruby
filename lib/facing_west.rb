@@ -1,7 +1,7 @@
 class FacingWest
   attr_reader :direction, :left, :right
 
-  def initialize(location)
+  def initialize
     @direction = 'W'
     @left = 'S'
     @right = 'N'
