@@ -67,13 +67,4 @@ class MarsRover
     }.invert[@direction]
     @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: @direction)
   end
-
-  def orientation(direction)
-    {
-      'N' => FacingNorth.new,
-      'E' => FacingEast.new,
-      'S' => FacingSouth.new,
-      'W' => FacingWest.new
-    }[direction]
-  end
 end
