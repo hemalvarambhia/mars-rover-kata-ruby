@@ -11,6 +11,7 @@ class MarsRover
 
   def initialize(world, location)
     @world = world
+    @orientation = orientation(location.direction)
     @direction = location.direction
     @current_location = location
   end
@@ -41,11 +42,11 @@ class MarsRover
   end
 
   def move_forward
-    @current_location = world.next_location(@current_location, @direction)
+    @current_location = world.next_location(@current_location, @orientation.direction)
   end
 
   def move_backward
-    @current_location = world.previous_location(@current_location, @direction)
+    @current_location = world.previous_location(@current_location, @orientation.direction)
   end
 
   def turn_left
@@ -55,7 +56,8 @@ class MarsRover
       'S' => 'E',
       'W' => 'S'
     }[@direction]
-    @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: @direction)
+    @orientation = orientation(@direction)
+    @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: @orientation.direction)
   end
 
   def turn_right
@@ -65,6 +67,16 @@ class MarsRover
       'S' => 'E',
       'W' => 'S'
     }.invert[@direction]
-    @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: @direction)
+    @orientation = orientation(@direction)
+    @current_location = Position.new(x: @current_location.x, y: @current_location.y, direction: @orientation.direction)
+  end
+
+  def orientation(direction)
+    {
+      'N' => FacingNorth.new,
+      'E' => FacingEast.new,
+      'S' => FacingSouth.new,
+      'W' => FacingWest.new
+    }[direction]
   end
 end
