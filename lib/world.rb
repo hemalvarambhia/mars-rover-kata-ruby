@@ -22,7 +22,9 @@ class World
       end
     when 'E'
       if at_right_edge?(location)
-        Position.new(x: left_edge, y: location.y, direction: location.direction)
+        next_location = Position.new(x: left_edge, y: location.y, direction: location.direction)
+        return location if obstacle_at?(next_location)
+        next_location
       else
         next_location = Position.new(x: location.x + 1, y: location.y, direction: location.direction)
         return location if obstacle_at?(next_location)
