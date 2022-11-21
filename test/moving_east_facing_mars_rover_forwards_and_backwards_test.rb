@@ -237,20 +237,6 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     assert_located_at(expected_coordinate, mars_rover)
   end
 
-  def test_we_cannot_move_one_step_backward_when_an_obstacle_is_adjacent
-    world = World.new(x_range: (-10..10), y_range: (-10..10), obstacles: [Position.new(x: -1, y: -1, direction: 'E')])
-    mars_rover =
-      MarsRover.positioned_at(
-        world,
-        Position.new(x: 0, y: -1, direction: 'E')
-      )
-
-    mars_rover.execute('b')
-
-    expected_coordinate = Position.new(x: 0, y: -1, direction: 'E')
-    assert_located_at(expected_coordinate, mars_rover)
-  end
-
   def test_rover_cannot_forward_beyond_right_hand_edge_when_left_hand_edge_has_an_obstable
     world = World.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(x: -4, y: -1, direction: 'E')])
     mars_rover =
@@ -262,6 +248,20 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover.execute('f')
 
     expected_coordinate = Position.new(x: 4, y: -1, direction: 'E')
+    assert_located_at(expected_coordinate, mars_rover)
+  end
+
+  def test_we_cannot_move_one_step_backward_when_an_obstacle_is_adjacent
+    world = World.new(x_range: (-10..10), y_range: (-10..10), obstacles: [Position.new(x: -1, y: -1, direction: 'E')])
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(x: 0, y: -1, direction: 'E')
+      )
+
+    mars_rover.execute('b')
+
+    expected_coordinate = Position.new(x: 0, y: -1, direction: 'E')
     assert_located_at(expected_coordinate, mars_rover)
   end
 
