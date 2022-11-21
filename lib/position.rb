@@ -1,5 +1,5 @@
 class Position
-  attr_reader :world, :x, :y, :direction
+  attr_reader :x, :y, :direction
 
   def initialize(x:, y:, direction:)
     @x = x
