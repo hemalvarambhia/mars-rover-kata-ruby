@@ -33,6 +33,10 @@ class MarsRover
     @current_location
   end
 
+  def direction
+    @orientation.direction
+  end
+
   private
 
   attr_reader :world
