@@ -220,4 +220,12 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     expected_coordinate = Position.new(x: 0, y: 3, direction: 'N')
     assert_located_at(expected_coordinate, mars_rover)
   end
+
+  def test_rover_cannot_move_forward_when_there_is_an_obstable_in_front
+    skip('Test list')
+  end
+
+  def test_rover_cannot_move_past_top_edge_when_there_is_an_obstable_at_bottom_edge
+    skip('Test list')
+  end
 end
