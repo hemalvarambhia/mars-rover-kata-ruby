@@ -156,7 +156,17 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_rover_cannot_move_forward_when_there_is_an_obstacle_in_front
-    skip('Test list')
+    world = World.new(x_range: (-7..7), y_range: (-7..7), obstacles: [Position.new(x: -3, y: -4, direction: 'S')])
+    mars_rover =
+      MarsRover.positioned_at(
+        world,
+        Position.new(x: -3, y: -3, direction: 'S')
+    )
+
+    mars_rover.execute('f')
+
+    expected_coordinates = Position.new(x: -3, y: -3, direction: 'S')
+    assert_located_at(expected_coordinates, mars_rover)
   end
 
   def test_rover_cannot_move_forward_past_bottom_edge_when_there_is_an_obstacle_at_top_edge
