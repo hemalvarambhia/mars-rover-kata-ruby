@@ -17,13 +17,11 @@ class World
     when 'N'
       if at_top_edge?(location)
         next_location = Position.new(x: location.x, y: bottom_edge, direction: direction)
-        return location if obstacle_at?(next_location)
-        next_location
       else
         next_location = Position.new(x: location.x, y: location.y + 1, direction: direction)
-        return location if obstacle_at?(next_location)
-        next_location
       end
+      return location if obstacle_at?(next_location)
+      next_location
     when 'E'
       if at_right_edge?(location)
         next_location = Position.new(x: left_edge, y: location.y, direction: direction)
