@@ -57,7 +57,7 @@ class World
       else
         next_location = Position.new(x: location.x - 1, y: location.y, direction: direction)
       end
-      return location if @obstacles.include? next_location
+      return location if obstacle_at? next_location
       next_location
     when 'S'
       if at_top_edge?(location)
