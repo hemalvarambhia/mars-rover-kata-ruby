@@ -225,7 +225,15 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     skip('Test list')
   end
 
-  def test_rover_cannot_move_past_top_edge_when_there_is_an_obstable_at_bottom_edge
+  def test_rover_cannot_move_forward_past_top_edge_when_there_is_an_obstable_at_bottom_edge
+    skip('Test list')
+  end
+
+  def test_rover_cannot_move_backward_when_there_is_an_obstacle_behind
+    skip('Test list')
+  end
+
+  def test_rover_cannot_move_backward_past_bottom_edge_when_there_is_an_obstacle_at_top_edge
     skip('Test list')
   end
 end
