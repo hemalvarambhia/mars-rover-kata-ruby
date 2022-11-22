@@ -237,7 +237,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     assert_located_at(expected_coordinate, mars_rover)
   end
 
-  def test_rover_cannot_forward_beyond_right_hand_edge_when_left_hand_edge_has_an_obstable
+  def test_rover_cannot_forward_beyond_right_hand_edge_when_left_hand_edge_has_an_obstacle
     world = World.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(x: -4, y: -1, direction: 'E')])
     mars_rover =
       MarsRover.positioned_at(
