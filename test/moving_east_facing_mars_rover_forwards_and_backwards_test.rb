@@ -266,7 +266,6 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_rover_cannot_move_backwards_past_left_hand_edge_when_it_has_an_obstacle
-    skip('Test list')
     world = World.new(x_range: (-10..10), y_range: (-10..10), obstacles: [Position.new(x: 10, y: 1, direction: 'E')])
     mars_rover =
       MarsRover.positioned_at(

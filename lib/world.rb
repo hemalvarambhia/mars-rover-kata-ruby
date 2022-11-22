@@ -53,7 +53,9 @@ class World
       end
     when 'E'
       if at_left_edge?(location)
-        Position.new(x: right_edge, y: location.y, direction: direction)
+        next_location = Position.new(x: right_edge, y: location.y, direction: direction)
+        return location if @obstacles.include? next_location
+        next_location
       else
         next_location = Position.new(x: location.x - 1, y: location.y, direction: direction)
         return location if @obstacles.include? next_location
