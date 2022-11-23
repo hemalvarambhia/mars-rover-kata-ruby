@@ -65,7 +65,9 @@ class World
       if at_top_edge?(location)
         Position.new(x: location.x, y: bottom_edge, direction: direction)
       else
-        Position.new(x: location.x, y: location.y + 1, direction: direction)
+        next_location = Position.new(x: location.x, y: location.y + 1, direction: direction)
+        return location if obstacle_at? next_location
+        next_location
       end
     when 'W'
       if at_right_edge?(location)
