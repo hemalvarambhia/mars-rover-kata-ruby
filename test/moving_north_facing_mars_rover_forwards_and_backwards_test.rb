@@ -8,7 +8,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_moving_nowhere
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: 0, y: 0, direction: 'N')
       )
 
@@ -21,7 +21,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_moving_one_step_forward
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: 0, y: 0, direction: 'N')
       )
 
@@ -34,7 +34,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_moving_two_steps_forward
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: 0, y: 0, direction: 'N')
       )
 
@@ -47,7 +47,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_moving_multiple_steps_forward
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: 0, y: 0, direction: 'N')
       )
 
@@ -60,7 +60,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_rover_moves_back_one_step
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: 2, y: 0, direction: 'N')
       )
 
@@ -73,7 +73,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_rover_moves_multiple_steps_backward
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: -3, y: 0, direction: 'N')
       )
 
@@ -86,7 +86,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_rover_moves_multiple_steps_forward_and_multiple_steps_backward
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: 3, y: 0, direction: 'N')
       )
 
@@ -99,7 +99,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   def test_rover_moves_nowhere_for_any_unrecognised_command
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: 1, y: 0, direction: 'N')
       )
 
@@ -110,7 +110,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_no_wrapping_when_moving_forward
-    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    world = Planet.new(x_range: (-4..4), y_range: (-4..4))
     mars_rover =
       MarsRover.positioned_at(
         world,
@@ -124,7 +124,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_forward_to_the_top_edge
-    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    world = Planet.new(x_range: (-4..4), y_range: (-4..4))
     mars_rover =
       MarsRover.positioned_at(
         world,
@@ -138,7 +138,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_forward_from_the_top_edge
-    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    world = Planet.new(x_range: (-4..4), y_range: (-4..4))
     mars_rover =
       MarsRover.positioned_at(
         world,
@@ -152,7 +152,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_forward_past_the_top_edge
-    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    world = Planet.new(x_range: (-4..4), y_range: (-4..4))
     mars_rover =
       MarsRover.positioned_at(
         world,
@@ -166,7 +166,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_no_wrapping_when_moving_backward
-    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    world = Planet.new(x_range: (-4..4), y_range: (-4..4))
     mars_rover =
       MarsRover.positioned_at(
         world,
@@ -180,7 +180,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_backward_to_the_bottom_edge
-    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    world = Planet.new(x_range: (-4..4), y_range: (-4..4))
     mars_rover =
       MarsRover.positioned_at(
         world,
@@ -194,7 +194,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_backward_from_the_bottom_edge
-    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    world = Planet.new(x_range: (-4..4), y_range: (-4..4))
     mars_rover =
       MarsRover.positioned_at(
         world,
@@ -208,7 +208,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_backward_past_the_bottom_edge
-    world = World.new(x_range: (-4..4), y_range: (-4..4))
+    world = Planet.new(x_range: (-4..4), y_range: (-4..4))
     mars_rover =
       MarsRover.positioned_at(
         world,
@@ -222,7 +222,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_rover_cannot_move_forward_when_there_is_an_obstacle_in_front
-    world = World.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(x: -2, y: 1, direction: 'N')])
+    world = Planet.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(x: -2, y: 1, direction: 'N')])
     mars_rover =
       MarsRover.positioned_at(
         world,
@@ -236,7 +236,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_rover_cannot_move_forward_past_top_edge_when_there_is_an_obstacle_at_bottom_edge
-    world = World.new(x_range: (-5..5), y_range: (-5..5), obstacles: [Position.new(x: 0, y: -5, direction: 'N')])
+    world = Planet.new(x_range: (-5..5), y_range: (-5..5), obstacles: [Position.new(x: 0, y: -5, direction: 'N')])
 
     mars_rover =
       MarsRover.positioned_at(
@@ -251,7 +251,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_rover_cannot_move_backward_when_there_is_an_obstacle_behind
-    world = World.new(x_range: (-5..5), y_range: (-5..5), obstacles: [Position.new(x: 2, y: 0, direction: 'N')])
+    world = Planet.new(x_range: (-5..5), y_range: (-5..5), obstacles: [Position.new(x: 2, y: 0, direction: 'N')])
     mars_rover =
       MarsRover.positioned_at(
         world,
@@ -265,7 +265,7 @@ class MovingNorthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_rover_cannot_move_backward_past_bottom_edge_when_there_is_an_obstacle_at_top_edge
-    world = World.new(x_range: (-6..6), y_range: (-6..6), obstacles: [Position.new(x: 5, y: 6, direction: 'N')])
+    world = Planet.new(x_range: (-6..6), y_range: (-6..6), obstacles: [Position.new(x: 5, y: 6, direction: 'N')])
     mars_rover =
       MarsRover.positioned_at(
         world,

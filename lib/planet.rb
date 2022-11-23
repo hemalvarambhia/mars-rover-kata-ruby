@@ -1,4 +1,4 @@
-class World
+class Planet
   def self.infinite
     new(
       x_range: (-Float::INFINITY..Float::INFINITY),

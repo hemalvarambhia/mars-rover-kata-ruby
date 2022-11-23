@@ -7,7 +7,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
   def test_turning_north_facing_mars_rover
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: -1, y: 2, direction: 'N')
       )
 
@@ -20,7 +20,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
   def test_turning_east_facing_mars_rover
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: 1, y: -2, direction: 'E')
       )
 
@@ -33,7 +33,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
   def test_turning_south_facing_mars_rover
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: 0, y: -2, direction: 'S')
       )
 
@@ -46,7 +46,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
   def test_turning_west_facing_mars_rover
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: 3, y: 3, direction: 'W')
       )
 
@@ -59,7 +59,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
   def test_turning_north_facing_mars_rover_twice
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: -1, y: 2, direction: 'N')
       )
 
@@ -72,7 +72,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
   def test_turning_north_facing_mars_rover_four_times
     mars_rover =
       MarsRover.positioned_at(
-        World.infinite,
+        Planet.infinite,
         Position.new(x: -1, y: 2, direction: 'N')
       )
 
