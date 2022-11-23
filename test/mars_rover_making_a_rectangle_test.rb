@@ -8,7 +8,8 @@ class MarsRoverMakingARectangleTest < Minitest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(x: -2, y: 1, direction: 'S')
+        Position.new(x: -2, y: 1, direction: nil),
+        'S'
       )
 
     mars_rover.execute('fflfffflfflffff')
