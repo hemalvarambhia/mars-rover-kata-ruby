@@ -51,33 +51,28 @@ class World
       else
         next_location = Position.new(x: location.x, y: location.y - 1, direction: direction)
       end
-      return location if obstacle_at?(next_location)
-      next_location
     when 'E'
       if at_left_edge?(location)
         next_location = Position.new(x: right_edge, y: location.y, direction: direction)
       else
         next_location = Position.new(x: location.x - 1, y: location.y, direction: direction)
       end
-      return location if obstacle_at? next_location
-      next_location
     when 'S'
       if at_top_edge?(location)
         next_location = Position.new(x: location.x, y: bottom_edge, direction: direction)
-        return location if obstacle_at? next_location
-        next_location
       else
         next_location = Position.new(x: location.x, y: location.y + 1, direction: direction)
-        return location if obstacle_at? next_location
-        next_location
       end
     when 'W'
       if at_right_edge?(location)
-        Position.new(x: left_edge, y: location.y, direction: direction)
+        next_location = Position.new(x: left_edge, y: location.y, direction: direction)
       else
-        Position.new(x: location.x + 1, y: location.y, direction: direction)
+        next_location = Position.new(x: location.x + 1, y: location.y, direction: direction)
       end
     end
+
+    return location if obstacle_at? next_location
+    next_location
   end
 
   private
