@@ -9,7 +9,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(x: 0, y: 0, direction: 'N')
+        Position.new(x: 0, y: 0, direction: nil),
+        'N'
       )
 
     expected_location = Position.new(x: 0, y: 0, direction: 'N')
@@ -20,7 +21,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(x: 1, y: 0, direction: 'N')
+        Position.new(x: 1, y: 0, direction: nil),
+        'N'
       )
 
     expected_location = Position.new(x: 1, y: 0, direction: 'N')
@@ -31,7 +33,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(x: 0, y: 5, direction: 'N')
+        Position.new(x: 0, y: 5, direction: nil),
+        'N'
       )
 
     expected_location = Position.new(x: 0, y: 5, direction: 'N')
@@ -42,7 +45,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         World.infinite,
-        Position.new(x: 0, y: 0, direction: 'E')
+        Position.new(x: 0, y: 0, direction: nil),
+        'E'
       )
 
     expected_location = Position.new(x: 0, y: 0, direction: 'E')
