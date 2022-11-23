@@ -32,7 +32,9 @@ class World
       next_location
     when 'S'
       if at_bottom_edge?(location)
-        Position.new(x: location.x, y: top_edge, direction: direction)
+        next_location = Position.new(x: location.x, y: top_edge, direction: direction)
+        return location if obstacle_at?(next_location)
+        next_location
       else
         next_location = Position.new(x: location.x, y: location.y - 1, direction: direction)
         return location if obstacle_at?(next_location)
