@@ -9,7 +9,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 0, y: -1, direction: nil),
+        Position.new(x: 0, y: -1),
         'S'
       )
 
@@ -37,7 +37,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 3, y: 0, direction: nil),
+        Position.new(x: 3, y: 0),
         'S'
       )
 
@@ -51,7 +51,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 0, y: 0, direction: nil),
+        Position.new(x: 0, y: 0),
         'S'
       )
 
@@ -66,7 +66,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: 0, y: -4, direction: nil),
+        Position.new(x: 0, y: -4),
         'S'
       )
 
@@ -81,7 +81,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: 0, y: -5, direction: nil),
+        Position.new(x: 0, y: -5),
         'S'
       )
 
@@ -96,7 +96,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -1, y: -3, direction: nil),
+        Position.new(x: -1, y: -3),
         'S'
       )
 
@@ -111,7 +111,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -2, y: 2, direction: nil),
+        Position.new(x: -2, y: 2),
         'S'
       )
 
@@ -126,7 +126,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -2, y: 5, direction: nil),
+        Position.new(x: -2, y: 5),
         'S'
       )
 
@@ -141,7 +141,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -5, y: 6, direction: nil),
+        Position.new(x: -5, y: 6),
         'S'
       )
 
@@ -156,7 +156,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: 0, y: 4, direction: nil),
+        Position.new(x: 0, y: 4),
         'S'
       )
 
@@ -171,7 +171,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -3, y: -3, direction: nil),
+        Position.new(x: -3, y: -3),
         'S'
     )
 
@@ -186,7 +186,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -3, y: -7, direction: nil),
+        Position.new(x: -3, y: -7),
         'S'
       )
 
@@ -201,7 +201,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: 0, y: 0, direction: nil),
+        Position.new(x: 0, y: 0),
         'S'
       )
 
@@ -216,7 +216,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: 4, y: 4, direction: nil),
+        Position.new(x: 4, y: 4),
         'S'
       )
 
