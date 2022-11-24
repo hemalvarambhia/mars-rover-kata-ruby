@@ -1,8 +1,8 @@
 class MarsRover
   attr_reader :direction
 
-  def self.positioned_at(world, location, direction = nil)
-    new(world, location, direction || location.direction)
+  def self.positioned_at(world, location, direction)
+    new(world, location, direction)
   end
 
   def initialize(world, location, direction)
