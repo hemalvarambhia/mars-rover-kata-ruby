@@ -95,7 +95,8 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -4, y: 7, direction: 'W')
+        Position.new(x: -4, y: 7, direction: 'W'),
+        'W'
       )
 
     mars_rover.execute('ffff')

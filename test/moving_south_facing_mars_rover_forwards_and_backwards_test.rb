@@ -9,7 +9,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 0, y: -1, direction: 'S')
+        Position.new(x: 0, y: -1, direction: nil),
+        'S'
       )
 
     mars_rover.execute('')
@@ -22,7 +23,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 2, y: 3, direction: 'S')
+        Position.new(x: 2, y: 3, direction: 'S'),
+        'S'
       )
 
     mars_rover.execute('f')
@@ -35,7 +37,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 3, y: 0, direction: 'S')
+        Position.new(x: 3, y: 0, direction: nil),
+        'S'
       )
 
     mars_rover.execute('b')
@@ -48,7 +51,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 0, y: 0, direction: 'S')
+        Position.new(x: 0, y: 0, direction: nil),
+        'S'
       )
 
     mars_rover.execute('e')
@@ -62,7 +66,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: 0, y: -4, direction: 'S')
+        Position.new(x: 0, y: -4, direction: nil),
+        'S'
       )
 
     mars_rover.execute('f')
@@ -76,7 +81,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: 0, y: -5, direction: 'S')
+        Position.new(x: 0, y: -5, direction: nil),
+        'S'
       )
 
     mars_rover.execute('f')
@@ -90,7 +96,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -1, y: -3, direction: 'S')
+        Position.new(x: -1, y: -3, direction: nil),
+        'S'
       )
 
     mars_rover.execute('fffff')
@@ -104,7 +111,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -2, y: 2, direction: 'S')
+        Position.new(x: -2, y: 2, direction: nil),
+        'S'
       )
 
     mars_rover.execute('b')
@@ -118,7 +126,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -2, y: 5, direction: 'S')
+        Position.new(x: -2, y: 5, direction: nil),
+        'S'
       )
 
     mars_rover.execute('b')
@@ -132,7 +141,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -5, y: 6, direction: 'S')
+        Position.new(x: -5, y: 6, direction: nil),
+        'S'
       )
 
     mars_rover.execute('b')
@@ -146,7 +156,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: 0, y: 4, direction: 'S')
+        Position.new(x: 0, y: 4, direction: nil),
+        'S'
       )
 
     mars_rover.execute('bbbbbb')
@@ -160,7 +171,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -3, y: -3, direction: 'S')
+        Position.new(x: -3, y: -3, direction: nil),
+        'S'
     )
 
     mars_rover.execute('f')
@@ -174,7 +186,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: -3, y: -7, direction: 'S')
+        Position.new(x: -3, y: -7, direction: nil),
+        'S'
       )
 
     mars_rover.execute('f')

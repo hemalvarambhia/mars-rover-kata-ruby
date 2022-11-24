@@ -51,7 +51,8 @@ class TurningMarsRoverLeftTest < Minitest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 3, y: 3, direction: 'W')
+        Position.new(x: 3, y: 3, direction: 'W'),
+        'W'
       )
 
     mars_rover.execute('l')
