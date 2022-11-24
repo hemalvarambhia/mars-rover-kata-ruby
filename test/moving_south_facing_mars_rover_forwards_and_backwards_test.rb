@@ -188,7 +188,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: 0, y: 0, direction: 'S')
+        Position.new(x: 0, y: 0, direction: nil),
+        'S'
       )
 
     mars_rover.execute('b')
@@ -202,7 +203,8 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         world,
-        Position.new(x: 4, y: 4, direction: 'S')
+        Position.new(x: 4, y: 4, direction: nil),
+        'S'
       )
 
     mars_rover.execute('b')

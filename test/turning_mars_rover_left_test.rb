@@ -8,7 +8,8 @@ class TurningMarsRoverLeftTest < Minitest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: -1, y: 2, direction: 'N')
+        Position.new(x: -1, y: 2, direction: nil),
+        'N'
       )
 
     mars_rover.execute('l')
@@ -21,7 +22,8 @@ class TurningMarsRoverLeftTest < Minitest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 1, y: -2, direction: 'E')
+        Position.new(x: 1, y: -2, direction: nil),
+        'E'
       )
 
     mars_rover.execute('l')
@@ -34,7 +36,9 @@ class TurningMarsRoverLeftTest < Minitest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 0, y: -2, direction: 'S')
+        Position.new(x: 0, y: -2, direction: nil),
+        'S'
+
       )
 
     mars_rover.execute('l')
@@ -60,7 +64,8 @@ class TurningMarsRoverLeftTest < Minitest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: -1, y: 2, direction: 'N')
+        Position.new(x: -1, y: 2, direction: nil),
+        'N'
       )
 
     mars_rover.execute('ll')
@@ -73,7 +78,8 @@ class TurningMarsRoverLeftTest < Minitest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: -1, y: 2, direction: 'N')
+        Position.new(x: -1, y: 2, direction: nil),
+        'N'
       )
 
     mars_rover.execute('llll')
