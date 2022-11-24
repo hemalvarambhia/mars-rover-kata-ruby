@@ -154,10 +154,6 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   private
 
   def mars_rover_facing_south(planet, position)
-    MarsRover.positioned_at(
-      planet,
-      position,
-      'S'
-    )
+    MarsRover.positioned_at(planet, position, 'S')
   end
 end
