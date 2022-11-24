@@ -6,12 +6,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   include LocationAssertion
 
   def test_moving_nowhere
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: 0, y: -1),
-        'S'
-      )
+    mars_rover = mars_rover_facing_south(Planet.infinite, Position.new(x: 0, y: -1))
 
     mars_rover.execute('')
 
@@ -20,12 +15,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_one_step_forward
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: 2, y: 3, direction: 'S'),
-        'S'
-      )
+    mars_rover = mars_rover_facing_south(Planet.infinite, Position.new(x: 2, y: 3))
 
     mars_rover.execute('f')
 
@@ -34,12 +24,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_one_step_backward
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: 3, y: 0),
-        'S'
-      )
+    mars_rover = mars_rover_facing_south(Planet.infinite, Position.new(x: 3, y: 0))
 
     mars_rover.execute('b')
 
@@ -48,12 +33,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_rover_moves_nowhere_for_any_unrecognised_command
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: 0, y: 0),
-        'S'
-      )
+    mars_rover = mars_rover_facing_south(Planet.infinite, Position.new(x: 0, y: 0))
 
     mars_rover.execute('e')
 
@@ -63,12 +43,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_no_wrapping_when_moving_forward_to_the_bottom_edge
     world = Planet.new(x_range: (-5..5), y_range: (-5..5))
-    mars_rover =
-      MarsRover.positioned_at(
-        world,
-        Position.new(x: 0, y: -4),
-        'S'
-      )
+    mars_rover = mars_rover_facing_south(world, Position.new(x: 0, y: -4))
 
     mars_rover.execute('f')
 
@@ -78,12 +53,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_wrapping_when_at_bottom_edge_and_moving_forward
     world = Planet.new(x_range: (-5..5), y_range: (-5..5))
-    mars_rover =
-      MarsRover.positioned_at(
-        world,
-        Position.new(x: 0, y: -5),
-        'S'
-      )
+    mars_rover = mars_rover_facing_south(world, Position.new(x: 0, y: -5))
 
     mars_rover.execute('f')
 
@@ -93,12 +63,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_wrapping_past_bottom_edge_when_moving_forward
     world = Planet.new(x_range: (-5..5), y_range: (-5..5))
-    mars_rover =
-      MarsRover.positioned_at(
-        world,
-        Position.new(x: -1, y: -3),
-        'S'
-      )
+    mars_rover = mars_rover_facing_south(world, Position.new(x: -1, y: -3))
 
     mars_rover.execute('fffff')
 
@@ -108,12 +73,7 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
   def test_no_wrapping_when_moving_backward
     world = Planet.new(x_range: (-5..5), y_range: (-5..5))
-    mars_rover =
-      MarsRover.positioned_at(
-        world,
-        Position.new(x: -2, y: 2),
-        'S'
-      )
+    mars_rover = mars_rover_facing_south(world, Position.new(x: -2, y: 2))
 
     mars_rover.execute('b')
 
@@ -224,5 +184,15 @@ class MovingSouthFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     expected_coordinates = Position.new(x: 4, y: 4, direction: 'S')
     assert_located_at(expected_coordinates, mars_rover)
+  end
+
+  private
+
+  def mars_rover_facing_south(planet, position)
+    MarsRover.positioned_at(
+      planet,
+      position,
+      'S'
+    )
   end
 end
