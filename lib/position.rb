@@ -7,6 +7,10 @@ class Position
     @direction = direction
   end
 
+  def move(movement)
+    Position.new(x: x + movement.x, y: y + movement.y)
+  end
+
   def ==(location)
     x == location.x && y == location.y
   end
