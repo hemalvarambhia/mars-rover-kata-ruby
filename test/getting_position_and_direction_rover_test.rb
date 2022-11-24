@@ -9,7 +9,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 0, y: 0, direction: nil),
+        Position.new(x: 0, y: 0),
         'N'
       )
 
@@ -21,7 +21,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 1, y: 0, direction: nil),
+        Position.new(x: 1, y: 0),
         'N'
       )
 
@@ -33,7 +33,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 0, y: 5, direction: nil),
+        Position.new(x: 0, y: 5),
         'N'
       )
 
@@ -45,7 +45,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: 0, y: 0, direction: nil),
+        Position.new(x: 0, y: 0),
         'E'
       )
 
