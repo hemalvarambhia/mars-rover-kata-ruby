@@ -13,8 +13,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         'N'
       )
 
-    expected_location = Position.new(x: 0, y: 0, direction: 'N')
-    assert_located_at(expected_location, mars_rover)
+    expected_location = Position.new(x: 0, y: 0)
+    assert_that(mars_rover, located_at: expected_location, facing: 'N')
   end
 
   def test_current_position_of_north_facing_mars_rover_anywhere_on_x_axis
@@ -25,8 +25,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         'N'
       )
 
-    expected_location = Position.new(x: 1, y: 0, direction: 'N')
-    assert_located_at(expected_location, mars_rover)
+    expected_location = Position.new(x: 1, y: 0)
+    assert_that(mars_rover, located_at: expected_location, facing: 'N')
   end
 
   def test_current_position_of_north_facing_mars_rover_anywhere_on_y_axis
@@ -37,8 +37,8 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         'N'
       )
 
-    expected_location = Position.new(x: 0, y: 5, direction: 'N')
-    assert_located_at(expected_location, mars_rover)
+    expected_location = Position.new(x: 0, y: 5)
+    assert_that(mars_rover, located_at: expected_location, facing: 'N')
   end
 
   def test_current_position_and_direction_of_east_facing_mars_rover
@@ -49,7 +49,7 @@ class GettingCurrentPositionAndDirectionOfMarsRoverTest < MiniTest::Test
         'E'
       )
 
-    expected_location = Position.new(x: 0, y: 0, direction: 'E')
-    assert_located_at(expected_location, mars_rover)
+    expected_location = Position.new(x: 0, y: 0)
+    assert_that(mars_rover, located_at: expected_location, facing: 'E')
   end
 end
