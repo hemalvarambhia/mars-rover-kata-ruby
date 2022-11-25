@@ -10,7 +10,7 @@ class MarsRoverSideSteppingObstaclesTest < Minitest::Test
 
     mars_rover.execute('fffrfflfflf')
 
-    expected_location = Position.new(x: 1, y: 4, direction: 'W')
-    assert_located_at(expected_location, mars_rover)
+    expected_location = Position.new(x: 1, y: 4)
+    assert_that(mars_rover, located_at: expected_location, facing: 'W')
   end
 end
