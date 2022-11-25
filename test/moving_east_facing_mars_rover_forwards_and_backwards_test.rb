@@ -194,7 +194,6 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     world = Planet.new(x_range: (-10..10), y_range: (-10..10), obstacles: [Position.new(x: 10, y: 1, direction: 'E')])
     mars_rover = mars_rover_facing_east(world, Position.new(x: -10, y: 1))
 
-
     mars_rover.execute('bb')
 
     expected_coordinate = Position.new(x: -10, y: 1)
