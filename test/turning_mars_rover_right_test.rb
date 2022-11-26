@@ -5,12 +5,7 @@ class TurningMarsRoverRightTest < Minitest::Test
   include LocationAssertion
 
   def test_turning_north_facing_mars_rover
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: 4, y: 1),
-        'N'
-      )
+    mars_rover = MarsRover.positioned_at(Planet.infinite, Position.new(x: 4, y: 1), 'N')
 
     mars_rover.execute('r')
 
@@ -19,12 +14,7 @@ class TurningMarsRoverRightTest < Minitest::Test
   end
 
   def test_turning_east_facing_mars_rover
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: 2, y: -3),
-        'E'
-      )
+    mars_rover = MarsRover.positioned_at(Planet.infinite, Position.new(x: 2, y: -3), 'E')
 
     mars_rover.execute('r')
 
@@ -33,12 +23,7 @@ class TurningMarsRoverRightTest < Minitest::Test
   end
 
   def test_turning_south_facing_mars_rover
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: 2, y: -3),
-        'S'
-      )
+    mars_rover = MarsRover.positioned_at(Planet.infinite, Position.new(x: 2, y: -3), 'S')
 
     mars_rover.execute('r')
 
