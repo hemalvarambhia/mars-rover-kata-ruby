@@ -5,12 +5,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
   include LocationAssertion
 
   def test_turning_north_facing_mars_rover
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: -1, y: 2),
-        'N'
-      )
+    mars_rover = MarsRover.positioned_at(Planet.infinite, Position.new(x: -1, y: 2), 'N')
 
     mars_rover.execute('l')
 
@@ -19,12 +14,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
   end
 
   def test_turning_east_facing_mars_rover
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: 1, y: -2),
-        'E'
-      )
+    mars_rover = MarsRover.positioned_at(Planet.infinite, Position.new(x: 1, y: -2), 'E')
 
     mars_rover.execute('l')
 
@@ -33,13 +23,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
   end
 
   def test_turning_south_facing_mars_rover
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: 0, y: -2),
-        'S'
-
-      )
+    mars_rover = MarsRover.positioned_at(Planet.infinite, Position.new(x: 0, y: -2), 'S')
 
     mars_rover.execute('l')
 
@@ -48,12 +32,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
   end
 
   def test_turning_west_facing_mars_rover
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: 3, y: 3),
-        'W'
-      )
+    mars_rover = MarsRover.positioned_at(Planet.infinite, Position.new(x: 3, y: 3), 'W')
 
     mars_rover.execute('l')
 
@@ -62,12 +41,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
   end
 
   def test_turning_north_facing_mars_rover_twice
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: -1, y: 2),
-        'N'
-      )
+    mars_rover = MarsRover.positioned_at(Planet.infinite, Position.new(x: -1, y: 2), 'N')
 
     mars_rover.execute('ll')
 
@@ -76,12 +50,7 @@ class TurningMarsRoverLeftTest < Minitest::Test
   end
 
   def test_turning_north_facing_mars_rover_four_times
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: -1, y: 2),
-        'N'
-      )
+    mars_rover = MarsRover.positioned_at(Planet.infinite, Position.new(x: -1, y: 2), 'N')
 
     mars_rover.execute('llll')
 
