@@ -41,12 +41,7 @@ class TurningMarsRoverRightTest < Minitest::Test
   end
 
   def test_turning_north_facing_rover_twice
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: 3, y: 3),
-        'N'
-      )
+    mars_rover = MarsRover.positioned_at(Planet.infinite, Position.new(x: 3, y: 3), 'N')
 
     mars_rover.execute('rr')
 
