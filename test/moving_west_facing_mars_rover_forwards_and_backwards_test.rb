@@ -9,8 +9,8 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('')
 
-    expected_location = Position.new(x: 3, y: 0, direction: 'W')
-    assert_located_at(expected_location, mars_rover)
+    expected_location = Position.new(x: 3, y: 0)
+    assert_that(mars_rover, located_at: expected_location, facing: 'W')
   end
 
   def test_moving_one_step_forward
@@ -18,8 +18,8 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('f')
 
-    expected_location = Position.new(x: 2, y: 1, direction: 'W')
-    assert_located_at(expected_location, mars_rover)
+    expected_location = Position.new(x: 2, y: 1)
+    assert_that(mars_rover, located_at: expected_location, facing: 'W')
   end
 
   def test_moving_one_step_backward
@@ -27,8 +27,8 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    expected_location = Position.new(x: 0, y: -1, direction: 'W')
-    assert_located_at(expected_location, mars_rover)
+    expected_location = Position.new(x: 0, y: -1)
+    assert_that(mars_rover, located_at: expected_location, facing: 'W')
   end
 
   def test_rover_moves_nowhere_for_any_unrecognised_command
