@@ -46,8 +46,8 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('f')
 
-    expected_coordinates = Position.new(x: 1, y: -2, direction: 'W')
-    assert_located_at(expected_coordinates, mars_rover)
+    expected_coordinates = Position.new(x: 1, y: -2)
+    assert_that(mars_rover, located_at: expected_coordinates, facing: 'W')
   end
 
   def test_wrapping_when_at_the_left_hand_edge_and_moving_forward
@@ -56,8 +56,8 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('f')
 
-    expected_coordinates = Position.new(x: 5, y: 5, direction: 'W')
-    assert_located_at(expected_coordinates, mars_rover)
+    expected_coordinates = Position.new(x: 5, y: 5)
+    assert_that(mars_rover, located_at: expected_coordinates, facing: 'W')
   end
 
   def test_wrapping_past_the_left_hand_edge_when_moving_forward
@@ -66,8 +66,8 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('ffff')
 
-    expected_coordinates = Position.new(x: 5, y: 7, direction: 'W')
-    assert_located_at(expected_coordinates, mars_rover)
+    expected_coordinates = Position.new(x: 5, y: 7)
+    assert_that(mars_rover, located_at: expected_coordinates, facing: 'W')
   end
 
   def test_no_wrapping_when_moving_backward
@@ -76,8 +76,8 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    expected_coordinates = Position.new(x: 2, y: 2, direction: 'W')
-    assert_located_at(expected_coordinates, mars_rover)
+    expected_coordinates = Position.new(x: 2, y: 2)
+    assert_that(mars_rover, located_at: expected_coordinates, facing: 'W')
   end
 
   def test_no_wrapping_when_moving_backward_to_the_right_hand_edge
@@ -86,8 +86,8 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    expected_coordinates = Position.new(x: 3, y: 0, direction: 'W')
-    assert_located_at(expected_coordinates, mars_rover)
+    expected_coordinates = Position.new(x: 3, y: 0)
+    assert_that(mars_rover, located_at: expected_coordinates, facing: 'W')
   end
 
   def test_wrapping_when_at_the_right_hand_edge_and_moving_backward
@@ -96,8 +96,8 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    expected_coordinates = Position.new(x: -7, y: 4, direction: 'W')
-    assert_located_at(expected_coordinates, mars_rover)
+    expected_coordinates = Position.new(x: -7, y: 4)
+    assert_that(mars_rover, located_at: expected_coordinates, facing: 'W')
   end
 
   def test_wrapping_past_the_right_hand_edge_when_moving_backward
@@ -106,8 +106,8 @@ class MovingWestFacingMarsRoverForwardsAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('bbbbbb')
 
-    expected_coordinates = Position.new(x: -4, y: 2, direction: 'W')
-    assert_located_at(expected_coordinates, mars_rover)
+    expected_coordinates = Position.new(x: -4, y: 2)
+    assert_that(mars_rover, located_at: expected_coordinates, facing: 'W')
   end
 
   private
