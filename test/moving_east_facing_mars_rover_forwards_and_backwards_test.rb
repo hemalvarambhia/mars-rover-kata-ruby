@@ -28,7 +28,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('b')
 
-    expected_location = Position.new(x: 1, y: 2, direction: 'E')
+    expected_location = Position.new(x: 1, y: 2)
     assert_that(mars_rover, located_at: expected_location, facing: 'E')
   end
 
@@ -46,7 +46,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('z')
 
-    expected_location = Position.new(x: -3, y: -2, direction: 'E')
+    expected_location = Position.new(x: -3, y: -2)
     assert_that(mars_rover, located_at: expected_location, facing: 'E')
   end
 
@@ -86,7 +86,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('ff')
 
-    expected_coordinate = Position.new(x: -4, y: 0, direction: 'E')
+    expected_coordinate = Position.new(x: -4, y: 0)
     assert_that(mars_rover, located_at: expected_coordinate, facing: 'E')
   end
 
@@ -96,7 +96,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
 
     mars_rover.execute('fffffff')
 
-    expected_coordinate = Position.new(x: 0, y: 0, direction: 'E')
+    expected_coordinate = Position.new(x: 0, y: 0)
     assert_that(mars_rover, located_at: expected_coordinate, facing: 'E')
   end
 
@@ -141,7 +141,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_nowhere_when_obstacle_is_adjacent_and_in_front
-    world = Planet.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(x: -2, y: 0, direction: 'E')])
+    world = Planet.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(x: -2, y: 0)])
     mars_rover = mars_rover_facing_east(world, Position.new(x: -3, y: 0))
 
     mars_rover.execute('f')
@@ -151,7 +151,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_one_step_forward_before_encountering_an_obstacle
-    world = Planet.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(x: -2, y: 0, direction: 'E')])
+    world = Planet.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(x: -2, y: 0)])
     mars_rover = mars_rover_facing_east(world, Position.new(x: -4, y: 0))
 
     mars_rover.execute('f')
@@ -161,7 +161,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_moving_two_steps_forward_before_encountering_an_obstacle
-    world = Planet.new(x_range: (-10..10), y_range: (-10..10), obstacles: [Position.new(x: 5, y: 2, direction: 'E')])
+    world = Planet.new(x_range: (-10..10), y_range: (-10..10), obstacles: [Position.new(x: 5, y: 2)])
     mars_rover = mars_rover_facing_east(world, Position.new(x: 2, y: 2))
 
     mars_rover.execute('ff')
@@ -171,7 +171,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_rover_cannot_forward_beyond_right_hand_edge_when_left_hand_edge_has_an_obstacle
-    world = Planet.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(x: -4, y: -1, direction: 'E')])
+    world = Planet.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(x: -4, y: -1)])
     mars_rover = mars_rover_facing_east(world, Position.new(x: 4, y: -1))
 
     mars_rover.execute('f')
@@ -181,7 +181,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_we_cannot_move_one_step_backward_when_an_obstacle_is_adjacent
-    world = Planet.new(x_range: (-10..10), y_range: (-10..10), obstacles: [Position.new(x: -1, y: -1, direction: 'E')])
+    world = Planet.new(x_range: (-10..10), y_range: (-10..10), obstacles: [Position.new(x: -1, y: -1)])
     mars_rover = mars_rover_facing_east(world, Position.new(x: 0, y: -1))
 
     mars_rover.execute('b')
@@ -191,7 +191,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
   end
 
   def test_rover_cannot_move_backwards_past_left_hand_edge_when_it_has_an_obstacle
-    world = Planet.new(x_range: (-10..10), y_range: (-10..10), obstacles: [Position.new(x: 10, y: 1, direction: 'E')])
+    world = Planet.new(x_range: (-10..10), y_range: (-10..10), obstacles: [Position.new(x: 10, y: 1)])
     mars_rover = mars_rover_facing_east(world, Position.new(x: -10, y: 1))
 
     mars_rover.execute('bb')
