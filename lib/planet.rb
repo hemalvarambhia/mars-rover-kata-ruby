@@ -17,28 +17,28 @@ class Planet
     case direction
     when 'N'
       if at_top_edge?(location)
-        next_location = Position.new(x: location.x, y: bottom_edge, direction: direction)
+        next_location = Position.new(x: location.x, y: bottom_edge)
       else
         movement = OpenStruct.new(x: 0, y: 1)
         next_location = location.move(movement)
       end
     when 'E'
       if at_right_edge?(location)
-        next_location = Position.new(x: left_edge, y: location.y, direction: direction)
+        next_location = Position.new(x: left_edge, y: location.y)
       else
         movement = OpenStruct.new(x: 1, y: 0)
         next_location = location.move(movement)
       end
     when 'S'
       if at_bottom_edge?(location)
-        next_location = Position.new(x: location.x, y: top_edge, direction: direction)
+        next_location = Position.new(x: location.x, y: top_edge)
       else
         movement = OpenStruct.new(x: 0, y: -1)
         next_location = location.move(movement)
       end
     when 'W'
       if at_left_edge?(location)
-        next_location = Position.new(x: right_edge, y: location.y, direction: direction)
+        next_location = Position.new(x: right_edge, y: location.y)
       else
         movement = OpenStruct.new(x: -1, y: 0)
         next_location = location.move(movement)
@@ -52,28 +52,28 @@ class Planet
     case direction
     when 'N'
       if at_bottom_edge?(location)
-        next_location = Position.new(x: location.x, y: top_edge, direction: direction)
+        next_location = Position.new(x: location.x, y: top_edge)
       else
         movement = OpenStruct.new(x: 0, y: -1)
         next_location = location.move(movement)
       end
     when 'E'
       if at_left_edge?(location)
-        next_location = Position.new(x: right_edge, y: location.y, direction: direction)
+        next_location = Position.new(x: right_edge, y: location.y)
       else
         movement = OpenStruct.new(x: -1, y: 0)
         next_location = location.move(movement)
       end
     when 'S'
       if at_top_edge?(location)
-        next_location = Position.new(x: location.x, y: bottom_edge, direction: direction)
+        next_location = Position.new(x: location.x, y: bottom_edge)
       else
         movement = OpenStruct.new(x: 0, y: 1)
         next_location = location.move(movement)
       end
     when 'W'
       if at_right_edge?(location)
-        next_location = Position.new(x: left_edge, y: location.y, direction: direction)
+        next_location = Position.new(x: left_edge, y: location.y)
       else
         movement = OpenStruct.new(x: 1, y: 0)
         next_location = location.move(movement)

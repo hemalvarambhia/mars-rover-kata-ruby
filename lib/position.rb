@@ -4,7 +4,6 @@ class Position
   def initialize(x:, y:, direction: nil)
     @x = x
     @y = y
-    @direction = direction
   end
 
   def move(movement)
