@@ -5,12 +5,7 @@ class MarsRoverMakingARectangleTest < Minitest::Test
   include LocationAssertion
 
   def test_making_a_rectangle
-    mars_rover =
-      MarsRover.positioned_at(
-        Planet.infinite,
-        Position.new(x: -2, y: 1),
-        'S'
-      )
+    mars_rover = MarsRover.positioned_at(Planet.infinite, Position.new(x: -2, y: 1), 'S')
 
     mars_rover.execute('fflfffflfflffff')
 
