@@ -1,7 +1,7 @@
 class Position
-  attr_reader :x, :y, :direction
+  attr_reader :x, :y
 
-  def initialize(x:, y:, direction: nil)
+  def initialize(x:, y:)
     @x = x
     @y = y
   end
