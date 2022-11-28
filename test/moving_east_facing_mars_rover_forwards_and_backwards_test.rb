@@ -140,7 +140,7 @@ class MovingEastFacingMarsRoverForwardsAndBackwardsTest < MiniTest::Test
     assert_that(mars_rover, located_at: expected_coordinate, facing: 'E')
   end
 
-  def test_moving_nowhere_when_obstacle_is_adjacent_and_in_front
+  def test_moving_nowhere_when_obstacle_in_front
     world = Planet.new(x_range: (-4..4), y_range: (-4..4), obstacles: [Position.new(x: -2, y: 0)])
     mars_rover = mars_rover_facing_east(world, Position.new(x: -3, y: 0))
 
