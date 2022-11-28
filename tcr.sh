@@ -1,3 +1,3 @@
 #!/bin/sh
 
-bundle exec rake test && git add . || git restore .
+bundle exec rake test && git add lib || git restore lib
