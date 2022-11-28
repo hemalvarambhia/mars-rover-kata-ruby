@@ -8,7 +8,7 @@ class MarsRoverMakingARectangleTest < Minitest::Test
     mars_rover =
       MarsRover.positioned_at(
         Planet.infinite,
-        Position.new(x: -2, y: 1, direction: nil),
+        Position.new(x: -2, y: 1),
         'S'
       )
 
