@@ -9,6 +9,8 @@ class MarsRover
   def execute(command)
     if command == 'f'
       @x = @x + 1
+    elsif command == 'b'
+      @x = @x - 1
     end
   end
 end

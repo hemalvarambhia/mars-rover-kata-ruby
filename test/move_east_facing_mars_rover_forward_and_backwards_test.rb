@@ -28,7 +28,11 @@ class MoveEastFacingMarsRoverForwardAndBackwardsTest < Minitest::Test
   end
 
   def test_moving_one_step_backwards_from_any_position
-    skip('Test list')
+    mars_rover = MarsRover.new(x: 3, y: 5)
+
+    mars_rover.execute('b')
+
+    assert_located_at(Coordinates.new(x: 2, y: 5), mars_rover)
   end
 
   private
