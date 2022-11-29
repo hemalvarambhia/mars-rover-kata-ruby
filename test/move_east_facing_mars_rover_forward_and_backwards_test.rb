@@ -10,9 +10,7 @@ class MoveEastFacingMarsRoverForwardAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('')
 
-    expected_x_coordinate = 0
-    expected_y_coordinate = 0
-    assert_located_at(expected_x_coordinate, expected_y_coordinate, mars_rover)
+    assert_located_at(0, 0, mars_rover)
   end
 
   def test_no_command_leaves_mars_rovers_position_unchanged
@@ -20,9 +18,7 @@ class MoveEastFacingMarsRoverForwardAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('')
 
-    expected_x_coordinate = 2
-    expected_y_coordinate = 1
-    assert_located_at(expected_x_coordinate, expected_y_coordinate, mars_rover)
+    assert_located_at(2, 1, mars_rover)
   end
 
   def test_moving_one_step_forward_from_the_origin
