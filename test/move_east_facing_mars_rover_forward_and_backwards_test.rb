@@ -1,12 +1,6 @@
 require 'minitest/autorun'
 require_relative '../lib/mars_rover'
-class Coordinates
-  attr_reader :x, :y
-  def initialize(x:, y:)
-    @x = x
-    @y = y
-  end
-end
+require_relative '../lib/coordinates'
 
 class MoveEastFacingMarsRoverForwardAndBackwardsTest < Minitest::Test
   def test_no_command_moves_mars_rover_nowhere
