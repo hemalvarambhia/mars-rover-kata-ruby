@@ -10,8 +10,10 @@ class MarsRover
   def execute(command)
     if command == 'f'
       @x = @x + 1
+      @current_position = Coordinates.new(x: @x, y: @y)
     elsif command == 'b'
       @x = @x - 1
+      @current_position = Coordinates.new(x: @x, y: @y)
     end
   end
 
