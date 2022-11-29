@@ -23,12 +23,10 @@ class MoveEastFacingMarsRoverForwardAndBackwardsTest < Minitest::Test
     assert_equal(1, mars_rover.y, "y-coordinate")
   end
 
-
   def test_moving_one_step_forward_from_the_origin
-    skip('Test list')
     mars_rover = MarsRover.new(x: 0, y: 0)
 
-    mars_rover.execute('')
+    mars_rover.execute('f')
 
     assert_equal(1, mars_rover.x, "x-coordinate")
     assert_equal(0, mars_rover.y, "y-coordinate")

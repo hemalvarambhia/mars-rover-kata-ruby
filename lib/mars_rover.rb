@@ -6,7 +6,9 @@ class MarsRover
     @y = y
   end
 
-  def execute(_command)
-
+  def execute(command)
+    if command == 'f'
+      @x = @x + 1
+    end
   end
 end
