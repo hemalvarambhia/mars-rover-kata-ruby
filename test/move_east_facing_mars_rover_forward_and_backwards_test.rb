@@ -14,7 +14,7 @@ class MoveEastFacingMarsRoverForwardAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('')
 
-    assert_located_at(Coordinates.new(x: 0, y: 0), 0, 0, mars_rover)
+    assert_located_at(Coordinates.new(x: 0, y: 0), mars_rover)
   end
 
   def test_no_command_leaves_mars_rovers_position_unchanged
@@ -22,7 +22,7 @@ class MoveEastFacingMarsRoverForwardAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('')
 
-    assert_located_at(Coordinates.new(x: 2, y: 1), 2, 1, mars_rover)
+    assert_located_at(Coordinates.new(x: 2, y: 1), mars_rover)
   end
 
   def test_moving_one_step_forward_from_the_origin
@@ -30,7 +30,7 @@ class MoveEastFacingMarsRoverForwardAndBackwardsTest < Minitest::Test
 
     mars_rover.execute('f')
 
-    assert_located_at(Coordinates.new(x: 1, y: 0), 1, 0, mars_rover)
+    assert_located_at(Coordinates.new(x: 1, y: 0), mars_rover)
   end
 
   def test_moving_one_step_backwards_from_any_position
@@ -39,7 +39,7 @@ class MoveEastFacingMarsRoverForwardAndBackwardsTest < Minitest::Test
 
   private
 
-  def assert_located_at(coordinates, x, y, mars_rover)
+  def assert_located_at(coordinates, mars_rover)
     assert_equal(coordinates.x, mars_rover.x, "x-coordinate")
     assert_equal(coordinates.y, mars_rover.y, "y-coordinate")
   end
