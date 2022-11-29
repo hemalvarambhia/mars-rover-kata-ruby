@@ -1,16 +1,5 @@
 require 'minitest/autorun'
-class MarsRover
-  attr_reader :x, :y
-
-  def initialize
-    @x = 0
-    @y = 0
-  end
-
-  def execute(_command)
-
-  end
-end
+require_relative '../lib/mars_rover'
 class MoveEastFacingMarsRoverForwardAndBackwardsTest < Minitest::Test
   def test_failing_hookup
     assert_equal(4, 2 + 2)
