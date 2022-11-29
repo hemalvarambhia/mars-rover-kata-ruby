@@ -16,6 +16,10 @@ class MarsRover
     @current_position = Coordinates.new(x: @x, y: @y)
   end
 
+  def x
+    @current_position.x
+  end
+
   def direction
     'E'
   end
