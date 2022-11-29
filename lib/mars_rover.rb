@@ -13,4 +13,8 @@ class MarsRover
       @x = @x - 1
     end
   end
+
+  def direction
+    'E'
+  end
 end
