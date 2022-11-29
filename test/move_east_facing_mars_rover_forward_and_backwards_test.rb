@@ -6,7 +6,8 @@ class MoveEastFacingMarsRoverForwardAndBackwardsTest < Minitest::Test
   end
 
   def test_no_command_moves_mars_rover_nowhere
-    mars_rover = MarsRover.new
+    mars_rover = MarsRover.new(x: 0, y: 0)
+
     mars_rover.execute('')
 
     assert_equal(0, mars_rover.x, "x-coordinate")
