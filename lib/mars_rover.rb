@@ -4,6 +4,7 @@ class MarsRover
   def initialize(x:, y:)
     @x = x
     @y = y
+    @current_position = Coordinates.new(x: x, y: y)
   end
 
   def execute(command)
