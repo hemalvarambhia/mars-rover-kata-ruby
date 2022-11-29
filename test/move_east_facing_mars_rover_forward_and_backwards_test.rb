@@ -39,7 +39,7 @@ class MoveEastFacingMarsRoverForwardAndBackwardsTest < Minitest::Test
 
   private
 
-  def assert_located_at(coordinates = nil, x, y, mars_rover)
+  def assert_located_at(coordinates, x, y, mars_rover)
     assert_equal(coordinates.x, mars_rover.x, "x-coordinate")
     assert_equal(coordinates.y, mars_rover.y, "y-coordinate")
   end
