@@ -68,7 +68,11 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
   end
 
   def test_turning_mars_rover_right_leaves_current_position_unchanged
-    skip('Test list')
+    mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 0, y: 3), orientation: 'E')
+
+    mars_rover.execute('r')
+
+    assert_located_at(Coordinates.new(x: 0, y: 3), mars_rover)
   end
 
   private
