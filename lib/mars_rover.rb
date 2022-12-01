@@ -10,13 +10,13 @@ class MarsRover
     x = @current_position.x
     case command
     when 'f'
-      x = @current_position.x + 1
+      x = move_forward
     when 'b'
-      x = @current_position.x - 1
+      x = move_backwards
     when 'l'
-      @orientation = 'N'
+      turn_left
     when 'r'
-      @orientation = 'S'
+      turn_right
     end
 
     @current_position = Coordinates.new(x: x, y: @current_position.y)
@@ -28,5 +28,23 @@ class MarsRover
 
   def y
     @current_position.y
+  end
+
+  private
+
+  def turn_right
+    @orientation = 'S'
+  end
+
+  def turn_left
+    @orientation = 'N'
+  end
+
+  def move_backwards
+    @current_position.x - 1
+  end
+
+  def move_forward
+    @current_position.x + 1
   end
 end
