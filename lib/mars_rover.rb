@@ -1,7 +1,7 @@
 class MarsRover
   attr_reader :orientation
 
-  def initialize(starting_position:, orientation: 'E')
+  def initialize(starting_position:, orientation:)
     @current_position = starting_position
     @orientation = orientation
   end
