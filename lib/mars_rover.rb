@@ -18,8 +18,6 @@ class MarsRover
     when 'r'
       turn_right
     end
-
-    @current_position = Coordinates.new(x: x, y: @current_position.y)
   end
 
   def x
@@ -41,10 +39,12 @@ class MarsRover
   end
 
   def move_backwards
-    @current_position.x - 1
+    x = @current_position.x - 1
+    @current_position = Coordinates.new(x: x, y: @current_position.y)
   end
 
   def move_forward
-    @current_position.x + 1
+    x = @current_position.x + 1
+    @current_position = Coordinates.new(x: x, y: @current_position.y)
   end
 end
