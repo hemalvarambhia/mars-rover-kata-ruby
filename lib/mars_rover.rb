@@ -7,12 +7,11 @@ class MarsRover
   end
 
   def execute(command)
-    x = @current_position.x
     case command
     when 'f'
-      x = move_forward
+      move_forward
     when 'b'
-      x = move_backwards
+      move_backwards
     when 'l'
       turn_left
     when 'r'
