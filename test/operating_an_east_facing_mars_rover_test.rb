@@ -4,7 +4,7 @@ require_relative '../lib/coordinates'
 
 class OperatingAnEastFacingMarsRoverTest < Minitest::Test
   def test_no_command_moves_mars_rover_nowhere
-    mars_rover = MarsRover.new(x: 0, y: 0, starting_position: Coordinates.new(x: 0, y: 0))
+    mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 0, y: 0))
 
     mars_rover.execute('')
 
@@ -12,7 +12,7 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
   end
 
   def test_no_command_leaves_mars_rovers_current_position_unchanged
-    mars_rover = MarsRover.new(x: 2, y: 1, starting_position: Coordinates.new(x: 2, y: 1))
+    mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 2, y: 1))
 
     mars_rover.execute('')
 
@@ -20,7 +20,7 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
   end
 
   def test_moving_one_step_forward_from_the_origin
-    mars_rover = MarsRover.new(x: 0, y: 0, starting_position: Coordinates.new(x: 0, y: 0))
+    mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 0, y: 0))
 
     mars_rover.execute('f')
 
@@ -28,7 +28,7 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
   end
 
   def test_moving_forward_leaves_direction_unchanged
-    mars_rover = MarsRover.new(x: 0, y: 0, starting_position: Coordinates.new(x: 0, y: 0))
+    mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 0, y: 0))
 
     mars_rover.execute('f')
 
@@ -36,7 +36,7 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
   end
 
   def test_moving_one_step_backwards_from_any_position
-    mars_rover = MarsRover.new(x: 3, y: 5, starting_position: Coordinates.new(x: 3, y: 5))
+    mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 3, y: 5))
 
     mars_rover.execute('b')
 

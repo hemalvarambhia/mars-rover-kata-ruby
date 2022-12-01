@@ -1,5 +1,5 @@
 class MarsRover
-  def initialize(x:, y:, starting_position:)
+  def initialize(x: nil, y: nil, starting_position:)
     @current_position = starting_position
   end
 
