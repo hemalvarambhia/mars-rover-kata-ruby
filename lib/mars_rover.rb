@@ -1,9 +1,9 @@
 class MarsRover
   attr_reader :direction
 
-  def initialize(starting_position:)
+  def initialize(starting_position:, direction: 'E')
     @current_position = starting_position
-    @direction = 'E'
+    @direction = direction
   end
 
   def execute(command)
