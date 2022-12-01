@@ -13,6 +13,8 @@ class MarsRover
       x = x + 1
     elsif command == 'b'
       x = x - 1
+    elsif command == 'l'
+      @direction = 'N'
     end
     @current_position = Coordinates.new(x: x, y: y)
   end
