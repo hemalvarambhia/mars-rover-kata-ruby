@@ -8,19 +8,18 @@ class MarsRover
 
   def execute(command)
     x = @current_position.x
-    y = @current_position.y
     case command
     when 'f'
-      x = x + 1
+      x = @current_position.x + 1
     when 'b'
-      x = x - 1
+      x = @current_position.x - 1
     when 'l'
       @orientation = 'N'
     when 'r'
       @orientation = 'S'
     end
 
-    @current_position = Coordinates.new(x: x, y: y)
+    @current_position = Coordinates.new(x: x, y: @current_position.y)
   end
 
   def x
