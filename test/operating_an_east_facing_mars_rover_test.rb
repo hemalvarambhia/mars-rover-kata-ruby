@@ -75,6 +75,10 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
     assert_located_at(Coordinates.new(x: 0, y: 3), mars_rover)
   end
 
+  def test_an_unsupported_command_does_nothing_to_the_mars_rover
+    skip('Test list')
+  end
+
   private
 
   def assert_located_at(coordinates, mars_rover)
