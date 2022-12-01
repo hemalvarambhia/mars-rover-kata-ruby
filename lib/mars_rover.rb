@@ -1,4 +1,6 @@
 class MarsRover
+  attr_reader :direction
+
   def initialize(starting_position:)
     @current_position = starting_position
     @direction = 'E'
@@ -21,9 +23,5 @@ class MarsRover
 
   def y
     @current_position.y
-  end
-
-  def direction
-    @direction
   end
 end
