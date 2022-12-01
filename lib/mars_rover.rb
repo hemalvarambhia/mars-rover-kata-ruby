@@ -1,9 +1,9 @@
 class MarsRover
-  attr_reader :direction
+  attr_reader :orientation
 
-  def initialize(starting_position:, direction: 'E')
+  def initialize(starting_position:, orientation: 'E')
     @current_position = starting_position
-    @direction = direction
+    @orientation = orientation
   end
 
   def execute(command)
@@ -14,7 +14,7 @@ class MarsRover
     elsif command == 'b'
       x = x - 1
     elsif command == 'l'
-      @direction = 'N'
+      @orientation = 'N'
     end
     @current_position = Coordinates.new(x: x, y: y)
   end

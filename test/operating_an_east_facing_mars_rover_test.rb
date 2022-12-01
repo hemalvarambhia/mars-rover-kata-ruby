@@ -32,7 +32,7 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
 
     mars_rover.execute('f')
 
-    assert_equal('E', mars_rover.direction)
+    assert_equal('E', mars_rover.orientation)
   end
 
   def test_moving_one_step_backwards_from_any_position
@@ -48,7 +48,7 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
 
     mars_rover.execute('l')
 
-    assert_equal('N', mars_rover.direction)
+    assert_equal('N', mars_rover.orientation)
   end
 
   def test_turning_mars_rover_left_leaves_current_position_unchanged
