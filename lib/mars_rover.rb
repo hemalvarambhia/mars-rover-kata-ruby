@@ -1,6 +1,7 @@
 class MarsRover
   def initialize(starting_position:)
     @current_position = starting_position
+    @direction = 'E'
   end
 
   def execute(command)
@@ -23,6 +24,6 @@ class MarsRover
   end
 
   def direction
-    'E'
+    @direction
   end
 end
