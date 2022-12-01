@@ -1,5 +1,5 @@
 class MarsRover
-  def initialize(x:, y:, starting_position: Coordinates.new(x: x, y: y))
+  def initialize(x:, y:, starting_position:)
     @current_position = starting_position
   end
 
