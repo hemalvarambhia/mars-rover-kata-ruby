@@ -16,6 +16,8 @@ class MarsRover
       x = x - 1
     when 'l'
       @orientation = 'N'
+    when 'r'
+      @orientation = 'S'
     end
 
     @current_position = Coordinates.new(x: x, y: y)
