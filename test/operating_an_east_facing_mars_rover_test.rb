@@ -90,8 +90,6 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
   end
 
   def assert_located_at(coordinates, mars_rover)
-    assert_equal(coordinates.x, mars_rover.x, "x-coordinate")
-    assert_equal(coordinates.y, mars_rover.y, "y-coordinate")
-    assert_equal(coordinates, mars_rover.current_position)
+    assert_equal(coordinates, mars_rover.current_position, "Coordinates")
   end
 end
