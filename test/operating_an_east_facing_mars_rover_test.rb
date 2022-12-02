@@ -27,7 +27,7 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
     assert_located_at(Coordinates.new(x: 1, y: 0), mars_rover)
   end
 
-  def test_moving_forward_leaves_direction_unchanged
+  def test_moving_forward_leaves_orientation_unchanged
     mars_rover = mars_rover_oriented_eastward(Coordinates.new(x: 0, y: 0))
 
     mars_rover.execute('f')
