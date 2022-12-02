@@ -51,6 +51,9 @@ class EquatingCoordinatesTest < Minitest::Test
   end
 
   def test_a_coordinate_and_an_object_of_a_different_type_are_unequal
-    skip('Test list')
+    coordinates = Coordinates.new(x: -10, y: 3)
+    object_of_different_type = 'string'
+
+    assert(coordinates != object_of_different_type)
   end
 end

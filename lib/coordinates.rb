@@ -6,6 +6,7 @@ class Coordinates
   end
 
   def ==(coordinates)
+    return false if coordinates.class != self.class
     x == coordinates.x && y == coordinates.y
   end
 end
