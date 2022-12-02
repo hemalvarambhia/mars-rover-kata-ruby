@@ -9,4 +9,8 @@ class Coordinates
     return false if coordinates.class != self.class
     x == coordinates.x && y == coordinates.y
   end
+
+  def inspect
+    "(#{x}, #{y})"
+  end
 end
