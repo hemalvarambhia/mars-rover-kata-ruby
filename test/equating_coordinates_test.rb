@@ -16,7 +16,13 @@ class EquatingCoordinatesTest < Minitest::Test
   end
 
   def test_equals_is_associative
-    skip('Test list')
+    coordinate_1 = Coordinates.new(x: -1, y: 2)
+    coordinate_2 = Coordinates.new(x: -1, y: 2)
+    coordinate_3 = Coordinates.new(x: -1, y: 2)
+
+    assert_equal(coordinate_2, coordinate_1)
+    assert_equal(coordinate_3, coordinate_2)
+    assert_equal(coordinate_3, coordinate_1)
   end
 
   def test_equals_is_transitive
