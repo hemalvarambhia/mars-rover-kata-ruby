@@ -2,7 +2,9 @@ require 'minitest/autorun'
 require_relative '../lib/coordinates'
 class EquatingCoordinatesTest < Minitest::Test
   def test_equality_is_reflexive
-    skip('Test list')
+    coordinates = Coordinates.new(x: 1, y: 1)
+
+    assert_equal(coordinates, coordinates)
   end
 
   def test_equality_is_symmetric
