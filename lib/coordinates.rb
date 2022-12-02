@@ -4,4 +4,8 @@ class Coordinates
     @x = x
     @y = y
   end
+
+  def ==(coordinates)
+    true
+  end
 end

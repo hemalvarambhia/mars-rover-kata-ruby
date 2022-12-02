@@ -8,7 +8,11 @@ class EquatingCoordinatesTest < Minitest::Test
   end
 
   def test_equals_is_symmetric
-    skip('Test list')
+    coordinate_1 = Coordinates.new(x: 2, y: 3)
+    coordinate_2 = Coordinates.new(x: 2, y: 3)
+
+    assert_equal(coordinate_1, coordinate_2)
+    assert_equal(coordinate_2, coordinate_1)
   end
 
   def test_equals_is_associative
