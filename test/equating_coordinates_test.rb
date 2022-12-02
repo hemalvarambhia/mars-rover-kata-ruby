@@ -44,7 +44,10 @@ class EquatingCoordinatesTest < Minitest::Test
   end
 
   def test_two_coordinates_with_the_same_x_and_y_coordinates_are_equal
-    skip('Test list')
+    coordinates = Coordinates.new(x: -3, y: -3)
+    coordinates_with_same_x_and_y = Coordinates.new(x: -3, y: -3)
+
+    assert_equal(coordinates_with_same_x_and_y, coordinates)
   end
 
   def test_a_coordinate_and_an_object_of_a_different_type_are_unequal
