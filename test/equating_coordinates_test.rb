@@ -56,4 +56,10 @@ class EquatingCoordinatesTest < Minitest::Test
 
     assert(coordinates != object_of_different_type)
   end
+
+  def test_a_coordinate_is_not_equal_to_nil
+    coordinates = Coordinates.new(x: 100, y: 318)
+
+    assert(coordinates != nil)
+  end
 end
