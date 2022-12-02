@@ -21,14 +21,6 @@ class MarsRover
     end
   end
 
-  def x
-    @current_position.x
-  end
-
-  def y
-    @current_position.y
-  end
-
   private
 
   def turn_right
