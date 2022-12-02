@@ -7,15 +7,17 @@ class MarsRover
   end
 
   def execute(command)
-    case command
-    when 'f'
-      move_forward
-    when 'b'
-      move_backwards
-    when 'l'
-      turn_left
-    when 'r'
-      turn_right
+    command.split('').each do |instruction|
+      case instruction
+      when 'f'
+        move_forward
+      when 'b'
+        move_backwards
+      when 'l'
+        turn_left
+      when 'r'
+        turn_right
+      end
     end
   end
 
