@@ -3,7 +3,9 @@ require_relative '../lib/mars_rover'
 require_relative '../lib/coordinates'
 class OperatingANorthFacingMarsRoverTest < Minitest::Test
   def test_no_command_moves_mars_rover_nowhere
-    skip('Test list')
+    mars_rover = mars_rover_oriented_northward(Coordinates.new(x: 0, y: 0))
+
+    mars_rover.execute('')
 
     assert_located_at(Coordinates.new(x: 0, y: 0), mars_rover)
   end
@@ -42,5 +44,15 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
 
   def test_moving_the_mars_rover_two_steps_backwards
     skip('Test list')
+  end
+
+  private
+
+  def mars_rover_oriented_northward(start_position)
+    MarsRover.new(starting_position: start_position, orientation: 'N')
+  end
+
+  def assert_located_at(coordinates, mars_rover)
+    assert_equal(coordinates, mars_rover.current_position, "Coordinates")
   end
 end
