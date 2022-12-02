@@ -6,6 +6,6 @@ class Coordinates
   end
 
   def ==(coordinates)
-    true
+    x == coordinates.x
   end
 end

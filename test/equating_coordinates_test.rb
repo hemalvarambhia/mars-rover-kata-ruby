@@ -30,7 +30,9 @@ class EquatingCoordinatesTest < Minitest::Test
   end
 
   def test_two_coordinates_with_different_x_coordinates_are_unequal
-    skip('Test list')
+    coordinate_1 = Coordinates.new(x: 1, y: 2)
+    coordinate_2 = Coordinates.new(x: 3, y: 2)
+    assert(coordinate_1 != coordinate_2)
   end
 
   def test_two_coordinates_with_different_y_coordinates_are_unequal
