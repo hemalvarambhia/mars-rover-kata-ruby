@@ -36,6 +36,11 @@ class MarsRover
   end
 
   def move_forward
-    @current_position = Coordinates.new(x: (@current_position.x + 1), y: @current_position.y)
+    case @orientation
+    when 'E'
+      @current_position = Coordinates.new(x: (@current_position.x + 1), y: @current_position.y)
+    when 'N'
+      @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
+    end
   end
 end
