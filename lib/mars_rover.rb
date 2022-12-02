@@ -33,19 +33,19 @@ class MarsRover
 
   def move_backwards
     case @orientation
-    when 'E'
-      @current_position = Coordinates.new(x: (@current_position.x - 1), y: @current_position.y)
     when 'N'
       @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y - 1)
+    when 'E'
+      @current_position = Coordinates.new(x: (@current_position.x - 1), y: @current_position.y)
     end
   end
 
   def move_forward
     case @orientation
-    when 'E'
-      @current_position = Coordinates.new(x: (@current_position.x + 1), y: @current_position.y)
     when 'N'
       @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
+    when 'E'
+      @current_position = Coordinates.new(x: (@current_position.x + 1), y: @current_position.y)
     end
   end
 end
