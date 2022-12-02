@@ -4,6 +4,8 @@ require_relative '../lib/coordinates'
 class OperatingANorthFacingMarsRoverTest < Minitest::Test
   def test_no_command_moves_mars_rover_nowhere
     skip('Test list')
+
+    assert_located_at(Coordinates.new(x: 0, y: 0), mars_rover)
   end
 
   def test_moving_one_step_forward_from_the_origin
