@@ -6,9 +6,9 @@ class MarsRover
     @orientation = orientation
   end
 
-  def execute(command)
-    command.split('').each do |instruction|
-      case instruction
+  def execute(commands)
+    commands.split('').each do |command|
+      case command
       when 'f'
         move_forward
       when 'b'
