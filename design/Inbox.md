@@ -9,4 +9,5 @@ but the test method talks about orienting. :thinking:
 
 2. Orientation (N, E, S, W) are modelled as strings, risking primitive obsession.
 
+3. Coordinates is a WHOLE VALUE OBJECT
 
