@@ -1,6 +1,6 @@
 require 'direction'
 class MarsRover
-  attr_reader :orientation, :current_position
+  attr_reader :current_position
 
   def initialize(starting_position:, orientation:)
     @current_position = starting_position
