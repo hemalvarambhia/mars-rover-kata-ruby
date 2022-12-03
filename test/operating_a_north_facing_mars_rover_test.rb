@@ -51,7 +51,11 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
   end
 
   def test_turning_mars_rover_left_leaves_current_position_unchanged
-    skip('Test list')
+    mars_rover = mars_rover_oriented_northward(Coordinates.new(x: 2, y: 2))
+
+    mars_rover.execute('l')
+
+    assert_located_at(Coordinates.new(x: 2, y: 2), mars_rover)
   end
 
   def test_turning_mars_rover_right_orients_it_eastward
