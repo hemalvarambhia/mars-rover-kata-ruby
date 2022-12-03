@@ -1,7 +1,10 @@
 require 'minitest/autorun'
+require_relative './coordinates_assertion'
 require_relative '../lib/mars_rover'
 require_relative '../lib/coordinates'
 class OperatingANorthFacingMarsRoverTest < Minitest::Test
+  include CoordinatesAssertion
+
   def test_no_command_moves_mars_rover_nowhere
     mars_rover = mars_rover_oriented_northward(Coordinates.new(x: 0, y: 0))
 
