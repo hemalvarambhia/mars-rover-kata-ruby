@@ -51,7 +51,7 @@ class MarsRover
     when 'N'
       @orientation = Direction.north.left
     when 'E'
-      @orientation = 'N'
+      @orientation = Direction.east.left
     end
   end
 
