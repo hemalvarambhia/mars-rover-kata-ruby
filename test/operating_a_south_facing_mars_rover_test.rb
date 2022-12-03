@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require_relative '../lib/mars_rover'
 require_relative '../lib/coordinates'
 class OperatingASouthFacingMarsRoverTest < Minitest::Test
-  def test_moving_one_step_forwards_from_any_position
+  def test_moving_one_step_forward_from_the_origin
     skip('Test list')
   end
 
