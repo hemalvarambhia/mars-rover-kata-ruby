@@ -98,8 +98,4 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
   def mars_rover_oriented_northward(start_position)
     MarsRover.new(starting_position: start_position, orientation: 'N')
   end
-
-  def assert_located_at(coordinates, mars_rover)
-    assert_equal(coordinates, mars_rover.current_position, "Coordinates")
-  end
 end
