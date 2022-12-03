@@ -13,6 +13,7 @@ class Direction
     new(direction: 'S', left: nil, right: nil)
   end
 
+  private
   def initialize(direction:, left:, right:)
     @direction = direction
     @left = left
