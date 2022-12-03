@@ -1,7 +1,10 @@
 require 'minitest/autorun'
+require_relative './coordinates_assertion'
 require_relative '../lib/mars_rover'
 require_relative '../lib/coordinates'
 class OperatingASouthFacingMarsRoverTest < Minitest::Test
+  include CoordinatesAssertion
+
   def test_moving_one_step_forward_from_the_origin
     mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 0, y: 0), orientation: 'S')
 
@@ -20,11 +23,5 @@ class OperatingASouthFacingMarsRoverTest < Minitest::Test
 
   def test_moving_backwards_leaves_orientation_unchanged
     skip('Test list')
-  end
-
-  private
-
-  def assert_located_at(coordinates, mars_rover)
-    assert_equal(coordinates, mars_rover.current_position, "Coordinates")
   end
 end
