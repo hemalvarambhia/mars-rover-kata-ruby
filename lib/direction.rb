@@ -9,6 +9,10 @@ class Direction
     new(direction: 'E', left: 'S', right: 'N')
   end
 
+  def self.south
+    new(direction: 'S', left: nil, right: nil)
+  end
+
   def initialize(direction:, left:, right:)
     @direction = direction
     @left = left
