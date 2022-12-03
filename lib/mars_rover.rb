@@ -26,6 +26,8 @@ class MarsRover
     case @orientation
     when 'N'
       Direction.north.direction
+    when 'E'
+      Direction.east.direction
     else
       @orientation
     end
