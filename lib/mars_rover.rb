@@ -1,3 +1,4 @@
+require 'direction'
 class MarsRover
   attr_reader :orientation, :current_position
 
@@ -18,6 +19,15 @@ class MarsRover
       when 'r'
         turn_right
       end
+    end
+  end
+
+  def orientation
+    case @orientation
+    when 'N'
+      Direction.north.direction
+    else
+      @orientation
     end
   end
 
