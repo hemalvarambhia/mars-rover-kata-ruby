@@ -6,7 +6,7 @@ class Direction
   end
 
   def self.east
-    new(direction: 'E', left: 'S', right: 'N')
+    new(direction: 'E', left: 'N', right: 'S')
   end
 
   def self.south

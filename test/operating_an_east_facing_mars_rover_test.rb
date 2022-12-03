@@ -64,7 +64,7 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
 
     mars_rover.execute('r')
 
-    assert_equal('N', mars_rover.orientation, 'orientation')
+    assert_equal('S', mars_rover.orientation, 'orientation')
   end
 
   def test_turning_mars_rover_right_leaves_current_position_unchanged
