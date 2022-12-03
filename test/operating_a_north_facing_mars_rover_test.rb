@@ -75,7 +75,11 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
   end
 
   def test_an_unsupported_command_does_nothing_to_the_mars_rover
-    skip('Test list')
+    mars_rover = mars_rover_oriented_northward(Coordinates.new(x: 4, y: 1))
+
+    mars_rover.execute('x')
+
+    assert_located_at(Coordinates.new(x: 4, y: 1), mars_rover)
   end
 
   def test_moving_the_mars_rover_two_steps_backwards
