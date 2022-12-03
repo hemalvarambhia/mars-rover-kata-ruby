@@ -2,7 +2,7 @@ class Direction
   attr_reader :direction, :left, :right
 
   def self.north
-    new(direction: 'N', left: 'E', right: 'W')
+    new(direction: 'N', left: 'W', right: 'E')
   end
 
   def self.east
