@@ -10,7 +10,7 @@ class Direction
   end
 
   def self.south
-    new(direction: 'S', left: nil, right: nil)
+    new(direction: 'S', left: 'E', right: nil)
   end
 
   private
