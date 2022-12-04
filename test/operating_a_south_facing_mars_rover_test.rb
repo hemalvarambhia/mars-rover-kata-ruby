@@ -4,7 +4,8 @@ class OperatingASouthFacingMarsRoverTest < Minitest::Test
   include CoordinatesAssertion
 
   def test_moving_one_step_forward_from_the_origin
-    mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 0, y: 0), orientation: 'S')
+    starting_point = Coordinates.new(x: 0, y: 0)
+    mars_rover = MarsRover.new(starting_position: starting_point, orientation: 'S')
 
     mars_rover.execute('f')
 
@@ -12,7 +13,8 @@ class OperatingASouthFacingMarsRoverTest < Minitest::Test
   end
 
   def test_moving_forward_leaves_orientation_unchanged
-    mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 0, y: 0), orientation: 'S')
+    starting_point = Coordinates.new(x: 0, y: 0)
+    mars_rover = MarsRover.new(starting_position: starting_point, orientation: 'S')
 
     mars_rover.execute('f')
 
@@ -20,7 +22,8 @@ class OperatingASouthFacingMarsRoverTest < Minitest::Test
   end
 
   def test_moving_one_step_backwards_from_any_position
-    mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 1, y: 1), orientation: 'S')
+    starting_point = Coordinates.new(x: 1, y: 1)
+    mars_rover = MarsRover.new(starting_position: starting_point, orientation: 'S')
 
     mars_rover.execute('b')
 
