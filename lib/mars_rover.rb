@@ -23,16 +23,6 @@ class MarsRover
   end
 
   def orientation
-    case @orientation
-    when 'N'
-      Direction.north.direction
-    when 'E'
-      Direction.east.direction
-    when 'S'
-      Direction.south.direction
-    else
-      @orientation
-    end
     {
       'N' => Direction.north.direction,
       'E' => Direction.east.direction,
