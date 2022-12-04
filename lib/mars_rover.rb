@@ -54,7 +54,6 @@ class MarsRover
     }
   end
 
-
   def move_backwards
     case @orientation
     when 'N'
