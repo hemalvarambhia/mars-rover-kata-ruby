@@ -33,6 +33,11 @@ class MarsRover
     else
       @orientation
     end
+    {
+      'N' => Direction.north.direction,
+      'E' => Direction.east.direction,
+      'S' => Direction.south.direction
+    }.fetch(@orientation, @orientation)
   end
 
   private
