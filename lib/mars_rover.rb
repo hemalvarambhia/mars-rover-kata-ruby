@@ -33,13 +33,13 @@ class MarsRover
   private
 
   def turn_right
-    case @orientation
-    when 'N'
-      @orientation = Direction.north.right
-    when 'E'
-      @orientation = Direction.east.right
-    when 'S'
-      @orientation = Direction.south.right
+    direction = {
+      'N' => Direction.north,
+      'E' => Direction.east,
+      'S' => Direction.south
+    }[@orientation]
+    if direction
+      @orientation = direction.right
     end
   end
 
