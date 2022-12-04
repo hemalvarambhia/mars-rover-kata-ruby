@@ -47,6 +47,18 @@ class OperatingASouthFacingMarsRoverTest < Minitest::Test
     skip('Test list')
   end
 
+  def test_turning_mars_rover_right_orients_it_westward
+    skip('Test list')
+  end
+
+  def test_turning_mars_rover_right_leaves_current_position_unchanged
+    skip('Test list')
+  end
+
+  def test_an_unsupported_command_does_nothing_to_the_mars_rover
+    skip('Test list')
+  end
+
   private
 
   def south_facing_mars_rover(starting_point)
