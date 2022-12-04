@@ -1,0 +1,11 @@
+detectors:
+  IrresponsibleModule:
+    enabled: false
+  DuplicateMethodCall:
+    enabled: false
+  UncommunicativeVariableName:
+    exclude:
+      - "Coordinates"
+  UncommunicativeParameterName:
+    exclude:
+      - "Coordinates#initialize"
