@@ -20,7 +20,11 @@ class OperatingASouthFacingMarsRoverTest < Minitest::Test
   end
 
   def test_moving_one_step_backwards_from_any_position
-    skip('Test list')
+    mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 1, y: 1), orientation: 'S')
+
+    mars_rover.execute('b')
+
+    assert_located_at(Coordinates.new(x: 1, y: 2), mars_rover)
   end
 
   def test_moving_backwards_leaves_orientation_unchanged
