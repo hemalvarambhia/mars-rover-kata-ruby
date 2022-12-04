@@ -33,26 +33,27 @@ class MarsRover
   private
 
   def turn_right
-    direction = {
-      'N' => Direction.north,
-      'E' => Direction.east,
-      'S' => Direction.south
-    }[@orientation]
+    direction = direction_from_orientation[@orientation]
     if direction
       @orientation = direction.right
     end
   end
 
   def turn_left
-    direction = {
-      'N' => Direction.north,
-      'E' => Direction.east,
-      'S' => Direction.south
-    }[@orientation]
+    direction = direction_from_orientation[@orientation]
     if direction
       @orientation = direction.left
     end
   end
+
+  def direction_from_orientation
+    {
+      'N' => Direction.north,
+      'E' => Direction.east,
+      'S' => Direction.south
+    }
+  end
+
 
   def move_backwards
     case @orientation
