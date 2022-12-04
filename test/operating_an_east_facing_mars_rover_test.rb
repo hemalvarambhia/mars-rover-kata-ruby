@@ -45,7 +45,7 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
   end
 
   def test_turning_mars_rover_left_orients_it_northward
-    mars_rover = mars_rover_oriented_eastward(Coordinates.new(x: 0, y: 0))
+    mars_rover = mars_rover_oriented_eastward(nil)
 
     mars_rover.execute('l')
 
@@ -61,7 +61,7 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
   end
 
   def test_turning_mars_rover_right_orients_it_northward
-    mars_rover = mars_rover_oriented_eastward(Coordinates.new(x: -1, y: 1))
+    mars_rover = mars_rover_oriented_eastward(nil)
 
     mars_rover.execute('r')
 
