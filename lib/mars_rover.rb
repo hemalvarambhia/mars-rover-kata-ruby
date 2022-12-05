@@ -6,6 +6,10 @@ class MarsRover
     MarsRover.new(starting_position: starting_position, orientation: 'N')
   end
 
+  def self.oriented_eastward(starting_position:)
+  MarsRover.new(starting_position: starting_position, orientation: 'E')
+  end
+
   def self.oriented_southward(starting_position:)
     MarsRover.new(starting_position: starting_position, orientation: 'S')
   end

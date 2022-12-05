@@ -95,6 +95,6 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
   private
 
   def mars_rover_oriented_eastward(start_position)
-    MarsRover.new(starting_position: start_position, orientation: 'E')
+    MarsRover.oriented_eastward(starting_position: start_position)
   end
 end
