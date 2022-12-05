@@ -30,11 +30,9 @@ class MarsRover
   end
 
   def orientation
-    {
-      'N' => Direction.north,
-      'E' => Direction.east,
-      'S' => Direction.south
-    }.fetch(@orientation, Direction.new(direction: @orientation, left: nil, right: nil)).direction
+    direction_from_orientation
+      .fetch(@orientation, Direction.new(direction: @orientation, left: nil, right: nil))
+      .direction
   end
 
   private
