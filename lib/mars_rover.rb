@@ -14,11 +14,6 @@ class MarsRover
     new(starting_position: starting_position, orientation: 'S')
   end
 
-  def initialize(starting_position:, orientation:)
-    @current_position = starting_position
-    @orientation = orientation
-  end
-
   def execute(commands)
     commands.split('').each do |command|
       case command
@@ -43,6 +38,11 @@ class MarsRover
   end
 
   private
+
+  def initialize(starting_position:, orientation:)
+    @current_position = starting_position
+    @orientation = orientation
+  end
 
   def turn_right
     direction = direction_from_orientation[@orientation]
