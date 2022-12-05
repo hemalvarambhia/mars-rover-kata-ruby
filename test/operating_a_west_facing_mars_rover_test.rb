@@ -12,7 +12,19 @@ class OperatingAWestFacingMarsRoverTest < Minitest::Test
     skip('Test list')
   end
 
-  def test_turning_mars_rover_left_orients_it_northward
+  def test_turning_mars_rover_left_orients_it_southward
+    skip('Test list')
+  end
+
+  def test_turning_mars_rover_left_leaves_current_position_unchanged
+    skip('Test list')
+  end
+
+  def test_turning_mars_rover_right_orients_it_northward
+    skip('Test list')
+  end
+
+  def test_turning_mars_rover_right_leaves_current_position_unchanged
     skip('Test list')
   end
 end
