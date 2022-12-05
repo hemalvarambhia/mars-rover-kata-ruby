@@ -3,15 +3,15 @@ class MarsRover
   attr_reader :current_position
 
   def self.oriented_northward(starting_position:)
-    MarsRover.new(starting_position: starting_position, orientation: 'N')
+    new(starting_position: starting_position, orientation: 'N')
   end
 
   def self.oriented_eastward(starting_position:)
-  MarsRover.new(starting_position: starting_position, orientation: 'E')
+    new(starting_position: starting_position, orientation: 'E')
   end
 
   def self.oriented_southward(starting_position:)
-    MarsRover.new(starting_position: starting_position, orientation: 'S')
+    new(starting_position: starting_position, orientation: 'S')
   end
 
   def initialize(starting_position:, orientation:)
