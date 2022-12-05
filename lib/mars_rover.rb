@@ -31,10 +31,10 @@ class MarsRover
 
   def orientation
     {
-      'N' => Direction.north.direction,
-      'E' => Direction.east.direction,
-      'S' => Direction.south.direction
-    }.fetch(@orientation, @orientation)
+      'N' => Direction.north,
+      'E' => Direction.east,
+      'S' => Direction.south
+    }.fetch(@orientation, Direction.new(direction: @orientation, left: nil, right: nil)).direction
   end
 
   private
