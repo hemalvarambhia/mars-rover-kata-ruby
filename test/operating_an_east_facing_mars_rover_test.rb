@@ -60,7 +60,7 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
     assert_located_at(Coordinates.new(x: 5, y: -2), mars_rover)
   end
 
-  def test_turning_mars_rover_right_orients_it_northward
+  def test_turning_mars_rover_right_orients_it_southward
     mars_rover = mars_rover_oriented_eastward(nil)
 
     mars_rover.execute('r')
