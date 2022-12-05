@@ -79,6 +79,6 @@ class OperatingASouthFacingMarsRoverTest < Minitest::Test
   private
 
   def south_facing_mars_rover(starting_point)
-    MarsRover.new(starting_position: starting_point, orientation: 'S')
+    MarsRover.south_facing(starting_position: starting_point)
   end
 end

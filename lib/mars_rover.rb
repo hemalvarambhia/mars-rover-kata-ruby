@@ -2,6 +2,10 @@ require_relative './direction'
 class MarsRover
   attr_reader :current_position
 
+  def self.south_facing(starting_position:)
+    MarsRover.new(starting_position: starting_position, orientation: 'S')
+  end
+
   def initialize(starting_position:, orientation:)
     @current_position = starting_position
     @orientation = orientation
