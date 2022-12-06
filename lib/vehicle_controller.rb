@@ -11,6 +11,10 @@ class VehicleController
     end
   end
 
+  def current_position
+    @mars_rover.current_position
+  end
+
   def orientation
     direction_from_orientation[@orientation].direction
     @mars_rover.orientation
