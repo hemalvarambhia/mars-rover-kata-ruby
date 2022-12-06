@@ -1,3 +1,4 @@
+require_relative './direction'
 class MarsRover
   attr_reader :current_position
 

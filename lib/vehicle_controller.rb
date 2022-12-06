@@ -1,4 +1,3 @@
-require_relative './direction'
 require_relative './mars_rover'
 class VehicleController
 
