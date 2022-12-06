@@ -23,17 +23,14 @@ class MarsRover
       case command
       when 'f'
         message = :move_forward
-        send(message)
       when 'b'
         message = :move_backwards
-        send(message)
       when 'l'
         message = :turn_left
-        send(message)
       when 'r'
         message = :turn_right
-        send(message)
       end
+      send(message)
     end
   end
 
