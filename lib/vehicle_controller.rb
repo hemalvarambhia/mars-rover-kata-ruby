@@ -4,16 +4,16 @@ class VehicleController
   def execute(commands)
     commands.split('').select { |command| %w{f b l r}.include?(command) }.each do |command|
       instruction = instruction_from(command)
-      @mars_rover.public_send(instruction)
+      @vehicle.public_send(instruction)
     end
   end
 
   def current_position
-    @mars_rover.current_position
+    @vehicle.current_position
   end
 
   def orientation
-    @mars_rover.orientation
+    @vehicle.orientation
   end
 
   private
@@ -27,7 +27,7 @@ class VehicleController
     }[command]
   end
 
-  def initialize(starting_position:, orientation:, mars_rover: MarsRover.new(starting_position: starting_position, orientation: orientation))
-    @mars_rover = mars_rover
+  def initialize(starting_position:, orientation:, vehicle: MarsRover.new(starting_position: starting_position, orientation: orientation))
+    @vehicle = vehicle
   end
 end
