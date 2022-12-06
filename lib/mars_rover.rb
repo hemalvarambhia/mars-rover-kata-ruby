@@ -22,13 +22,17 @@ class MarsRover
     commands.split('').each do |command|
       case command
       when 'f'
-        send(:move_forward)
+        message = :move_forward
+        send(message)
       when 'b'
-        send(:move_backwards)
+        message = :move_backwards
+        send(message)
       when 'l'
-        send(:turn_left)
+        message = :turn_left
+        send(message)
       when 'r'
-        send(:turn_right)
+        message = :turn_right
+        send(message)
       end
     end
   end
