@@ -2,10 +2,6 @@ require_relative './direction'
 class MarsRover
   attr_reader :current_position
 
-  def self.oriented_westward(starting_position:)
-    new(starting_position: starting_position, orientation: 'W')
-  end
-
   def execute(commands)
     commands.split('').select { |command| %w{f b l r}.include?(command) }.each do |command|
       instruction = instruction_from(command)
