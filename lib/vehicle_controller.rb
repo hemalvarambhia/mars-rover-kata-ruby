@@ -1,5 +1,5 @@
 require_relative './direction'
-class MarsRover
+class VehicleController
   attr_reader :current_position
 
   def execute(commands)

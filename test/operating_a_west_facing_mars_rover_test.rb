@@ -60,6 +60,6 @@ class OperatingAWestFacingMarsRoverTest < Minitest::Test
   end
 
   def west_facing_mars_rover(starting_position)
-    MarsRover.new(starting_position: starting_position, orientation: 'W')
+    VehicleController.new(starting_position: starting_position, orientation: 'W')
   end
 end
