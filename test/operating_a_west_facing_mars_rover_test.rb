@@ -1,7 +1,14 @@
 require 'minitest/autorun'
+require_relative './mars_rover_in_cartesian_coordinate_system'
 class OperatingAWestFacingMarsRoverTest < Minitest::Test
+  include CoordinatesAssertion
+
   def test_moving_one_step_forward_from_the_origin
-    skip('Test list')
+    mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 2, y: 2), orientation: 'W')
+
+    mars_rover.execute('f')
+
+    assert_located_at(Coordinates.new(x: 1, y: 2), mars_rover)
   end
 
   def test_moving_forward_leaves_orientation_unchanged
