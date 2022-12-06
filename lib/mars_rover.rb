@@ -1,36 +1,9 @@
-require_relative './direction'
-require_relative './mars_rover'
-class VehicleController
-  attr_reader :current_position
-
-  def execute(commands)
-    commands.split('').select { |command| %w{f b l r}.include?(command) }.each do |command|
-      instruction = instruction_from(command)
-      send(instruction)
-    end
-  end
-
-  def orientation
-    direction_from_orientation[@orientation].direction
-  end
-
-  private
-
-  def instruction_from(command)
-    {
-      'f' => :move_forward,
-      'b' => :move_backwards,
-      'l' => :turn_left,
-      'r' => :turn_right
-    }[command]
-  end
-
+class MarsRover
   def initialize(starting_position:, orientation:)
     @current_position = starting_position
     @orientation = orientation
     @northern_edge = 5
     @southern_edge = -5
-    @mars_rover = MarsRover.new(starting_position: starting_position, orientation: orientation)
   end
 
   def turn_right
@@ -41,15 +14,6 @@ class VehicleController
   def turn_left
     direction = direction_from_orientation[@orientation]
     @orientation = direction.left
-  end
-
-  def direction_from_orientation
-    {
-      'N' => Direction.north,
-      'E' => Direction.east,
-      'S' => Direction.south,
-      'W' => Direction.west
-    }
   end
 
   def move_backwards
@@ -80,6 +44,17 @@ class VehicleController
     when 'W'
       @current_position = Coordinates.new(x: @current_position.x - 1, y: @current_position.y)
     end
+  end
+
+  private
+
+  def direction_from_orientation
+    {
+      'N' => Direction.north,
+      'E' => Direction.east,
+      'S' => Direction.south,
+      'W' => Direction.west
+    }
   end
 
   def at_northern_edge?
