@@ -64,8 +64,10 @@ class MarsRover
   def move_forward
     case @orientation
     when 'N'
-      if @current_position.y == 5
-        @current_position = Coordinates.new(x: @current_position.x, y: -5)
+      northern_edge = 5
+      if @current_position.y == northern_edge
+        southern_edge = -5
+        @current_position = Coordinates.new(x: @current_position.x, y: southern_edge)
       else
         @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
       end
