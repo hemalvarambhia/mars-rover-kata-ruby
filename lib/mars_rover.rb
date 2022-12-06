@@ -65,7 +65,7 @@ class MarsRover
       'N' => Direction.north,
       'E' => Direction.east,
       'S' => Direction.south,
-      'W' => Direction.new(direction: 'W', left: 'S', right: '')
+      'W' => Direction.new(direction: 'W', left: 'S', right: 'N')
     }
   end
 
