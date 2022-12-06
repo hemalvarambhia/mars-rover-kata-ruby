@@ -31,11 +31,6 @@ class MarsRover
 
   private
 
-  def initialize(starting_position:, orientation:)
-    @current_position = starting_position
-    @orientation = orientation
-  end
-
   def instruction_from(command)
     {
       'f' => :move_forward,
@@ -43,6 +38,11 @@ class MarsRover
       'l' => :turn_left,
       'r' => :turn_right
     }[command]
+  end
+
+  def initialize(starting_position:, orientation:)
+    @current_position = starting_position
+    @orientation = orientation
   end
 
   def turn_right
