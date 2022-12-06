@@ -1,7 +1,6 @@
 require_relative './direction'
 require_relative './mars_rover'
 class VehicleController
-  attr_reader :current_position
 
   def execute(commands)
     commands.split('').select { |command| %w{f b l r}.include?(command) }.each do |command|
