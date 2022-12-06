@@ -27,6 +27,7 @@ class MarsRover
   def initialize(starting_position:, orientation:)
     @current_position = starting_position
     @orientation = orientation
+    @northern_edge = 5
   end
 
   def turn_right
@@ -64,14 +65,12 @@ class MarsRover
   def move_forward
     case @orientation
     when 'N'
-      northern_edge = 5
-      if @current_position.y == northern_edge
+      if at_northern_edge?
         southern_edge = -5
         @current_position = Coordinates.new(x: @current_position.x, y: southern_edge)
       else
         @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
       end
-
     when 'E'
       @current_position = Coordinates.new(x: (@current_position.x + 1), y: @current_position.y)
     when 'S'
@@ -79,5 +78,9 @@ class MarsRover
     when 'W'
       @current_position = Coordinates.new(x: @current_position.x - 1, y: @current_position.y)
     end
+  end
+
+  def at_northern_edge?
+    @current_position.y == @northern_edge
   end
 end
