@@ -20,13 +20,13 @@ class MarsRover
 
   def execute(commands)
     commands.split('').select { |command| %w{f b l r}.include?(command) }.each do |command|
-      message = {
+      instruction = {
         'f' => :move_forward,
         'b' => :move_backwards,
         'l' => :turn_left,
         'r' => :turn_right
       }[command]
-      send(message)
+      send(instruction)
     end
   end
 
