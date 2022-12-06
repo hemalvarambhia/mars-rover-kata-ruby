@@ -27,7 +27,7 @@ class VehicleController
     }[command]
   end
 
-  def initialize(starting_position:, orientation:)
-    @mars_rover = MarsRover.new(starting_position: starting_position, orientation: orientation)
+  def initialize(starting_position:, orientation:, mars_rover: MarsRover.new(starting_position: starting_position, orientation: orientation))
+    @mars_rover = mars_rover
   end
 end
