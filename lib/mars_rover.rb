@@ -14,6 +14,10 @@ class MarsRover
     new(starting_position: starting_position, orientation: 'S')
   end
 
+  def self.oriented_westward(starting_position:)
+    new(starting_position: starting_position, orientation: 'W')
+  end
+
   def execute(commands)
     commands.split('').each do |command|
       case command
