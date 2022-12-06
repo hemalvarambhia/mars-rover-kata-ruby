@@ -12,7 +12,11 @@ class MovingMarsRoverForwardOnAPlanetWithEdgesTest < Minitest::Test
   end
 
   def test_moving_forwards_from_the_northern_edge
-    skip('Test list')
+    mars_rover = mars_rover_oriented_northward(Coordinates.new(x: 1, y: 5))
+
+    mars_rover.execute('f')
+
+    assert_located_at(Coordinates.new(x: 1, y: -5), mars_rover)
   end
 
   def test_moving_forwards_past_the_northern_edge
