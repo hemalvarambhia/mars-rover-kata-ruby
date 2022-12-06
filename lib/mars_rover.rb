@@ -19,7 +19,7 @@ class MarsRover
   end
 
   def execute(commands)
-    commands.split('').each do |command|
+    commands.split('').select { |command| %w{f b l r}.include?(command) }.each do |command|
       case command
       when 'f'
         message = :move_forward
