@@ -13,6 +13,10 @@ class Direction
     new(direction: 'S', left: 'E', right: 'W')
   end
 
+  def self.west
+    new(direction: 'W', left: 'S', right: 'N')
+  end
+
   private
   def initialize(direction:, left:, right:)
     @direction = direction
