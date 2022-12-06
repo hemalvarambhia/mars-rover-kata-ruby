@@ -28,6 +28,7 @@ class MarsRover
     @current_position = starting_position
     @orientation = orientation
     @northern_edge = 5
+    @southern_edge = -5
   end
 
   def turn_right
@@ -66,8 +67,7 @@ class MarsRover
     case @orientation
     when 'N'
       if at_northern_edge?
-        southern_edge = -5
-        @current_position = Coordinates.new(x: @current_position.x, y: southern_edge)
+        @current_position = Coordinates.new(x: @current_position.x, y: @southern_edge)
       else
         @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
       end
