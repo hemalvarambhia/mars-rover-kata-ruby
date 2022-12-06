@@ -46,6 +46,10 @@ class MarsRover
     end
   end
 
+  def orientation
+    direction_from_orientation[@orientation].direction
+  end
+
   private
 
   def direction_from_orientation

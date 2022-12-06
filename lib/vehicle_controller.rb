@@ -7,11 +7,13 @@ class VehicleController
     commands.split('').select { |command| %w{f b l r}.include?(command) }.each do |command|
       instruction = instruction_from(command)
       send(instruction)
+      @mars_rover.public_send(instruction)
     end
   end
 
   def orientation
     direction_from_orientation[@orientation].direction
+    @mars_rover.orientation
   end
 
   private
