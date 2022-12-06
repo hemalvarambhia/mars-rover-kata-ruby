@@ -20,12 +20,7 @@ class MarsRover
 
   def execute(commands)
     commands.split('').select { |command| %w{f b l r}.include?(command) }.each do |command|
-      instruction = {
-        'f' => :move_forward,
-        'b' => :move_backwards,
-        'l' => :turn_left,
-        'r' => :turn_right
-      }[command]
+      instruction = instruction_from(command)
       send(instruction)
     end
   end
@@ -39,6 +34,15 @@ class MarsRover
   def initialize(starting_position:, orientation:)
     @current_position = starting_position
     @orientation = orientation
+  end
+
+  def instruction_from(command)
+    {
+      'f' => :move_forward,
+      'b' => :move_backwards,
+      'l' => :turn_left,
+      'r' => :turn_right
+    }[command]
   end
 
   def turn_right
