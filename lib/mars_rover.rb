@@ -2,18 +2,6 @@ require_relative './direction'
 class MarsRover
   attr_reader :current_position
 
-  def self.oriented_northward(starting_position:)
-    new(starting_position: starting_position, orientation: 'N')
-  end
-
-  def self.oriented_eastward(starting_position:)
-    new(starting_position: starting_position, orientation: 'E')
-  end
-
-  def self.oriented_southward(starting_position:)
-    new(starting_position: starting_position, orientation: 'S')
-  end
-
   def self.oriented_westward(starting_position:)
     new(starting_position: starting_position, orientation: 'W')
   end
