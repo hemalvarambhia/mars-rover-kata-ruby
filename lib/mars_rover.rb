@@ -34,9 +34,7 @@ class MarsRover
   end
 
   def orientation
-    direction_from_orientation
-      .fetch(@orientation, Direction.new(direction: @orientation, left: nil, right: nil))
-      .direction
+    direction_from_orientation.fetch(@orientation).direction
   end
 
   private
@@ -48,16 +46,12 @@ class MarsRover
 
   def turn_right
     direction = direction_from_orientation[@orientation]
-    if direction
-      @orientation = direction.right
-    end
+    @orientation = direction.right
   end
 
   def turn_left
     direction = direction_from_orientation[@orientation]
-    if direction
-      @orientation = direction.left
-    end
+    @orientation = direction.left
   end
 
   def direction_from_orientation
