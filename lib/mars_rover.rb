@@ -30,6 +30,7 @@ class MarsRover
       when 'r'
         message = :turn_right
       end
+      message = {'f' => :move_forward, 'b' => :move_backwards, 'l' => :turn_left, 'r' => :turn_right }[command]
       send(message)
     end
   end
