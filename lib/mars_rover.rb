@@ -34,7 +34,7 @@ class MarsRover
   end
 
   def orientation
-    direction_from_orientation.fetch(@orientation).direction
+    direction_from_orientation[@orientation].direction
   end
 
   private
