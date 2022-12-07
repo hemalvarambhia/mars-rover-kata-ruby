@@ -111,11 +111,11 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
     skip('Test list')
   end
 
-  def test_moving_forwards_to_the_eastern_edge
+  def test_moving_backwards_to_the_southern_edge
     skip('Test list')
   end
 
-  def test_moving_forwards_from_the_eastern_edge
+  def test_moving_backwards_from_the_southern_edge
     skip('Test list')
   end
 
