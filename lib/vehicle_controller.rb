@@ -3,7 +3,7 @@ class VehicleController
 
   def execute(commands)
     commands.split('').select { |command| %w{f b l r}.include?(command) }.each do |command|
-      instruction = instruction_from(command)
+      instruction = VehicleController.instruction_from(command)
       @vehicle.public_send(instruction)
     end
   end
@@ -18,7 +18,7 @@ class VehicleController
 
   private
 
-  def instruction_from(command)
+  def self.instruction_from(command)
     {
       'f' => :move_forward,
       'b' => :move_backwards,
