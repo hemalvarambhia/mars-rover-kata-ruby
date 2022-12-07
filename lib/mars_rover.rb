@@ -1,4 +1,5 @@
 require_relative './direction'
+require_relative './planet'
 class MarsRover
   attr_reader :current_position
 
@@ -7,6 +8,7 @@ class MarsRover
     @orientation = orientation
     @northern_edge = 5
     @southern_edge = -5
+    @planet = Planet.new
   end
 
   def turn_right
@@ -65,6 +67,6 @@ class MarsRover
   end
 
   def at_northern_edge?
-    @current_position.y == @northern_edge
+    @current_position.y == @planet.northern_edge
   end
 end
