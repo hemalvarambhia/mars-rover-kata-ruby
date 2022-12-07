@@ -6,8 +6,6 @@ class MarsRover
   def initialize(starting_position:, orientation:)
     @current_position = starting_position
     @orientation = orientation
-    @northern_edge = 5
-    @southern_edge = -5
     @planet = Planet.new
   end
 
