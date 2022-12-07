@@ -68,5 +68,6 @@ class MarsRover
 
   def at_northern_edge?
     @current_position.y == @planet.northern_edge
+    @planet.at_northern_edge?(@current_position)
   end
 end

@@ -5,4 +5,8 @@ class Planet
     @northern_edge = 5
     @southern_edge = -5
   end
+
+  def at_northern_edge?(location)
+    location.y == northern_edge
+  end
 end
