@@ -3,7 +3,7 @@ require_relative './planet'
 class MarsRover
   attr_reader :current_position
 
-  def initialize(planet: Planet.new, starting_position:, orientation:)
+  def initialize(planet: Planet.new(northern_edge: 5, southern_edge: -5), starting_position:, orientation:)
     @current_position = starting_position
     @orientation = orientation
     @planet = planet
