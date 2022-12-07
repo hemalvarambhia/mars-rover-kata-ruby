@@ -38,7 +38,7 @@ class MarsRover
     case @orientation
     when 'N'
       if at_northern_edge?
-        @current_position = Coordinates.new(x: @current_position.x, y: @southern_edge)
+        @current_position = Coordinates.new(x: @current_position.x, y: @planet.southern_edge)
       else
         @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
       end
