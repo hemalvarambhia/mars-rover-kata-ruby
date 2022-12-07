@@ -35,7 +35,7 @@ class MarsRover
   def move_forward
     case @orientation
     when 'N'
-      if at_northern_edge?
+      if @planet.at_northern_edge?(@current_position)
         @current_position = Coordinates.new(x: @current_position.x, y: @planet.southern_edge)
       else
         @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
@@ -62,9 +62,5 @@ class MarsRover
       'S' => Direction.south,
       'W' => Direction.west
     }
-  end
-
-  def at_northern_edge?
-    @planet.at_northern_edge?(@current_position)
   end
 end
