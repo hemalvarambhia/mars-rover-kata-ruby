@@ -134,11 +134,11 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
 
   private
 
-  def mars_rover_oriented_northward(starting_position)
+  def mars_rover_oriented_northward(planet = Planet.new(northern_edge: 5, southern_edge: -5), starting_position)
     VehicleController.new(
       starting_position: nil, orientation: nil,
       vehicle: MarsRover.new(
-        planet: Planet.new(northern_edge: 5, southern_edge: -5),
+        planet: planet,
         starting_position: starting_position, orientation: 'N')
     )
   end
