@@ -22,7 +22,7 @@ class MarsRover
   def move_backwards
     case @orientation
     when 'N'
-      if @current_position.y == @planet.southern_edge
+      if @planet.at_southern_edge?(@current_position)
         @current_position = Coordinates.new(x: @current_position.x, y: @planet.northern_edge)
       else
         @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y - 1)

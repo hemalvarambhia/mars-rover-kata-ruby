@@ -9,4 +9,8 @@ class Planet
   def at_northern_edge?(location)
     location.y == northern_edge
   end
+
+  def at_southern_edge?(location)
+    location.y == southern_edge
+  end
 end
