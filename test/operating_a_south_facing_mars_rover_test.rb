@@ -78,7 +78,7 @@ class OperatingASouthFacingMarsRoverTest < Minitest::Test
 
   private
 
-  def south_facing_mars_rover(planet = Planet.new(northern_edge: 5, southern_edge: -5), starting_position)
+  def south_facing_mars_rover(planet = Planet.new(northern_edge: 5, eastern_edge: 5, southern_edge: -5, western_edge: -5), starting_position)
     mars_rover = MarsRover.new(planet: planet, starting_position: starting_position, orientation: 'S')
     VehicleController.new(vehicle: mars_rover)
   end
