@@ -110,7 +110,11 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
 
 
   def test_moving_backwards_past_the_eastern_edge
-    skip('Test list')
+    mars_rover = mars_rover_oriented_eastward(Coordinates.new(x: 3, y: -2))
+
+    mars_rover.execute('fffff')
+
+    assert_located_at(Coordinates.new(x: -3, y: -2), mars_rover)
   end
 
   def test_moving_backwards_to_the_western_edge
