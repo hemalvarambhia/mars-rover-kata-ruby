@@ -128,7 +128,12 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
   private
 
   def mars_rover_oriented_eastward(starting_position)
-    mars_rover = MarsRover.new(starting_position: starting_position, orientation: 'E')
+    mars_rover =
+      MarsRover.new(
+        planet: Planet.new(northern_edge: 5, eastern_edge: 5, southern_edge: -5, western_edge: -5),
+        starting_position: starting_position,
+        orientation: 'E'
+      )
     VehicleController.new(vehicle: mars_rover)
   end
 end
