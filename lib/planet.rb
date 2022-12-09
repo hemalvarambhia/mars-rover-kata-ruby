@@ -58,6 +58,8 @@ class Planet
     end
   end
 
+  private
+
   def at_northern_edge?(location)
     location.y == northern_edge
   end
@@ -65,8 +67,6 @@ class Planet
   def at_eastern_edge?(location)
     location.x == eastern_edge
   end
-
-  private
 
   def at_southern_edge?(location)
     location.y == southern_edge
