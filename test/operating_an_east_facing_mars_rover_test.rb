@@ -139,7 +139,7 @@ class OperatingAnEastFacingMarsRoverTest < Minitest::Test
 
   private
 
-  def mars_rover_oriented_eastward(planet = Planet.new(northern_edge: 5, eastern_edge: 5, southern_edge: -5, western_edge: -5), starting_position)
+  def mars_rover_oriented_eastward(planet, starting_position)
     mars_rover =
       MarsRover.new(
         planet: planet,
