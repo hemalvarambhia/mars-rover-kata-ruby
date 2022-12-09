@@ -8,7 +8,7 @@ class Planet
     @western_edge = western_edge
   end
 
-  def next_location_to(location, orientation = :FIXME)
+  def next_location_to(location, orientation)
     case orientation
     when 'N'
       if at_northern_edge?(location)
