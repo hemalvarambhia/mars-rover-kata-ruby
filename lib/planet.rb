@@ -8,6 +8,14 @@ class Planet
     @western_edge = western_edge
   end
 
+  def next_location_to(location)
+    if at_northern_edge?(location)
+      Coordinates.new(x: location.x, y: southern_edge)
+    else
+      Coordinates.new(x: location.x, y: location.y + 1)
+    end
+  end
+
   def previous_location_to(location, orientation)
     case orientation
     when 'N'

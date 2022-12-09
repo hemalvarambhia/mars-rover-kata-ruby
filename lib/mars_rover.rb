@@ -26,11 +26,7 @@ class MarsRover
   def move_forward
     case @orientation
     when 'N'
-      if @planet.at_northern_edge?(@current_position)
-        @current_position = Coordinates.new(x: @current_position.x, y: @planet.southern_edge)
-      else
-        @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
-      end
+      @current_position = @planet.next_location_to(@current_position)
     when 'E'
       if @planet.at_eastern_edge?(@current_position)
         @current_position = Coordinates.new(x: @planet.western_edge, y: @current_position.y)
