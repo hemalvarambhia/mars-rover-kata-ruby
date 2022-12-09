@@ -28,7 +28,11 @@ class MarsRover
         @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y - 1)
       end
     when 'E'
-      @current_position = Coordinates.new(x: (@current_position.x - 1), y: @current_position.y)
+      if @planet.western_edge == @current_position.x
+        @current_position = Coordinates.new(x: @planet.eastern_edge, y: @current_position.y)
+      else
+        @current_position = Coordinates.new(x: (@current_position.x - 1), y: @current_position.y)
+      end
     when 'S'
       @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
     when 'W'
