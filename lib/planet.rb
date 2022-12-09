@@ -22,6 +22,12 @@ class Planet
       else
         Coordinates.new(x: location.x + 1, y: location.y)
       end
+    when 'S'
+      if location.y == southern_edge
+        Coordinates.new(x: location.x, y: northern_edge)
+      else
+        Coordinates.new(x: location.x, y: location.y - 1)
+      end
     end
   end
 
