@@ -30,9 +30,9 @@ class MarsRover
     when 'E'
       @current_position = @planet.next_location_to(@current_position, @orientation)
     when 'S'
-      @current_position = @planet.next_location_to(@current_position, orientation)
+      @current_position = @planet.next_location_to(@current_position, @orientation)
     when 'W'
-      @current_position = Coordinates.new(x: @current_position.x - 1, y: @current_position.y)
+      @current_position = @planet.next_location_to(@current_position, @orientation)
     end
   end
 

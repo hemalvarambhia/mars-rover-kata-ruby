@@ -28,6 +28,8 @@ class Planet
       else
         Coordinates.new(x: location.x, y: location.y - 1)
       end
+    when 'W'
+      Coordinates.new(x: location.x - 1, y: location.y)
     end
   end
 
