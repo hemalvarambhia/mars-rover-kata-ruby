@@ -17,12 +17,11 @@ class Planet
         Coordinates.new(x: location.x, y: location.y + 1)
       end
     when 'E'
-
-    end
-    if at_northern_edge?(location)
-      Coordinates.new(x: location.x, y: southern_edge)
-    else
-      Coordinates.new(x: location.x, y: location.y + 1)
+      if at_eastern_edge?(location)
+        Coordinates.new(x: western_edge, y: location.y)
+      else
+        Coordinates.new(x: location.x + 1, y: location.y)
+      end
     end
   end
 
