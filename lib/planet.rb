@@ -8,7 +8,17 @@ class Planet
     @western_edge = western_edge
   end
 
-  def next_location_to(location)
+  def next_location_to(location, orientation = :FIXME)
+    case orientation
+    when 'N'
+      if at_northern_edge?(location)
+        Coordinates.new(x: location.x, y: southern_edge)
+      else
+        Coordinates.new(x: location.x, y: location.y + 1)
+      end
+    when 'E'
+
+    end
     if at_northern_edge?(location)
       Coordinates.new(x: location.x, y: southern_edge)
     else
