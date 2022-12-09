@@ -48,7 +48,11 @@ class Planet
         Coordinates.new(x: location.x - 1, y: location.y)
       end
     when 'S'
-      Coordinates.new(x: location.x, y: location.y + 1)
+      if at_northern_edge?(location)
+        Coordinates.new(x: location.x, y: southern_edge)
+      else
+        Coordinates.new(x: location.x, y: location.y + 1)
+      end
     when 'W'
       Coordinates.new(x: location.x + 1, y: location.y)
     end
