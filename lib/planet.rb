@@ -8,6 +8,27 @@ class Planet
     @western_edge = western_edge
   end
 
+  def previous_location_to(location, orientation)
+    case orientation
+    when 'N'
+      if at_southern_edge?(location)
+        Coordinates.new(x: location.x, y: northern_edge)
+      else
+        Coordinates.new(x: location.x, y: location.y - 1)
+      end
+    when 'E'
+      if at_western_edge?(location)
+        Coordinates.new(x: eastern_edge, y: location.y)
+      else
+        Coordinates.new(x: location.x - 1, y: location.y)
+      end
+    when 'S'
+      Coordinates.new(x: location.x, y: location.y + 1)
+    when 'W'
+      Coordinates.new(x: location.x + 1, y: location.y)
+    end
+  end
+
   def at_northern_edge?(location)
     location.y == northern_edge
   end
