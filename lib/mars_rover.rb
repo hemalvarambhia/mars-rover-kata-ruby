@@ -24,16 +24,7 @@ class MarsRover
   end
 
   def move_forward
-    case @orientation
-    when 'N'
-      @current_position = @planet.next_location_to(@current_position, @orientation)
-    when 'E'
-      @current_position = @planet.next_location_to(@current_position, @orientation)
-    when 'S'
-      @current_position = @planet.next_location_to(@current_position, @orientation)
-    when 'W'
-      @current_position = @planet.next_location_to(@current_position, @orientation)
-    end
+    @current_position = @planet.next_location_to(@current_position, @orientation)
   end
 
   def orientation
