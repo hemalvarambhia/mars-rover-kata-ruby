@@ -37,6 +37,8 @@ class Planet
     location.x == eastern_edge
   end
 
+  private
+
   def at_southern_edge?(location)
     location.y == southern_edge
   end
@@ -44,8 +46,6 @@ class Planet
   def at_western_edge?(location)
     location.x == western_edge
   end
-
-  private
 
   attr_reader :northern_edge, :eastern_edge
 end
