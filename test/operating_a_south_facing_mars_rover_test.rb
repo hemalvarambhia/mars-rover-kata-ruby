@@ -76,6 +76,22 @@ class OperatingASouthFacingMarsRoverTest < Minitest::Test
     assert_equal('S', mars_rover.orientation)
   end
 
+  def test_moving_forwards_from_the_southern_edge
+    skip('Test list')
+  end
+
+  def test_moving_forwards_past_the_southern_edge
+    skip('Test list')
+  end
+
+  def test_moving_backwards_from_the_northern_edge
+    skip('Test list')
+  end
+
+  def test_moving_backwards_past_the_southern_edge
+    skip('Test list')
+  end
+
   private
 
   def south_facing_mars_rover(planet = Planet.new(northern_edge: 5, eastern_edge: 5, southern_edge: -5, western_edge: -5), starting_position)
