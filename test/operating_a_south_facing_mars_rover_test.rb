@@ -103,7 +103,7 @@ class OperatingASouthFacingMarsRoverTest < Minitest::Test
     assert_located_at(Coordinates.new(x: 0, y: -5), mars_rover)
   end
 
-  def test_moving_backwards_past_the_southern_edge
+  def test_moving_backwards_past_the_northern_edge
     skip('Test list')
   end
 
