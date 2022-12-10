@@ -59,6 +59,22 @@ class OperatingAWestFacingMarsRoverTest < Minitest::Test
     assert_located_at(Coordinates.new(x: -1, y: -3), mars_rover)
   end
 
+  def test_moving_forward_from_the_western_edge
+    skip('Test list')
+  end
+
+  def test_moving_forward_past_the_western_edge
+    skip('Test')
+  end
+
+  def test_moving_backwards_from_the_eastern_edge
+    skip('Test list')
+  end
+
+  def test_moving_backwards_past_the_eastern_edge
+    skip('Test list')
+  end
+
   def west_facing_mars_rover(starting_position)
     mars_rover = MarsRover.new(planet: Planet.new(northern_edge: 5, eastern_edge: 5, southern_edge: -5, western_edge: -5), starting_position: starting_position, orientation: 'W')
     VehicleController.new(vehicle: mars_rover)
