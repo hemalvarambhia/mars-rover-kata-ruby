@@ -11,3 +11,5 @@ but the test method talks about orienting. :thinking:
 
 3. Coordinates is a WHOLE VALUE OBJECT
 
+4. How should we treat null edges for a Planet?
+

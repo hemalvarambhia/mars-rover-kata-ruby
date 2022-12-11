@@ -12,7 +12,7 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
   end
 
   def test_moving_one_step_forward_from_the_origin
-    planet = Planet.new(northern_edge: 5, eastern_edge: nil, southern_edge: -5, western_edge: nil)
+    planet = Planet.new(northern_edge: nil, eastern_edge: nil, southern_edge: -5, western_edge: nil)
     mars_rover = mars_rover_oriented_northward(planet, Coordinates.new(x: 0, y: 0))
 
     mars_rover.execute('f')
