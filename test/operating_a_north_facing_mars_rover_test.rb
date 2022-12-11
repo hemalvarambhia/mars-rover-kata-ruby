@@ -152,6 +152,30 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
     assert_located_at(Coordinates.new(x: 1, y: 6), mars_rover)
   end
 
+  def test_mars_rover_cannot_move_forward_when_obstacle_is_in_front
+    skip('Test list')
+  end
+
+  def test_mars_rover_can_move_forward_up_to_an_obstacle_and_not_beyond
+    skip('Test list')
+  end
+
+  def test_mars_rover_can_move_forward_when_obstacle_is_adjacent
+    skip('Test list')
+  end
+
+  def test_mars_rover_cannot_move_backwards_when_obstacle_is_behind_it
+    skip('Test list')
+  end
+
+  def test_mars_rover_can_move_backwards_up_to_an_obstacle_and_not_beyond
+    skip('Test list')
+  end
+
+  def test_mars_rover_can_move_backwards_when_obstacle_is_adjacent
+    skip('Test list')
+  end
+
   private
 
   def mars_rover_oriented_northward(planet, starting_position)
