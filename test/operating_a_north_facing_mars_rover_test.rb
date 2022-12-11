@@ -131,7 +131,7 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
   def test_moving_backwards_to_the_southern_edge
     mars_rover =
       mars_rover_oriented_northward(
-        Planet.new(northern_edge: 6, southern_edge: -6),
+        Planet.new(northern_edge: 6, eastern_edge: nil, southern_edge: -6, western_edge: nil),
         Coordinates.new(x: 1, y: -5)
       )
 
@@ -143,7 +143,7 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
   def test_moving_backwards_from_the_southern_edge
     mars_rover =
       mars_rover_oriented_northward(
-        Planet.new(northern_edge: 6, southern_edge: -6),
+        Planet.new(northern_edge: 6, eastern_edge: nil, southern_edge: -6, western_edge: nil),
         Coordinates.new(x: 1, y: -6)
       )
 
