@@ -16,8 +16,6 @@ class VehicleController
     @vehicle.orientation
   end
 
-  private
-
   def self.supported(commands)
     commands.split('').select { |command| %w{f b l r}.include?(command) }
   end
@@ -30,6 +28,8 @@ class VehicleController
       'r' => :turn_right
     }[command]
   end
+
+  private
 
   def initialize(vehicle:)
     @vehicle = vehicle
