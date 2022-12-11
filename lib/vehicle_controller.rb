@@ -2,7 +2,7 @@ require_relative './mars_rover'
 class VehicleController
 
   def execute(commands)
-    commands.split('').select { |command| %w{f b l r}.include?(command) }.each do |command|
+    VehicleController.supported(commands).each do |command|
       instruction = VehicleController.instruction_from(command)
       @vehicle.public_send(instruction)
     end
@@ -17,6 +17,10 @@ class VehicleController
   end
 
   private
+
+  def self.supported(commands)
+    commands.split('').select { |command| %w{f b l r}.include?(command) }
+  end
 
   def self.instruction_from(command)
     {
