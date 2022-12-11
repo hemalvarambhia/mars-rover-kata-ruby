@@ -87,7 +87,12 @@ class OperatingAWestFacingMarsRoverTest < Minitest::Test
   end
 
   def test_moving_backwards_past_the_eastern_edge
-    skip('Test list')
+    planet = Planet.new(northern_edge: nil, eastern_edge: 5, southern_edge: nil, western_edge: -4)
+    mars_rover = west_facing_mars_rover(planet, Coordinates.new(x: 3, y: 0))
+
+    mars_rover.execute('bbbb')
+
+    assert_located_at(Coordinates.new(x: -3, y: 0), mars_rover)
   end
 
   def west_facing_mars_rover(planet = Planet.new(northern_edge: 5, eastern_edge: 5, southern_edge: -5, western_edge: -5), starting_position)
