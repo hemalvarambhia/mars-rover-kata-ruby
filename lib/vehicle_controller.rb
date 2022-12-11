@@ -17,7 +17,8 @@ class VehicleController
   end
 
   def self.supported(commands)
-    commands.split('').select { |command| %w{f b l r}.include?(command) }
+    supported_commands = %w{f b l r}
+    commands.split('').select { |command| supported_commands.include?(command) }
   end
 
   def self.instruction_from(command)
