@@ -1,6 +1,4 @@
 class Planet
-  attr_reader :northern_edge, :southern_edge, :western_edge
-
   def initialize(northern_edge:, eastern_edge:, southern_edge:, western_edge:)
     @northern_edge = northern_edge
     @eastern_edge = eastern_edge
@@ -84,5 +82,5 @@ class Planet
     location.x == western_edge
   end
 
-  attr_reader :eastern_edge
+  attr_reader :northern_edge, :eastern_edge, :southern_edge, :western_edge
 end
