@@ -1,9 +1,10 @@
 class Planet
-  def initialize(northern_edge:, eastern_edge:, southern_edge:, western_edge:)
+  def initialize(northern_edge:, eastern_edge:, southern_edge:, western_edge:, obstacles: [])
     @northern_edge = northern_edge
     @eastern_edge = eastern_edge
     @southern_edge = southern_edge
     @western_edge = western_edge
+    @obstacles = obstacles
   end
 
   def next_location_to(location, orientation)
@@ -12,7 +13,9 @@ class Planet
       if at_northern_edge?(location)
         Coordinates.new(x: location.x, y: southern_edge)
       else
-        Coordinates.new(x: location.x, y: location.y + 1)
+        next_location = Coordinates.new(x: location.x, y: location.y + 1)
+        return location if @obstacles.include?(next_location)
+        next_location
       end
     when 'E'
       if at_eastern_edge?(location)
