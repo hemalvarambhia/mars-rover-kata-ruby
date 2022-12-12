@@ -189,6 +189,10 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
     assert_located_at(Coordinates.new(x: 0, y: 6), mars_rover)
   end
 
+  def test_mars_rover_cannot_move_past_southern_edge_when_obstacle_is_located_on_northern_edge
+    skip('Test list')
+  end
+
   private
 
   def mars_rover_oriented_northward(planet, starting_position)
