@@ -10,11 +10,11 @@ class Planet
   def next_location_to(location, orientation)
     case orientation
     when 'N'
-      if at_northern_edge?(location)
-        next_location = Coordinates.new(x: location.x, y: southern_edge)
-      else
-        next_location = Coordinates.new(x: location.x, y: location.y + 1)
-      end
+      next_location = if at_northern_edge?(location)
+                        Coordinates.new(x: location.x, y: southern_edge)
+                      else
+                        Coordinates.new(x: location.x, y: location.y + 1)
+                      end
       return location if obstacle_at?(next_location)
       next_location
     when 'E'
