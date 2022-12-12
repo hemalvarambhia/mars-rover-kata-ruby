@@ -12,4 +12,7 @@ but the test method talks about orienting.~~ :thinking:
 3. ~~Coordinates is a WHOLE VALUE OBJECT~~
 
 4. How should we treat null edges for a Planet?
+5. `next_location_to` and `previous_location_to` are a bit long
+6. `coordinates` and `direction` are beginning to clump
+7. the Mars rover tests are getting a bit long
 
