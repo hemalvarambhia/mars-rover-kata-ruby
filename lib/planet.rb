@@ -41,11 +41,12 @@ class Planet
   def previous_location_to(location, orientation)
     case orientation
     when 'N'
-      if at_southern_edge?(location)
-        Coordinates.new(x: location.x, y: northern_edge)
-      else
-        Coordinates.new(x: location.x, y: location.y - 1)
-      end
+      previous_location = if at_southern_edge?(location)
+                            Coordinates.new(x: location.x, y: northern_edge)
+                          else
+                            Coordinates.new(x: location.x, y: location.y - 1)
+                          end
+      previous_location
     when 'E'
       if at_western_edge?(location)
         Coordinates.new(x: eastern_edge, y: location.y)
