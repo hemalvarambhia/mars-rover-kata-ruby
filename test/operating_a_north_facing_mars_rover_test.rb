@@ -181,6 +181,10 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
     skip('Test list')
   end
 
+  def test_mars_rover_cannot_move_past_northern_edge_when_obstacle_is_located_on_southern_edge
+    skip('Test list')
+  end
+
   private
 
   def mars_rover_oriented_northward(planet, starting_position)
