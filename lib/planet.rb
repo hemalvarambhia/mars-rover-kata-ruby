@@ -14,7 +14,7 @@ class Planet
         Coordinates.new(x: location.x, y: southern_edge)
       else
         next_location = Coordinates.new(x: location.x, y: location.y + 1)
-        return location if @obstacles.include?(next_location)
+        return location if obstacle_at?(next_location)
         next_location
       end
     when 'E'
@@ -68,6 +68,10 @@ class Planet
   end
 
   private
+
+  def obstacle_at?(next_location)
+    @obstacles.include?(next_location)
+  end
 
   def at_northern_edge?(location)
     location.y == northern_edge
