@@ -161,7 +161,12 @@ class OperatingANorthFacingMarsRoverTest < Minitest::Test
   end
 
   def test_mars_rover_can_move_forward_up_to_an_obstacle_and_not_beyond
-    skip('Test list')
+    planet = Planet.new(northern_edge: 5, eastern_edge: nil, southern_edge: -5, western_edge: nil, obstacles: [Coordinates.new(x: 0, y: 3)])
+    mars_rover = mars_rover_oriented_northward(planet, Coordinates.new(x: 0, y: 0))
+
+    mars_rover.execute('ffff')
+
+    assert_located_at(Coordinates.new(x: 0, y: 2), mars_rover)
   end
 
   def test_mars_rover_can_move_forward_when_obstacle_is_adjacent
