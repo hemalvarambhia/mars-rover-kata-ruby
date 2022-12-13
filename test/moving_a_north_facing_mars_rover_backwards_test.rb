@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require_relative './mars_rover_in_cartesian_coordinate_system'
-class OperatingANorthFacingMarsRoverTest < Minitest::Test
+class MovingANorthFacingMarsRoverBackwardsTest < Minitest::Test
   include CoordinatesAssertion
 
   def test_no_command_moves_mars_rover_nowhere
