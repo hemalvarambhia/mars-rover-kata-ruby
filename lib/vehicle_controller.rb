@@ -4,7 +4,7 @@ class VehicleController
   def execute(commands)
     VehicleController.supported(commands).each do |command|
       instruction = VehicleController.instruction_from(command)
-      @vehicle.public_send(instruction)
+      instruction.call(@vehicle)
     end
   end
 
@@ -23,10 +23,10 @@ class VehicleController
 
   def self.instruction_from(command)
     {
-      'f' => :move_forward,
-      'b' => :move_backwards,
-      'l' => :turn_left,
-      'r' => :turn_right
+      'f' => lambda { |vehicle| vehicle.move_forward },
+      'b' => lambda { |vehicle| vehicle.move_backwards },
+      'l' => lambda { |vehicle| vehicle.turn_left },
+      'r' => lambda { |vehicle| vehicle.turn_right }
     }[command]
   end
 
