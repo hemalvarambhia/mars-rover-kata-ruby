@@ -50,11 +50,21 @@ class MovingAnEastFacingMarsRoverBackwardsTest < Minitest::Test
   end
 
   def test_mars_rover_can_move_backwards_up_to_an_obstacle_and_not_beyond
-    skip('Test list')
+    planet = Planet.new(northern_edge: nil, eastern_edge: 4, southern_edge: nil, western_edge: -4, obstacles: [Coordinates.new(x: -2, y: 0)])
+    mars_rover = mars_rover_oriented_eastward(planet, Coordinates.new(x: 0, y: 0))
+
+    mars_rover.execute('bbbbbb')
+
+    assert_located_at(Coordinates.new(x: -1, y: 0), mars_rover)
   end
 
   def test_mars_rover_cannot_move_past_western_edge_when_obstacle_is_located_on_eastern_edge
-    skip('Test list')
+    planet = Planet.new(northern_edge: nil, eastern_edge: 5, southern_edge: nil, western_edge: -5, obstacles: [Coordinates.new(x: 5, y: -1)])
+    mars_rover = mars_rover_oriented_eastward(planet, Coordinates.new(x: -5, y: -1))
+
+    mars_rover.execute('b')
+
+    assert_located_at(Coordinates.new(x: -5, y: -1), mars_rover)
   end
 
   private
