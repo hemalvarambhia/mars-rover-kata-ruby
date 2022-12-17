@@ -26,7 +26,7 @@ class Planet
       return location if obstacle_at?(next_location)
       next_location
     when 'S'
-      next_location= if at_southern_edge?(location)
+      next_location = if at_southern_edge?(location)
                        Coordinates.new(x: location.x, y: northern_edge)
                      else
                        Coordinates.new(x: location.x, y: location.y - 1)
