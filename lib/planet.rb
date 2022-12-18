@@ -15,32 +15,28 @@ class Planet
                       else
                         Coordinates.new(x: location.x, y: location.y + 1)
                       end
-      return location if obstacle_at?(next_location)
-      next_location
     when 'E'
       next_location = if at_eastern_edge?(location)
                         Coordinates.new(x: western_edge, y: location.y)
                       else
                         Coordinates.new(x: location.x + 1, y: location.y)
                       end
-      return location if obstacle_at?(next_location)
-      next_location
     when 'S'
       next_location = if at_southern_edge?(location)
                        Coordinates.new(x: location.x, y: northern_edge)
                      else
                        Coordinates.new(x: location.x, y: location.y - 1)
                      end
-      return location if obstacle_at?(next_location)
-      next_location
     when 'W'
       next_location = if at_western_edge?(location)
                         Coordinates.new(x: eastern_edge, y: location.y)
                       else
                         Coordinates.new(x: location.x - 1, y: location.y)
                       end
-      next_location
     end
+
+    return location if obstacle_at?(next_location)
+    next_location
   end
 
   def previous_location_to(location, orientation)
@@ -51,32 +47,28 @@ class Planet
                           else
                             Coordinates.new(x: location.x, y: location.y - 1)
                           end
-      return location if obstacle_at?(previous_location)
-      previous_location
     when 'E'
       previous_location = if at_western_edge?(location)
                             Coordinates.new(x: eastern_edge, y: location.y)
                           else
                             Coordinates.new(x: location.x - 1, y: location.y)
                           end
-      return location if obstacle_at?(previous_location)
-      previous_location
     when 'S'
       previous_location = if at_northern_edge?(location)
                             Coordinates.new(x: location.x, y: southern_edge)
                           else
                             Coordinates.new(x: location.x, y: location.y + 1)
                           end
-      return location if obstacle_at?(previous_location)
-      previous_location
     when 'W'
       previous_location = if at_eastern_edge?(location)
                             Coordinates.new(x: western_edge, y: location.y)
                           else
                             Coordinates.new(x: location.x + 1, y: location.y)
                           end
-      previous_location
     end
+
+    return location if obstacle_at?(previous_location)
+    previous_location
   end
 
   private
