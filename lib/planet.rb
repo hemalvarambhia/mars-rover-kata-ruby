@@ -34,11 +34,12 @@ class Planet
       return location if obstacle_at?(next_location)
       next_location
     when 'W'
-      if at_western_edge?(location)
-        Coordinates.new(x: eastern_edge, y: location.y)
-      else
-        Coordinates.new(x: location.x - 1, y: location.y)
-      end
+      next_location = if at_western_edge?(location)
+                        Coordinates.new(x: eastern_edge, y: location.y)
+                      else
+                        Coordinates.new(x: location.x - 1, y: location.y)
+                      end
+      next_location
     end
   end
 
@@ -69,11 +70,12 @@ class Planet
       return location if obstacle_at?(previous_location)
       previous_location
     when 'W'
-      if at_eastern_edge?(location)
-        Coordinates.new(x: western_edge, y: location.y)
-      else
-        Coordinates.new(x: location.x + 1, y: location.y)
-      end
+      previous_location = if at_eastern_edge?(location)
+                            Coordinates.new(x: western_edge, y: location.y)
+                          else
+                            Coordinates.new(x: location.x + 1, y: location.y)
+                          end
+      previous_location
     end
   end
 
