@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative './mars_rover_in_cartesian_coordinate_system'
+require_relative '../mars_rover_in_cartesian_coordinate_system'
 class MovingAnEastFacingMarsRoverForwardsTest < Minitest::Test
   include CoordinatesAssertion
 
