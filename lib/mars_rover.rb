@@ -23,11 +23,11 @@ class MarsRover
   end
 
   def move_backwards
-    @current_position = @planet.previous_location_to(@current_position, @orientation)
+    @current_position = @planet.previous_location_to(@current_position, @direction.direction)
   end
 
   def move_forward
-    @current_position = @planet.next_location_to(@current_position, @orientation)
+    @current_position = @planet.next_location_to(@current_position, @direction.direction)
   end
 
   def orientation
