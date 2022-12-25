@@ -21,6 +21,24 @@ class MovingAWestFacingMarsRoverForwardsTest < Minitest::Test
     assert_equal('W', mars_rover.orientation)
   end
 
+  def test_moving_forward_from_the_western_edge
+    planet = Planet.new(northern_edge: nil, eastern_edge: 7, southern_edge: nil, western_edge: -7)
+    mars_rover = west_facing_mars_rover(planet, Coordinates.new(x: -7, y: -1))
+
+    mars_rover.execute('f')
+
+    assert_located_at(Coordinates.new(x: 7, y: -1), mars_rover)
+  end
+
+  def test_moving_forward_past_the_western_edge
+    planet = Planet.new(northern_edge: nil, eastern_edge: 7, southern_edge: nil, western_edge: -7)
+    mars_rover = west_facing_mars_rover(planet, Coordinates.new(x: -5, y: -1))
+
+    mars_rover.execute('ffff')
+
+    assert_located_at(Coordinates.new(x: 6, y: -1), mars_rover)
+  end
+
   private
 
   def west_facing_mars_rover(planet, starting_position)
