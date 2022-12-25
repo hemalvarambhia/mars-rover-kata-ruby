@@ -62,6 +62,8 @@ class OperatingAWestFacingMarsRoverTest < Minitest::Test
     assert_located_at(Coordinates.new(x: -3, y: 0), mars_rover)
   end
 
+  private
+
   def west_facing_mars_rover(planet, starting_position)
     mars_rover = MarsRover.new(planet: planet, starting_position: starting_position, orientation: 'W')
     VehicleController.new(vehicle: mars_rover)
