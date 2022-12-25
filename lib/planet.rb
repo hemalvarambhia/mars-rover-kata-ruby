@@ -46,28 +46,24 @@ class Planet
       previous_location = if at_southern_edge?(location)
                             Coordinates.new(x: location.x, y: northern_edge)
                           else
-                            Coordinates.new(x: location.x, y: location.y - 1)
                             location + OpenStruct.new(x: 0, y: -1)
                           end
     when 'E'
       previous_location = if at_western_edge?(location)
                             Coordinates.new(x: eastern_edge, y: location.y)
                           else
-                            Coordinates.new(x: location.x - 1, y: location.y)
                             location + OpenStruct.new(x: -1, y: 0)
                           end
     when 'S'
       previous_location = if at_northern_edge?(location)
                             Coordinates.new(x: location.x, y: southern_edge)
                           else
-                            Coordinates.new(x: location.x, y: location.y + 1)
                             location + OpenStruct.new(x: 0, y: 1)
                           end
     when 'W'
       previous_location = if at_eastern_edge?(location)
                             Coordinates.new(x: western_edge, y: location.y)
                           else
-                            Coordinates.new(x: location.x + 1, y: location.y)
                             location + OpenStruct.new(x: 1, y: 0)
                           end
     end
