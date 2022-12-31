@@ -14,25 +14,25 @@ class Planet
       next_location = if at_northern_edge?(location)
                         Coordinates.new(x: location.x, y: southern_edge)
                       else
-                        location + one_step_forward(orientation.direction)
+                        location + one_step_forward_in(orientation.direction)
                       end
     when 'E'
       next_location = if at_eastern_edge?(location)
                         Coordinates.new(x: western_edge, y: location.y)
                       else
-                        location + one_step_forward(orientation.direction)
+                        location + one_step_forward_in(orientation.direction)
                       end
     when 'S'
       next_location = if at_southern_edge?(location)
                        Coordinates.new(x: location.x, y: northern_edge)
                      else
-                       location + one_step_forward(orientation.direction)
+                       location + one_step_forward_in(orientation.direction)
                      end
     when 'W'
       next_location = if at_western_edge?(location)
                         Coordinates.new(x: eastern_edge, y: location.y)
                       else
-                        location + one_step_forward(orientation.direction)
+                        location + one_step_forward_in(orientation.direction)
                       end
     end
 
@@ -74,7 +74,7 @@ class Planet
 
   private
 
-  def one_step_forward(direction)
+  def one_step_forward_in(direction)
     case direction
     when 'N'
       OpenStruct.new(x: 0, y: 1)
