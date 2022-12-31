@@ -9,7 +9,7 @@ class Planet
   end
 
   def next_location_to(location, orientation)
-    case orientation
+    case orientation.direction
     when 'N'
       next_location = if at_northern_edge?(location)
                         Coordinates.new(x: location.x, y: southern_edge)
@@ -41,7 +41,7 @@ class Planet
   end
 
   def previous_location_to(location, orientation)
-    case orientation
+    case orientation.direction
     when 'N'
       previous_location = if at_southern_edge?(location)
                             Coordinates.new(x: location.x, y: northern_edge)
