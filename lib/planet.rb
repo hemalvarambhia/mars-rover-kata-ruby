@@ -46,7 +46,7 @@ class Planet
       previous_location = if at_southern_edge?(location)
                             Coordinates.new(x: location.x, y: northern_edge)
                           else
-                            location + OpenStruct.new(x: 0, y: -1)
+                            location + one_step_backwards('N')
                           end
     when 'E'
       previous_location = if at_western_edge?(location)
@@ -84,6 +84,13 @@ class Planet
       OpenStruct.new(x: 0, y: -1)
     when 'W'
       OpenStruct.new(x: -1, y: 0)
+    end
+  end
+
+  def one_step_backwards(direction)
+    case direction
+    when 'N'
+      OpenStruct.new(x: 0, y: -1)
     end
   end
 
