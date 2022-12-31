@@ -14,7 +14,7 @@ class Planet
       next_location = if at_northern_edge?(location)
                         Coordinates.new(x: location.x, y: southern_edge)
                       else
-                        location + one_step_forward
+                        location + one_step_forward('N')
                       end
     when 'E'
       next_location = if at_eastern_edge?(location)
@@ -74,8 +74,11 @@ class Planet
 
   private
 
-  def one_step_forward
-    OpenStruct.new(x: 0, y: 1)
+  def one_step_forward(direction = nil)
+    case direction
+    when 'N'
+      OpenStruct.new(x: 0, y: 1)
+    end
   end
 
   def obstacle_at?(next_location)
