@@ -14,7 +14,7 @@ class Planet
       next_location = if at_northern_edge?(location)
                         Coordinates.new(x: location.x, y: southern_edge)
                       else
-                        location + OpenStruct.new(x: 0, y: 1)
+                        location + one_step_forward
                       end
     when 'E'
       next_location = if at_eastern_edge?(location)
@@ -73,6 +73,10 @@ class Planet
   end
 
   private
+
+  def one_step_forward
+    OpenStruct.new(x: 0, y: 1)
+  end
 
   def obstacle_at?(next_location)
     @obstacles.include?(next_location)
