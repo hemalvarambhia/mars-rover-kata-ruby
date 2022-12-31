@@ -20,19 +20,19 @@ class Planet
       next_location = if at_eastern_edge?(location)
                         Coordinates.new(x: western_edge, y: location.y)
                       else
-                        location + OpenStruct.new(x: 1, y: 0)
+                        location + one_step_forward('E')
                       end
     when 'S'
       next_location = if at_southern_edge?(location)
                        Coordinates.new(x: location.x, y: northern_edge)
                      else
-                       location + OpenStruct.new(x: 0, y: -1)
+                       location + one_step_forward('S')
                      end
     when 'W'
       next_location = if at_western_edge?(location)
                         Coordinates.new(x: eastern_edge, y: location.y)
                       else
-                        location + OpenStruct.new(x: -1, y: 0)
+                        location + one_step_forward('W')
                       end
     end
 
@@ -74,10 +74,16 @@ class Planet
 
   private
 
-  def one_step_forward(direction = nil)
+  def one_step_forward(direction)
     case direction
     when 'N'
       OpenStruct.new(x: 0, y: 1)
+    when 'E'
+      OpenStruct.new(x: 1, y: 0)
+    when 'S'
+      OpenStruct.new(x: 0, y: -1)
+    when 'W'
+      OpenStruct.new(x: -1, y: 0)
     end
   end
 
