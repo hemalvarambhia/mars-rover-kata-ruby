@@ -46,25 +46,25 @@ class Planet
       previous_location = if at_southern_edge?(location)
                             Coordinates.new(x: location.x, y: northern_edge)
                           else
-                            location + one_step_backwards_in(orientation.direction)
+                            location + orientation.step_backwards
                           end
     when 'E'
       previous_location = if at_western_edge?(location)
                             Coordinates.new(x: eastern_edge, y: location.y)
                           else
-                            location + one_step_backwards_in(orientation.direction)
+                            location + orientation.step_backwards
                           end
     when 'S'
       previous_location = if at_northern_edge?(location)
                             Coordinates.new(x: location.x, y: southern_edge)
                           else
-                            location + one_step_backwards_in(orientation.direction)
+                            location + orientation.step_backwards
                           end
     when 'W'
       previous_location = if at_eastern_edge?(location)
                             Coordinates.new(x: western_edge, y: location.y)
                           else
-                            location + one_step_backwards_in(orientation.direction)
+                            location + orientation.step_backwards
                           end
     end
 
