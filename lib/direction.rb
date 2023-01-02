@@ -1,3 +1,4 @@
+require 'ostruct'
 class Direction
   attr_reader :direction, :left, :right
 
