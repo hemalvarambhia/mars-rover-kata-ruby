@@ -1,4 +1,3 @@
-require 'ostruct'
 class Planet
   def initialize(northern_edge:, eastern_edge:, southern_edge:, western_edge:, obstacles: [])
     @northern_edge = northern_edge
@@ -73,19 +72,6 @@ class Planet
   end
 
   private
-
-  def one_step_backwards_in(direction)
-    case direction
-    when 'N'
-      OpenStruct.new(x: 0, y: -1)
-    when 'E'
-      OpenStruct.new(x: -1, y: 0)
-    when 'S'
-      OpenStruct.new(x: 0, y: 1)
-    when 'W'
-      OpenStruct.new(x: 1, y: 0)
-    end
-  end
 
   def obstacle_at?(next_location)
     @obstacles.include?(next_location)
