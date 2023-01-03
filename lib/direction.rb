@@ -32,16 +32,6 @@ class Direction
   end
 
   def step_backwards
-    case direction
-    when 'N'
-      OpenStruct.new(x: 0, y: -1)
-    when 'E'
-      OpenStruct.new(x: -1, y: 0)
-    when 'S'
-      OpenStruct.new(x: 0, y: 1)
-    when 'W'
-      OpenStruct.new(x: 1, y: 0)
-    end
     OpenStruct.new(x: -step_forward.x, y: -step_forward.y)
   end
 
