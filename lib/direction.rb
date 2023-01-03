@@ -42,6 +42,7 @@ class Direction
     when 'W'
       OpenStruct.new(x: 1, y: 0)
     end
+    OpenStruct.new(x: -step_forward.x, y: -step_forward.y)
   end
 
   private
