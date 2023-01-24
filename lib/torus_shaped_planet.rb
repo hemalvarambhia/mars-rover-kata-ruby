@@ -29,21 +29,13 @@ class TorusShapedPlanet
   def previous_location_to(location, orientation)
     case orientation.direction
     when 'N'
-      previous_location = if at_southern_edge?(location)
-                            Coordinates.new(x: location.x, y: northern_edge)
-                          end
+      previous_location = Coordinates.new(x: location.x, y: northern_edge) if at_southern_edge?(location)
     when 'E'
-      previous_location = if at_western_edge?(location)
-                            Coordinates.new(x: eastern_edge, y: location.y)
-                          end
+      previous_location = Coordinates.new(x: eastern_edge, y: location.y) if at_western_edge?(location)
     when 'S'
-      previous_location = if at_northern_edge?(location)
-                            Coordinates.new(x: location.x, y: southern_edge)
-                          end
+      previous_location = Coordinates.new(x: location.x, y: southern_edge) if at_northern_edge?(location)
     when 'W'
-      previous_location = if at_eastern_edge?(location)
-                            Coordinates.new(x: western_edge, y: location.y)
-                          end
+      previous_location = Coordinates.new(x: western_edge, y: location.y) if at_eastern_edge?(location)
     end
     previous_location ||= location.translate(backwards(orientation.direction))
 
