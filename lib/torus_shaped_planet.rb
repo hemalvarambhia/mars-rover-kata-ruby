@@ -39,28 +39,21 @@ class TorusShapedPlanet
     when 'N'
       previous_location = if at_southern_edge?(location)
                             Coordinates.new(x: location.x, y: northern_edge)
-                          else
-                            location.translate(backwards(orientation.direction))
                           end
     when 'E'
       previous_location = if at_western_edge?(location)
                             Coordinates.new(x: eastern_edge, y: location.y)
-                          else
-                            location.translate(backwards(orientation.direction))
                           end
     when 'S'
       previous_location = if at_northern_edge?(location)
                             Coordinates.new(x: location.x, y: southern_edge)
-                          else
-                            location.translate(backwards(orientation.direction))
                           end
     when 'W'
       previous_location = if at_eastern_edge?(location)
                             Coordinates.new(x: western_edge, y: location.y)
-                          else
-                            location.translate(backwards(orientation.direction))
                           end
     end
+    previous_location ||= location.translate(backwards(orientation.direction))
 
     return location if obstacle_at?(previous_location)
     previous_location
