@@ -71,12 +71,8 @@ class TorusShapedPlanet
   end
 
   def backwards(direction)
-    {
-      'N' => OpenStruct.new(x: 0, y: -1),
-      'E' => OpenStruct.new(x: -1, y: 0),
-      'S' => OpenStruct.new(x: 0, y: 1),
-      'W' => OpenStruct.new(x: 1, y: 0)
-    }[direction]
+    step = forward(direction)
+    OpenStruct.new(x: -step.x, y: -step.y)
   end
 
   def obstacle_at?(next_location)
