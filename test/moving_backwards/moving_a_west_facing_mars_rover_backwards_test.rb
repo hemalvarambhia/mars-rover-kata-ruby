@@ -4,7 +4,7 @@ class MovingAWestFacingMarsRoverBackwardsTest < Minitest::Test
   include CoordinatesAssertion
 
   def test_moving_one_step_backwards_from_any_position
-    planet = TorusBasedPlanet.new(northern_edge: 5, eastern_edge: 5, southern_edge: -5, western_edge: -5)
+    planet = TorusShapedPlanet.new(northern_edge: 5, eastern_edge: 5, southern_edge: -5, western_edge: -5)
     mars_rover = west_facing_mars_rover(planet, Coordinates.new(x: 0, y: 0))
 
     mars_rover.execute('b')
@@ -13,7 +13,7 @@ class MovingAWestFacingMarsRoverBackwardsTest < Minitest::Test
   end
 
   def test_moving_backwards_from_the_eastern_edge
-    planet = TorusBasedPlanet.new(northern_edge: nil, eastern_edge: 4, southern_edge: nil, western_edge: -4)
+    planet = TorusShapedPlanet.new(northern_edge: nil, eastern_edge: 4, southern_edge: nil, western_edge: -4)
     mars_rover = west_facing_mars_rover(planet, Coordinates.new(x: 4, y: 0))
 
     mars_rover.execute('b')
@@ -22,7 +22,7 @@ class MovingAWestFacingMarsRoverBackwardsTest < Minitest::Test
   end
 
   def test_moving_backwards_past_the_eastern_edge
-    planet = TorusBasedPlanet.new(northern_edge: nil, eastern_edge: 5, southern_edge: nil, western_edge: -4)
+    planet = TorusShapedPlanet.new(northern_edge: nil, eastern_edge: 5, southern_edge: nil, western_edge: -4)
     mars_rover = west_facing_mars_rover(planet, Coordinates.new(x: 3, y: 0))
 
     mars_rover.execute('bbbb')
