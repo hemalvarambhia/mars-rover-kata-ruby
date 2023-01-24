@@ -5,6 +5,10 @@ class Coordinates
     @y = y
   end
 
+  def translate(displacement)
+    self + displacement
+  end
+
   def +(displacement)
     self.class.new(x: x + displacement.x, y: y + displacement.y)
   end
