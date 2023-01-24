@@ -14,25 +14,25 @@ class Planet
       next_location = if at_northern_edge?(location)
                         Coordinates.new(x: location.x, y: southern_edge)
                       else
-                        location.translate(OpenStruct.new(x: 0, y: 1))
+                        location.translate(forward(orientation.direction))
                       end
     when 'E'
       next_location = if at_eastern_edge?(location)
                         Coordinates.new(x: western_edge, y: location.y)
                       else
-                        location.translate(OpenStruct.new(x: 1, y: 0))
+                        location.translate(forward(orientation.direction))
                       end
     when 'S'
       next_location = if at_southern_edge?(location)
                        Coordinates.new(x: location.x, y: northern_edge)
                      else
-                       location.translate(OpenStruct.new(x: 0, y: -1))
+                       location.translate(forward(orientation.direction))
                      end
     when 'W'
       next_location = if at_western_edge?(location)
                         Coordinates.new(x: eastern_edge, y: location.y)
                       else
-                        location.translate(OpenStruct.new(x: -1, y: 0))
+                        location.translate(forward(orientation.direction))
                       end
     end
 
@@ -73,6 +73,15 @@ class Planet
   end
 
   private
+
+  def forward(direction)
+    {
+      'N' => OpenStruct.new(x: 0, y: 1),
+      'E' => OpenStruct.new(x: 1, y: 0),
+      'S' => OpenStruct.new(x: 0, y: -1),
+      'W' => OpenStruct.new(x: -1, y: 0)
+    }[direction]
+  end
 
   def obstacle_at?(next_location)
     @obstacles.include?(next_location)
