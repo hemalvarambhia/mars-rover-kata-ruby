@@ -9,10 +9,6 @@ class Coordinates
     self + displacement
   end
 
-  def +(displacement)
-    self.class.new(x: x + displacement.x, y: y + displacement.y)
-  end
-
   def ==(coordinates)
     return false if coordinates.class != self.class
     x == coordinates.x && y == coordinates.y
@@ -20,5 +16,11 @@ class Coordinates
 
   def inspect
     "(#{x}, #{y})"
+  end
+
+  private
+
+  def +(displacement)
+    self.class.new(x: x + displacement.x, y: y + displacement.y)
   end
 end
