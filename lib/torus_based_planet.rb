@@ -1,5 +1,5 @@
 require 'ostruct'
-class Planet
+class TorusBasedPlanet
   def initialize(northern_edge:, eastern_edge:, southern_edge:, western_edge:, obstacles: [])
     @northern_edge = northern_edge
     @eastern_edge = eastern_edge
