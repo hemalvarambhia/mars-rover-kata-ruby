@@ -45,6 +45,10 @@ class MovingANorthFacingVehicleOnASphericalPlanetTest < Minitest::Test
     assert_equal('S', mars_rover.orientation)
   end
 
+  def test_moving_forward_to_the_north_pole
+    skip('Test list')
+  end
+
   def test_moving_two_steps_forward_far_from_north_pole
     skip('Test list')
   end
