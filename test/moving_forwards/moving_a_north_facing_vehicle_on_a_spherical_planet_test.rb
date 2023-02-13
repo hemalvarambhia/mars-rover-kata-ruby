@@ -42,7 +42,7 @@ class MovingANorthFacingVehicleOnASphericalPlanetTest < Minitest::Test
 
     assert_equal(2, mars_rover.current_position.longitude, 'longitude')
     assert_equal(2, mars_rover.current_position.latitude, 'latitude')
-    assert_equal('S', mars_rover.orientation)
+    assert_equal('N', mars_rover.orientation)
   end
 
   def test_moving_forwards_to_the_north_pole
