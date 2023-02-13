@@ -29,7 +29,7 @@ class MovingANorthFacingVehicleOnASphericalPlanetTest < Minitest::Test
     assert_equal('N', mars_rover.orientation)
   end
 
-  def test_moving_forward_from_any_point_far_from_north_pole
+  def test_moving_forwards_from_any_point_far_from_north_pole
     skip('Test list')
     spherical_planet = SphericalPlanet.new
     starting_position = PolarCoordinates.new(longitude: 2, latitude: 1)
@@ -45,7 +45,7 @@ class MovingANorthFacingVehicleOnASphericalPlanetTest < Minitest::Test
     assert_equal('S', mars_rover.orientation)
   end
 
-  def test_moving_forward_to_the_north_pole
+  def test_moving_forwards_to_the_north_pole
     skip('Test list')
   end
 
