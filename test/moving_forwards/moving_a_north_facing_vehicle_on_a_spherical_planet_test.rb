@@ -3,20 +3,20 @@ require 'ostruct'
 require_relative '../../lib/vehicle_controller'
 class SphericalPlanet
   def next_location_to(location, orientation)
-    PolarCoordinates.new(longitude: 1, latitude: 2)
+    PolarCoordinates.new(latitude: location.latitude + 1, longitude: location.longitude)
   end
 end
 class PolarCoordinates
   attr_reader :longitude, :latitude
-  def initialize(longitude:, latitude:)
-    @longitude = longitude
+  def initialize(latitude:, longitude:)
     @latitude = latitude
+    @longitude = longitude
   end
 end
 class MovingANorthFacingVehicleOnASphericalPlanetTest < Minitest::Test
   def test_moving_forward_when_facing_north_far_from_north_pole
     spherical_planet = SphericalPlanet.new
-    starting_position = PolarCoordinates.new(longitude: 1, latitude: 1)
+    starting_position = PolarCoordinates.new(latitude: 1, longitude: 1)
     mars_rover =
       VehicleController.new(
         vehicle: MarsRover.new(planet: spherical_planet, starting_position: starting_position, orientation: 'N')
@@ -30,9 +30,8 @@ class MovingANorthFacingVehicleOnASphericalPlanetTest < Minitest::Test
   end
 
   def test_moving_forwards_from_any_point_far_from_north_pole
-    skip('Test list')
     spherical_planet = SphericalPlanet.new
-    starting_position = PolarCoordinates.new(longitude: 2, latitude: 1)
+    starting_position = PolarCoordinates.new(latitude: 1, longitude: 2)
     mars_rover =
       VehicleController.new(
         vehicle: MarsRover.new(planet: spherical_planet, starting_position: starting_position, orientation: 'N')
