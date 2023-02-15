@@ -24,8 +24,8 @@ class MovingANorthFacingVehicleOnASphericalPlanetTest < Minitest::Test
 
     mars_rover.execute('f')
 
-    assert_equal(1, mars_rover.current_position.longitude)
     assert_equal(2, mars_rover.current_position.latitude)
+    assert_equal(1, mars_rover.current_position.longitude)
     assert_equal('N', mars_rover.orientation)
   end
 
@@ -39,8 +39,8 @@ class MovingANorthFacingVehicleOnASphericalPlanetTest < Minitest::Test
 
     mars_rover.execute('f')
 
-    assert_equal(2, mars_rover.current_position.longitude, 'longitude')
     assert_equal(2, mars_rover.current_position.latitude, 'latitude')
+    assert_equal(2, mars_rover.current_position.longitude, 'longitude')
     assert_equal('N', mars_rover.orientation)
   end
 
