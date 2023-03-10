@@ -4,16 +4,16 @@ class MarsRover
 
   def initialize(planet:, starting_position:, orientation:)
     @current_position = starting_position
-    @direction = direction_from_orientation[orientation]
+    @direction = MarsRover.direction_from_orientation[orientation]
     @planet = planet
   end
 
   def turn_right
-    @direction = direction_from_orientation[@direction.right]
+    @direction = MarsRover.direction_from_orientation[@direction.right]
   end
 
   def turn_left
-    @direction = direction_from_orientation[@direction.left]
+    @direction = MarsRover.direction_from_orientation[@direction.left]
   end
 
   def move_backwards
@@ -29,6 +29,15 @@ class MarsRover
   end
 
   private
+
+  def self.direction_from_orientation
+    {
+      'N' => Direction.north,
+      'E' => Direction.east,
+      'S' => Direction.south,
+      'W' => Direction.west
+    }
+  end
 
   def direction_from_orientation
     {
