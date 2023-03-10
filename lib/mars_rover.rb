@@ -38,13 +38,4 @@ class MarsRover
       'W' => Direction.west
     }
   end
-
-  def direction_from_orientation
-    {
-      'N' => Direction.north,
-      'E' => Direction.east,
-      'S' => Direction.south,
-      'W' => Direction.west
-    }
-  end
 end
