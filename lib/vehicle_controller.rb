@@ -1,19 +1,14 @@
 require_relative './mars_rover'
+require 'forwardable'
 class VehicleController
+  extend Forwardable
+  def_delegators :@vehicle, :current_position, :orientation
 
   def execute(commands)
     VehicleController.supported(commands).each do |command|
       instruction = VehicleController.instruction_from(command)
       instruction.call(@vehicle)
     end
-  end
-
-  def current_position
-    @vehicle.current_position
-  end
-
-  def orientation
-    @vehicle.orientation
   end
 
   def self.supported(commands)
