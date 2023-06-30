@@ -90,7 +90,12 @@ class MovingANorthFacingMarsRoverBackwardsTest < Minitest::Test
   end
 
   def test_mars_rover_can_move_backwards_when_obstacle_is_adjacent
-    skip('Test list')
+    planet = TorusShapedPlanet.new(northern_edge: 5, eastern_edge: 5, southern_edge: -5, western_edge: -5, obstacles: [Coordinates.new(x: 1, y: 0)])
+    mars_rover = mars_rover_oriented_northward(planet, Coordinates.new(x: 0, y: 0))
+
+    mars_rover.execute('b')
+
+    assert_located_at(Coordinates.new(x: 0, y: -1), mars_rover)
   end
 
   def test_mars_rover_cannot_move_past_southern_edge_when_obstacle_is_located_on_northern_edge
