@@ -17,7 +17,8 @@ class MovingANorthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    assert_located_at(Coordinates.new(x: 2, y: 0), mars_rover)
+    expected_location = Coordinates.new(x: 2, y: 0)
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_moving_backwards_leaves_orientation_unchanged
@@ -44,7 +45,8 @@ class MovingANorthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('bb')
 
-    assert_located_at(Coordinates.new(x: 2, y: -4), mars_rover)
+    expected_location = Coordinates.new(x: 2, y: -4)
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_moving_backwards_to_the_southern_edge
@@ -56,7 +58,8 @@ class MovingANorthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    assert_located_at(Coordinates.new(x: 1, y: -6), mars_rover)
+    expected_location = Coordinates.new(x: 1, y: -6)
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_moving_backwards_from_the_southern_edge
@@ -68,7 +71,8 @@ class MovingANorthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    assert_located_at(Coordinates.new(x: 1, y: 6), mars_rover)
+    expected_location = Coordinates.new(x: 1, y: 6)
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_mars_rover_cannot_move_backwards_when_obstacle_is_behind_it
@@ -77,7 +81,8 @@ class MovingANorthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    assert_located_at(Coordinates.new(x: 0, y: 0), mars_rover)
+    expected_location = Coordinates.new(x: 0, y: 0)
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_mars_rover_can_move_backwards_up_to_an_obstacle_and_not_beyond
@@ -86,7 +91,8 @@ class MovingANorthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('bbbbb')
 
-    assert_located_at(Coordinates.new(x: 1, y: -4), mars_rover)
+    expected_location = Coordinates.new(x: 1, y: -4)
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_mars_rover_can_move_backwards_when_obstacle_is_adjacent
@@ -95,7 +101,8 @@ class MovingANorthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    assert_located_at(Coordinates.new(x: 0, y: -1), mars_rover)
+    expected_location = Coordinates.new(x: 0, y: -1)
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_mars_rover_cannot_move_past_southern_edge_when_obstacle_is_located_on_northern_edge
@@ -104,16 +111,14 @@ class MovingANorthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    assert_located_at(Coordinates.new(x: 1, y: -5), mars_rover)
+    expected_location = Coordinates.new(x: 1, y: -5)
+    assert_located_at(expected_location, mars_rover)
   end
 
   private
 
   def mars_rover(planet, starting_position)
-    VehicleController.new(
-      vehicle: MarsRover.new(
-        planet: planet,
-        starting_position: starting_position, orientation: 'N')
-    )
+    mars_rover = MarsRover.new(planet: planet, starting_position: starting_position, orientation: 'N')
+    VehicleController.new(vehicle: mars_rover)
   end
 end

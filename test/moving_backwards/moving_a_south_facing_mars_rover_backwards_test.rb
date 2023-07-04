@@ -9,7 +9,8 @@ class MovingASouthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    assert_located_at(Coordinates.new(x: 1, y: 2), mars_rover)
+    expected_location = Coordinates.new(x: 1, y: 2)
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_moving_backwards_leaves_orientation_unchanged
@@ -36,7 +37,8 @@ class MovingASouthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    assert_located_at(Coordinates.new(x: 0, y: -5), mars_rover)
+    expected_location = Coordinates.new(x: 0, y: -5)
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_moving_backwards_past_the_northern_edge
@@ -45,7 +47,8 @@ class MovingASouthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('bbbb')
 
-    assert_located_at(Coordinates.new(x: 0, y: -5), mars_rover)
+    expected_location = Coordinates.new(x: 0, y: -5)
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_mars_rover_cannot_move_backwards_when_obstacle_is_behind_it
@@ -54,7 +57,8 @@ class MovingASouthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    assert_located_at(Coordinates.new(x: -1, y: -4), mars_rover)
+    expected_location = Coordinates.new(x: -1, y: -4)
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_mars_rover_cannot_move_backwards_up_to_an_obstacle_and_not_beyond
@@ -63,7 +67,8 @@ class MovingASouthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('bbbbb')
 
-    assert_located_at(Coordinates.new(x: 3, y: 0), mars_rover)
+    expected_location = Coordinates.new(x: 3, y: 0)
+    assert_located_at(expected_location, mars_rover)
   end
 
   def test_mars_rover_cannot_move_past_northern_edge_when_obstacle_is_located_on_southern_edge
@@ -72,7 +77,8 @@ class MovingASouthFacingMarsRoverBackwardsTest < Minitest::Test
 
     mars_rover.execute('b')
 
-    assert_located_at(Coordinates.new(x: 0, y: 5), mars_rover)
+    expected_location = Coordinates.new(x: 0, y: 5)
+    assert_located_at(expected_location, mars_rover)
   end
 
   private
