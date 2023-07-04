@@ -4,7 +4,7 @@ class TurningAnEastFacingMarsRoverLeftAndRightTest < Minitest::Test
   include CoordinatesAssertion
 
   def test_turning_mars_rover_left_orients_it_northward
-    mars_rover = mars_rover_oriented_eastward(nil, nil)
+    mars_rover = mars_rover(nil, nil)
 
     mars_rover.execute('l')
 
@@ -13,7 +13,7 @@ class TurningAnEastFacingMarsRoverLeftAndRightTest < Minitest::Test
 
   def test_turning_mars_rover_left_leaves_current_position_unchanged
     planet = TorusShapedPlanet.new(northern_edge: nil, eastern_edge: 5, southern_edge: nil, western_edge: -5)
-    mars_rover = mars_rover_oriented_eastward(planet, Coordinates.new(x: 5, y: -2))
+    mars_rover = mars_rover(planet, Coordinates.new(x: 5, y: -2))
 
     mars_rover.execute('l')
 
@@ -21,7 +21,7 @@ class TurningAnEastFacingMarsRoverLeftAndRightTest < Minitest::Test
   end
 
   def test_turning_mars_rover_right_orients_it_southward
-    mars_rover = mars_rover_oriented_eastward(nil, nil)
+    mars_rover = mars_rover(nil, nil)
 
     mars_rover.execute('r')
 
@@ -30,7 +30,7 @@ class TurningAnEastFacingMarsRoverLeftAndRightTest < Minitest::Test
 
   def test_turning_mars_rover_right_leaves_current_position_unchanged
     planet = TorusShapedPlanet.new(northern_edge: nil, eastern_edge: 5, southern_edge: nil, western_edge: -5)
-    mars_rover = mars_rover_oriented_eastward(planet, Coordinates.new(x: 0, y: 3))
+    mars_rover = mars_rover(planet, Coordinates.new(x: 0, y: 3))
 
     mars_rover.execute('r')
 
@@ -39,13 +39,8 @@ class TurningAnEastFacingMarsRoverLeftAndRightTest < Minitest::Test
 
   private
 
-  def mars_rover_oriented_eastward(planet, starting_position)
-    mars_rover =
-      MarsRover.new(
-        planet: planet,
-        starting_position: starting_position,
-        orientation: 'E'
-      )
+  def mars_rover(planet, starting_position)
+    mars_rover = MarsRover.new(planet: planet, starting_position: starting_position, orientation: 'E')
     VehicleController.new(vehicle: mars_rover)
   end
 end

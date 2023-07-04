@@ -4,7 +4,7 @@ class TurningANorthFacingMarsRoverLeftAndRightTest < Minitest::Test
   include CoordinatesAssertion
 
   def test_turning_mars_rover_left_orients_it_westward
-    mars_rover = mars_rover_oriented_northward(nil, nil)
+    mars_rover = mars_rover(nil, nil)
 
     mars_rover.execute('l')
 
@@ -13,7 +13,7 @@ class TurningANorthFacingMarsRoverLeftAndRightTest < Minitest::Test
 
   def test_turning_mars_rover_left_leaves_current_position_unchanged
     planet = TorusShapedPlanet.new(northern_edge: 5, eastern_edge: nil, southern_edge: -5, western_edge: nil)
-    mars_rover = mars_rover_oriented_northward(planet, Coordinates.new(x: 2, y: 2))
+    mars_rover = mars_rover(planet, Coordinates.new(x: 2, y: 2))
 
     mars_rover.execute('l')
 
@@ -22,7 +22,7 @@ class TurningANorthFacingMarsRoverLeftAndRightTest < Minitest::Test
 
   def test_turning_mars_rover_right_orients_it_eastward
     planet = TorusShapedPlanet.new(northern_edge: 5, eastern_edge: nil, southern_edge: -5, western_edge: nil)
-    mars_rover = mars_rover_oriented_northward(nil, nil)
+    mars_rover = mars_rover(nil, nil)
 
     mars_rover.execute('r')
 
@@ -31,7 +31,7 @@ class TurningANorthFacingMarsRoverLeftAndRightTest < Minitest::Test
 
   def test_turning_mars_rover_right_leaves_current_position_unchanged
     planet = TorusShapedPlanet.new(northern_edge: 5, eastern_edge: nil, southern_edge: -5, western_edge: nil)
-    mars_rover = mars_rover_oriented_northward(planet, Coordinates.new(x: 1, y: 2))
+    mars_rover = mars_rover(planet, Coordinates.new(x: 1, y: 2))
 
     mars_rover.execute('r')
 
@@ -40,11 +40,8 @@ class TurningANorthFacingMarsRoverLeftAndRightTest < Minitest::Test
 
   private
 
-  def mars_rover_oriented_northward(planet, starting_position)
-    VehicleController.new(
-      vehicle: MarsRover.new(
-        planet: planet,
-        starting_position: starting_position, orientation: 'N')
-    )
+  def mars_rover(planet, starting_position)
+    mars_rover = MarsRover.new(planet: planet, starting_position: starting_position, orientation: 'N')
+    VehicleController.new(vehicle: mars_rover)
   end
 end
