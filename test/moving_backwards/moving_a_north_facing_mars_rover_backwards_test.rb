@@ -75,6 +75,16 @@ class MovingANorthFacingMarsRoverBackwardsTest < Minitest::Test
     assert_located_at(expected_location, mars_rover)
   end
 
+  def test_moving_backwards_past_the_southern_edge
+    planet = TorusShapedPlanet.new(northern_edge: 6, eastern_edge: nil, southern_edge: -6, western_edge: nil)
+    mars_rover = mars_rover(planet, Coordinates.new(x: 0, y: -4))
+
+    mars_rover.execute('bbbb')
+
+    expected_location = Coordinates.new(x: 0, y: 5)
+    assert_located_at(expected_location, mars_rover)
+  end
+
   def test_mars_rover_cannot_move_backwards_when_obstacle_is_behind_it
     planet = TorusShapedPlanet.new(northern_edge: 5, eastern_edge: 5, southern_edge: -5, western_edge: -5, obstacles: [Coordinates.new(x: 0, y: -1)])
     mars_rover = mars_rover(planet, Coordinates.new(x: 0, y: 0))
