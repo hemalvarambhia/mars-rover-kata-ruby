@@ -13,6 +13,10 @@ RSpec.describe 'Operating a Mars rover' do
       @y = y
       @current_position = Coordinate.new(x: x, y: y)
     end
+
+    def x
+      @current_position.x
+    end
   end
 
   it 'has a starting position at the origin' do
