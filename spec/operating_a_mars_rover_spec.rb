@@ -2,6 +2,7 @@ RSpec.describe 'Operating a Mars rover' do
   class MarsRover
     def initialize(x: 0, y: 0)
       @x = 0
+      @y = 0
     end
 
     def x
@@ -9,7 +10,7 @@ RSpec.describe 'Operating a Mars rover' do
     end
 
     def y
-      0
+      @y
     end
   end
 
