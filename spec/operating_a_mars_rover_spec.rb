@@ -7,7 +7,6 @@ RSpec.describe 'Operating a Mars rover' do
     end
   end
   class MarsRover
-    attr_reader :y
     def initialize(x: 0, y: 0)
       @current_position = Coordinate.new(x: x, y: y)
     end
