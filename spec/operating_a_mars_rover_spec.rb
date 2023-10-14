@@ -7,7 +7,7 @@ RSpec.describe 'Operating a Mars rover' do
     end
   end
   class MarsRover
-    attr_reader :x, :y
+    attr_reader :y
     def initialize(x: 0, y: 0)
       @x = x
       @y = y
