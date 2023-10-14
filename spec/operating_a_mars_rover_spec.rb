@@ -1,5 +1,4 @@
-RSpec.describe 'Failing hookup test' do
-  example '2 + 2 = 4' do
-    expect(2 + 2).to eq(4)
-  end
+RSpec.describe 'Operating a Mars rover' do
+  it 'has a starting position at the origin'
+  it 'has a direction that it is facing'
 end
