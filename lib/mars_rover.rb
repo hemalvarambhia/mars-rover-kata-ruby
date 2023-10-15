@@ -20,6 +20,6 @@ class MarsRover
   end
 
   def inspect
-    "a Mars Rover at (#{x},#{y}) facing #{direction}"
+    "a Mars Rover at #{@current_position.inspect} facing #{direction}"
   end
 end
