@@ -7,7 +7,14 @@ describe Coordinates do
 
       expect(coordinates).not_to eq(coordinates_with_different_x)
     end
-    example 'two coordinates with different y-coordinates but same x-coordinates are unequal'
+
+    example 'two coordinates with different y-coordinates but same x-coordinates are unequal' do
+      coordinates = Coordinates.new(x: 4, y: -2)
+      coordinates_with_different_y = Coordinates.new(x: 4, y: 7)
+
+      expect(coordinates).not_to eq(coordinates_with_different_y)
+    end
+
     example 'two coordinates with the x and y-coordinates are equal' do
       coordinates = Coordinates.new(x: -1, y: -2)
       equal_coordinates = Coordinates.new(x: -1, y: -2)
