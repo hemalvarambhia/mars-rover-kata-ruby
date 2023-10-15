@@ -1,11 +1,5 @@
+require_relative '../lib/coordinates'
 RSpec.describe 'Operating a Mars rover' do
-  class Coordinate
-    attr_reader :x, :y
-    def initialize(x:, y:)
-      @x = x
-      @y = y
-    end
-  end
   class MarsRover
     def initialize(x: 0, y: 0)
       @current_position = Coordinate.new(x: x, y: y)
