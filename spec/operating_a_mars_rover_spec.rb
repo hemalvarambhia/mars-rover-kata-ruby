@@ -35,4 +35,6 @@ RSpec.describe 'Operating a Mars rover' do
     pending('Discussion with customer')
     expect { MarsRover.new(direction: 'E', starting_position: nil) }.to raise_error('A Mars rover must be given a location to start from')
   end
+
+  it 'receives commands from Earth'
 end
