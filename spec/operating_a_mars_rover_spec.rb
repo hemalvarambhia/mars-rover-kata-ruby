@@ -25,4 +25,9 @@ RSpec.describe 'Operating a Mars rover' do
       expect(mars_rover.direction).to(eq(direction), "Expected Mars Rover to be facing #{direction}, but got ''#{mars_rover.direction}'")
     end
   end
+
+  it 'cannot facing any direction outside of N, E, S or W' do
+    pending('Discuss with customer')
+    expect { MarsRover.new(x: 2, y: 3, direction: 'Not N, E, S, W') }.to raise_error('A Mars rover has to be facing N, E, S or W')
+  end
 end
