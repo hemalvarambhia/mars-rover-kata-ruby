@@ -30,4 +30,9 @@ RSpec.describe 'Operating a Mars rover' do
     pending('Discuss with customer')
     expect { MarsRover.new(x: 2, y: 3, direction: 'Not N, E, S, W') }.to raise_error('A Mars rover has to be facing N, E, S or W')
   end
+
+  it 'must be given a location to start from' do
+    pending('Discuss with customer')
+    expect { MarsRover.new(x: nil, y: nil, direction: 'E') }.to raise_error('A Mars rover must be given a location to start from')
+  end
 end
