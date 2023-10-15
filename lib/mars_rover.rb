@@ -18,4 +18,8 @@ class MarsRover
   def y
     @current_position.y
   end
+
+  def inspect
+    "a Mars Rover at (#{x},#{y}) facing #{direction}"
+  end
 end
