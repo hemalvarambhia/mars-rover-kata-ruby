@@ -2,6 +2,12 @@ require_relative '../lib/coordinates'
 require_relative '../lib/mars_rover'
 RSpec.describe 'Operating a Mars rover' do
 
+  class MarsRover
+    def inspect
+      "a Mars Rover at (#{x},#{y}) facing #{direction}"
+    end
+  end
+
   it 'has a starting position at the origin' do
     mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 0, y: 0))
 
@@ -36,5 +42,8 @@ RSpec.describe 'Operating a Mars rover' do
     expect { MarsRover.new(direction: 'E', starting_position: nil) }.to raise_error('A Mars rover must be given a location to start from')
   end
 
-  it 'receives commands from Earth'
+  it 'receives commands from Earth' do
+    mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 5, y: -7))
+    expect(mars_rover).to respond_to(:execute).with(1)
+  end
 end

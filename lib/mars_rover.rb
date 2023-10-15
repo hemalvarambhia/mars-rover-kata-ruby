@@ -7,6 +7,10 @@ class MarsRover
     @direction = direction
   end
 
+  def execute(commands_from_earth)
+
+  end
+
   def x
     @current_position.x
   end
