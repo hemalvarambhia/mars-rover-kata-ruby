@@ -23,4 +23,10 @@ RSpec.describe 'Operating a Mars rover' do
 
     expect(mars_rover.direction).to(eq('S'), "Expected Mars Rover to be facing 'S', but got ''#{mars_rover.direction}'")
   end
+
+  it 'can face any direction' do
+    mars_rover = MarsRover.new(x: 2, y: 3, direction: 'W')
+
+    expect(mars_rover.direction).to(eq('W'), "Expected Mars Rover to be facing 'W', but got ''#{mars_rover.direction}'")
+  end
 end
