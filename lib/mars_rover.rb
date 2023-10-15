@@ -1,10 +1,11 @@
 class MarsRover
   def initialize(x: 0, y: 0)
     @current_position = Coordinate.new(x: x, y: y)
+    @direction = 'S'
   end
 
   def direction
-    'S'
+    @direction
   end
 
   def x
