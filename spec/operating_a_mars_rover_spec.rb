@@ -18,15 +18,11 @@ RSpec.describe 'Operating a Mars rover' do
     expect(mars_rover.y).to(eq(expected_coordinate.y), "Expected Mars Rover's y-coordinate to be 3, but got #{mars_rover.y}")
   end
 
-  it 'has a direction that it is facing' do
-    mars_rover = MarsRover.new(x: 2, y: 3)
+  %w{N E S W}.each do |direction|
+    it "can face any direction, including #{direction}" do
+      mars_rover = MarsRover.new(x: 2, y: 3, direction: direction)
 
-    expect(mars_rover.direction).to(eq('S'), "Expected Mars Rover to be facing 'S', but got ''#{mars_rover.direction}'")
-  end
-
-  it 'can face any direction' do
-    mars_rover = MarsRover.new(x: 2, y: 3, direction: 'W')
-
-    expect(mars_rover.direction).to(eq('W'), "Expected Mars Rover to be facing 'W', but got ''#{mars_rover.direction}'")
+      expect(mars_rover.direction).to(eq(direction), "Expected Mars Rover to be facing #{direction}, but got ''#{mars_rover.direction}'")
+    end
   end
 end
