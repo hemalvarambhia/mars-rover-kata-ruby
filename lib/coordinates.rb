@@ -6,7 +6,7 @@ class Coordinates
   end
 
   def ==(other)
-    true
+    x == other.x
   end
 
   def inspect
