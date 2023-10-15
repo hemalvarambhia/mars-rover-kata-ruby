@@ -27,12 +27,12 @@ RSpec.describe 'Operating a Mars rover' do
   end
 
   it 'cannot be operated when it is facing any direction outside of N, E, S or W' do
-    pending('Discuss with customer')
+    pending('Discussion with customer')
     expect { MarsRover.new(direction: 'Not N, E, S, W', starting_position: Coordinates.new(x: -2, y: -3)) }.to raise_error('A Mars rover has to be facing N, E, S or W')
   end
 
   it 'cannot be operated when a starting position is not provided' do
-    pending('Discuss with customer')
+    pending('Discussion with customer')
     expect { MarsRover.new(direction: 'E', starting_position: nil) }.to raise_error('A Mars rover must be given a location to start from')
   end
 end
