@@ -5,8 +5,7 @@ RSpec.describe 'Operating a Mars rover' do
     mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 0, y: 0))
 
     expected_coordinate = Coordinates.new(x: 0, y: 0)
-    expect(mars_rover.x).to(eq(expected_coordinate.x), "Expected Mars Rover's x-coordinate to be 0, but got #{mars_rover.x}")
-    expect(mars_rover.y).to(eq(expected_coordinate.y), "Expected Mars Rover's y-coordinate to be 0, but got #{mars_rover.y}")
+    expect(mars_rover.current_position).to eq(expected_coordinate)
   end
 
   it 'has a starting position anywhere on the planet' do
