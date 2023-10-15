@@ -1,13 +1,6 @@
 require_relative '../lib/coordinates'
 require_relative '../lib/mars_rover'
 RSpec.describe 'Operating a Mars rover' do
-
-  class MarsRover
-    def inspect
-      "a Mars Rover at (#{x},#{y}) facing #{direction}"
-    end
-  end
-
   it 'has a starting position at the origin' do
     mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 0, y: 0))
 
