@@ -2,8 +2,8 @@ require_relative '../lib/coordinates'
 describe Coordinates do
   describe 'equals' do
     example 'two coordinates with different x-coordinates but same y-coordinates are unequal' do
-      coordinates = Coordinates.new(x: -1, y: -2)
-      coordinates_with_different_x = Coordinates.new(x: 3, y: -2)
+      coordinates = Coordinates.new(x: -1, y: 5)
+      coordinates_with_different_x = Coordinates.new(x: 3, y: 5)
 
       expect(coordinates).not_to eq(coordinates_with_different_x)
     end
