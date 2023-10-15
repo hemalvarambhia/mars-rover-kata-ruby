@@ -1,4 +1,5 @@
 require_relative '../lib/coordinates'
+require_relative '../lib/mars_rover'
 RSpec.describe 'Operating a Mars rover' do
   class MarsRover
     def initialize(x: 0, y: 0)
