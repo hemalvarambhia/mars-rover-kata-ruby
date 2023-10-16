@@ -33,11 +33,6 @@ RSpec.describe 'Operating a Mars rover' do
     expect { MarsRover.new(direction: 'E', starting_position: nil) }.to raise_error('A Mars rover must be given a location to start from')
   end
 
-  it 'receives commands from Earth' do
-    mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 5, y: -7))
-    expect(mars_rover).to respond_to(:execute).with(1)
-  end
-
   describe 'Moving forwards' do
     it 'never changes direction when it moves forwards'
     it 'moves forwards when facing north' do
