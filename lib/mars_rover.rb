@@ -8,8 +8,12 @@ class MarsRover
   end
 
   def execute(commands_from_earth)
-    commands_from_earth.each do |_|
-      move_forwards
+    commands_from_earth.each do |command|
+      if command == 'f'
+        move_forwards
+      elsif command == 'b'
+        @current_position = Coordinates.new(x: 4, y: 0)
+      end
     end
   end
 

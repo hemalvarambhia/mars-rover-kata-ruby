@@ -103,7 +103,6 @@ RSpec.describe 'Operating a Mars rover' do
     end
 
     it 'moves backwards from the origin when facing north' do
-      pending 'Next failing test to get passing'
       mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 4, y: 1))
 
       mars_rover.execute(['b'])
