@@ -22,11 +22,11 @@ describe Coordinates do
       expect(coordinates).to eq(equal_coordinates)
     end
 
-    [{ }, 1, 'String', true, []].each do |object|
-      example "a coordinate and an object of a different type (e.g. '#{object}') are unequal" do
+    [{ }, 1, 'String', true, []].each do |object_of_different_type|
+      example "a coordinate and an object of a different type (e.g. '#{object_of_different_type}') are unequal" do
         coordinates = Coordinates.new(x: 0, y: 0)
 
-        expect(coordinates).not_to eq(object)
+        expect(coordinates).not_to eq(object_of_different_type)
       end
     end
   end
