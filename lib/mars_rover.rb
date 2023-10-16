@@ -8,7 +8,7 @@ class MarsRover
   end
 
   def execute(commands_from_earth)
-    @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
+    commands_from_earth.each { |_| @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1) }
   end
 
   def x
