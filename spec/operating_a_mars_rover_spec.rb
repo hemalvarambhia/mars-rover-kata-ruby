@@ -110,8 +110,6 @@ RSpec.describe 'Operating a Mars rover' do
   end
 
   RSpec::Matchers.define :be_located_at do |expected_position|
-    match do |rover|
-      rover.current_position == expected_position
-    end
+    match { |rover| rover.current_position == expected_position }
   end
 end
