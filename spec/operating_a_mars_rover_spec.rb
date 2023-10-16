@@ -34,10 +34,12 @@ RSpec.describe 'Operating a Mars rover' do
   end
 
   describe 'Moving forwards' do
-    it 'never changes direction when it moves forwards' do
-      mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 0, y: 0))
+    %w{N E S W}.each do |direction|
+      it 'never changes direction when it moves forwards' do
+        mars_rover = MarsRover.new(direction: direction, starting_position: Coordinates.new(x: 0, y: 0))
 
-      expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :direction)
+        expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :direction)
+      end
     end
     it 'moves forwards when facing north' do
       mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 0, y: 0))
