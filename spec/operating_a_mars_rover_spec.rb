@@ -78,10 +78,11 @@ RSpec.describe 'Operating a Mars rover' do
     it 'moves forwards when facing south'
     it 'moves forwards when facing east'
 
-    RSpec::Matchers.define :be_located_at do |expected_position|
-      match do |rover|
-        rover.current_position == expected_position
-      end
+  end
+
+  RSpec::Matchers.define :be_located_at do |expected_position|
+    match do |rover|
+      rover.current_position == expected_position
     end
   end
 end
