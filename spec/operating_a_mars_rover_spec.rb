@@ -98,6 +98,10 @@ RSpec.describe 'Operating a Mars rover' do
   end
 
   describe 'Moving backwards' do
+    %w{N E S W}.each do |direction|
+      it "never changes direction when it moves backwards e.g . #{direction}"
+    end
+
     it 'moves backwards from the origin when facing north'
     it 'moves backwards from any starting point when facing north'
     it 'moves backwards when facing east'
