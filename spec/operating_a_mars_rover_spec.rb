@@ -102,7 +102,16 @@ RSpec.describe 'Operating a Mars rover' do
       it "never changes direction when it moves backwards e.g . #{direction}"
     end
 
-    it 'moves backwards from the origin when facing north'
+    it 'moves backwards from the origin when facing north' do
+      pending 'Next failing test to get passing'
+      mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 4, y: 1))
+
+      mars_rover.execute(['b'])
+
+      expected_coordinates = Coordinates.new(x: 4, y: 0)
+      expect(mars_rover).to be_located_at(expected_coordinates)
+    end
+
     it 'moves backwards from any starting point when facing north'
     it 'moves backwards when facing east'
     it 'moves backwards when facing south'
