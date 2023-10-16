@@ -45,8 +45,8 @@ RSpec.describe 'Operating a Mars rover' do
 
       mars_rover.execute(['f'])
 
-      expect(mars_rover.x).to(eq(0), "Expected Mars Rover's x-coordinate to be 0, but got #{mars_rover.x}")
-      expect(mars_rover.y).to(eq(1), "Expected Mars Rover's y-coordinate to be 1, but got #{mars_rover.y}")
+      expected_coordinates = Coordinates.new(x: 0, y: 1)
+      expect(mars_rover.current_position).to eq(expected_coordinates)
     end
 
     it 'moves forwards from any starting point when facing north'
