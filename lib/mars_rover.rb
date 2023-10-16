@@ -12,7 +12,7 @@ class MarsRover
       if command == 'f'
         move_forwards
       elsif command == 'b'
-        @current_position = Coordinates.new(x: 4, y: 0)
+        @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y - 1)
       end
     end
   end
