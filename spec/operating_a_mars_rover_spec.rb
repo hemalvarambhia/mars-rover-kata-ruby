@@ -11,8 +11,8 @@ RSpec.describe 'Operating a Mars rover' do
   it 'has a starting position anywhere on the planet' do
     mars_rover = MarsRover.new(direction: 'S', starting_position: Coordinates.new(x: 2, y: 3))
 
-    expected_coordinate = Coordinates.new(x: 2, y: 3)
-    expect(mars_rover.current_position).to eq(expected_coordinate)
+    expected_coordinates = Coordinates.new(x: 2, y: 3)
+    expect(mars_rover).to be_located_at(expected_coordinates)
   end
 
   %w{N E S W}.each do |direction|
@@ -46,7 +46,7 @@ RSpec.describe 'Operating a Mars rover' do
       mars_rover.execute(['f'])
 
       expected_coordinates = Coordinates.new(x: 0, y: 1)
-      expect(mars_rover.current_position).to eq(expected_coordinates)
+      expect(mars_rover).to be_located_at(expected_coordinates)
     end
 
     it 'moves forwards from any starting point when facing north' do
@@ -55,7 +55,7 @@ RSpec.describe 'Operating a Mars rover' do
       mars_rover.execute(['f'])
 
       expected_coordinates = Coordinates.new(x: 2, y: 4)
-      expect(mars_rover.current_position).to eq(expected_coordinates)
+      expect(mars_rover).to be_located_at(expected_coordinates)
     end
 
     it 'can move forwards multiple times when facing north' do
