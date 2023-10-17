@@ -15,12 +15,7 @@ class MarsRover
       when 'b'
         move_backwards
       when 'l'
-        case @direction
-        when 'N'
-          @direction = 'W'
-        when 'E'
-          @direction = 'N'
-        end
+        turn_left
       end
     end
   end
@@ -30,6 +25,15 @@ class MarsRover
   end
 
   private
+
+  def turn_left
+    case @direction
+    when 'N'
+      @direction = 'W'
+    when 'E'
+      @direction = 'N'
+    end
+  end
 
   def move_backwards
     case @direction
