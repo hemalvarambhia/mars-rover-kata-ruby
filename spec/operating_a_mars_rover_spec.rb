@@ -162,7 +162,13 @@ RSpec.describe 'Operating a Mars rover' do
   end
 
   describe 'Turning left' do
-    it 'does not change the current position'
+    it 'does not change the current position' do
+      irrelevant_location = Coordinates.new(x: -1, y: 3)
+      mars_rover = MarsRover.new(direction: 'N', starting_position: irrelevant_location)
+
+      expect { mars_rover.execute(['l']) }.not_to change(mars_rover, :current_position)
+    end
+
     it 'turns left when facing north to face west' do
       irrelevant_location = Coordinates.new(x: 0, y: 0)
       mars_rover = MarsRover.new(direction: 'N', starting_position: irrelevant_location)
