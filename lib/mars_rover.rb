@@ -29,7 +29,8 @@ class MarsRover
   def turn_left
     @direction = {
       'N' => 'W',
-      'E' => 'N'
+      'E' => 'N',
+      'S' => 'E'
     }[@direction]
   end
 
