@@ -22,6 +22,8 @@ class MarsRover
         when 'W'
           @current_position = Coordinates.new(x: @current_position.x + 1, y: @current_position.y)
         end
+      elsif command == 'l'
+        @direction = 'W'
       end
     end
   end
