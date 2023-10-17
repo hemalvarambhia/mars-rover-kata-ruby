@@ -99,7 +99,11 @@ RSpec.describe 'Operating a Mars rover' do
 
   describe 'Moving backwards' do
     %w{N E S W}.each do |direction|
-      it "never changes direction when it moves backwards e.g . #{direction}"
+      it "never changes direction when it moves backwards e.g . #{direction}" do
+        mars_rover = MarsRover.new(direction: direction, starting_position: Coordinates.new(x: 1, y: 3))
+
+        expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :direction)
+      end
     end
 
     it 'moves backwards from the origin when facing north' do
