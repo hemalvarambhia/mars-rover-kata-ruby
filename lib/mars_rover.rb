@@ -9,11 +9,12 @@ class MarsRover
 
   def execute(commands_from_earth)
     commands_from_earth.each do |command|
-      if command == 'f'
+      case command
+      when 'f'
         move_forwards
-      elsif command == 'b'
+      when 'b'
         move_backwards
-      elsif command == 'l'
+      when 'l'
         @direction = 'W'
       end
     end
