@@ -180,7 +180,15 @@ RSpec.describe 'Operating a Mars rover' do
 
       expect(mars_rover.direction).to eq 'N'
     end
-    it 'turns left when facing south'
+
+    it 'turns left when facing south' do
+      irrelevant_location = Coordinates.new(x: 1, y: 3)
+      mars_rover = MarsRover.new(direction: 'S', starting_position: irrelevant_location)
+
+      mars_rover.execute(['l'])
+
+      expect(mars_rover.direction).to eq 'E'
+    end
     it 'turns left when facing west'
   end
 
