@@ -15,7 +15,12 @@ class MarsRover
       when 'b'
         move_backwards
       when 'l'
-        @direction = 'W'
+        case @direction
+        when 'N'
+          @direction = 'W'
+        when 'E'
+          @direction = 'N'
+        end
       end
     end
   end
