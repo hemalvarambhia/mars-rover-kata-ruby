@@ -12,16 +12,7 @@ class MarsRover
       if command == 'f'
         move_forwards
       elsif command == 'b'
-        case @direction
-        when 'N'
-          @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y - 1)
-        when 'E'
-          @current_position = Coordinates.new(x: @current_position.x - 1, y: @current_position.y)
-        when 'S'
-          @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
-        when 'W'
-          @current_position = Coordinates.new(x: @current_position.x + 1, y: @current_position.y)
-        end
+        move_backwards
       elsif command == 'l'
         @direction = 'W'
       end
@@ -33,6 +24,19 @@ class MarsRover
   end
 
   private
+
+  def move_backwards
+    case @direction
+    when 'N'
+      @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y - 1)
+    when 'E'
+      @current_position = Coordinates.new(x: @current_position.x - 1, y: @current_position.y)
+    when 'S'
+      @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
+    when 'W'
+      @current_position = Coordinates.new(x: @current_position.x + 1, y: @current_position.y)
+    end
+  end
 
   def move_forwards
     case @direction
