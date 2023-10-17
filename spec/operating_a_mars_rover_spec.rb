@@ -178,7 +178,7 @@ RSpec.describe 'Operating a Mars rover' do
 
       mars_rover.execute(['l'])
 
-      expect(mars_rover.direction).to eq 'N'
+      expect(mars_rover).to be_facing 'N'
     end
 
     it 'turns left when facing south' do
@@ -187,7 +187,7 @@ RSpec.describe 'Operating a Mars rover' do
 
       mars_rover.execute(['l'])
 
-      expect(mars_rover.direction).to eq 'E'
+      expect(mars_rover).to be_facing 'E'
     end
     it 'turns left when facing west'
   end
