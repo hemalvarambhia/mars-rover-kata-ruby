@@ -137,7 +137,15 @@ RSpec.describe 'Operating a Mars rover' do
       expected_coordinates = Coordinates.new(x: 8, y: 0)
       expect(mars_rover).to be_located_at(expected_coordinates)
     end
-    it 'moves backwards when facing west'
+
+    it 'moves backwards when facing west' do
+      mars_rover = MarsRover.new(direction: 'W', starting_position: Coordinates.new(x: -1, y: 0))
+
+      mars_rover.execute(['b'])
+
+      expected_coordinates = Coordinates.new(x: 0, y: 0)
+      expect(mars_rover).to be_located_at(expected_coordinates)
+    end
   end
 
   RSpec::Matchers.define :be_located_at do |expected_position|
