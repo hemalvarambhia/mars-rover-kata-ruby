@@ -30,7 +30,8 @@ class MarsRover
     @direction = {
       'N' => 'W',
       'E' => 'N',
-      'S' => 'E'
+      'S' => 'E',
+      'W' => 'S'
     }[@direction]
   end
 

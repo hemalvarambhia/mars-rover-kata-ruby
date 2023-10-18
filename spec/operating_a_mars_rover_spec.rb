@@ -196,7 +196,13 @@ RSpec.describe 'Operating a Mars rover' do
       expect(mars_rover).to be_facing 'E'
     end
 
-    example 'when facing west, it turns left to face south'
+    example 'when facing west, it turns left to face south' do
+      irrelevant_location = Coordinates.new(x: -1, y: 0)
+      mars_rover = MarsRover.new(direction: 'W', starting_position: irrelevant_location)
+      mars_rover.execute(['l'])
+
+      expect(mars_rover).to be_facing 'S'
+    end
   end
 
   RSpec::Matchers.define :be_located_at do |expected_position|
