@@ -42,22 +42,36 @@ RSpec.describe 'Operating a Mars rover' do
       end
     end
 
-    it 'moves forwards when facing north' do
-      mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 0, y: 0))
+    [
+      {
+        mars_rover: MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 0, y: 0)),
+        expected_coordinates: Coordinates.new(x: 0, y: 1)
+      },
+      {
+        mars_rover: MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 2, y: 3)),
+        expected_coordinates: Coordinates.new(x: 2, y: 4)
+      },
+      {
+        mars_rover: MarsRover.new(direction: 'E', starting_position: Coordinates.new(x: 0, y: 0)),
+        expected_coordinates: Coordinates.new(x: 1, y: 0)
+      },
+      {
+        mars_rover: MarsRover.new(direction: 'S', starting_position: Coordinates.new(x: -5, y: -1)),
+        expected_coordinates: Coordinates.new(x: -5, y: -2)
+      },
+      {
+        mars_rover: MarsRover.new(direction: 'W', starting_position: Coordinates.new(x: 0, y: -2)),
+        expected_coordinates: Coordinates.new(x: -1, y: -2)
+      }
+    ].each do |row|
+      it "#{row[:mars_rover]} moves forwards to #{row[:expected_coordinates]}" do
+        mars_rover = row[:mars_rover]
 
-      mars_rover.execute(['f'])
+        mars_rover.execute(['f'])
 
-      expected_coordinates = Coordinates.new(x: 0, y: 1)
-      expect(mars_rover).to be_located_at(expected_coordinates)
-    end
-
-    it 'moves forwards from any starting point when facing north' do
-      mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 2, y: 3))
-
-      mars_rover.execute(['f'])
-
-      expected_coordinates = Coordinates.new(x: 2, y: 4)
-      expect(mars_rover).to be_located_at(expected_coordinates)
+        expected_coordinates = row[:expected_coordinates]
+        expect(mars_rover).to be_located_at(expected_coordinates)
+      end
     end
 
     it 'can move forwards multiple times when facing north' do
@@ -66,33 +80,6 @@ RSpec.describe 'Operating a Mars rover' do
       mars_rover.execute(['f', 'f', 'f'])
 
       expected_coordinates = Coordinates.new(x: 2, y: 6)
-      expect(mars_rover).to be_located_at(expected_coordinates)
-    end
-
-    it 'moves forwards when facing east' do
-      mars_rover = MarsRover.new(direction: 'E', starting_position: Coordinates.new(x: 0, y: 0))
-
-      mars_rover.execute(['f'])
-
-      expected_coordinates = Coordinates.new(x: 1, y: 0)
-      expect(mars_rover).to be_located_at(expected_coordinates)
-    end
-
-    it 'moves forwards when facing south' do
-      mars_rover = MarsRover.new(direction: 'S', starting_position: Coordinates.new(x: -5, y: -1))
-
-      mars_rover.execute(['f'])
-
-      expected_coordinates = Coordinates.new(x: -5, y: -2)
-      expect(mars_rover).to be_located_at(expected_coordinates)
-    end
-
-    it 'moves forwards when facing west' do
-      mars_rover = MarsRover.new(direction: 'W', starting_position: Coordinates.new(x: 0, y: -2))
-
-      mars_rover.execute(['f'])
-
-      expected_coordinates = Coordinates.new(x: -1, y: -2)
       expect(mars_rover).to be_located_at(expected_coordinates)
     end
   end
