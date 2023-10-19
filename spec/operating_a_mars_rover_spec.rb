@@ -118,6 +118,14 @@ RSpec.describe 'Operating a Mars rover' do
       {
         mars_rover: MarsRover.new(direction: 'E', starting_position: Coordinates.new(x: 2, y: 0)),
         expected_coordinates: Coordinates.new(x: 1, y: 0)
+      },
+      {
+        mars_rover: MarsRover.new(direction: 'S', starting_position: Coordinates.new(x: 8, y: -1)),
+        expected_coordinates: Coordinates.new(x: 8, y: 0)
+      },
+      {
+        mars_rover: MarsRover.new(direction: 'W', starting_position: Coordinates.new(x: -1, y: 0)),
+        expected_coordinates: Coordinates.new(x: 0, y: 0)
       }
     ].each do |row|
       it "#{row[:mars_rover]} moves backwards to #{row[:expected_coordinates]}" do
@@ -127,33 +135,6 @@ RSpec.describe 'Operating a Mars rover' do
 
         expect(mars_rover).to be_located_at(row[:expected_coordinates])
       end
-    end
-
-    it 'moves backwards when facing east' do
-      mars_rover = MarsRover.new(direction: 'E', starting_position: Coordinates.new(x: 2, y: 0))
-
-      mars_rover.execute(['b'])
-
-      expected_coordinates = Coordinates.new(x: 1, y: 0)
-      expect(mars_rover).to be_located_at(expected_coordinates)
-    end
-
-    it 'moves backwards when facing south' do
-      mars_rover = MarsRover.new(direction: 'S', starting_position: Coordinates.new(x: 8, y: -1))
-
-      mars_rover.execute(['b'])
-
-      expected_coordinates = Coordinates.new(x: 8, y: 0)
-      expect(mars_rover).to be_located_at(expected_coordinates)
-    end
-
-    it 'moves backwards when facing west' do
-      mars_rover = MarsRover.new(direction: 'W', starting_position: Coordinates.new(x: -1, y: 0))
-
-      mars_rover.execute(['b'])
-
-      expected_coordinates = Coordinates.new(x: 0, y: 0)
-      expect(mars_rover).to be_located_at(expected_coordinates)
     end
 
     it 'moves backwards in multiple steps' do
