@@ -143,7 +143,6 @@ RSpec.describe 'Operating a Mars rover' do
       }
     ].each do |row|
       example "a mars rover facing #{row[:mars_rover].direction} turns left to face #{row[:expected_orientation]}" do
-        irrelevant_location = Coordinates.new(x: 0, y: 0)
         mars_rover = row[:mars_rover]
 
         mars_rover.execute(['l'])
