@@ -135,6 +135,23 @@ RSpec.describe 'Operating a Mars rover' do
   end
 
   describe 'Turning left' do
+    [
+      {
+      mars_rover: MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 0, y: 0)),
+      expected_orientation: 'W'
+
+      }
+    ].each do |row|
+      example "a mars rover facing #{row[:mars_rover].direction} turns left to face #{row[:expected_orientation]}" do
+        irrelevant_location = Coordinates.new(x: 0, y: 0)
+        mars_rover = row[:mars_rover]
+
+        mars_rover.execute(['l'])
+
+        expect(mars_rover).to be_facing row[:expected_orientation]
+      end
+    end
+
     it 'does not change the current position' do
       irrelevant_location = Coordinates.new(x: -1, y: 3)
       mars_rover = MarsRover.new(direction: 'N', starting_position: irrelevant_location)
