@@ -135,9 +135,10 @@ RSpec.describe 'Operating a Mars rover' do
   end
 
   describe 'Turning left' do
+    irrelevant_coordinates = Coordinates.new(x: 0, y: 0)
     [
       {
-        mars_rover: MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 0, y: 0)),
+        mars_rover: MarsRover.new(direction: 'N', starting_position: irrelevant_coordinates),
         expected_orientation: 'W'
       }
     ].each do |row|
