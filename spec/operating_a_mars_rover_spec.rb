@@ -108,20 +108,15 @@ RSpec.describe 'Operating a Mars rover' do
 
     [
       {
-        direction: 'N',
-        starting_position: Coordinates.new(x: 0, y: 0),
         mars_rover: MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 0, y: 0)),
         expected_coordinates: Coordinates.new(x: 0, y: -1)
       },
       {
-        direction: 'N',
-        starting_position: Coordinates.new(x: 4, y: 1),
         mars_rover: MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 4, y: 1)),
         expected_coordinates: Coordinates.new(x: 4, y: 0),
       }
     ].each do |row|
       it "#{row[:mars_rover]} moves backwards to #{row[:expected_coordinates]}" do
-        mars_rover = MarsRover.new(direction: row[:direction], starting_position: row[:starting_position])
         mars_rover = row[:mars_rover]
 
         mars_rover.execute(['b'])
