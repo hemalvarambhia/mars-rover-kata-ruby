@@ -24,6 +24,10 @@ class MarsRover
     "a Mars Rover at #{@current_position.inspect} facing #{direction}"
   end
 
+  def to_s
+    "a Mars Rover facing #{direction} starting from #{@current_position}"
+  end
+
   private
 
   def turn_left
