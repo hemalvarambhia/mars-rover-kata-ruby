@@ -16,6 +16,8 @@ class MarsRover
         move_backwards
       when 'l'
         turn_left
+      when 'r'
+        @direction = 'E'
       end
     end
   end
