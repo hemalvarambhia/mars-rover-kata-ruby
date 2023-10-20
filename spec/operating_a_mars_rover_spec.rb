@@ -168,8 +168,8 @@ RSpec.describe 'Operating a Mars rover' do
     end
 
     it 'does not change the current position' do
-      irrelevant_location = Coordinates.new(x: -1, y: 3)
-      mars_rover = MarsRover.new(direction: 'N', starting_position: irrelevant_location)
+      anywhere = Coordinates.new(x: -1, y: 3)
+      mars_rover = MarsRover.new(direction: 'N', starting_position: anywhere)
 
       expect { mars_rover.execute(['l']) }.not_to change(mars_rover, :current_position)
     end
