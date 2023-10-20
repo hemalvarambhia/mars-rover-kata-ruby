@@ -17,7 +17,11 @@ class MarsRover
       when 'l'
         turn_left
       when 'r'
-        @direction = 'E'
+        if @direction == 'N'
+          @direction = 'E'
+        else
+          @direction = 'S'
+        end
       end
     end
   end
