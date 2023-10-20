@@ -175,6 +175,14 @@ RSpec.describe 'Operating a Mars rover' do
     end
   end
 
+  describe 'Turning right' do
+    example 'when facing north, it turns right to face east'
+    example 'when facing east, it turns right to face south'
+    example 'when facing south, it turns right to face west'
+    example 'when facing west, it turns right to face north'
+    example 'the Mars rover does not change its current location'
+  end
+
   RSpec::Matchers.define :be_located_at do |expected_position|
     match { |rover| rover.current_position == expected_position }
   end
