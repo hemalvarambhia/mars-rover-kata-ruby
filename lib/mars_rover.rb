@@ -16,6 +16,8 @@ class MarsRover
         move_backwards
       when 'l'
         turn_left
+      when 'r'
+        turn_right
       end
     end
   end
@@ -24,7 +26,19 @@ class MarsRover
     "a Mars Rover at #{@current_position.inspect} facing #{direction}"
   end
 
+  def to_s
+    "a Mars Rover facing #{direction} starting from #{@current_position}"
+  end
+
   private
+
+  def turn_right
+    @direction = {
+      'N' => 'E',
+      'E' => 'S',
+      'S' => 'W',
+      'W' => 'N' }[@direction]
+  end
 
   def turn_left
     @direction = {

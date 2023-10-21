@@ -11,6 +11,10 @@ class Coordinates
     x == other.x && y == other.y
   end
 
+  def to_s
+    "(#{x},#{y})"
+  end
+
   def inspect
     "(#{x},#{y})"
   end
