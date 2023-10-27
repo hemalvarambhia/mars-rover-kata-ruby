@@ -4,7 +4,6 @@ class MarsRover
   attr_reader :direction, :current_position
 
   def initialize(direction:, starting_position:)
-    @current_position = starting_position
     @direction = direction
     @current_location = Location.new(coordinates: starting_position, direction: direction)
   end
@@ -14,10 +13,8 @@ class MarsRover
       case command
       when 'f'
         @current_location = @current_location.forwards
-        @current_position = @current_location.coordinates
       when 'b'
         @current_location = @current_location.backwards
-        @current_position = @current_location.coordinates
       when 'l'
         @direction = turn_left(@direction)
       when 'r'
