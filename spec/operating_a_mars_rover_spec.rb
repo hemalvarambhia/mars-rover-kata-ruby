@@ -17,7 +17,12 @@ RSpec.describe 'Operating a Mars rover' do
 
   %w{N E S W}.each do |direction|
     it "can face any direction, including #{direction}" do
-      mars_rover = MarsRover.new(direction: direction, starting_position: Coordinates.new(x: 2, y: -3))
+      anywhere_facing_direction = Location.new(direction: direction, coordinates: Coordinates.new(x: 2, y: -3))
+      mars_rover = MarsRover.new(
+        direction: direction,
+        starting_position: Coordinates.new(x: 2, y: -3),
+        starting_location: anywhere_facing_direction
+      )
 
       expect(mars_rover.direction).to(eq(direction), "Expected Mars Rover to be facing #{direction}, but got ''#{mars_rover.direction}'")
     end
@@ -25,18 +30,26 @@ RSpec.describe 'Operating a Mars rover' do
 
   it 'cannot be operated when it is facing any direction outside of N, E, S or W' do
     pending('Discussion with customer')
-    expect { MarsRover.new(direction: 'Not N, E, S, W', starting_position: Coordinates.new(x: -2, y: -3)) }.to raise_error('A Mars rover has to be facing N, E, S or W')
+    any_location = Location.new(coordinates: Coordinates.new(x: -2, y: -3), direction: 'Not N, E, S, W')
+    expect do
+      MarsRover.new(direction: 'Not N, E, S, W', starting_position: Coordinates.new(x: -2, y: -3), starting_location: any_location)
+    end.to raise_error('A Mars rover has to be facing N, E, S or W')
   end
 
   it 'cannot be operated when a starting position is not provided' do
     pending('Discussion with customer')
-    expect { MarsRover.new(direction: 'E', starting_position: nil) }.to raise_error('A Mars rover must be given a location to start from')
+    expect { MarsRover.new(direction: 'E', starting_position: nil, starting_location: nil) }.to raise_error('A Mars rover must be given a location to start from')
   end
 
   describe 'Moving forwards' do
     %w{N E S W}.each do |direction|
       it "never changes direction when it moves forwards e.g. remains facing #{direction}" do
-        mars_rover = MarsRover.new(direction: direction, starting_position: Coordinates.new(x: 0, y: 0))
+        mars_rover =
+          MarsRover.new(
+            direction: direction,
+            starting_position: Coordinates.new(x: 0, y: 0),
+            starting_location: Location.new(coordinates: Coordinates.new(x: 0, y: 0), direction: direction)
+          )
 
         expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :direction)
       end
@@ -44,7 +57,7 @@ RSpec.describe 'Operating a Mars rover' do
 
     [
       {
-        mars_rover: MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 0, y: 0)),
+        mars_rover: MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 0, y: 0), starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 0))),
         expected_coordinates: Coordinates.new(x: 0, y: 1)
       },
       {
