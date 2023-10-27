@@ -16,7 +16,6 @@ class MarsRover
         @current_location = @current_location.forwards
         @current_position = @current_location.coordinates
       when 'b'
-        @current_position = move_backwards
         @current_location = @current_location.backwards
         @current_position = @current_location.coordinates
       when 'l'
@@ -52,18 +51,5 @@ class MarsRover
       'S' => 'E',
       'W' => 'S'
     }[direction]
-  end
-
-  def move_backwards
-    case @direction
-    when 'N'
-      Coordinates.new(x: @current_position.x, y: @current_position.y - 1)
-    when 'E'
-      Coordinates.new(x: @current_position.x - 1, y: @current_position.y)
-    when 'S'
-      Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
-    when 'W'
-      Coordinates.new(x: @current_position.x + 1, y: @current_position.y)
-    end
   end
 end
