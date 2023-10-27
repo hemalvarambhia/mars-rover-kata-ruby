@@ -182,40 +182,33 @@ RSpec.describe 'Operating a Mars rover' do
   end
 
   describe 'Turning right' do
-    example 'when facing north, it turns right to face east' do
-      anywhere = Coordinates.new(x: -2, y: -2)
-      mars_rover = MarsRover.new(direction: 'N', starting_position: anywhere)
+    [
+      {
+        mars_rover: a_mars_rover_facing(direction: 'N'),
+        expected_orientation: 'E'
+      },
+      {
+        mars_rover: a_mars_rover_facing(direction: 'E'),
+        expected_orientation: 'S'
+      },
+      {
+        mars_rover: a_mars_rover_facing(direction: 'S'),
+        expected_orientation: 'W'
+      },
+      {
+        mars_rover: a_mars_rover_facing(direction: 'W'),
+        expected_orientation: 'N'
+      }
+    ].each do |row|
+      example "when facing #{row[:mars_rover].direction}, it turns right to face #{row[:expected_orientation]}" do
+        mars_rover = row[:mars_rover]
 
-      mars_rover.execute(['r'])
+        mars_rover.execute(['r'])
 
-      expect(mars_rover).to be_facing('E')
+        expect(mars_rover).to be_facing(row[:expected_orientation])
+      end
     end
 
-    example 'when facing east, it turns right to face south' do
-      anywhere = Coordinates.new(x: 1, y: 0)
-      mars_rover = MarsRover.new(direction: 'E', starting_position: anywhere)
-
-      mars_rover.execute(['r'])
-
-      expect(mars_rover).to be_facing('S')
-    end
-
-    example 'when facing south, it turns right to face west' do
-      anywhere = Coordinates.new(x: -5, y: 1)
-      mars_rover = MarsRover.new(direction: 'S', starting_position: anywhere)
-
-      mars_rover.execute(['r'])
-
-      expect(mars_rover).to be_facing('W')
-    end
-
-    example 'when facing west, it turns right to face north' do
-      mars_rover = MarsRover.new(direction: 'W', starting_position: Coordinates.new(x: 3, y: -1))
-
-      mars_rover.execute(['r'])
-
-      expect(mars_rover).to be_facing('N')
-    end
     example 'the Mars rover does not change its current location'
   end
 
