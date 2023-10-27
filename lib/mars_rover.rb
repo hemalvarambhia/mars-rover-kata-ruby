@@ -3,9 +3,9 @@ require 'location'
 class MarsRover
   attr_reader :direction, :current_position
 
-  def initialize(direction:, starting_position:)
+  def initialize(direction:, starting_position:, starting_location: Location.new(coordinates: starting_position, direction: direction))
     @direction = direction
-    @current_location = Location.new(coordinates: starting_position, direction: direction)
+    @current_location = starting_location
   end
 
   def execute(commands_from_earth)
@@ -35,15 +35,5 @@ class MarsRover
 
   def to_s
     "a Mars Rover facing #{@current_location.direction} starting from #{@current_location.coordinates}"
-  end
-
-  private
-
-  def turn_right(direction)
-    {
-      'N' => 'E',
-      'E' => 'S',
-      'S' => 'W',
-      'W' => 'N' }[direction]
   end
 end
