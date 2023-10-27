@@ -1,4 +1,3 @@
-require 'coordinates'
 require 'location'
 class MarsRover
 
