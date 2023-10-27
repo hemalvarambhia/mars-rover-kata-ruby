@@ -54,4 +54,19 @@ class Location
       )
     end
   end
+
+  TURN_LEFT = {
+    'N' => 'W',
+    'E' => 'N',
+    'S' => 'E',
+    'W' => 'S'
+  }.freeze
+  private_constant :TURN_LEFT
+
+  def rotate_left
+    Location.new(
+      coordinates: @coordinates,
+      direction: TURN_LEFT[@direction]
+    )
+  end
 end
