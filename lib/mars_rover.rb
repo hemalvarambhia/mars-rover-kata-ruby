@@ -17,6 +17,8 @@ class MarsRover
         @current_position = @current_location.coordinates
       when 'b'
         @current_position = move_backwards
+        @current_location = @current_location.backwards
+        @current_position = @current_location.coordinates
       when 'l'
         @direction = turn_left(@direction)
       when 'r'
