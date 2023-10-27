@@ -1,4 +1,5 @@
 require 'coordinates'
+require 'location'
 class MarsRover
   attr_reader :direction, :current_position
 
