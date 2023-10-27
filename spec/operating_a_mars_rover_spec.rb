@@ -73,7 +73,7 @@ RSpec.describe 'Operating a Mars rover' do
         expected_coordinates: Coordinates.new(x: -5, y: -2)
       },
       {
-        mars_rover: MarsRover.new(direction: 'W', starting_position: Coordinates.new(x: 0, y: -2)),
+        mars_rover: MarsRover.new(direction: 'W', starting_position: Coordinates.new(x: 0, y: -2), starting_location: Location.new(direction: 'W', coordinates: Coordinates.new(x: 0, y: -2))),
         expected_coordinates: Coordinates.new(x: -1, y: -2)
       }
     ].each do |row|
@@ -88,19 +88,21 @@ RSpec.describe 'Operating a Mars rover' do
     end
 
     it 'can move forwards multiple times when facing north' do
-      mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 2, y: 3))
+      starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 2, y: 3))
+      mars_rover = MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 2, y: 3), starting_location: starting_location)
 
-      mars_rover.execute(['f', 'f', 'f'])
+      mars_rover.execute(%w{f f f})
 
       expected_coordinates = Coordinates.new(x: 2, y: 6)
-      expect(mars_rover).to be_located_at(expected_coordinates)
+      expect(mars_rover).to be_located_at(expected_coordinates).and be_facing('N')
     end
   end
 
   describe 'Moving backwards' do
     %w{N E S W}.each do |direction|
       it "never changes direction when it moves backwards e.g . #{direction}" do
-        mars_rover = MarsRover.new(direction: direction, starting_position: Coordinates.new(x: 1, y: 3))
+        starting_location = Location.new(direction: direction, coordinates: Coordinates.new(x: 1, y: 3))
+        mars_rover = MarsRover.new(direction: direction, starting_position: Coordinates.new(x: 1, y: 3), starting_location: starting_location)
 
         expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :direction)
       end
