@@ -46,7 +46,7 @@ class MarsRover
       'E' => 'N',
       'S' => 'E',
       'W' => 'S'
-    }[@direction]
+    }[direction]
   end
 
   def move_backwards
