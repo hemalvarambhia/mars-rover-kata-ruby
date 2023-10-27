@@ -88,6 +88,29 @@ RSpec.describe 'Operating a Mars rover' do
       expected_coordinates = Coordinates.new(x: 2, y: 6)
       expect(mars_rover).to be_located_at(expected_coordinates).and be_facing('N')
     end
+
+    describe 'Travelling to the north pole' do
+      it 'faces south when it reaches the north pole' do
+        pending('Discussion with domain expert')
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
+        mars_rover = MarsRover.new(starting_location: starting_location)
+
+        mars_rover.execute(['f'])
+
+        expect(mars_rover).to be_facing('S')
+      end
+
+      it 'moves to the same latitude in the other half of the planet' do
+        pending('Discussion with domain expert')
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
+        mars_rover = MarsRover.new(starting_location: starting_location)
+
+        mars_rover.execute(['f'])
+
+        expect(mars_rover).to be_located(Coordinates.new(x: 18, y: 8))
+
+      end
+    end
   end
 
   describe 'Moving backwards' do
