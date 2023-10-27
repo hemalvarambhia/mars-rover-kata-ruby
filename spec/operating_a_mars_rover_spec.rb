@@ -61,15 +61,15 @@ RSpec.describe 'Operating a Mars rover' do
         expected_coordinates: Coordinates.new(x: 0, y: 1)
       },
       {
-        mars_rover: MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 2, y: 3)),
+        mars_rover: MarsRover.new(direction: 'N', starting_position: Coordinates.new(x: 2, y: 3), starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 2, y: 3))),
         expected_coordinates: Coordinates.new(x: 2, y: 4)
       },
       {
-        mars_rover: MarsRover.new(direction: 'E', starting_position: Coordinates.new(x: 0, y: 0)),
+        mars_rover: MarsRover.new(direction: 'E', starting_position: Coordinates.new(x: 0, y: 0), starting_location: Location.new(direction: 'E', coordinates: Coordinates.new(x: 0, y: 0))),
         expected_coordinates: Coordinates.new(x: 1, y: 0)
       },
       {
-        mars_rover: MarsRover.new(direction: 'S', starting_position: Coordinates.new(x: -5, y: -1)),
+        mars_rover: MarsRover.new(direction: 'S', starting_position: Coordinates.new(x: -5, y: -1), starting_location: Location.new(direction: 'S', coordinates: Coordinates.new(x: -5, y: -1))),
         expected_coordinates: Coordinates.new(x: -5, y: -2)
       },
       {
