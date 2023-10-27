@@ -15,7 +15,7 @@ class MarsRover
       when 'b'
         move_backwards
       when 'l'
-        @direction = turn_left
+        @direction = turn_left(@direction)
       when 'r'
         @direction = turn_right(@direction)
       end
@@ -40,7 +40,7 @@ class MarsRover
       'W' => 'N' }[direction]
   end
 
-  def turn_left(direction = nil)
+  def turn_left(direction)
     {
       'N' => 'W',
       'E' => 'N',
