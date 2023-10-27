@@ -29,6 +29,10 @@ class MarsRover
     @current_location.coordinates
   end
 
+  def direction
+    @current_location.direction
+  end
+
   def inspect
     "a Mars Rover at #{@current_location.coordinates.inspect} facing #{@current_location.direction}"
   end
