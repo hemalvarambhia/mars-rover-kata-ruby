@@ -173,6 +173,13 @@ RSpec.describe 'Operating a Mars rover' do
 
       expect { mars_rover.execute(['l']) }.not_to change(mars_rover, :current_position)
     end
+
+    it 'can rotate left multiple times' do
+      anywhere = Coordinates.new(x: -1, y: 3)
+      mars_rover = MarsRover.new(direction: 'N', starting_position: anywhere)
+
+      expect { mars_rover.execute(%w{l l l}) }.to change(mars_rover, :direction).from('N').to('E')
+    end
   end
 
   describe 'Turning right' do
