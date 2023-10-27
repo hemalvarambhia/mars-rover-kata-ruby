@@ -6,18 +6,19 @@ class MarsRover
   end
 
   def execute(commands_from_earth)
-    commands_from_earth.each do |command|
-      @current_location =
-        case command
-        when 'f'
-          @current_location.forwards
-        when 'b'
-          @current_location.backwards
-        when 'l'
-          @current_location.rotate_left
-        when 'r'
-          @current_location.rotate_right
-        end
+    @current_location = commands_from_earth.inject(@current_location) do |location, command|
+      case command
+      when 'f'
+        location.forwards
+      when 'b'
+        location.backwards
+      when 'l'
+        location.rotate_left
+      when 'r'
+        location.rotate_right
+      else
+        location
+      end
     end
   end
 
