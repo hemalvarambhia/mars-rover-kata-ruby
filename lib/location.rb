@@ -1,3 +1,4 @@
+require 'coordinates'
 class Location
   attr_reader :coordinates, :direction
   def initialize(coordinates:, direction:)
