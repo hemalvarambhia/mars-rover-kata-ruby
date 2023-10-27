@@ -32,7 +32,7 @@ class MarsRover
   end
 
   def inspect
-    "a Mars Rover at #{@current_location.coordinates.inspect} facing #{@current_location.direction}"
+    "a Mars Rover at #{@current_location.inspect}"
   end
 
   def to_s
