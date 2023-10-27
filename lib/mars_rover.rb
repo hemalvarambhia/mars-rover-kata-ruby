@@ -1,7 +1,7 @@
 require 'coordinates'
 require 'location'
 class MarsRover
-  attr_reader :direction, :current_position
+  attr_reader :direction
 
   def initialize(direction:, starting_position:, starting_location: Location.new(coordinates: starting_position, direction: direction))
     @direction = direction
