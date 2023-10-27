@@ -40,7 +40,7 @@ class MarsRover
       'W' => 'N' }[direction]
   end
 
-  def turn_left
+  def turn_left(direction = nil)
     {
       'N' => 'W',
       'E' => 'N',
