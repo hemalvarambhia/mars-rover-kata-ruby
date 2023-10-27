@@ -1,7 +1,7 @@
 require 'location'
 class MarsRover
 
-  def initialize(direction:, starting_position:, starting_location: Location.new(coordinates: starting_position, direction: direction))
+  def initialize(direction: nil, starting_position: nil, starting_location: Location.new(coordinates: starting_position, direction: direction))
     @current_location = starting_location
   end
 
