@@ -134,12 +134,11 @@ RSpec.describe 'Operating a Mars rover' do
     end
   end
 
+  def self.a_mars_rover_facing(direction:)
+    MarsRover.new(direction: direction, starting_position: Coordinates.new(x: 0, y: 0))
+  end
+
   describe 'Turning left' do
-
-    def self.a_mars_rover_facing(direction:)
-      MarsRover.new(direction: direction, starting_position: Coordinates.new(x: 0, y: 0))
-    end
-
     [
       {
         mars_rover: a_mars_rover_facing(direction: 'N'),
