@@ -19,7 +19,6 @@ class MarsRover
         @current_location = @current_location.rotate_left
         @direction = @current_location.direction
       when 'r'
-        @direction = turn_right(@direction)
         @current_location = @current_location.rotate_right
         @direction = @current_location.direction
       end
