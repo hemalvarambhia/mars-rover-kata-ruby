@@ -11,7 +11,7 @@ class MarsRover
     commands_from_earth.each do |command|
       case command
       when 'f'
-        move_forwards
+        @current_position = move_forwards
       when 'b'
         @current_position = move_backwards
       when 'l'
@@ -65,13 +65,13 @@ class MarsRover
   def move_forwards
     case @direction
     when 'N'
-      @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
+      Coordinates.new(x: @current_position.x, y: @current_position.y + 1)
     when 'E'
-      @current_position = Coordinates.new(x: @current_position.x + 1, y: @current_position.y)
+      Coordinates.new(x: @current_position.x + 1, y: @current_position.y)
     when 'S'
-      @current_position = Coordinates.new(x: @current_position.x, y: @current_position.y - 1)
+      Coordinates.new(x: @current_position.x, y: @current_position.y - 1)
     when 'W'
-      @current_position = Coordinates.new(x: @current_position.x - 1, y: @current_position.y)
+      Coordinates.new(x: @current_position.x - 1, y: @current_position.y)
     end
   end
 end
