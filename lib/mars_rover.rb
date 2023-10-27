@@ -16,7 +16,6 @@ class MarsRover
       when 'b'
         @current_location = @current_location.backwards
       when 'l'
-        @direction = turn_left(@direction)
         @current_location = @current_location.rotate_left
         @direction = @current_location.direction
       when 'r'
@@ -45,14 +44,5 @@ class MarsRover
       'E' => 'S',
       'S' => 'W',
       'W' => 'N' }[direction]
-  end
-
-  def turn_left(direction)
-    {
-      'N' => 'W',
-      'E' => 'N',
-      'S' => 'E',
-      'W' => 'S'
-    }[direction]
   end
 end
