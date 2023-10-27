@@ -209,7 +209,17 @@ RSpec.describe 'Operating a Mars rover' do
       end
     end
 
-    example 'the Mars rover does not change its current location'
+    example 'the Mars rover does not change its current position' do
+      mars_rover = MarsRover.new(starting_position: Coordinates.new(x: 1, y: 2), direction: 'E')
+
+      expect { mars_rover.execute(['r']) }.not_to change(mars_rover, :current_position)
+    end
+
+    example 'the Mars rover can rotate right multiple times' do
+      mars_rover = MarsRover.new(starting_position: Coordinates.new(x: -1, y: 3), direction: 'W')
+
+      expect { mars_rover.execute(%w{r r}) }.to change(mars_rover, :direction).from('W').to 'E'
+    end
   end
 
   RSpec::Matchers.define :be_located_at do |expected_position|
