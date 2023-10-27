@@ -32,7 +32,7 @@ class MarsRover
 
   private
 
-  def turn_right
+  def turn_right(direction = nil)
     {
       'N' => 'E',
       'E' => 'S',
