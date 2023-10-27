@@ -69,4 +69,11 @@ class Location
       direction: TURN_LEFT[@direction]
     )
   end
+
+  def rotate_right
+    Location.new(
+      coordinates: @coordinates,
+      direction: TURN_LEFT.invert[@direction]
+    )
+  end
 end
