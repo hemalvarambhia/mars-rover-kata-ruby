@@ -36,6 +36,6 @@ class MarsRover
   end
 
   def to_s
-    "a Mars Rover facing #{@current_location.direction} starting from #{@current_location.coordinates}"
+    "a Mars Rover #{@current_location}"
   end
 end

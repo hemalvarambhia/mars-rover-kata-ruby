@@ -81,4 +81,8 @@ class Location
   def inspect
     "#{coordinates.inspect} facing #{direction}"
   end
+
+  def to_s
+    "facing #{direction} starting from #{coordinates}"
+  end
 end
