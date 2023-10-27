@@ -14,6 +14,8 @@ class MarsRover
       case command
       when 'f'
         @current_position = move_forwards
+        @current_location = @current_location.forwards
+        @current_position = @current_location.coordinates
       when 'b'
         @current_position = move_backwards
       when 'l'
