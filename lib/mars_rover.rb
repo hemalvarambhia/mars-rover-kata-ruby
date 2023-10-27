@@ -3,7 +3,6 @@ require 'location'
 class MarsRover
 
   def initialize(direction:, starting_position:, starting_location: Location.new(coordinates: starting_position, direction: direction))
-    @direction = direction
     @current_location = starting_location
   end
 
@@ -16,10 +15,8 @@ class MarsRover
         @current_location = @current_location.backwards
       when 'l'
         @current_location = @current_location.rotate_left
-        @direction = @current_location.direction
       when 'r'
         @current_location = @current_location.rotate_right
-        @direction = @current_location.direction
       end
     end
   end
