@@ -1,4 +1,5 @@
 require_relative '../lib/coordinates'
+require_relative '../lib/location'
 require_relative '../lib/mars_rover'
 RSpec.describe 'Operating a Mars rover' do
   it 'has a starting position at the origin' do
