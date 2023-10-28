@@ -116,6 +116,14 @@ RSpec.describe 'Operating a Mars rover' do
 
         expect(mars_rover).to be_located(Coordinates.new(x: 18, y: 8))
       end
+
+      example 'landing on the north pole'
+    end
+
+    describe 'Travelling to the south pole' do
+      it 'faces north'
+      it 'moves to the moves to the same latitude but in the other half of the planet'
+      example 'landing on the south pole'
     end
   end
 
