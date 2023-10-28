@@ -106,7 +106,7 @@ RSpec.describe 'Operating a Mars rover' do
         expect(mars_rover).to be_facing('S')
       end
 
-      it 'moves to the same latitude but in the other half of the planet' do
+      it 'moves to the same latitude but in the other half of the planet e.g. from (0, 8) to (18, 8)' do
         pending('Discussion with domain expert')
         north_pole = Coordinates.new(x: 0, y: 9)
         starting_location = Location.new(north_pole: north_pole, direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
@@ -117,12 +117,12 @@ RSpec.describe 'Operating a Mars rover' do
         expect(mars_rover).to be_located(Coordinates.new(x: 18, y: 8))
       end
 
-      example 'landing on the north pole'
+      example 'landing on the north pole (0, 9)'
     end
 
     describe 'Travelling to the south pole' do
       it 'faces north'
-      it 'moves to the moves to the same latitude but in the other half of the planet'
+      it 'moves to the moves to the same latitude but in the other half of the planet from (0, -8) to (18, -8)'
       example 'landing on the south pole'
     end
   end
