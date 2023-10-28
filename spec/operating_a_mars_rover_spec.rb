@@ -90,7 +90,12 @@ RSpec.describe 'Operating a Mars rover' do
     end
 
     describe 'Travelling to the north pole' do
-      it 'faces south when it reaches the north pole' do
+      # Assume:
+      # 18 parallels: 9 parallels on the northern hemisphere, each 10 degrees apart, and another 9 in the southern hemisphere.
+      # 36 meridians, each 10 degrees apart: The western hemisphere as 18, the eastern hemisphere also 18.
+      # The north pole is 90 degrees N from Mars' equator and the south pole is 90 degrees S from Mars' equator
+      # At the central meridian (0 degrees) North Pole is at P(0, 9) and South Pole P(0, -9)
+      it 'faces south upon it reaches the north pole' do
         pending('Pending discussion with domain expert')
         north_pole = Coordinates.new(x: 0, y: 9)
         starting_location = Location.new(north_pole: north_pole, direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
@@ -101,7 +106,7 @@ RSpec.describe 'Operating a Mars rover' do
         expect(mars_rover).to be_facing('S')
       end
 
-      it 'moves to the same latitude in the other half of the planet' do
+      it 'moves to the same latitude but in the other half of the planet' do
         pending('Discussion with domain expert')
         north_pole = Coordinates.new(x: 0, y: 9)
         starting_location = Location.new(north_pole: north_pole, direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
@@ -110,7 +115,6 @@ RSpec.describe 'Operating a Mars rover' do
         mars_rover.execute(['f'])
 
         expect(mars_rover).to be_located(Coordinates.new(x: 18, y: 8))
-
       end
     end
   end
