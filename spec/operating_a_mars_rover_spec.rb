@@ -99,8 +99,8 @@ RSpec.describe 'Operating a Mars rover' do
       it 'faces south upon it reaches the north pole' do
         pending('Pending discussion with domain expert')
         north_pole = Coordinates.new(x: 0, y: 9)
-        starting_location = Location.new(north_pole: north_pole, direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
-        mars_rover = MarsRover.new(starting_location: starting_location)
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
+        mars_rover = MarsRover.new(north_pole: north_pole, starting_location: starting_location)
 
         mars_rover.execute(['f'])
 
@@ -110,8 +110,8 @@ RSpec.describe 'Operating a Mars rover' do
       it 'moves to the same latitude but in the other half of the planet e.g. from (0, 8) to (18, 8)' do
         pending('Discussion with domain expert')
         north_pole = Coordinates.new(x: 0, y: 9)
-        starting_location = Location.new(north_pole: north_pole, direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
-        mars_rover = MarsRover.new(starting_location: starting_location)
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
+        mars_rover = MarsRover.new(north_pole: north_pole, starting_location: starting_location)
 
         mars_rover.execute(['f'])
 
