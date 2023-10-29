@@ -11,7 +11,8 @@ class MarsRover
         case command
         when 'f'
           new_location = location.forwards
-          if new_location.coordinates == Coordinates.new(x: 0, y: 9)
+          north_pole = Coordinates.new(x: 0, y: 9)
+          if new_location.coordinates == north_pole
             Location.new(coordinates: new_location.coordinates, direction: 'S')
           else
             new_location
