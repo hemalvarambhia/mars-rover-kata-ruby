@@ -98,7 +98,6 @@ RSpec.describe 'Operating a Mars rover' do
       # At the central meridian (0 degrees) North Pole is at P(0, 9) and South Pole P(0, -9)
       context 'when it reaches the north pole' do
         it 'faces south' do
-          pending('Discussion with domain expert')
           starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
           mars_rover = MarsRover.new(starting_location: starting_location)
 
