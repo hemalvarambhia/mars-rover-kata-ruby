@@ -11,8 +11,7 @@ class MarsRover
         case command
         when 'f'
           new_location = location.forwards
-          north_pole = Coordinates.new(x: 0, y: 9)
-          if new_location.coordinates == north_pole
+          if at_north_pole?(new_location)
             Location.new(coordinates: new_location.coordinates, direction: 'S')
           else
             new_location
@@ -43,5 +42,12 @@ class MarsRover
 
   def to_s
     "a Mars Rover #{@current_location}"
+  end
+
+  private
+
+  def at_north_pole?(location)
+    north_pole = Coordinates.new(x: 0, y: 9)
+    location.coordinates == north_pole
   end
 end
