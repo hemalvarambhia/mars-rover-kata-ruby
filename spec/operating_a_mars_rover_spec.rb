@@ -113,7 +113,7 @@ RSpec.describe 'Operating a Mars rover' do
 
           mars_rover.execute(['f'])
 
-          expect(mars_rover).to be_located(Coordinates.new(x: 18, y: 8))
+          expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 8))
         end
       end
 
