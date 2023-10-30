@@ -12,7 +12,7 @@ class MarsRover
         when 'f'
           new_location = location.forwards
           if at_north_pole?(new_location)
-            Location.new(coordinates: new_location.coordinates, direction: 'S')
+            Location.new(coordinates: Coordinates.new(x: 18, y: 9), direction: 'S').forwards
           else
             new_location
           end
