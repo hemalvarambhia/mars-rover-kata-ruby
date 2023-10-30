@@ -41,11 +41,11 @@ class MarsRover
 
   private
 
-  def corrected_for_north_pole(new_location)
-    if at_north_pole?(new_location)
-      Location.new(coordinates: Coordinates.new(x: 18, y: new_location.coordinates.y), direction: 'S').forwards
+  def corrected_for_north_pole(location)
+    if at_north_pole?(location)
+      Location.new(coordinates: Coordinates.new(x: 18, y: location.coordinates.y), direction: 'S').forwards
     else
-      new_location
+      location
     end
   end
 
