@@ -11,7 +11,7 @@ class MarsRover
       commands_from_earth.inject(@current_location) do |location, command|
         case command
         when 'f'
-          with_north_pole_correction(location.forwards)
+          @map.with_north_pole_correction(location.forwards)
         when 'b'
           location.backwards
         when 'l'
@@ -38,11 +38,5 @@ class MarsRover
 
   def to_s
     "a Mars Rover #{@current_location}"
-  end
-
-  private
-
-  def with_north_pole_correction(location)
-    @map.with_north_pole_correction(location)
   end
 end
