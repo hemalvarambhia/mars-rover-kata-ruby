@@ -115,7 +115,7 @@ RSpec.describe 'Operating a Mars rover' do
           expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 8))
         end
 
-        it 'moves to the north pole from any line of longitude' do
+        it 'moves to the north pole from any line of longitude e.g. (1, 8) to (19, 8)' do
           pending('Discussion with domain expert')
           starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 8))
           mars_rover = MarsRover.new(starting_location: starting_location)
