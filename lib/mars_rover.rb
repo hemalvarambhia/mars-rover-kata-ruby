@@ -3,6 +3,7 @@ class MarsRover
 
   def initialize(starting_location:)
     @current_location = starting_location
+    @map = Map.new
   end
 
   def execute(commands_from_earth)
@@ -42,7 +43,6 @@ class MarsRover
   private
 
   def with_north_pole_correction(location)
-    @map = Map.new
     @map.with_north_pole_correction(location)
   end
 end
