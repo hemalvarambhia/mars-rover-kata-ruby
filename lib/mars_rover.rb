@@ -1,4 +1,4 @@
-require 'location'
+require 'map'
 class MarsRover
 
   def initialize(starting_location:)
@@ -47,6 +47,7 @@ class MarsRover
     else
       location
     end
+    Map.new.with_north_pole_correction(location)
   end
 
   def at_north_pole?(coordinates)
