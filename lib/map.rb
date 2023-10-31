@@ -12,6 +12,6 @@ class Map
   private
 
   def at_north_pole?(coordinates)
-    coordinates == Coordinates.new(x: 0, y: 9)
+    coordinates.y == 9
   end
 end
