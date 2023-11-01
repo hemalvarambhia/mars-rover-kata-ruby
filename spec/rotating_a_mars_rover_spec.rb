@@ -49,6 +49,14 @@ describe 'Turning a mars rover' do
 
       expect { mars_rover.execute(%w{l l l}) }.to change(mars_rover, :direction).from('N').to('E')
     end
+
+    context 'at the north pole' do
+      it 'remains facing south'
+    end
+
+    context 'at the south pole' do
+      it 'remains facing north'
+    end
   end
 
   describe 'Turning right' do
@@ -91,6 +99,14 @@ describe 'Turning a mars rover' do
       mars_rover = MarsRover.new(starting_location: starting_location)
 
       expect { mars_rover.execute(%w{r r}) }.to change(mars_rover, :direction).from('W').to 'E'
+    end
+
+    context 'at the north pole' do
+      it 'remains facing south'
+    end
+
+    context 'at the south pole' do
+      it 'remains facing north'
     end
   end
 
