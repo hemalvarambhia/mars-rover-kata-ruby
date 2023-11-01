@@ -70,22 +70,22 @@ describe 'Moving a Mars rover' do
           expect(mars_rover).to be_facing('S')
         end
 
-        it 'moves to the same latitude but in the other half of the planet e.g. from (0, 8) to (18, 8)' do
+        it 'moves to the same latitude but in the other half of the planet e.g. from (0, 8) to (18, 9)' do
           starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
           mars_rover = MarsRover.new(starting_location: starting_location)
 
           mars_rover.execute(['f'])
 
-          expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 8))
+          expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 9))
         end
 
-        it 'moves to the north pole from any line of longitude e.g. (1, 8) to (19, 8)' do
+        it 'moves to the north pole from any line of longitude e.g. (1, 8) to (19, 9)' do
           starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 8))
           mars_rover = MarsRover.new(starting_location: starting_location)
 
           mars_rover.execute(['f'])
 
-          expect(mars_rover).to be_located_at(Coordinates.new(x: 19, y: 8))
+          expect(mars_rover).to be_located_at(Coordinates.new(x: 19, y: 9))
         end
       end
 
