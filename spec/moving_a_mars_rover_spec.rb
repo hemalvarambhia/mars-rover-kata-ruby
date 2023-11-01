@@ -81,10 +81,8 @@ describe 'Moving a Mars rover' do
       example 'landing on the north pole (0, 9) means it is now facing south'
     end
 
-
     context 'when it reaches the south pole' do
-      it 'faces north'
-      it 'moves to the moves to the same latitude but in the other half of the planet from (0, -8) to (18, -8)'
+      it 'moves to the moves to the same latitude but in the other half of the planet from (0, -8) to (18, -8) and faces north'
       example 'landing on the south pole (0, -9) means it is now facing north'
     end
   end
