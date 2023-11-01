@@ -54,42 +54,38 @@ describe 'Moving a Mars rover' do
       expect(mars_rover).to be_located_at(expected_coordinates).and be_facing('N')
     end
 
-    describe 'Travelling to the north pole' do
-      # Assume:
-      # 18 parallels: 9 parallels on the northern hemisphere, each 10 degrees apart, and another 9 in the southern hemisphere.
-      # 36 meridians, each 10 degrees apart: The western hemisphere as 18, the eastern hemisphere also 18.
-      # The north pole is 90 degrees N from Mars' equator and the south pole is 90 degrees S from Mars' equator
-      # At the central meridian (0 degrees) North Pole is at P(0, 9) and South Pole P(0, -9)
-      context 'when it reaches the north pole' do
-        it 'moves to the same latitude but in the other half of the planet e.g. from (0, 8) to (18, 9) and faces south' do
-          starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
-          mars_rover = MarsRover.new(starting_location: starting_location)
+    # Assume:
+    # 18 parallels: 9 parallels on the northern hemisphere, each 10 degrees apart, and another 9 in the southern hemisphere.
+    # 36 meridians, each 10 degrees apart: The western hemisphere as 18, the eastern hemisphere also 18.
+    # The north pole is 90 degrees N from Mars' equator and the south pole is 90 degrees S from Mars' equator
+    # At the central meridian (0 degrees) North Pole is at P(0, 9) and South Pole P(0, -9)
+    context 'when it reaches the north pole' do
+      it 'moves to the same latitude but in the other half of the planet e.g. from (0, 8) to (18, 9) and faces south' do
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
+        mars_rover = MarsRover.new(starting_location: starting_location)
 
-          mars_rover.execute(['f'])
+        mars_rover.execute(['f'])
 
-          expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 9)).and be_facing('S')
-        end
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 9)).and be_facing('S')
+      end
 
-        it 'moves to the north pole from any line of longitude e.g. (1, 8) to (19, 9)' do
-          starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 8))
-          mars_rover = MarsRover.new(starting_location: starting_location)
+      it 'moves to the north pole from any line of longitude e.g. (1, 8) to (19, 9)' do
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 8))
+        mars_rover = MarsRover.new(starting_location: starting_location)
 
-          mars_rover.execute(['f'])
+        mars_rover.execute(['f'])
 
-          expect(mars_rover).to be_located_at(Coordinates.new(x: 19, y: 9))
-        end
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 19, y: 9))
       end
 
       example 'landing on the north pole (0, 9) means it is now facing south'
     end
 
-    describe 'Travelling to the south pole' do
-      context 'when it reaches the south pole' do
-        it 'faces north'
-        it 'moves to the moves to the same latitude but in the other half of the planet from (0, -8) to (18, -8)'
-      end
 
-      example 'landing on the south pole (0, -9) means it is now facing south'
+    context 'when it reaches the south pole' do
+      it 'faces north'
+      it 'moves to the moves to the same latitude but in the other half of the planet from (0, -8) to (18, -8)'
+      example 'landing on the south pole (0, -9) means it is now facing north'
     end
   end
 
