@@ -1,6 +1,11 @@
 require 'coordinates'
 class Location
   attr_reader :coordinates, :direction
+
+  def self.south_facing(coordinates)
+    new(coordinates: coordinates, direction: 'S')
+  end
+
   def initialize(coordinates:, direction:)
     @coordinates = coordinates
     @direction = direction
