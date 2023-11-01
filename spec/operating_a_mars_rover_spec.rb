@@ -144,7 +144,7 @@ RSpec.describe 'Operating a Mars rover' do
         starting_location = Location.new(direction: direction, coordinates: Coordinates.new(x: 1, y: 3))
         mars_rover = MarsRover.new(starting_location: starting_location)
 
-        expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :direction)
+        expect { mars_rover.execute(['b']) }.not_to change(mars_rover, :direction)
       end
     end
 
