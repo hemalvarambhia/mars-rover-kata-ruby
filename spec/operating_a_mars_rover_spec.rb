@@ -23,7 +23,7 @@ RSpec.describe 'Operating a Mars rover' do
       anywhere_facing_direction = Location.new(direction: direction, coordinates: Coordinates.new(x: 2, y: -3))
       mars_rover = MarsRover.new(starting_location: anywhere_facing_direction)
 
-      expect(mars_rover.direction).to(eq(direction), "Expected Mars Rover to be facing #{direction}, but got ''#{mars_rover.direction}'")
+      expect(mars_rover).to be_facing(direction)
     end
   end
 
