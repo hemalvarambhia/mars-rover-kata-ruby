@@ -60,22 +60,24 @@ describe 'Moving a Mars rover' do
     # The north pole is 90 degrees N from Mars' equator and the south pole is 90 degrees S from Mars' equator
     # At the central meridian (0 degrees) North Pole is at P(0, 9) and South Pole P(0, -9)
     context 'at the north pole' do
-      it 'moves to the same latitude but in the other half of the planet e.g. from (0, 8) to (18, 9) and faces south' do
-        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
-        mars_rover = MarsRover.new(starting_location: starting_location)
+      context 'facing north' do
+        it 'moves to the same latitude but in the other half of the planet e.g. from (0, 8) to (18, 9) and faces south' do
+          starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
+          mars_rover = MarsRover.new(starting_location: starting_location)
 
-        mars_rover.execute(['f'])
+          mars_rover.execute(['f'])
 
-        expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 9)).and be_facing('S')
-      end
+          expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 9)).and be_facing('S')
+        end
 
-      it 'moves to the north pole from any line of longitude e.g. (1, 8) to (19, 9)' do
-        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 8))
-        mars_rover = MarsRover.new(starting_location: starting_location)
+        it 'moves to the north pole from any line of longitude e.g. (1, 8) to (19, 9)' do
+          starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 8))
+          mars_rover = MarsRover.new(starting_location: starting_location)
 
-        mars_rover.execute(['f'])
+          mars_rover.execute(['f'])
 
-        expect(mars_rover).to be_located_at(Coordinates.new(x: 19, y: 9))
+          expect(mars_rover).to be_located_at(Coordinates.new(x: 19, y: 9))
+        end
       end
 
       example 'landing on the north pole (0, 9) means it is now facing south'
@@ -144,6 +146,12 @@ describe 'Moving a Mars rover' do
 
       expected_coordinates = Coordinates.new(x: 0, y: 0)
       expect(mars_rover).to be_located_at(expected_coordinates)
+    end
+
+    context 'at the north pole' do
+      context 'facing south' do
+        it 'moves to the next longitude 180 degrees from the current meridian and faces north'
+      end
     end
   end
 end
