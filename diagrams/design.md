@@ -6,10 +6,9 @@ sequenceDiagram
     Mars Rover->>+Location: forwards
     Location->>+Mars Rover: next north facing location 
     alt north pole
-        Note over Mars Rover: south facing next longitude 180 degrees 
+        Note over Mars Rover: south facing next longitude 180 degrees from current meridian
         Mars Rover->> Mars Rover: correction at north pole
     else
        Location->>+Mars Rover: next north facing location 
     end
-
 ```
