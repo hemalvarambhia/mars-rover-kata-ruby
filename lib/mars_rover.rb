@@ -1,9 +1,7 @@
-require 'map'
 class MarsRover
 
   def initialize(starting_location:)
     @current_location = starting_location
-    @map = Map.new
   end
 
   def execute(commands_from_earth)
@@ -11,7 +9,7 @@ class MarsRover
       commands_from_earth.inject(@current_location) do |location, command|
         case command
         when 'f'
-          @map.with_north_pole_correction(location.forwards)
+          with_north_pole_correction(location.forwards)
         when 'b'
           location.backwards
         when 'l'
@@ -38,5 +36,19 @@ class MarsRover
 
   def to_s
     "a Mars Rover #{@current_location}"
+  end
+
+  private
+
+  def with_north_pole_correction(location)
+    if at_north_pole?(location.coordinates)
+      Location.south_facing(Coordinates.new(x: location.coordinates.x + 18, y: location.coordinates.y))
+    else
+      location
+    end
+  end
+
+  def at_north_pole?(coordinates)
+    coordinates.y == 9
   end
 end
