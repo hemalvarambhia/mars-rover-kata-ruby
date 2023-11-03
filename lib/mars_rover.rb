@@ -49,6 +49,7 @@ class MarsRover
   end
 
   def at_north_pole?(coordinates)
-    coordinates.y == 9
+    north_pole_latitude = 9
+    coordinates.y == north_pole_latitude
   end
 end
