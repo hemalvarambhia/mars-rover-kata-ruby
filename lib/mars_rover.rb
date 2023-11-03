@@ -1,5 +1,8 @@
 class MarsRover
 
+  NORTH_POLE_LATITUDE = 9
+  private_constant :NORTH_POLE_LATITUDE
+
   def initialize(starting_location:)
     @current_location = starting_location
   end
@@ -49,7 +52,6 @@ class MarsRover
   end
 
   def at_north_pole?(coordinates)
-    north_pole_latitude = 9
-    coordinates.y == north_pole_latitude
+    coordinates.y == NORTH_POLE_LATITUDE
   end
 end
