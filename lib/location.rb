@@ -17,22 +17,22 @@ class Location
     case @direction
     when 'N'
       Location.new(
-        coordinates: Coordinates.new(x: @coordinates.x, y: @coordinates.y + 1),
+        coordinates: Coordinates.new(x: x, y: y + 1),
         direction: @direction
       )
     when 'E'
       Location.new(
-        coordinates: Coordinates.new(x: @coordinates.x + 1, y: @coordinates.y),
+        coordinates: Coordinates.new(x: x + 1, y: y),
         direction: @direction
       )
     when 'S'
       Location.new(
-        coordinates: Coordinates.new(x: @coordinates.x, y: @coordinates.y - 1),
+        coordinates: Coordinates.new(x: x, y: y - 1),
         direction: @direction
       )
     when 'W'
       Location.new(
-        coordinates: Coordinates.new(x: @coordinates.x - 1, y: @coordinates.y),
+        coordinates: Coordinates.new(x: x - 1, y: y),
         direction: @direction
       )
     end
@@ -42,22 +42,22 @@ class Location
     case @direction
     when 'N'
       Location.new(
-        coordinates: Coordinates.new(x: @coordinates.x, y: @coordinates.y - 1),
+        coordinates: Coordinates.new(x: x, y: y - 1),
         direction: @direction
       )
     when 'E'
       Location.new(
-        coordinates: Coordinates.new(x: @coordinates.x - 1, y: @coordinates.y),
+        coordinates: Coordinates.new(x: x - 1, y: y),
         direction: @direction
       )
     when 'S'
       Location.new(
-        coordinates: Coordinates.new(x: @coordinates.x, y: @coordinates.y + 1),
+        coordinates: Coordinates.new(x: x, y: y + 1),
         direction: @direction
       )
     when 'W'
       Location.new(
-        coordinates: Coordinates.new(x: @coordinates.x + 1, y: @coordinates.y),
+        coordinates: Coordinates.new(x: x + 1, y: y),
         direction: @direction
       )
     end
