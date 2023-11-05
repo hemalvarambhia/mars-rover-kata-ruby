@@ -1,5 +1,7 @@
+require 'forwardable'
 require 'coordinates'
 class Location
+  extend Forwardable
   attr_reader :coordinates, :direction
 
   def self.south_facing(coordinates)
@@ -90,4 +92,8 @@ class Location
   def to_s
     "facing #{direction} starting from #{coordinates}"
   end
+
+  private
+
+  def_delegators :@coordinates, :x, :y
 end
