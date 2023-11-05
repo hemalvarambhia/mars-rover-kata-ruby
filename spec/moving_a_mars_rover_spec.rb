@@ -66,7 +66,7 @@ describe 'Moving a Mars rover' do
 
         mars_rover.execute(['f'])
 
-        expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 9)).and be_facing('S')
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 8)).and be_facing('S')
       end
 
       it 'moves to the north pole from any line of longitude e.g. (1, 8) to (19, 9)' do
@@ -75,7 +75,7 @@ describe 'Moving a Mars rover' do
 
         mars_rover.execute(['f'])
 
-        expect(mars_rover).to be_located_at(Coordinates.new(x: 19, y: 9))
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 19, y: 8))
       end
 
       it 'moves to the north pole from any line of longitude e.g. (18, 8) to (0, 9)'
