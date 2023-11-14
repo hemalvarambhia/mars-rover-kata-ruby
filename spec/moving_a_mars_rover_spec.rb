@@ -167,7 +167,7 @@ describe 'Moving a Mars rover' do
 
     context 'at the north pole' do
       context 'facing south' do
-        it 'moves to the next longitude 180 degrees from the current meridian and faces north'
+        it 'moves to the next longitude 180 degrees from the current meridian and continues to face south'
       end
     end
   end
