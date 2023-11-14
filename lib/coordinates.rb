@@ -10,10 +10,10 @@ class Coordinates
   end
 
   def to_s
-    "(#{x},#{y})"
+    "(#{x}, #{y})"
   end
 
   def inspect
-    "(#{x},#{y})"
+    "(#{x}, #{y})"
   end
 end
