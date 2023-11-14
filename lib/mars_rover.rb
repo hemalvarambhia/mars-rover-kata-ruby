@@ -13,11 +13,7 @@ class MarsRover
         case command
         when 'f'
           new_location = with_north_pole_correction(location.forwards)
-          if new_location.coordinates.y == -9
-            Location.new(direction: 'N', coordinates: Coordinates.new(x: 18, y: -8))
-          else
-            new_location
-          end
+          with_south_pole_correction(new_location)
         when 'b'
           location.backwards
         when 'l'
@@ -48,6 +44,14 @@ class MarsRover
 
   private
 
+  def with_south_pole_correction(location)
+    if at_south_pole?(location.coordinates)
+      Location.new(direction: 'N', coordinates: Coordinates.new(x: 18, y: -8))
+    else
+      location
+    end
+  end
+
   def with_north_pole_correction(location)
     if at_north_pole?(location.coordinates)
       Location.south_facing(Coordinates.new(x: (location.coordinates.x + 18) % 36, y: location.coordinates.y - 1))
@@ -58,5 +62,9 @@ class MarsRover
 
   def at_north_pole?(coordinates)
     coordinates.y == NORTH_POLE_LATITUDE
+  end
+
+  def at_south_pole?(coordinates)
+    coordinates.y == -9
   end
 end
