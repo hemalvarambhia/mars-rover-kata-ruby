@@ -45,7 +45,7 @@ class MarsRover
 
   def with_north_pole_correction(location)
     if at_north_pole?(location.coordinates)
-      Location.south_facing(Coordinates.new(x: location.coordinates.x + 18, y: location.coordinates.y - 1))
+      Location.south_facing(Coordinates.new(x: (location.coordinates.x + 18) % 36, y: location.coordinates.y - 1))
     else
       location
     end
