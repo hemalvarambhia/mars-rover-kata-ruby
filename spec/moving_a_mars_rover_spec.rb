@@ -60,6 +60,21 @@ describe 'Moving a Mars rover' do
     # The north pole is 90 degrees N from Mars' equator and the south pole is 90 degrees S from Mars' equator
     # At the central meridian (0 degrees) North Pole is at P(0, 9) and South Pole P(0, -9)
     context 'at the north pole' do
+      [
+        {
+          mars_rover: MarsRover.new(starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))),
+          expected_coordinates: Coordinates.new(x: 18, y: 8)
+        }
+      ].each do |row|
+        it "moves to the same latitude but in the other half of the planet e.g. from #{row[:mars_rover].current_position} to #{row[:expected_coordinates]} and faces south" do
+          mars_rover = row[:mars_rover]
+
+          mars_rover.execute(['f'])
+
+          expect(mars_rover).to be_located_at(row[:expected_coordinates]).and be_facing('S')
+        end
+      end
+
       it 'moves to the same latitude but in the other half of the planet e.g. from (0, 8) to (18, 8) and faces south' do
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
         mars_rover = MarsRover.new(starting_location: starting_location)
