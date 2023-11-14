@@ -100,7 +100,16 @@ describe 'Moving a Mars rover' do
         expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: -8)).and be_facing('N')
       end
 
-      it 'moves to the south pole from any line of longitude e.g. (18, -8) to (0, -8)'
+      it 'moves to the south pole from any line of longitude e.g. (18, -8) to (0, -8)' do
+        pending('Next test to get passing.')
+        starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 18, y: -8))
+        mars_rover = MarsRover.new(starting_location: starting_location)
+
+        mars_rover.execute(['f'])
+
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 0, y: -8)).and be_facing('N')
+      end
+
       example 'landing on the south pole (0, -9) means it is now facing north'
     end
   end
