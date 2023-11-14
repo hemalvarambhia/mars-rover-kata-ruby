@@ -64,6 +64,10 @@ describe 'Moving a Mars rover' do
         {
           mars_rover: MarsRover.new(starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))),
           expected_coordinates: Coordinates.new(x: 18, y: 8)
+        },
+        {
+          mars_rover: MarsRover.new(starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 8))),
+          expected_coordinates: Coordinates.new(x: 19, y: 8)
         }
       ].each do |row|
         it "moves to the same latitude but in the other half of the planet e.g. from #{row[:mars_rover].current_position} to #{row[:expected_coordinates]} and faces south" do
@@ -115,17 +119,17 @@ describe 'Moving a Mars rover' do
     end
 
     context 'at the south pole' do
-      it 'moves to the same latitude but in the other half of the planet from (0, -8) to (18, -9) and faces north' do
+      it 'moves to the same latitude but in the other half of the planet from (0, -8) to (18, -8) and faces north' do
         pending('Next test to get passing')
         starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 0, y: -8))
         mars_rover = MarsRover.new(starting_location: starting_location)
 
         mars_rover.execute(['f'])
 
-        expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: -9)).and be_facing('N')
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: -8)).and be_facing('N')
       end
 
-      it 'moves to the south pole from any line of longitude e.g. (18, -9) to (0, -9)'
+      it 'moves to the south pole from any line of longitude e.g. (18, -8) to (0, -8)'
       example 'landing on the south pole (0, -9) means it is now facing north'
     end
   end
