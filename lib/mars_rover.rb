@@ -15,8 +15,7 @@ class MarsRover
       commands_from_earth.inject(@current_location) do |location, command|
         case command
         when 'f'
-          new_location = with_north_pole_correction(location.forwards)
-          with_south_pole_correction(new_location)
+          move_forwards(location)
         when 'b'
           location.backwards
         when 'l'
@@ -46,6 +45,11 @@ class MarsRover
   end
 
   private
+
+  def move_forwards(location)
+    new_location = with_north_pole_correction(location.forwards)
+    with_south_pole_correction(new_location)
+  end
 
   def with_south_pole_correction(location)
     if at_south_pole?(location.coordinates)
