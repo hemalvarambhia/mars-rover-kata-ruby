@@ -52,7 +52,8 @@ class MarsRover
   end
 
   def with_south_pole_correction(location)
-    if at_south_pole?(location.coordinates)
+    at_south_pole = location.coordinates.y == SOUTH_POLE_LATITUDE
+    if at_south_pole
       Location.new(direction: 'N', coordinates: Coordinates.new(x: 18, y: -8))
     else
       location
@@ -60,18 +61,11 @@ class MarsRover
   end
 
   def with_north_pole_correction(location)
-    if at_north_pole?(location.coordinates)
+    at_north_pole = (location.coordinates.y == NORTH_POLE_LATITUDE)
+    if at_north_pole
       Location.south_facing(Coordinates.new(x: (location.coordinates.x + 18) % 36, y: location.coordinates.y - 1))
     else
       location
     end
-  end
-
-  def at_north_pole?(coordinates)
-    coordinates.y == NORTH_POLE_LATITUDE
-  end
-
-  def at_south_pole?(coordinates)
-    coordinates.y == SOUTH_POLE_LATITUDE
   end
 end
