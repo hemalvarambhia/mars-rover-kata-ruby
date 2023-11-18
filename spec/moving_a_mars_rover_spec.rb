@@ -62,7 +62,7 @@ describe 'Moving a Mars rover' do
     # 36 meridians, each 10 degrees apart: The western hemisphere as 18, the eastern hemisphere also 18.
     # The north pole is 90 degrees N from Mars' equator and the south pole is 90 degrees S from Mars' equator
     # At the central meridian (0 degrees) North Pole is at P(0, 9) and South Pole P(0, -9)
-    context 'at the north pole P(0, 9)' do
+    context 'at the north pole P(x, 9)' do
       [
         {
           mars_rover: MarsRover.new(starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))),
@@ -93,7 +93,7 @@ describe 'Moving a Mars rover' do
       example 'landing on the north pole (0, 9) means it is now facing south'
     end
 
-    context 'at the south pole' do
+    context 'at the south pole P(x, -9)' do
       it 'moves to the same latitude but in the other half of the planet from (0, -8) to (18, -8) and faces north' do
         starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 0, y: -8))
         mars_rover = MarsRover.new(starting_location: starting_location)
