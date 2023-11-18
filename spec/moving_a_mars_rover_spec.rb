@@ -1,7 +1,10 @@
 require_relative '../lib/coordinates'
 require_relative '../lib/location'
 require_relative '../lib/mars_rover'
+require_relative './mars_rover_matchers'
 describe 'Moving a Mars rover' do
+  include MarsRoverMatchers
+
   describe 'Moving forwards' do
     %w{N E S W}.each do |direction|
       it "never changes direction when it moves forwards e.g. remains facing #{direction}" do
@@ -186,12 +189,4 @@ describe 'Moving a Mars rover' do
       end
     end
   end
-end
-
-RSpec::Matchers.define :be_located_at do |expected_position|
-  match { |rover| rover.current_position == expected_position }
-end
-
-RSpec::Matchers.define :be_facing do |expected_direction|
-  match { |rover| rover.direction == expected_direction}
 end
