@@ -1,8 +1,10 @@
 require_relative '../lib/coordinates'
 require_relative '../lib/location'
 require_relative '../lib/mars_rover'
-
+require_relative './mars_rover_matchers'
 describe 'Turning a mars rover' do
+  include MarsRoverMatchers
+
   def self.a_mars_rover_facing(direction:)
     location = Location.new(direction: direction, coordinates: Coordinates.new(x: 0, y: 0))
     MarsRover.new(starting_location: location)
@@ -108,14 +110,6 @@ describe 'Turning a mars rover' do
     context 'at the south pole' do
       it 'remains facing north'
     end
-  end
-
-  RSpec::Matchers.define :be_located_at do |expected_position|
-    match { |rover| rover.current_position == expected_position }
-  end
-
-  RSpec::Matchers.define :be_facing do |expected_direction|
-    match { |rover| rover.direction == expected_direction}
   end
 end
 

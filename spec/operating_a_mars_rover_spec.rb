@@ -1,7 +1,10 @@
 require_relative '../lib/coordinates'
 require_relative '../lib/location'
 require_relative '../lib/mars_rover'
+require_relative './mars_rover_matchers'
 RSpec.describe 'Operating a Mars rover' do
+  include MarsRoverMatchers
+
   it 'has a starting position at the origin' do
     starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 0))
     mars_rover = MarsRover.new(starting_location: starting_location)
@@ -36,13 +39,5 @@ RSpec.describe 'Operating a Mars rover' do
   it 'cannot be operated when a starting position is not provided' do
     pending('Discussion with customer')
     expect { MarsRover.new(starting_location: nil) }.to raise_error('A Mars rover must be given a location to start from')
-  end
-
-  RSpec::Matchers.define :be_located_at do |expected_position|
-    match { |rover| rover.current_position == expected_position }
-  end
-
-  RSpec::Matchers.define :be_facing do |expected_direction|
-    match { |rover| rover.direction == expected_direction}
   end
 end
