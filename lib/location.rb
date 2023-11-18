@@ -8,6 +8,10 @@ class Location
     new(coordinates: coordinates, direction: 'S')
   end
 
+  def self.north_facing(coordinates)
+    Location.new(coordinates: coordinates, direction: 'N')
+  end
+
   def initialize(coordinates:, direction:)
     @coordinates = coordinates
     @direction = direction
