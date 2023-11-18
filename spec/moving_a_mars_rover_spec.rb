@@ -110,7 +110,6 @@ describe 'Moving a Mars rover' do
       end
 
       it 'moves to the south pole from any line of longitude e.g. (18, -8) to (0, -8)' do
-        pending('Next test to get passing.')
         starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 18, y: -8))
         mars_rover = MarsRover.new(starting_location: starting_location)
 
