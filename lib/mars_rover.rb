@@ -47,8 +47,7 @@ class MarsRover
   private
 
   def move_forwards(location)
-    new_location = with_north_pole_correction(location.forwards)
-    with_south_pole_correction(new_location)
+    with_south_pole_correction(with_north_pole_correction(location.forwards))
   end
 
   def with_north_pole_correction(location)
