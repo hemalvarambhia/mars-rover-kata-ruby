@@ -130,6 +130,15 @@ describe 'Moving a Mars rover' do
         expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 8)).and be_facing('S')
       end
     end
+
+    context 'at the edge of the eastern hemisphere' do
+      it 'moves into the western hemisphere'
+    end
+
+
+    context 'at the edge of the western hemisphere' do
+      it 'moves into the eastern hemisphere'
+    end
   end
 
   describe 'Moving backwards' do
