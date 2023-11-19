@@ -1,8 +1,5 @@
 class MarsRover
 
-  SOUTH_POLE_LATITUDE = -9
-  private_constant :SOUTH_POLE_LATITUDE
-
   def initialize(starting_location:)
     @current_location = starting_location
   end
