@@ -23,7 +23,7 @@ class Location
       Location.new(
         coordinates: Coordinates.new(x: x, y: y + 1),
         direction: @direction
-      )
+      ).with_north_pole_correction
     when 'E'
       Location.new(
         coordinates: Coordinates.new(x: x + 1, y: y),
