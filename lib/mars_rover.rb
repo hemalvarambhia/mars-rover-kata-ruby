@@ -9,7 +9,7 @@ class MarsRover
       commands_from_earth.inject(@current_location) do |location, command|
         case command
         when 'f'
-          move_forwards(location)
+          location.forwards
         when 'b'
           location.backwards
         when 'l'
@@ -36,11 +36,5 @@ class MarsRover
 
   def to_s
     "a Mars Rover #{@current_location}"
-  end
-
-  private
-
-  def move_forwards(location)
-    location.forwards
   end
 end
