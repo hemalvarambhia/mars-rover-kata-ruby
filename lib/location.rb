@@ -45,10 +45,22 @@ class Location
   NORTH_POLE_LATITUDE = 9
   private_constant :NORTH_POLE_LATITUDE
 
+  SOUTH_POLE_LATITUDE = -9
+  private_constant :SOUTH_POLE_LATITUDE
+
   def with_north_pole_correction
     at_north_pole = (coordinates.y == NORTH_POLE_LATITUDE)
     if at_north_pole
       Location.south_facing(Coordinates.new(x: (coordinates.x + 18) % 36, y: coordinates.y - 1))
+    else
+      Location.new(coordinates: coordinates, direction: direction)
+    end
+  end
+
+  def with_south_pole_correction
+    at_south_pole = (coordinates.y == SOUTH_POLE_LATITUDE)
+    if at_south_pole
+      Location.north_facing(Coordinates.new(x: (coordinates.x + 18) % 36, y: coordinates.y + 1))
     else
       Location.new(coordinates: coordinates, direction: direction)
     end
