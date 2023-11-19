@@ -112,7 +112,7 @@ describe 'Moving a Mars rover' do
         expect(mars_rover).to be_located_at(Coordinates.new(x: 21, y: -8)).and be_facing('N')
       end
 
-      it 'moves to the south pole back to the prime meridian e.g. (18, -8) to (0, -8)' do
+      it 'moves to the south pole at an antimeridian back to the prime meridian e.g. (18, -8) to (0, -8)' do
         starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 18, y: -8))
         mars_rover = MarsRover.new(starting_location: starting_location)
 
@@ -121,7 +121,7 @@ describe 'Moving a Mars rover' do
         expect(mars_rover).to be_located_at(Coordinates.new(x: 0, y: -8)).and be_facing('N')
       end
 
-      example 'starting at the equator and ending up at the north pole' do
+      example 'starting at the equator, at the prime meridian and ending up at the north pole' do
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 0))
         mars_rover = MarsRover.new(starting_location: starting_location)
 
