@@ -94,7 +94,7 @@ describe 'Moving a Mars rover' do
     end
 
     context 'at the south pole P(x, -9)' do
-      it 'moves to the same latitude but in the other half of the planet from (0, -8) to (18, -8) and faces north' do
+      it 'moves to the same latitude but at the antimeridian, e.g. (0, -8) to (18, -8) and faces north' do
         starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 0, y: -8))
         mars_rover = MarsRover.new(starting_location: starting_location)
 
