@@ -81,7 +81,7 @@ describe 'Moving a Mars rover' do
           expected_coordinates: Coordinates.new(x: 1, y: 8)
         }
       ].each do |row|
-        it "moves to the same latitude but in the other half of the planet e.g. from #{row[:mars_rover].current_position} to #{row[:expected_coordinates]} and faces south" do
+        it "moves to the same latitude but at the antimeridian e.g. from #{row[:mars_rover].current_position} to #{row[:expected_coordinates]} and faces south" do
           mars_rover = row[:mars_rover]
 
           mars_rover.execute(['f'])
