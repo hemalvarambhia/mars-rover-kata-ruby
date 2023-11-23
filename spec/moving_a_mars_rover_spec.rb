@@ -142,9 +142,8 @@ describe 'Moving a Mars rover' do
       end
     end
 
-
-    context 'at the edge of the western hemisphere' do
-      it 'moves into the eastern hemisphere'
+    context 'at the edge of the eastern hemisphere' do
+      it 'moves into the western hemisphere'
     end
   end
 
