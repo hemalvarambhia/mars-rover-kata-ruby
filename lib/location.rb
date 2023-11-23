@@ -59,7 +59,7 @@ class Location
     when 'N'
       Location.new(coordinates: Coordinates.new(x: x, y: y - 1), direction: @direction)
     when 'E'
-      Location.new(coordinates: Coordinates.new(x: x - 1, y: y), direction: @direction)
+      Location.new(coordinates: Coordinates.new(x: (x - 1) % 36, y: y), direction: @direction)
     when 'S'
       Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction)
     when 'W'
