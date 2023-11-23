@@ -26,7 +26,7 @@ class Location
     when 'S'
       Location.new(coordinates: Coordinates.new(x: x, y: y - 1), direction: @direction).with_south_pole_correction
     when 'W'
-      Location.new(coordinates: Coordinates.new(x: x - 1, y: y), direction: @direction)
+      Location.new(coordinates: Coordinates.new(x: (x - 1) % 36, y: y), direction: @direction)
     end
   end
 
