@@ -182,8 +182,8 @@ describe 'Moving a Mars rover' do
         expected_coordinates: Coordinates.new(x: 8, y: 0)
       },
       {
-        mars_rover: MarsRover.new(starting_location: Location.new(direction: 'W', coordinates: Coordinates.new(x: -1, y: 0))),
-        expected_coordinates: Coordinates.new(x: 0, y: 0)
+        mars_rover: MarsRover.new(starting_location: Location.new(direction: 'W', coordinates: Coordinates.new(x: 5, y: 0))),
+        expected_coordinates: Coordinates.new(x: 6, y: 0)
       }
     ].each do |row|
       it "#{row[:mars_rover]} moves backwards to #{row[:expected_coordinates]}" do
