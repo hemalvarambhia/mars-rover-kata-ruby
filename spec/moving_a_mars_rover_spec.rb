@@ -33,8 +33,8 @@ describe 'Moving a Mars rover' do
         expected_coordinates: Coordinates.new(x: -5, y: -2)
       },
       {
-        mars_rover: MarsRover.new(starting_location: Location.new(direction: 'W', coordinates: Coordinates.new(x: 0, y: -2))),
-        expected_coordinates: Coordinates.new(x: -1, y: -2)
+        mars_rover: MarsRover.new(starting_location: Location.new(direction: 'W', coordinates: Coordinates.new(x: 4, y: -2))),
+        expected_coordinates: Coordinates.new(x: 3, y: -2)
       }
     ].each do |row|
       it "#{row[:mars_rover]} moves forwards to #{row[:expected_coordinates]}" do
@@ -143,7 +143,15 @@ describe 'Moving a Mars rover' do
     end
 
     context 'at the edge of the eastern hemisphere' do
-      it 'moves into the western hemisphere'
+      it 'moves into the western hemisphere' do
+        pending 'Next test to get passing'
+        starting_location = Location.new(direction: 'W', coordinates: Coordinates.new(x: 0, y: 0))
+        mars_rover = MarsRover.new(starting_location: starting_location)
+
+        mars_rover.execute(['f'])
+
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 35, y: 0)).and be_facing('W')
+      end
     end
   end
 
