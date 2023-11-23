@@ -22,11 +22,7 @@ class Location
     when 'N'
       Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction).with_north_pole_correction
     when 'E'
-      if x + 1 == 36
-        Location.new(coordinates: Coordinates.new(x: (x + 1) % 36, y: y), direction: @direction)
-      else
-        Location.new(coordinates: Coordinates.new(x: (x + 1) % 36, y: y), direction: @direction)
-      end
+      Location.new(coordinates: Coordinates.new(x: (x + 1) % 36, y: y), direction: @direction)
     when 'S'
       Location.new(coordinates: Coordinates.new(x: x, y: y - 1), direction: @direction).with_south_pole_correction
     when 'W'
