@@ -206,7 +206,15 @@ describe 'Moving a Mars rover' do
     end
 
     context 'at the edge of the western hemisphere' do
-      it 'moves into the eastern hemisphere'
+      it 'moves into the eastern hemisphere' do
+        starting_location = Location.new(direction: 'W', coordinates: Coordinates.new(x: 35, y: 5))
+        mars_rover = MarsRover.new(starting_location: starting_location)
+
+        mars_rover.execute(['b'])
+
+        expected_coordinates = Coordinates.new(x: 0, y: 5)
+        expect(mars_rover).to be_located_at(expected_coordinates)
+      end
     end
 
     context 'at the edge of the eastern hemisphere' do
