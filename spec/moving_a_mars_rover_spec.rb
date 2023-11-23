@@ -133,7 +133,6 @@ describe 'Moving a Mars rover' do
 
     context 'at the edge of the western hemisphere' do
       it 'moves into the eastern hemisphere' do
-        pending 'Next test to get passing'
         starting_location = Location.new(direction: 'E', coordinates: Coordinates.new(x: 35, y: 0))
         mars_rover = MarsRover.new(starting_location: starting_location)
 
