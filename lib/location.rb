@@ -62,7 +62,7 @@ class Location
       Location.new(coordinates: Coordinates.new(x: (x - 1) % 36, y: y), direction: @direction)
     when 'S'
       if y + 1 == NORTH_POLE_LATITUDE
-        Location.north_facing(Coordinates.new(x: 18, y: 8))
+        Location.north_facing(Coordinates.new(x: x + 18, y: y))
       else
         Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction)
       end
