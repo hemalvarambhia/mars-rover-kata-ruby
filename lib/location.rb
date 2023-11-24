@@ -68,7 +68,7 @@ class Location
 
   def corrected_at_north_pole
     if at_north_pole?
-      Location.north_facing(Coordinates.new(x: x + 18, y: y - 1))
+      Location.north_facing(Coordinates.new(x: (x + 18) % 36, y: y - 1))
     else
       Location.new(coordinates: coordinates, direction: direction)
     end
