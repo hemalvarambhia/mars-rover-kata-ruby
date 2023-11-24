@@ -68,7 +68,8 @@ class Location
   end
 
   def corrected_at_north_pole
-    if y == NORTH_POLE_LATITUDE
+    at_north_pole = (y == NORTH_POLE_LATITUDE)
+    if at_north_pole
       Location.north_facing(Coordinates.new(x: x + 18, y: y - 1))
     else
       Location.new(coordinates: Coordinates.new(x: x, y: y), direction: @direction)
