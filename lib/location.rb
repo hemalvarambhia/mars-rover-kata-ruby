@@ -37,8 +37,7 @@ class Location
   private_constant :SOUTH_POLE_LATITUDE
 
   def with_north_pole_correction
-    at_north_pole = (y == NORTH_POLE_LATITUDE)
-    if at_north_pole
+    if at_north_pole?
       Location.south_facing(Coordinates.new(x: (x + 18) % 36, y: y - 1))
     else
       Location.new(coordinates: coordinates, direction: direction)
@@ -68,8 +67,7 @@ class Location
   end
 
   def corrected_at_north_pole
-    at_north_pole = (y == NORTH_POLE_LATITUDE)
-    if at_north_pole
+    if at_north_pole?
       Location.north_facing(Coordinates.new(x: x + 18, y: y - 1))
     else
       Location.new(coordinates: Coordinates.new(x: x, y: y), direction: @direction)
@@ -110,6 +108,10 @@ class Location
   end
 
   private
+
+  def at_north_pole?
+    (y == NORTH_POLE_LATITUDE)
+  end
 
   def_delegators :@coordinates, :x, :y
 end
