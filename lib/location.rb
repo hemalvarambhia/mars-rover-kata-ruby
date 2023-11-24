@@ -61,13 +61,17 @@ class Location
     when 'E'
       Location.new(coordinates: Coordinates.new(x: (x - 1) % 36, y: y), direction: @direction)
     when 'S'
-      new_location = Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction)
-      if new_location.y == NORTH_POLE_LATITUDE
-        new_location = Location.north_facing(Coordinates.new(x: x + 18, y: y))
-      end
-      new_location
+      Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction).corrected_at_north_pole
     when 'W'
       Location.new(coordinates: Coordinates.new(x: (x + 1) % 36, y: y), direction: @direction)
+    end
+  end
+
+  def corrected_at_north_pole
+    if y == NORTH_POLE_LATITUDE
+      Location.north_facing(Coordinates.new(x: x + 18, y: y - 1))
+    else
+      Location.new(coordinates: Coordinates.new(x: x, y: y), direction: @direction)
     end
   end
 
