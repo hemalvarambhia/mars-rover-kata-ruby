@@ -48,6 +48,9 @@ class MarsRover
     end
   end
 
+  SOUTH_POLE_LATITUDE = -9
+  private_constant :SOUTH_POLE_LATITUDE
+
   def forwards_correction_at_south_pole(location)
     at_south_pole = (location.y == SOUTH_POLE_LATITUDE)
     if at_south_pole
