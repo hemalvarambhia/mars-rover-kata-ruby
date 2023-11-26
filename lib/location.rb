@@ -33,18 +33,6 @@ class Location
   NORTH_POLE_LATITUDE = 9
   private_constant :NORTH_POLE_LATITUDE
 
-  SOUTH_POLE_LATITUDE = -9
-  private_constant :SOUTH_POLE_LATITUDE
-
-  def forwards_correction_at_south_pole(location)
-    at_south_pole = (location.y == SOUTH_POLE_LATITUDE)
-    if at_south_pole
-      Location.north_facing(Coordinates.new(x: (location.x + 18) % 36, y: location.y + 1))
-    else
-      location
-    end
-  end
-
   def backwards
     case @direction
     when 'N'
