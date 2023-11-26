@@ -37,4 +37,7 @@ class MarsRover
   def to_s
     "a Mars Rover #{@current_location}"
   end
+
+  NORTH_POLE_LATITUDE = 9
+  private_constant :NORTH_POLE_LATITUDE
 end
