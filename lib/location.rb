@@ -36,7 +36,7 @@ class Location
   SOUTH_POLE_LATITUDE = -9
   private_constant :SOUTH_POLE_LATITUDE
 
-  def forwards_correction_at_south_pole
+  def forwards_correction_at_south_pole(location = nil)
     at_south_pole = (y == SOUTH_POLE_LATITUDE)
     if at_south_pole
       Location.north_facing(Coordinates.new(x: (x + 18) % 36, y: y + 1))
