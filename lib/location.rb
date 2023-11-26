@@ -20,7 +20,7 @@ class Location
   def forwards
     case @direction
     when 'N'
-      forwards_correction_at_north_pole(Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction))
+      Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction)
     when 'E'
       Location.new(coordinates: Coordinates.new(x: (x + 1) % 36, y: y), direction: @direction)
     when 'S'
@@ -35,14 +35,6 @@ class Location
 
   SOUTH_POLE_LATITUDE = -9
   private_constant :SOUTH_POLE_LATITUDE
-
-  def forwards_correction_at_north_pole(location)
-    if located_at_north_pole?(location)
-      Location.south_facing(Coordinates.new(x: (location.x + 18) % 36, y: location.y - 1))
-    else
-      location
-    end
-  end
 
   def forwards_correction_at_south_pole
     at_south_pole = (y == SOUTH_POLE_LATITUDE)
@@ -105,10 +97,6 @@ class Location
 
   def to_s
     "facing #{direction} starting from #{coordinates}"
-  end
-
-  def located_at_north_pole?(location)
-    location.y == NORTH_POLE_LATITUDE
   end
 
   def at_north_pole?
