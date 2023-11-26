@@ -107,11 +107,11 @@ class Location
     "facing #{direction} starting from #{coordinates}"
   end
 
-  private
-
   def at_north_pole?
     (y == NORTH_POLE_LATITUDE)
   end
+
+  private
 
   def_delegators :@coordinates, :x, :y
 end
