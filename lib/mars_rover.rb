@@ -38,6 +38,12 @@ class MarsRover
     "a Mars Rover #{@current_location}"
   end
 
+  private
+
   NORTH_POLE_LATITUDE = 9
   private_constant :NORTH_POLE_LATITUDE
+
+  def located_at_north_pole?(location)
+    location.y == NORTH_POLE_LATITUDE
+  end
 end
