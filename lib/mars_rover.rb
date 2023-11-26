@@ -9,7 +9,7 @@ class MarsRover
       commands_from_earth.inject(@current_location) do |location, command|
         case command
         when 'f'
-          forwards_correction_at_north_pole(location.forwards)
+          forwards_correction_at_south_pole forwards_correction_at_north_pole(location.forwards)
         when 'b'
           location.backwards
         when 'l'
