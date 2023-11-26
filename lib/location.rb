@@ -40,17 +40,9 @@ class Location
     when 'E'
       Location.new(coordinates: Coordinates.new(x: (x - 1) % 36, y: y), direction: @direction)
     when 'S'
-      Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction).backwards_correction_at_north_pole
+      Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction)
     when 'W'
       Location.new(coordinates: Coordinates.new(x: (x + 1) % 36, y: y), direction: @direction)
-    end
-  end
-
-  def backwards_correction_at_north_pole
-    if at_north_pole?
-      Location.north_facing(Coordinates.new(x: (x + 18) % 36, y: y - 1))
-    else
-      Location.new(coordinates: coordinates, direction: direction)
     end
   end
 
@@ -85,10 +77,6 @@ class Location
 
   def to_s
     "facing #{direction} starting from #{coordinates}"
-  end
-
-  def at_north_pole?
-    (y == NORTH_POLE_LATITUDE)
   end
 
   private
