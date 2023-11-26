@@ -48,16 +48,19 @@ class MarsRover
     end
   end
 
-  SOUTH_POLE_LATITUDE = -9
-  private_constant :SOUTH_POLE_LATITUDE
-
   def forwards_correction_at_south_pole(location)
-    at_south_pole = (location.y == SOUTH_POLE_LATITUDE)
-    if at_south_pole
+    if located_at_south_pole?(location)
       Location.north_facing(Coordinates.new(x: (location.x + 18) % 36, y: location.y + 1))
     else
       location
     end
+  end
+
+  SOUTH_POLE_LATITUDE = -9
+  private_constant :SOUTH_POLE_LATITUDE
+
+  def located_at_south_pole?(location)
+    (location.y == SOUTH_POLE_LATITUDE)
   end
 
   NORTH_POLE_LATITUDE = 9
