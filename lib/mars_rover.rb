@@ -60,7 +60,7 @@ class MarsRover
   private_constant :SOUTH_POLE_LATITUDE
 
   def located_at_south_pole?(location)
-    (location.y == SOUTH_POLE_LATITUDE)
+    location.y == SOUTH_POLE_LATITUDE
   end
 
   NORTH_POLE_LATITUDE = 9
