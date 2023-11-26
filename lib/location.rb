@@ -24,7 +24,7 @@ class Location
     when 'E'
       Location.new(coordinates: Coordinates.new(x: (x + 1) % 36, y: y), direction: @direction)
     when 'S'
-      forwards_correction_at_south_pole(Location.new(coordinates: Coordinates.new(x: x, y: y - 1), direction: @direction))
+      Location.new(coordinates: Coordinates.new(x: x, y: y - 1), direction: @direction)
     when 'W'
       Location.new(coordinates: Coordinates.new(x: (x - 1) % 36, y: y), direction: @direction)
     end
