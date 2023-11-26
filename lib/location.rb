@@ -20,7 +20,7 @@ class Location
   def forwards
     case @direction
     when 'N'
-      Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction).forwards_correction_at_north_pole
+      Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction).forwards_correction_at_north_pole(Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction))
     when 'E'
       Location.new(coordinates: Coordinates.new(x: (x + 1) % 36, y: y), direction: @direction)
     when 'S'
