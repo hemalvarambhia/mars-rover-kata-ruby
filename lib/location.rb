@@ -20,11 +20,11 @@ class Location
   def forwards
     case @direction
     when 'N'
-      Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction).with_north_pole_correction
+      Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction).forwards_correction_at_north_pole
     when 'E'
       Location.new(coordinates: Coordinates.new(x: (x + 1) % 36, y: y), direction: @direction)
     when 'S'
-      Location.new(coordinates: Coordinates.new(x: x, y: y - 1), direction: @direction).with_south_pole_correction
+      Location.new(coordinates: Coordinates.new(x: x, y: y - 1), direction: @direction).forwards_correction_at_south_pole
     when 'W'
       Location.new(coordinates: Coordinates.new(x: (x - 1) % 36, y: y), direction: @direction)
     end
@@ -36,7 +36,7 @@ class Location
   SOUTH_POLE_LATITUDE = -9
   private_constant :SOUTH_POLE_LATITUDE
 
-  def with_north_pole_correction
+  def forwards_correction_at_north_pole
     if at_north_pole?
       Location.south_facing(Coordinates.new(x: (x + 18) % 36, y: y - 1))
     else
@@ -44,7 +44,7 @@ class Location
     end
   end
 
-  def with_south_pole_correction
+  def forwards_correction_at_south_pole
     at_south_pole = (y == SOUTH_POLE_LATITUDE)
     if at_south_pole
       Location.north_facing(Coordinates.new(x: (x + 18) % 36, y: y + 1))
@@ -60,13 +60,13 @@ class Location
     when 'E'
       Location.new(coordinates: Coordinates.new(x: (x - 1) % 36, y: y), direction: @direction)
     when 'S'
-      Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction).corrected_at_north_pole
+      Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction).backwards_correction_at_north_pole
     when 'W'
       Location.new(coordinates: Coordinates.new(x: (x + 1) % 36, y: y), direction: @direction)
     end
   end
 
-  def corrected_at_north_pole
+  def backwards_correction_at_north_pole
     if at_north_pole?
       Location.north_facing(Coordinates.new(x: (x + 18) % 36, y: y - 1))
     else
