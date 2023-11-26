@@ -30,9 +30,6 @@ class Location
     end
   end
 
-  NORTH_POLE_LATITUDE = 9
-  private_constant :NORTH_POLE_LATITUDE
-
   def backwards
     case @direction
     when 'N'
