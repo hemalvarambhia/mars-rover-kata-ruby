@@ -11,7 +11,7 @@ class MarsRover
         when 'f'
           forwards_correction_at_south_pole forwards_correction_at_north_pole(location.forwards)
         when 'b'
-          backwards_correction_at_north_pole(location.backwards)
+          backwards_correction_at_north_pole(location)
         when 'l'
           location.rotate_left
         when 'r'
@@ -49,10 +49,10 @@ class MarsRover
   end
 
   def backwards_correction_at_north_pole(location)
-    if located_at_north_pole?(location)
-      Location.north_facing(Coordinates.new(x: (location.x + 18) % 36, y: location.y - 1))
+    if located_at_north_pole?(location.backwards)
+      Location.north_facing(Coordinates.new(x: (location.x + 18) % 36, y: location.y))
     else
-      location
+      location.backwards
     end
   end
 
