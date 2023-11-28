@@ -1,3 +1,4 @@
+require 'north_pole'
 class MarsRover
 
   def initialize(starting_location:)
@@ -42,7 +43,7 @@ class MarsRover
 
   def forwards_correction_at_north_pole(location)
     if located_at_north_pole?(location.forwards)
-      Location.south_facing(Coordinates.new(x: (location.x + 18) % 36, y: location.y))
+      NorthPole.new.forwards(location)
     else
       location.forwards
     end
