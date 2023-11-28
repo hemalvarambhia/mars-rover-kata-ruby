@@ -51,7 +51,7 @@ class MarsRover
 
   def move_backwards(location)
     if located_at_north_pole?(location.backwards)
-      Location.north_facing(Coordinates.new(x: (location.x + 18) % 36, y: location.y))
+      NorthPole.new.backwards(location)
     else
       location.backwards
     end
