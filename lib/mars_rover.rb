@@ -43,7 +43,11 @@ class MarsRover
   private
 
   def forwards(location)
-    forwards_correction_at_south_pole forwards_correction_at_north_pole(location)
+    if located_at_north_pole?(location.forwards)
+      NorthPole.new.forwards(location)
+    else
+      forwards_correction_at_south_pole location.forwards
+    end
   end
 
   def forwards_correction_at_north_pole(location)
