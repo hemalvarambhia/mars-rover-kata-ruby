@@ -50,14 +50,6 @@ class MarsRover
     end
   end
 
-  def forwards_correction_at_north_pole(location)
-    if located_at_north_pole?(location.forwards)
-      NorthPole.new.forwards(location)
-    else
-      location.forwards
-    end
-  end
-
   def move_backwards(location)
     if located_at_north_pole?(location.backwards)
       NorthPole.new.backwards(location)
