@@ -46,7 +46,7 @@ class MarsRover
     if located_at_north_pole?(location.forwards)
       NorthPole.new.forwards(location)
     elsif located_at_south_pole?(location.forwards)
-      SouthPole.new.forwards(location.forwards)
+      SouthPole.new.forwards(location)
     else
       location.forwards
     end
