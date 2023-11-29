@@ -1,5 +1,6 @@
 require 'north_pole'
 require 'south_pole'
+require 'non_polar_map'
 class MarsRover
 
   def initialize(starting_location:)
@@ -48,7 +49,7 @@ class MarsRover
     elsif located_at_south_pole?(location.forwards)
       SouthPole.new.forwards(location)
     else
-      location.forwards
+      NonPolarMap.new.forwards(location)
     end
   end
 
