@@ -103,9 +103,7 @@ describe 'Moving a Mars rover' do
     end
 
     context 'at south pole' do
-      context 'facing north' do
-        it 'moves to the antimeridian of the current meridian and continues to face north'
-      end
+      it 'moves to the antimeridian of the current meridian and continues to face north'
     end
   end
 end
