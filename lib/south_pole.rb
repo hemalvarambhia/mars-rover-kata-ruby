@@ -7,6 +7,6 @@ class SouthPole
   end
 
   def backwards(_)
-    Location.north_facing(Coordinates.new(x: 18, y: -8))
+    Location.south_facing(Coordinates.new(x: 18, y: -8))
   end
 end
