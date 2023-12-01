@@ -44,13 +44,13 @@ class MarsRover
   private
 
   def forwards(location)
-    map_for(location).forwards location
+    map_for(location.forwards).forwards location
   end
 
   def map_for(location)
-    if located_at_north_pole?(location.forwards)
+    if located_at_north_pole?(location)
       NorthPole.new
-    elsif located_at_south_pole?(location.forwards)
+    elsif located_at_south_pole?(location)
       SouthPole.new
     else
       NonPolarMap.new
