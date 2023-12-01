@@ -47,6 +47,10 @@ class MarsRover
     map_for(location.forwards).forwards(location)
   end
 
+  def move_backwards(location)
+    map_for(location.backwards).backwards(location)
+  end
+
   def map_for(location)
     if located_at_north_pole?(location)
       NorthPole.new
@@ -55,10 +59,6 @@ class MarsRover
     else
       NonPolarMap.new
     end
-  end
-
-  def move_backwards(location)
-    map_for(location.backwards).backwards(location)
   end
 
   def located_at_south_pole?(location)
