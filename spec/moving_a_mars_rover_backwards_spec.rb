@@ -111,6 +111,15 @@ describe 'Moving a Mars rover' do
 
         expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: -8)).and be_facing('S')
       end
+
+      it 'moves to the meridian of the current antimeridian and then faces south' do
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 18, y: -8))
+        mars_rover = MarsRover.new(starting_location: starting_location)
+
+        mars_rover.execute(['b'])
+
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 0, y: -8)).and be_facing('S')
+      end
     end
   end
 end
