@@ -152,7 +152,15 @@ describe 'Moving a Mars rover' do
     end
 
     describe 'encountering obstacles' do
-      it 'moves to the last point before the obstacle and reports the coordinates of it'
+      it 'moves to the last point before the obstacle and reports the coordinates of it' do
+        pending 'Next test to get passing'
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 0))
+        mars_rover = MarsRover.new(starting_location: starting_location)
+
+        command_output = mars_rover.execute(['f'])
+
+        expect(command_output).to eq('Obstacle: (0, 1)')
+      end
     end
   end
 end
