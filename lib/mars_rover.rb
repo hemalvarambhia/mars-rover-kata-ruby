@@ -17,7 +17,7 @@ class MarsRover
           move_backwards(location)
         when 'l'
           if located_at_north_pole?(location)
-            Location.south_facing(location.coordinates)
+            NorthPole.new.rotate_left(location)
           else
             NonPolarMap.new.rotate_left(location)
           end
