@@ -89,8 +89,6 @@ describe 'Moving a Mars rover' do
           expect(mars_rover).to be_located_at(row[:expected_coordinates]).and be_facing('S')
         end
       end
-
-      example 'landing on the north pole (0, 9) means it is now facing south'
     end
 
     context 'at the south pole P(x, -9)' do

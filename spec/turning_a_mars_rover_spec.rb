@@ -53,11 +53,22 @@ describe 'Turning a mars rover' do
     end
 
     context 'at the north pole' do
-      it 'remains facing south'
+      it 'remains facing south' do
+        north_pole = Location.new(direction: 'S', coordinates: Coordinates.new(x: 0, y: 9))
+
+        mars_rover = MarsRover.new(starting_location: north_pole)
+
+        expect { mars_rover.execute(['l']) }.not_to change(mars_rover, :direction).from('S')
+      end
     end
 
     context 'at the south pole' do
-      it 'remains facing north'
+      it 'remains facing north' do
+        south_pole = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: -9))
+        mars_rover = MarsRover.new(starting_location: south_pole)
+
+        expect { mars_rover.execute(['l']) }.not_to change(mars_rover, :direction).from('N')
+      end
     end
   end
 
@@ -104,11 +115,21 @@ describe 'Turning a mars rover' do
     end
 
     context 'at the north pole' do
-      it 'remains facing south'
+      it 'remains facing south' do
+        north_pole = Location.new(coordinates: Coordinates.new(x: 1, y: 9), direction: 'S')
+        mars_rover = MarsRover.new(starting_location: north_pole)
+
+        expect { mars_rover.execute(['r']) }.not_to change(mars_rover, :direction).from('S')
+      end
     end
 
     context 'at the south pole' do
-      it 'remains facing north'
+      it 'remains facing north' do
+        south_pole = Location.new(coordinates: Coordinates.new(x: 2, y: -9), direction: 'N')
+        mars_rover = MarsRover.new(starting_location: south_pole)
+
+        expect { mars_rover.execute(['r']) }.not_to change(mars_rover, :direction).from('N')
+      end
     end
   end
 end
