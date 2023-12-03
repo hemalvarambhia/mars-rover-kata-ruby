@@ -150,5 +150,9 @@ describe 'Moving a Mars rover' do
         expect(mars_rover).to be_located_at(Coordinates.new(x: 35, y: 0)).and be_facing('W')
       end
     end
+
+    describe 'encountering obstacles' do
+      it 'moves to the last point before the obstacle and reports the coordinates of it'
+    end
   end
 end
