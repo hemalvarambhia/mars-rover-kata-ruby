@@ -18,7 +18,7 @@ class MarsRover
         when 'l'
           rotate_left(location)
         when 'r'
-          map_for(location).rotate_right(location)
+          rotate_right(location)
         else
           location
         end
@@ -53,6 +53,10 @@ class MarsRover
 
   def rotate_left(location)
     map_for(location).rotate_left(location)
+  end
+
+  def rotate_right(location)
+    map_for(location).rotate_right(location)
   end
 
   def map_for(location)
