@@ -72,10 +72,6 @@ class MarsRover
   end
 
   def rotate_left(location)
-    if located_at_north_pole?(location)
-      NorthPole.new.rotate_left(location)
-    else
-      NonPolarMap.new.rotate_left(location)
-    end
+    map_for(location).rotate_left(location)
   end
 end
