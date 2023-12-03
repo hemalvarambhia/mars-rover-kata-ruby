@@ -13,4 +13,8 @@ class NorthPole
   def rotate_left(location)
     Location.south_facing(location.coordinates)
   end
+
+  def rotate_right(location)
+    Location.south_facing(location.coordinates)
+  end
 end

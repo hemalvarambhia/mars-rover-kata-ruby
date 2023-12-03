@@ -18,7 +18,7 @@ class MarsRover
         when 'l'
           rotate_left(location)
         when 'r'
-          NonPolarMap.new.rotate_right(location)
+          map_for(location).rotate_right(location)
         else
           location
         end
