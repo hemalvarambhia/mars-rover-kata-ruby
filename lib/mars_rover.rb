@@ -51,6 +51,10 @@ class MarsRover
     map_for(location.backwards).backwards(location)
   end
 
+  def rotate_left(location)
+    map_for(location).rotate_left(location)
+  end
+
   def map_for(location)
     if located_at_north_pole?(location)
       NorthPole.new
@@ -69,9 +73,5 @@ class MarsRover
   def located_at_north_pole?(location)
     north_pole_latitude = 9
     location.y == north_pole_latitude
-  end
-
-  def rotate_left(location)
-    map_for(location).rotate_left(location)
   end
 end
