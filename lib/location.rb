@@ -54,13 +54,6 @@ class Location
   TURN_RIGHT = TURN_LEFT.invert
   private_constant :TURN_RIGHT
 
-  def rotate_left
-    Location.new(
-      coordinates: @coordinates,
-      direction: TURN_LEFT[@direction]
-    )
-  end
-
   def rotate_right
     Location.new(
       coordinates: @coordinates,

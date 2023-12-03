@@ -25,7 +25,19 @@ class NonPolarMap
     end
   end
 
+
+  TURN_LEFT = {
+    'N' => 'W',
+    'E' => 'N',
+    'S' => 'E',
+    'W' => 'S'
+  }.freeze
+  private_constant :TURN_LEFT
+
   def rotate_left(location)
-    location.rotate_left
+    Location.new(
+      coordinates: location.coordinates,
+      direction: TURN_LEFT[location.direction]
+    )
   end
 end
