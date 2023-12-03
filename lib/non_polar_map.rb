@@ -24,4 +24,8 @@ class NonPolarMap
       Location.new(coordinates: Coordinates.new(x: (location.x + 1) % 36, y: location.y), direction: location.direction)
     end
   end
+
+  def rotate_left(location)
+    location.rotate_left
+  end
 end
