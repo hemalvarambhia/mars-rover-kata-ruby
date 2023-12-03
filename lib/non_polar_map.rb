@@ -40,4 +40,14 @@ class NonPolarMap
       direction: TURN_LEFT[location.direction]
     )
   end
+
+  TURN_RIGHT = TURN_LEFT.invert
+  private_constant :TURN_RIGHT
+
+  def rotate_right(location)
+    Location.new(
+      coordinates: location.coordinates,
+      direction: TURN_RIGHT[location.direction]
+    )
+  end
 end

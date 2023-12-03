@@ -43,24 +43,6 @@ class Location
     end
   end
 
-  TURN_LEFT = {
-    'N' => 'W',
-    'E' => 'N',
-    'S' => 'E',
-    'W' => 'S'
-  }.freeze
-  private_constant :TURN_LEFT
-
-  TURN_RIGHT = TURN_LEFT.invert
-  private_constant :TURN_RIGHT
-
-  def rotate_right
-    Location.new(
-      coordinates: @coordinates,
-      direction: TURN_RIGHT[@direction]
-    )
-  end
-
   def inspect
     "#{coordinates.inspect} facing #{direction}"
   end
