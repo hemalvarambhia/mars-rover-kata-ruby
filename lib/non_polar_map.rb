@@ -1,3 +1,5 @@
+require 'coordinates'
+require 'location'
 class NonPolarMap
   def forwards(location)
     case location.direction
