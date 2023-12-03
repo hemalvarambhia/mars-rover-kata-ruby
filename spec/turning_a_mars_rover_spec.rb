@@ -53,7 +53,14 @@ describe 'Turning a mars rover' do
     end
 
     context 'at the north pole' do
-      it 'remains facing south'
+      it 'remains facing south' do
+        pending 'Next test to get passing'
+        north_pole = Location.new(direction: 'S', coordinates: Coordinates.new(x: 0, y: 9))
+
+        mars_rover = MarsRover.new(starting_location: north_pole)
+
+        expect { mars_rover.execute(['l']) }.not_to change(mars_rover, :direction).from('S')
+      end
     end
 
     context 'at the south pole' do
