@@ -1,6 +1,6 @@
 require 'north_pole'
 require 'south_pole'
-require 'non_polar_map'
+require 'planar_map'
 class MarsRover
 
   def initialize(starting_location:)
