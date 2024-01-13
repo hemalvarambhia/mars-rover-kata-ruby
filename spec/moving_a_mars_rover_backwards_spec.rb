@@ -56,6 +56,19 @@ describe 'Moving a Mars rover' do
       expect(mars_rover).to be_located_at(expected_coordinates)
     end
 
+    describe 'encountering obstacles' do
+      it 'moves to the last point before the obstacle and reports the coordinates of it' do
+        pending 'Next test to get passing'
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 3))
+        mars_rover = MarsRover.new(starting_location: starting_location)
+
+        command_output = mars_rover.execute(['b'])
+
+        expect(command_output).to eq('Obstacle: (1, 2)')
+      end
+
+    end
+
     context 'at the edge of the western hemisphere' do
       it 'moves into the eastern hemisphere' do
         starting_location = Location.new(direction: 'W', coordinates: Coordinates.new(x: 35, y: 5))
