@@ -43,22 +43,18 @@ class MarsRover
   private
 
   def forwards(location)
-    map_for(location.forwards).forwards(location)
+    @map.map_for(location.forwards).forwards(location)
   end
 
   def move_backwards(location)
-    map_for(location.backwards).backwards(location)
+    @map.map_for(location.backwards).backwards(location)
   end
 
   def rotate_left(location)
-    map_for(location).rotate_left(location)
+    @map.map_for(location).rotate_left(location)
   end
 
   def rotate_right(location)
-    map_for(location).rotate_right(location)
-  end
-
-  def map_for(location)
-    @map.map_for(location)
+    @map.map_for(location).rotate_right(location)
   end
 end
