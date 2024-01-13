@@ -4,9 +4,9 @@ require 'planar_map'
 require 'map'
 class MarsRover
 
-  def initialize(starting_location:)
+  def initialize(starting_location:, map: Map.new)
     @current_location = starting_location
-    @map = Map.new
+    @map = map
   end
 
   def execute(commands_from_earth)
