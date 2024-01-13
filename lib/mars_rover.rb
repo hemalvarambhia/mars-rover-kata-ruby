@@ -1,10 +1,12 @@
 require 'north_pole'
 require 'south_pole'
 require 'planar_map'
+require 'map'
 class MarsRover
 
   def initialize(starting_location:)
     @current_location = starting_location
+    @map = Map.new
   end
 
   def execute(commands_from_earth)
@@ -67,6 +69,7 @@ class MarsRover
     else
       NonPolarMap.new
     end
+    @map.map_for(location)
   end
 
   def located_at_south_pole?(location)
