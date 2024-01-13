@@ -1,6 +1,3 @@
-require 'north_pole'
-require 'south_pole'
-require 'planar_map'
 require 'map'
 class MarsRover
 
