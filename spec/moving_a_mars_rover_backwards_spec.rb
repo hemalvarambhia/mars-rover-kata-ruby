@@ -66,7 +66,6 @@ describe 'Moving a Mars rover' do
 
         expect(command_output).to eq('Obstacle: (1, 2)')
       end
-
     end
 
     context 'at the edge of the western hemisphere' do
