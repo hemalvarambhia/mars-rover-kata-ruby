@@ -48,7 +48,7 @@ describe 'Moving a Mars rover' do
 
     it 'moves backwards in multiple steps' do
       starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 4))
-      mars_rover = MarsRover.new(starting_location: starting_location)
+      mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
 
       mars_rover.execute(%w{b b b b})
 
@@ -60,7 +60,7 @@ describe 'Moving a Mars rover' do
       it 'moves to the last point before the obstacle and reports the coordinates of it' do
         pending 'Next test to get passing'
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 3))
-        mars_rover = MarsRover.new(starting_location: starting_location)
+        mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
 
         command_output = mars_rover.execute(['b'])
 
@@ -71,7 +71,7 @@ describe 'Moving a Mars rover' do
     context 'at the edge of the western hemisphere' do
       it 'moves into the eastern hemisphere' do
         starting_location = Location.new(direction: 'W', coordinates: Coordinates.new(x: 35, y: 5))
-        mars_rover = MarsRover.new(starting_location: starting_location)
+        mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
 
         mars_rover.execute(['b'])
 
@@ -83,7 +83,7 @@ describe 'Moving a Mars rover' do
     context 'at the edge of the eastern hemisphere' do
       it 'moves into the western hemisphere' do
         starting_location = Location.new(direction: 'E', coordinates: Coordinates.new(x: 0, y: -1))
-        mars_rover = MarsRover.new(starting_location: starting_location)
+        mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
 
         mars_rover.execute(['b'])
 
@@ -96,7 +96,7 @@ describe 'Moving a Mars rover' do
       context 'facing south' do
         it 'moves to the antimeridian of the current meridian and continues to face north' do
           starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 0, y: 8))
-          mars_rover = MarsRover.new(starting_location: starting_location)
+          mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
 
           mars_rover.execute(['b'])
 
@@ -105,7 +105,7 @@ describe 'Moving a Mars rover' do
 
         it 'moves to the meridian of the current antimeridian and continues to face north' do
           starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 18, y: 8))
-          mars_rover = MarsRover.new(starting_location: starting_location)
+          mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
 
           mars_rover.execute(['b'])
 
@@ -117,7 +117,7 @@ describe 'Moving a Mars rover' do
     context 'at south pole' do
       it 'moves to the antimeridian of the current meridian and continues to face south' do
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: -8))
-        mars_rover = MarsRover.new(starting_location: starting_location)
+        mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
 
         mars_rover.execute(['b'])
 
@@ -126,7 +126,7 @@ describe 'Moving a Mars rover' do
 
       it 'moves to the meridian of the current antimeridian and then faces south' do
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 18, y: -8))
-        mars_rover = MarsRover.new(starting_location: starting_location)
+        mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
 
         mars_rover.execute(['b'])
 
