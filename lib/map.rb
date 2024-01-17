@@ -12,7 +12,7 @@ class Map
     elsif located_at_south_pole?(location)
       SouthPole.new
     else
-      NonPolarMap.new
+      NonPolarMap.new(obstacles: [Coordinates.new(x: 1, y: 3)])
     end
   end
 

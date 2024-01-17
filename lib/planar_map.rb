@@ -1,7 +1,7 @@
 require 'coordinates'
 require 'location'
 class NonPolarMap
-  def initialize(obstacles: [Coordinates.new(x: 1, y: 3)])
+  def initialize(obstacles:)
     @obstacles = obstacles
   end
 
