@@ -41,14 +41,14 @@ describe 'Turning a mars rover' do
 
     it 'does not change the current position' do
       any_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: -1, y: 3))
-      mars_rover = MarsRover.new(starting_location: any_location)
+      mars_rover = mars_rover(starting_at: any_location)
 
       expect { mars_rover.execute(['l']) }.not_to change(mars_rover, :current_position)
     end
 
     it 'can rotate left multiple times' do
       any_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: -1, y: 3))
-      mars_rover = MarsRover.new(starting_location: any_location)
+      mars_rover = mars_rover(starting_at: any_location)
 
       expect { mars_rover.execute(%w{l l l}) }.to change(mars_rover, :direction).from('N').to('E')
     end
@@ -57,7 +57,7 @@ describe 'Turning a mars rover' do
       it 'remains facing south' do
         north_pole = Location.new(direction: 'S', coordinates: Coordinates.new(x: 0, y: 9))
 
-        mars_rover = MarsRover.new(starting_location: north_pole)
+        mars_rover = mars_rover(starting_at: north_pole)
 
         expect { mars_rover.execute(['l']) }.not_to change(mars_rover, :direction).from('S')
       end
@@ -66,7 +66,7 @@ describe 'Turning a mars rover' do
     context 'at the south pole' do
       it 'remains facing north' do
         south_pole = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: -9))
-        mars_rover = MarsRover.new(starting_location: south_pole)
+        mars_rover = mars_rover(starting_at: south_pole)
 
         expect { mars_rover.execute(['l']) }.not_to change(mars_rover, :direction).from('N')
       end
@@ -103,7 +103,7 @@ describe 'Turning a mars rover' do
 
     example 'the Mars rover does not change its current position' do
       starting_location = Location.new(coordinates: Coordinates.new(x: 1, y: 2), direction: 'E')
-      mars_rover = MarsRover.new(starting_location: starting_location)
+      mars_rover = mars_rover(starting_at: starting_location)
 
       expect { mars_rover.execute(['r']) }.not_to change(mars_rover, :current_position)
     end
