@@ -1,4 +1,3 @@
-require 'map'
 class MarsRover
 
   def initialize(starting_location:, map:)
