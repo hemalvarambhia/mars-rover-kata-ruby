@@ -5,6 +5,10 @@ require_relative './mars_rover_matchers'
 describe 'Moving a Mars rover' do
   include MarsRoverMatchers
 
+  def self.mars_rover(on: Map.new, starting_at:)
+    MarsRover.new(map: on, starting_location: starting_at)
+  end
+
   describe 'Moving backwards' do
     %w{N E S W}.each do |direction|
       it "never changes direction when it moves backwards e.g . #{direction}" do
@@ -17,7 +21,7 @@ describe 'Moving a Mars rover' do
 
     [
       {
-        mars_rover: MarsRover.new(map: Map.new, starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 0))),
+        mars_rover: mars_rover(starting_at: Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 0))),
         expected_coordinates: Coordinates.new(x: 0, y: -1)
       },
       {
@@ -134,6 +138,8 @@ describe 'Moving a Mars rover' do
       end
     end
   end
+
+  private
 
   def mars_rover(on: Map.new, starting_at:)
     MarsRover.new(map: on, starting_location: starting_at)
