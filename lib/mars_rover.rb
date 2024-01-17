@@ -13,7 +13,7 @@ class MarsRover
         when 'f'
           forwards(location)
         when 'b'
-          move_backwards(location)
+          backwards(location)
         when 'l'
           rotate_left(location)
         when 'r'
@@ -46,7 +46,7 @@ class MarsRover
     @map.forwards(location)
   end
 
-  def move_backwards(location)
+  def backwards(location)
     @map.backwards(location)
   end
 
