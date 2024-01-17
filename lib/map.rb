@@ -2,7 +2,7 @@ require 'north_pole'
 require 'south_pole'
 require 'planar_map'
 class Map
-  def initialize(obstacles: [])
+  def initialize(obstacles:)
 
   end
 
