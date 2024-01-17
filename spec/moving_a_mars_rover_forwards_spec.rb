@@ -169,6 +169,7 @@ describe 'Moving a Mars rover' do
       end
 
       it 'moves to the last point before any obstacles' do
+        pending 'Capture the coordinates of the obstacle'
         map = Map.new(obstacles: [Coordinates.new(x: 5, y: 4)])
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 5, y: 3))
         mars_rover = mars_rover(on: map, starting_at: starting_location)
@@ -176,6 +177,7 @@ describe 'Moving a Mars rover' do
         mars_rover.execute(['f'])
 
         expect(mars_rover).to be_located_at(Coordinates.new(x: 5, y: 3))
+        expect(mars_rover.obstacle_encountered).to eq(Coordinates.new(x: 5, y: 4))
       end
 
       it 'moves multiple times to the last point before any obstacles and then aborts the command' do
