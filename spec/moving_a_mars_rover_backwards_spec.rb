@@ -9,7 +9,7 @@ describe 'Moving a Mars rover' do
     %w{N E S W}.each do |direction|
       it "never changes direction when it moves backwards e.g . #{direction}" do
         starting_location = Location.new(direction: direction, coordinates: Coordinates.new(x: 1, y: 3))
-        mars_rover = MarsRover.new(starting_location: starting_location, map: Map.new)
+        mars_rover = mars_rover(starting_at: starting_location)
 
         expect { mars_rover.execute(['b']) }.not_to change(mars_rover, :direction)
       end
@@ -48,7 +48,7 @@ describe 'Moving a Mars rover' do
 
     it 'moves backwards in multiple steps' do
       starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 4))
-      mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
+      mars_rover = mars_rover(starting_at: starting_location)
 
       mars_rover.execute(%w{b b b b})
 
@@ -133,5 +133,9 @@ describe 'Moving a Mars rover' do
         expect(mars_rover).to be_located_at(Coordinates.new(x: 0, y: -8)).and be_facing('S')
       end
     end
+  end
+
+  def mars_rover(on: Map.new, starting_at:)
+    MarsRover.new(map: on, starting_location: starting_at)
   end
 end
