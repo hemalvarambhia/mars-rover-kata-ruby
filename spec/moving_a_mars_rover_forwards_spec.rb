@@ -5,14 +5,15 @@ require_relative './mars_rover_matchers'
 describe 'Moving a Mars rover' do
   include MarsRoverMatchers
 
+  def self.mars_rover(on: Map.new, starting_at:)
+    MarsRover.new(map: on, starting_location: starting_at)
+  end
+
   describe 'Moving forwards' do
     %w{N E S W}.each do |direction|
       it "never changes direction when it moves forwards e.g. remains facing #{direction}" do
         mars_rover =
-          MarsRover.new(
-            map: Map.new, 
-            starting_location: Location.new(coordinates: Coordinates.new(x: 0, y: 0), direction: direction)
-          )
+          mars_rover(starting_at: Location.new(coordinates: Coordinates.new(x: 0, y: 0), direction: direction))
 
         expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :direction)
       end
@@ -20,43 +21,23 @@ describe 'Moving a Mars rover' do
 
     [
       {
-        mars_rover:
-          MarsRover.new(
-            map: Map.new,
-            starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 0))
-          ),
+        mars_rover: mars_rover(starting_at: Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 0))),
         expected_coordinates: Coordinates.new(x: 0, y: 1)
       },
       {
-        mars_rover:
-          MarsRover.new(
-            map: Map.new,
-            starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 2, y: 3))
-          ),
+        mars_rover: mars_rover(starting_at: Location.new(direction: 'N', coordinates: Coordinates.new(x: 2, y: 3))),
         expected_coordinates: Coordinates.new(x: 2, y: 4)
       },
       {
-        mars_rover:
-          MarsRover.new(
-            map: Map.new,
-            starting_location: Location.new(direction: 'E', coordinates: Coordinates.new(x: 0, y: 0))
-          ),
+        mars_rover: mars_rover(starting_at: Location.new(direction: 'E', coordinates: Coordinates.new(x: 0, y: 0))),
         expected_coordinates: Coordinates.new(x: 1, y: 0)
       },
       {
-        mars_rover:
-          MarsRover.new(
-            map: Map.new,
-            starting_location: Location.new(direction: 'S', coordinates: Coordinates.new(x: -5, y: -1))
-          ),
+        mars_rover: mars_rover(starting_at: Location.new(direction: 'S', coordinates: Coordinates.new(x: -5, y: -1))),
         expected_coordinates: Coordinates.new(x: -5, y: -2)
       },
       {
-        mars_rover:
-          MarsRover.new(
-            map: Map.new,
-            starting_location: Location.new(direction: 'W', coordinates: Coordinates.new(x: 4, y: -2))
-          ),
+        mars_rover: mars_rover(starting_at: Location.new(direction: 'W', coordinates: Coordinates.new(x: 4, y: -2))),
         expected_coordinates: Coordinates.new(x: 3, y: -2)
       }
     ].each do |row|
@@ -205,5 +186,11 @@ describe 'Moving a Mars rover' do
         expect(command_output).to eq('Obstacle: (0, 1)')
       end
     end
+  end
+
+  private
+
+  def mars_rover(on: Map.new, starting_at:)
+    MarsRover.new(map: on, starting_location: starting_at)
   end
 end
