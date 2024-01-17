@@ -25,19 +25,19 @@ describe 'Moving a Mars rover' do
         expected_coordinates: Coordinates.new(x: 0, y: -1)
       },
       {
-        mars_rover: MarsRover.new(map: Map.new, starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 4, y: 1))),
+        mars_rover: mars_rover(starting_at: Location.new(direction: 'N', coordinates: Coordinates.new(x: 4, y: 1))),
         expected_coordinates: Coordinates.new(x: 4, y: 0),
       },
       {
-        mars_rover: MarsRover.new(map: Map.new, starting_location: Location.new(direction: 'E', coordinates: Coordinates.new(x: 2, y: 0))),
+        mars_rover: mars_rover(starting_at: Location.new(direction: 'E', coordinates: Coordinates.new(x: 2, y: 0))),
         expected_coordinates: Coordinates.new(x: 1, y: 0)
       },
       {
-        mars_rover: MarsRover.new(map: Map.new, starting_location: Location.new(direction: 'S', coordinates: Coordinates.new(x: 8, y: -1))),
+        mars_rover: mars_rover(starting_at: Location.new(direction: 'S', coordinates: Coordinates.new(x: 8, y: -1))),
         expected_coordinates: Coordinates.new(x: 8, y: 0)
       },
       {
-        mars_rover: MarsRover.new(map: Map.new, starting_location: Location.new(direction: 'W', coordinates: Coordinates.new(x: 5, y: 0))),
+        mars_rover: mars_rover(starting_at: Location.new(direction: 'W', coordinates: Coordinates.new(x: 5, y: 0))),
         expected_coordinates: Coordinates.new(x: 6, y: 0)
       }
     ].each do |row|
