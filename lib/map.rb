@@ -2,6 +2,11 @@ require 'north_pole'
 require 'south_pole'
 require 'planar_map'
 class Map
+
+  def self.with_no_obstacles
+    new(obstacles: [])
+  end
+
   def initialize(obstacles:)
     @obstacles = obstacles
   end
