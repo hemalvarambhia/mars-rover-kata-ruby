@@ -53,11 +53,7 @@ describe 'Moving a Mars rover' do
 
     it 'can move forwards multiple times when facing north' do
       starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 2, y: 3))
-      mars_rover =
-        MarsRover.new(
-          map: Map.new,
-          starting_location: starting_location
-        )
+      mars_rover = mars_rover(starting_at: starting_location)
 
       mars_rover.execute(%w{f f f})
 
@@ -73,35 +69,19 @@ describe 'Moving a Mars rover' do
     context 'at the north pole P(x, 9)' do
       [
         {
-          mars_rover:
-            MarsRover.new(
-              map: Map.new,
-              starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))
-            ),
+          mars_rover: mars_rover(starting_at: Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 8))),
           expected_coordinates: Coordinates.new(x: 18, y: 8)
         },
         {
-          mars_rover:
-            MarsRover.new(
-              map: Map.new,
-              starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 8))
-            ),
+          mars_rover: mars_rover(starting_at: Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 8))),
           expected_coordinates: Coordinates.new(x: 19, y: 8)
         },
         {
-          mars_rover:
-            MarsRover.new(
-              map: Map.new,
-              starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 18, y: 8))
-            ),
+          mars_rover: mars_rover(starting_at: Location.new(direction: 'N', coordinates: Coordinates.new(x: 18, y: 8))),
           expected_coordinates: Coordinates.new(x: 0, y: 8)
         },
         {
-          mars_rover:
-            MarsRover.new(
-              map: Map.new,
-              starting_location: Location.new(direction: 'N', coordinates: Coordinates.new(x: 19, y: 8))
-            ),
+          mars_rover: mars_rover(starting_at: Location.new(direction: 'N', coordinates: Coordinates.new(x: 19, y: 8))),
           expected_coordinates: Coordinates.new(x: 1, y: 8)
         }
       ].each do |row|
@@ -118,7 +98,7 @@ describe 'Moving a Mars rover' do
     context 'at the south pole P(x, -9)' do
       it 'moves to the same latitude but at the antimeridian, e.g. (0, -8) to (18, -8) and faces north' do
         starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 0, y: -8))
-        mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
+        mars_rover = mars_rover(starting_at: starting_location)
 
         mars_rover.execute(['f'])
 
@@ -127,7 +107,7 @@ describe 'Moving a Mars rover' do
 
       it 'moves to the same latitude at the antimeridian, e.g. (3, -8) to (21, -8) and faces north' do
         starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 3, y: -8))
-        mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
+        mars_rover = mars_rover(starting_at: starting_location)
 
         mars_rover.execute(['f'])
 
@@ -136,7 +116,7 @@ describe 'Moving a Mars rover' do
 
       it 'moves to the south pole at an antimeridian back to the prime meridian e.g. (18, -8) to (0, -8)' do
         starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 18, y: -8))
-        mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
+        mars_rover = mars_rover(starting_at: starting_location)
 
         mars_rover.execute(['f'])
 
@@ -145,7 +125,7 @@ describe 'Moving a Mars rover' do
 
       example 'starting at the equator, at the prime meridian and ending up at the north pole' do
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 0))
-        mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
+        mars_rover = mars_rover(starting_at: starting_location)
 
         mars_rover.execute(%w{f f f f f f f f f})
 
@@ -156,7 +136,7 @@ describe 'Moving a Mars rover' do
     context 'at the edge of the western hemisphere' do
       it 'moves into the eastern hemisphere' do
         starting_location = Location.new(direction: 'E', coordinates: Coordinates.new(x: 35, y: 0))
-        mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
+        mars_rover = mars_rover(starting_at: starting_location)
 
         mars_rover.execute(['f'])
 
@@ -167,7 +147,7 @@ describe 'Moving a Mars rover' do
     context 'at the edge of the eastern hemisphere' do
       it 'moves into the western hemisphere' do
         starting_location = Location.new(direction: 'W', coordinates: Coordinates.new(x: 0, y: 0))
-        mars_rover = MarsRover.new(map: Map.new, starting_location: starting_location)
+        mars_rover = mars_rover(starting_at: starting_location)
 
         mars_rover.execute(['f'])
 
@@ -179,7 +159,7 @@ describe 'Moving a Mars rover' do
       it 'moves to the last point before the obstacle and reports the coordinates of it' do
         pending 'Next test to get passing'
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 0))
-        mars_rover = MarsRover.new(starting_location: starting_location)
+        mars_rover = mars_rover(starting_at: starting_location)
 
         command_output = mars_rover.execute(['f'])
 
