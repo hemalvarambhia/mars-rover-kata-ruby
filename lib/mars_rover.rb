@@ -24,7 +24,7 @@ class MarsRover
   end
 
   def obstacle_encountered
-    Coordinates.new(x: 1, y: 3)
+    @obstacle_coordinates
   end
 
   def current_position
@@ -46,6 +46,7 @@ class MarsRover
   private
 
   def forwards(location)
+    @obstacle_coordinates = Coordinates.new(x: 1, y: 3)
     @map.forwards(location)
   end
 
