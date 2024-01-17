@@ -16,6 +16,22 @@ class Map
     end
   end
 
+  def forwards(location)
+    map_for(location.forwards).forwards(location)
+  end
+
+  def backwards(location)
+    map_for(location.backwards).backwards(location)
+  end
+
+  def rotate_left(location)
+    map_for(location).rotate_left(location)
+  end
+
+  def rotate_right(location)
+    map_for(location).rotate_right(location)
+  end
+
   private
 
   def located_at_south_pole?(location)
