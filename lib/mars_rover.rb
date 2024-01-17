@@ -1,7 +1,7 @@
 require 'map'
 class MarsRover
 
-  def initialize(starting_location:, map: Map.new)
+  def initialize(starting_location:, map: Map.new(obstacles: []))
     @current_location = starting_location
     @map = map
   end
