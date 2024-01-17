@@ -3,7 +3,7 @@ require 'south_pole'
 require 'planar_map'
 class Map
   def initialize(obstacles:)
-
+    @obstacles = obstacles
   end
 
   def map_for(location)
@@ -12,7 +12,7 @@ class Map
     elsif located_at_south_pole?(location)
       SouthPole.new
     else
-      NonPolarMap.new(obstacles: [Coordinates.new(x: 1, y: 3)])
+      NonPolarMap.new(obstacles: @obstacles)
     end
   end
 
