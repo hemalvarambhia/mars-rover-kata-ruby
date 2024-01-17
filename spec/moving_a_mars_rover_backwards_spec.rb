@@ -4,7 +4,7 @@ require_relative '../lib/mars_rover'
 require 'mars_rover_set_up'
 require_relative './mars_rover_matchers'
 describe 'Moving a Mars rover' do
-  include MarsRoverMatchers
+  include MarsRoverMatchers, MarsRoverSetUp
 
   def self.mars_rover(on: Map.new, starting_at:)
     MarsRover.new(map: on, starting_location: starting_at)
@@ -138,11 +138,5 @@ describe 'Moving a Mars rover' do
         expect(mars_rover).to be_located_at(Coordinates.new(x: 0, y: -8)).and be_facing('S')
       end
     end
-  end
-
-  private
-
-  def mars_rover(on: Map.new, starting_at:)
-    MarsRover.new(map: on, starting_location: starting_at)
   end
 end
