@@ -1,6 +1,6 @@
 require 'coordinates'
 require 'location'
-class NonPolarMap
+class PlanarMap
   def initialize(obstacles:)
     @obstacles = obstacles
   end

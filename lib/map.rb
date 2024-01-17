@@ -19,7 +19,7 @@ class Map
     elsif located_at_south_pole?(location)
       @south_pole
     else
-      NonPolarMap.new(obstacles: @obstacles)
+      PlanarMap.new(obstacles: @obstacles)
     end
   end
 
