@@ -1,9 +1,10 @@
 require_relative '../lib/coordinates'
 require_relative '../lib/location'
 require_relative '../lib/mars_rover'
+require 'mars_rover_set_up'
 require_relative './mars_rover_matchers'
 describe 'Turning a mars rover' do
-  include MarsRoverMatchers
+  include MarsRoverMatchers, MarsRoverSetUp
 
   def self.a_mars_rover_facing(direction:)
     location = Location.new(direction: direction, coordinates: Coordinates.new(x: 0, y: 0))
