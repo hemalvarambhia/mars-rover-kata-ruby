@@ -9,13 +9,15 @@ class Map
 
   def initialize(obstacles:)
     @obstacles = obstacles
+    @north_pole = NorthPole.new
+    @south_pole = SouthPole.new
   end
 
   def map_for(location)
     if located_at_north_pole?(location)
-      NorthPole.new
+      @north_pole
     elsif located_at_south_pole?(location)
-      SouthPole.new
+      @south_pole
     else
       NonPolarMap.new(obstacles: @obstacles)
     end
