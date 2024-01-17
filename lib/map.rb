@@ -2,6 +2,10 @@ require 'north_pole'
 require 'south_pole'
 require 'planar_map'
 class Map
+  def initialize(obstacles: [])
+
+  end
+
   def map_for(location)
     if located_at_north_pole?(location)
       NorthPole.new
