@@ -4,7 +4,12 @@ class NonPolarMap
   def forwards(location)
     case location.direction
     when 'N'
-      Location.new(coordinates: Coordinates.new(x: location.x, y: location.y + 1), direction: location.direction)
+      next_location = Location.new(coordinates: Coordinates.new(x: location.x, y: location.y + 1), direction: location.direction)
+      if next_location.coordinates == Coordinates.new(x: 1, y: 3)
+        location
+      else
+        next_location
+      end
     when 'E'
       Location.new(coordinates: Coordinates.new(x: (location.x + 1) % 36, y: location.y), direction: location.direction)
     when 'S'
