@@ -7,7 +7,7 @@ describe 'Turning a mars rover' do
 
   def self.a_mars_rover_facing(direction:)
     location = Location.new(direction: direction, coordinates: Coordinates.new(x: 0, y: 0))
-    MarsRover.new(starting_location: location)
+    MarsRover.new(starting_location: location, map: Map.with_no_obstacles)
   end
 
   describe 'Turning left' do
