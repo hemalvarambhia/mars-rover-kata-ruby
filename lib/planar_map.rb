@@ -10,7 +10,7 @@ class NonPolarMap
     when 'N'
       next_location = Location.new(coordinates: Coordinates.new(x: location.x, y: location.y + 1), direction: location.direction)
       if obstacle_encountered_at?(next_location)
-        [location, Coordinates.new(x: 1, y: 3)]
+        [location, @obstacles.first]
       else
         next_location
       end
