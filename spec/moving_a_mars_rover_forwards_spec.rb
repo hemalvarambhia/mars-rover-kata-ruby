@@ -168,10 +168,4 @@ describe 'Moving a Mars rover' do
       end
     end
   end
-
-  private
-
-  def mars_rover(on: Map.new, starting_at:)
-    MarsRover.new(map: on, starting_location: starting_at)
-  end
 end
