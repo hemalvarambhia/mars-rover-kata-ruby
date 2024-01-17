@@ -2,10 +2,11 @@ require 'coordinates'
 require 'location'
 class NonPolarMap
   def forwards(location)
+    obstacles = [Coordinates.new(x: 1, y: 3)]
     case location.direction
     when 'N'
       next_location = Location.new(coordinates: Coordinates.new(x: location.x, y: location.y + 1), direction: location.direction)
-      if next_location.coordinates == Coordinates.new(x: 1, y: 3)
+      if obstacles.include?(next_location.coordinates)
         location
       else
         next_location
