@@ -165,6 +165,7 @@ describe 'Moving a Mars rover' do
         mars_rover.execute(['f'])
 
         expect(mars_rover).to be_located_at(Coordinates.new(x: 1, y: 2))
+        expect(mars_rover.obstacle_encountered).to eq(Coordinates.new(x: 1, y: 3))
       end
     end
   end

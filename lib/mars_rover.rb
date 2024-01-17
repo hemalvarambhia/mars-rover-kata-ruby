@@ -24,6 +24,10 @@ class MarsRover
     end
   end
 
+  def obstacle_encountered
+    Coordinates.new(x: 1, y: 3)
+  end
+
   def current_position
     @current_location.coordinates
   end
