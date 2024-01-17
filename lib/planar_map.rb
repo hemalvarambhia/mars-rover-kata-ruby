@@ -9,7 +9,7 @@ class NonPolarMap
     case location.direction
     when 'N'
       next_location = Location.new(coordinates: Coordinates.new(x: location.x, y: location.y + 1), direction: location.direction)
-      if @obstacles.include?(next_location.coordinates)
+      if obstacle_encountered_at?(next_location)
         location
       else
         next_location
@@ -60,5 +60,11 @@ class NonPolarMap
       coordinates: location.coordinates,
       direction: TURN_RIGHT[location.direction]
     )
+  end
+
+  private
+
+  def obstacle_encountered_at?(location)
+    @obstacles.include?(location.coordinates)
   end
 end
