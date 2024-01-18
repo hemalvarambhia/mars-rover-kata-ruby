@@ -5,7 +5,6 @@ class MarsRover
     @current_location = starting_location
     @map = map
     @obstacle_detector = ObstacleDetector.new(map.obstacles)
-    @obstacles = map.obstacles
   end
 
   def execute(commands_from_earth)
