@@ -1,7 +1,7 @@
 require 'coordinates'
 require 'location'
 class PlanarMap
-  def initialize(obstacles:)
+  def initialize(obstacles: nil)
 
   end
 
