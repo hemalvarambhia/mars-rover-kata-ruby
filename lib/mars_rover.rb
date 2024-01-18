@@ -61,4 +61,10 @@ class MarsRover
   def rotate_right(location)
     @map.rotate_right(location)
   end
+
+  private
+
+  def obstacle_encountered_at?(location)
+    @obstacles.include?(location.coordinates)
+  end
 end
