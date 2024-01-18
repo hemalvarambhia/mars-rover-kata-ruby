@@ -24,7 +24,12 @@ class Map
   end
 
   def forwards(location)
-    map_for(location.forwards).forwards(location)
+    next_location = map_for(location.forwards).forwards(location)
+    if obstacle_encountered_at?(next_location)
+      [location, @obstacles.first]
+    else
+      next_location
+    end
   end
 
   def backwards(location)

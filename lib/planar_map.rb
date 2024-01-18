@@ -8,12 +8,7 @@ class PlanarMap
   def forwards(location)
     case location.direction
     when 'N'
-      next_location = Location.new(coordinates: Coordinates.new(x: location.x, y: location.y + 1), direction: location.direction)
-      if obstacle_encountered_at?(next_location)
-        [location, @obstacles.first]
-      else
-        next_location
-      end
+      Location.new(coordinates: Coordinates.new(x: location.x, y: location.y + 1), direction: location.direction)
     when 'E'
       Location.new(coordinates: Coordinates.new(x: (location.x + 1) % 36, y: location.y), direction: location.direction)
     when 'S'
