@@ -47,7 +47,7 @@ class MarsRover
   private
 
   def forwards(location)
-    next_location, _ = @map.forwards(location)
+    next_location = @map.forwards(location)
     if obstacle_encountered_at?(next_location)
       @obstacle_coordinates = next_location.coordinates
       location
