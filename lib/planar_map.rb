@@ -1,9 +1,6 @@
 require 'coordinates'
 require 'location'
 class PlanarMap
-  def initialize(obstacles: nil)
-
-  end
 
   def forwards(location)
     case location.direction
