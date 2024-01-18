@@ -10,8 +10,8 @@ class Map
 
   def initialize(obstacles:)
     @obstacles = obstacles
-    @north_pole = NorthPole.new
-    @south_pole = SouthPole.new
+    @north_pole = NorthPole
+    @south_pole = SouthPole
   end
 
   def map_for(location)

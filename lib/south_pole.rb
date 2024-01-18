@@ -2,19 +2,19 @@ require 'coordinates'
 require 'location'
 
 class SouthPole
-  def forwards(location)
+  def self.forwards(location)
     Location.north_facing(Coordinates.new(x: (location.x + 18) % 36, y: location.y))
   end
 
-  def backwards(location)
+  def self.backwards(location)
     Location.south_facing(Coordinates.new(x: (location.x + 18) % 36, y: location.y))
   end
 
-  def rotate_left(location)
+  def self.rotate_left(location)
     Location.north_facing(location.coordinates)
   end
 
-  def rotate_right(location)
+  def self.rotate_right(location)
     Location.north_facing(location.coordinates)
   end
 end
