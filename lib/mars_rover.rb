@@ -1,10 +1,10 @@
 require 'obstacle_detector'
 class MarsRover
 
-  def initialize(starting_location:, map:)
+  def initialize(starting_location:, map:, obstacle_detector: ObstacleDetector.new(map.obstacles))
     @current_location = starting_location
     @map = map
-    @obstacle_detector = ObstacleDetector.new(map.obstacles)
+    @obstacle_detector = obstacle_detector
   end
 
   def execute(commands_from_earth)
