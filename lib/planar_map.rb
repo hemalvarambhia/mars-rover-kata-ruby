@@ -2,7 +2,7 @@ require 'coordinates'
 require 'location'
 class PlanarMap
 
-  def forwards(location)
+  def self.forwards(location)
     case location.direction
     when 'N'
       Location.new(coordinates: Coordinates.new(x: location.x, y: location.y + 1), direction: location.direction)
@@ -15,7 +15,7 @@ class PlanarMap
     end
   end
 
-  def backwards(location)
+  def self.backwards(location)
     case location.direction
     when 'N'
       Location.new(coordinates: Coordinates.new(x: location.x, y: location.y - 1), direction: location.direction)
@@ -37,7 +37,7 @@ class PlanarMap
   }.freeze
   private_constant :TURN_LEFT
 
-  def rotate_left(location)
+  def self.rotate_left(location)
     Location.new(
       coordinates: location.coordinates,
       direction: TURN_LEFT[location.direction]
@@ -47,7 +47,7 @@ class PlanarMap
   TURN_RIGHT = TURN_LEFT.invert
   private_constant :TURN_RIGHT
 
-  def rotate_right(location)
+  def self.rotate_right(location)
     Location.new(
       coordinates: location.coordinates,
       direction: TURN_RIGHT[location.direction]

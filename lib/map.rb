@@ -20,7 +20,7 @@ class Map
     elsif located_at_south_pole?(location)
       @south_pole
     else
-      PlanarMap.new
+      PlanarMap
     end
   end
 
