@@ -10,15 +10,13 @@ class Map
 
   def initialize(obstacles:)
     @obstacles = obstacles
-    @north_pole = NorthPole
-    @south_pole = SouthPole
   end
 
   def map_for(location)
     if located_at_north_pole?(location)
-      @north_pole
+      NorthPole
     elsif located_at_south_pole?(location)
-      @south_pole
+      SouthPole
     else
       PlanarMap
     end
