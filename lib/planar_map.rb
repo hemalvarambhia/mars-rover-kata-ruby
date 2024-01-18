@@ -2,7 +2,7 @@ require 'coordinates'
 require 'location'
 class PlanarMap
   def initialize(obstacles:)
-    @obstacles = obstacles
+
   end
 
   def forwards(location)
@@ -55,11 +55,5 @@ class PlanarMap
       coordinates: location.coordinates,
       direction: TURN_RIGHT[location.direction]
     )
-  end
-
-  private
-
-  def obstacle_encountered_at?(location)
-    @obstacles.include?(location.coordinates)
   end
 end
