@@ -3,6 +3,7 @@ class MarsRover
   def initialize(starting_location:, map:)
     @current_location = starting_location
     @map = map
+    @obstacles = map.obstacles
   end
 
   def execute(commands_from_earth)
