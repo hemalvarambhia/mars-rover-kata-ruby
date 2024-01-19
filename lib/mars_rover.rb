@@ -16,12 +16,12 @@ class MarsRover
   def execute(commands_from_earth)
     @current_location =
       commands_from_earth.inject(@current_location) do |location, command|
+        instruction = COMMANDS[command] || :do_nothing
         case command
         when 'f', 'b', 'l', 'r'
-          send(COMMANDS[command], location)
+          send(instruction, location)
         else
-          do_nothing = (->(location) { location })
-          do_nothing.call(location)
+          send(instruction, location)
         end
     end
   end
@@ -74,6 +74,10 @@ class MarsRover
 
   def rotate_right(location)
     @map.rotate_right(location)
+  end
+
+  def do_nothing(location)
+    location
   end
 
   def obstacle_at?(location)
