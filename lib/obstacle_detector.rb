@@ -3,7 +3,7 @@ class ObstacleDetector
     @obstacles = obstacles
   end
 
-  def obstacle_encountered_at?(coordinates)
+  def obstacle_at?(coordinates)
     @obstacles.include?(coordinates)
   end
 end
