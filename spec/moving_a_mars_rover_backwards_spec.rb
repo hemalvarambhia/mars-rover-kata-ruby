@@ -1,6 +1,5 @@
 require_relative '../lib/coordinates'
 require_relative '../lib/location'
-require_relative '../lib/mars_rover'
 require 'mars_rover_set_up'
 require_relative './mars_rover_matchers'
 describe 'Moving a Mars rover' do
