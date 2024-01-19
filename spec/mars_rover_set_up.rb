@@ -7,8 +7,6 @@ module MarsRoverSetUp
     mars_rover(starting_at: location)
   end
 
-  private
-
   def mars_rover(on: Map.new, obstacle_detector: ObstacleDetector.new([]), starting_at:)
     MarsRover.new(map: on, obstacle_detector: obstacle_detector, starting_location: starting_at)
   end
