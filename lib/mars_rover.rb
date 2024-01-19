@@ -7,17 +7,23 @@ class MarsRover
   end
 
   def execute(commands_from_earth)
+    commands = {
+      'f' => ->(location) { send(:forwards, location) },
+      'b' => ->(location) { send(:backwards, location) },
+      'l' => ->(location) { send(:rotate_left, location) },
+      'r' => ->(location) { send(:rotate_right, location) }
+    }
     @current_location =
       commands_from_earth.inject(@current_location) do |location, command|
         case command
         when 'f'
-          forwards(location)
+          commands['f'].call(location)
         when 'b'
-          backwards(location)
+          commands['b'].call(location)
         when 'l'
-          rotate_left(location)
+          commands['l'].call(location)
         when 'r'
-          rotate_right(location)
+          commands[command].call(location)
         else
           location
         end
