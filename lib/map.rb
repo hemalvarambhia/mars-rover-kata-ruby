@@ -2,11 +2,6 @@ require 'north_pole'
 require 'south_pole'
 require 'planar_map'
 class Map
-  attr_reader :obstacles
-
-  def self.with_no_obstacles
-    new
-  end
 
   def map_for(location)
     if located_at_north_pole?(location)
