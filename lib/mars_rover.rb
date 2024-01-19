@@ -16,13 +16,7 @@ class MarsRover
     @current_location =
       commands_from_earth.inject(@current_location) do |location, command|
         case command
-        when 'f'
-          commands[command].call(location)
-        when 'b'
-          commands[command].call(location)
-        when 'l'
-          commands[command].call(location)
-        when 'r'
+        when 'f', 'b', 'l', 'r'
           commands[command].call(location)
         else
           location
