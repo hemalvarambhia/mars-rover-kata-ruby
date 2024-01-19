@@ -4,20 +4,20 @@ class MarsRover
     @current_location = starting_location
     @map = map
     @obstacle_detector = obstacle_detector
-  end
-
-  def execute(commands_from_earth)
-    commands = {
+    @commands = {
       'f' => ->(location) { send(:forwards, location) },
       'b' => ->(location) { send(:backwards, location) },
       'l' => ->(location) { send(:rotate_left, location) },
       'r' => ->(location) { send(:rotate_right, location) }
     }
+  end
+
+  def execute(commands_from_earth)
     @current_location =
       commands_from_earth.inject(@current_location) do |location, command|
         case command
         when 'f', 'b', 'l', 'r'
-          commands[command].call(location)
+          @commands[command].call(location)
         else
           do_nothing = (->(location) { location })
           do_nothing.call(location)
