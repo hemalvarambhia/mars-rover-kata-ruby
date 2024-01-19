@@ -19,7 +19,8 @@ class MarsRover
         when 'f', 'b', 'l', 'r'
           commands[command].call(location)
         else
-          location
+          do_nothing = (->(location) { location })
+          do_nothing.call(location)
         end
     end
   end
