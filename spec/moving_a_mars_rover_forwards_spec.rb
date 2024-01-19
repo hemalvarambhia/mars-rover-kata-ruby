@@ -158,7 +158,7 @@ describe 'Moving a Mars rover' do
     describe 'encountering obstacles' do
       it 'moves to the last point before the obstacle and reports the coordinates of it' do
         map = Map.new(obstacles: [Coordinates.new(x: 1, y: 3)])
-        obstacle_detector = ObstacleDetector.new(map.obstacles)
+        obstacle_detector = ObstacleDetector.new([Coordinates.new(x: 1, y: 3)])
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 2))
         mars_rover = mars_rover(on: map, obstacle_detector: obstacle_detector, starting_at: starting_location)
 
@@ -170,7 +170,7 @@ describe 'Moving a Mars rover' do
 
       it 'moves to the last point before any obstacles' do
         map = Map.new(obstacles: [Coordinates.new(x: 5, y: 4)])
-        obstacle_detector = ObstacleDetector.new(map.obstacles)
+        obstacle_detector = ObstacleDetector.new([Coordinates.new(x: 5, y: 4)])
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 5, y: 3))
         mars_rover = mars_rover(on: map, obstacle_detector: obstacle_detector, starting_at: starting_location)
 
@@ -182,8 +182,9 @@ describe 'Moving a Mars rover' do
 
       it 'moves multiple times to the last point before any obstacles and then aborts the command' do
         map = Map.new(obstacles: [Coordinates.new(x: 4, y: 5)])
+        obstacle_detector = ObstacleDetector.new([Coordinates.new(x: 4, y: 5)])
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 4, y: 0))
-        mars_rover = mars_rover(on: map, starting_at: starting_location)
+        mars_rover = mars_rover(on: map, obstacle_detector: obstacle_detector, starting_at: starting_location)
 
         mars_rover.execute(%w{f f f f f f f})
 
