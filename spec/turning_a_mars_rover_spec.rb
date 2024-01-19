@@ -6,11 +6,6 @@ describe 'Turning a mars rover' do
   include MarsRoverMatchers, MarsRoverSetUp
   extend MarsRoverSetUp
 
-  def self.a_mars_rover_facing(direction:)
-    location = Location.new(direction: direction, coordinates: Coordinates.new(x: 0, y: 0))
-    mars_rover(starting_at: location)
-  end
-
   describe 'Turning left' do
     [
       {
