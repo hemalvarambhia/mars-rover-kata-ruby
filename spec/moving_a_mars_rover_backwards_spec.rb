@@ -62,13 +62,13 @@ describe 'Moving a Mars rover' do
 
     describe 'encountering obstacles' do
       it 'moves to the last point before the obstacle and reports the coordinates of it' do
-        pending 'Next test to get passing'
+        obstacle_detector = ObstacleDetector.new([Coordinates.new(x: 1, y: 2)])
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 3))
-        mars_rover = mars_rover(starting_at: starting_location)
+        mars_rover = mars_rover(starting_at: starting_location, obstacle_detector: obstacle_detector)
 
-        command_output = mars_rover.execute(['b'])
+        mars_rover.execute(['b'])
 
-        expect(command_output).to eq('Obstacle: (1, 2)')
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 1, y: 3))
       end
     end
 

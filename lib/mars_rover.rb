@@ -58,7 +58,13 @@ class MarsRover
   end
 
   def backwards(location)
-    @map.backwards(location)
+    next_location = @map.backwards(location)
+    if obstacle_at?(next_location)
+      @obstacle_coordinates = next_location.coordinates
+      location
+    else
+      next_location
+    end
   end
 
   def rotate_left(location)
