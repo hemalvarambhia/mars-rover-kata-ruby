@@ -17,11 +17,11 @@ class MarsRover
       commands_from_earth.inject(@current_location) do |location, command|
         case command
         when 'f'
-          commands['f'].call(location)
+          commands[command].call(location)
         when 'b'
-          commands['b'].call(location)
+          commands[command].call(location)
         when 'l'
-          commands['l'].call(location)
+          commands[command].call(location)
         when 'r'
           commands[command].call(location)
         else
