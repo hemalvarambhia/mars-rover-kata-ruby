@@ -67,6 +67,8 @@ describe 'Moving a Mars rover' do
 
         expect(mars_rover).to be_located_at(Coordinates.new(x: 1, y: 3))
       end
+
+      it 'moves multiple steps up to the last point before the obstacle'
     end
 
     context 'at the edge of the western hemisphere' do
