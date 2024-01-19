@@ -4,10 +4,11 @@ require 'mars_rover_set_up'
 require_relative './mars_rover_matchers'
 describe 'Turning a mars rover' do
   include MarsRoverMatchers, MarsRoverSetUp
+  extend MarsRoverSetUp
 
   def self.a_mars_rover_facing(direction:)
     location = Location.new(direction: direction, coordinates: Coordinates.new(x: 0, y: 0))
-    MarsRover.new(starting_location: location, map: Map.new, obstacle_detector: ObstacleDetector.new([]))
+    mars_rover(starting_at: location)
   end
 
   describe 'Turning left' do
