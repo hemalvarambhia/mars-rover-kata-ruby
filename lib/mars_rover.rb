@@ -17,12 +17,7 @@ class MarsRover
     @current_location =
       commands_from_earth.inject(@current_location) do |location, command|
         instruction = COMMANDS[command] || :do_nothing
-        case command
-        when 'f', 'b', 'l', 'r'
-          send(instruction, location)
-        else
-          send(instruction, location)
-        end
+        send(instruction, location)
     end
   end
 
