@@ -5,7 +5,7 @@ require_relative './mars_rover_matchers'
 describe 'Moving a Mars rover' do
   include MarsRoverMatchers, MarsRoverSetUp
 
-  def self.mars_rover(on: Map.with_no_obstacles, obstacle_detector: ObstacleDetector.new([]), starting_at:)
+  def self.mars_rover(on: Map.new, obstacle_detector: ObstacleDetector.new([]), starting_at:)
     MarsRover.new(map: on, obstacle_detector: obstacle_detector, starting_location: starting_at)
   end
 
@@ -157,7 +157,7 @@ describe 'Moving a Mars rover' do
 
     describe 'encountering obstacles' do
       it 'moves to the last point before the obstacle and reports the coordinates of it' do
-        map = Map.with_no_obstacles
+        map = Map.new
         obstacle_detector = ObstacleDetector.new([Coordinates.new(x: 1, y: 3)])
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 2))
         mars_rover = mars_rover(on: map, obstacle_detector: obstacle_detector, starting_at: starting_location)
@@ -169,7 +169,7 @@ describe 'Moving a Mars rover' do
       end
 
       it 'moves to the last point before any obstacles' do
-        map = Map.with_no_obstacles
+        map = Map.new
         obstacle_detector = ObstacleDetector.new([Coordinates.new(x: 5, y: 4)])
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 5, y: 3))
         mars_rover = mars_rover(on: map, obstacle_detector: obstacle_detector, starting_at: starting_location)
@@ -181,7 +181,7 @@ describe 'Moving a Mars rover' do
       end
 
       it 'moves multiple times to the last point before any obstacles and then aborts the command' do
-        map = Map.with_no_obstacles
+        map = Map.new
         obstacle_detector = ObstacleDetector.new([Coordinates.new(x: 4, y: 5)])
         starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 4, y: 0))
         mars_rover = mars_rover(on: map, obstacle_detector: obstacle_detector, starting_at: starting_location)
