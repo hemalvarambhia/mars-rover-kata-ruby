@@ -9,7 +9,7 @@ class Location
   end
 
   def self.north_facing(coordinates)
-    Location.new(coordinates: coordinates, direction: 'N')
+    new(coordinates: coordinates, direction: 'N')
   end
 
   def initialize(coordinates:, direction:)

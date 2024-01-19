@@ -1,4 +1,3 @@
-require 'obstacle_detector'
 class MarsRover
 
   def initialize(starting_location:, map:, obstacle_detector:)
@@ -74,8 +73,6 @@ class MarsRover
   def rotate_right(location)
     @map.rotate_right(location)
   end
-
-  private
 
   def obstacle_at?(location)
     @obstacle_detector.obstacle_at?(location.coordinates)
