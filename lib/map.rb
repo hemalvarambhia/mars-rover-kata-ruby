@@ -49,8 +49,4 @@ class Map
     north_pole_latitude = 9
     location.y == north_pole_latitude
   end
-
-  def obstacle_encountered_at?(location)
-    @obstacles.include?(location.coordinates)
-  end
 end
