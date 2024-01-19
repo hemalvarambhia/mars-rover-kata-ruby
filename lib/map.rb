@@ -5,11 +5,7 @@ class Map
   attr_reader :obstacles
 
   def self.with_no_obstacles
-    new(obstacles: [])
-  end
-
-  def initialize(obstacles:)
-    @obstacles = obstacles
+    new
   end
 
   def map_for(location)
