@@ -1,5 +1,6 @@
 require_relative '../lib/map'
 require_relative '../lib/mars_rover'
+require_relative '../lib/obstacle_detector'
 module MarsRoverSetUp
   private
 
