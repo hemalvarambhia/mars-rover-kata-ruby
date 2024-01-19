@@ -3,16 +3,6 @@ require 'south_pole'
 require 'planar_map'
 class Map
 
-  def map_for(location)
-    if located_at_north_pole?(location)
-      NorthPole
-    elsif located_at_south_pole?(location)
-      SouthPole
-    else
-      PlanarMap
-    end
-  end
-
   def forwards(location)
     map_for(location.forwards).forwards(location)
   end
@@ -30,6 +20,16 @@ class Map
   end
 
   private
+
+  def map_for(location)
+    if located_at_north_pole?(location)
+      NorthPole
+    elsif located_at_south_pole?(location)
+      SouthPole
+    else
+      PlanarMap
+    end
+  end
 
   def located_at_south_pole?(location)
     south_pole_latitude = -9
