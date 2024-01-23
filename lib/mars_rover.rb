@@ -15,7 +15,7 @@ class MarsRover
 
   def execute(commands_from_earth)
     @current_location =
-      commands_from_earth.select { |command| COMMANDS.keys.include?(command) }.inject(@current_location) do |location, command|
+      commands_from_earth.select(&method(:supported?)).inject(@current_location) do |location, command|
         instruction = COMMANDS[command]
         send(instruction, location)
     end
@@ -42,6 +42,10 @@ class MarsRover
   end
 
   private
+
+  def supported?(command)
+    COMMANDS.keys.include?(command)
+  end
 
   def forwards(location)
     next_location = @map.forwards(location)
