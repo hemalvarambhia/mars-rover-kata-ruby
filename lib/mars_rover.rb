@@ -15,7 +15,7 @@ class MarsRover
 
   def execute(commands_from_earth)
     @current_location =
-      commands_from_earth.inject(@current_location) do |location, command|
+      commands_from_earth.select { |command| COMMANDS.keys.include?(command) }.inject(@current_location) do |location, command|
         instruction = COMMANDS.fetch(command, :do_nothing)
         send(instruction, location)
     end
