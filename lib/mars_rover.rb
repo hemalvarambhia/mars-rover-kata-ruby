@@ -16,7 +16,7 @@ class MarsRover
   def execute(commands_from_earth)
     @current_location =
       commands_from_earth.select { |command| COMMANDS.keys.include?(command) }.inject(@current_location) do |location, command|
-        instruction = COMMANDS.fetch(command, :do_nothing)
+        instruction = COMMANDS[command]
         send(instruction, location)
     end
   end
@@ -69,10 +69,6 @@ class MarsRover
 
   def rotate_right(location)
     @map.rotate_right(location)
-  end
-
-  def do_nothing(location)
-    location
   end
 
   def obstacle_at?(location)
