@@ -57,20 +57,6 @@ describe 'Moving a Mars rover' do
       expect(mars_rover).to be_located_at(expected_coordinates)
     end
 
-    describe 'encountering obstacles' do
-      it 'moves to the last point before the obstacle and reports the coordinates of it' do
-        obstacle_detector = ObstacleDetector.new([Coordinates.new(x: 1, y: 2)])
-        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 3))
-        mars_rover = mars_rover(starting_at: starting_location, obstacle_detector: obstacle_detector)
-
-        mars_rover.execute(['b'])
-
-        expect(mars_rover).to be_located_at(Coordinates.new(x: 1, y: 3))
-      end
-
-      it 'moves multiple steps up to the last point before the obstacle'
-    end
-
     context 'at the edge of the western hemisphere' do
       it 'moves into the eastern hemisphere' do
         starting_location = Location.new(direction: 'W', coordinates: Coordinates.new(x: 35, y: 5))
@@ -135,6 +121,20 @@ describe 'Moving a Mars rover' do
 
         expect(mars_rover).to be_located_at(Coordinates.new(x: 0, y: -8)).and be_facing('S')
       end
+    end
+
+    describe 'encountering obstacles' do
+      it 'moves to the last point before the obstacle and reports the coordinates of it' do
+        obstacle_detector = ObstacleDetector.new([Coordinates.new(x: 1, y: 2)])
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 1, y: 3))
+        mars_rover = mars_rover(starting_at: starting_location, obstacle_detector: obstacle_detector)
+
+        mars_rover.execute(['b'])
+
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 1, y: 3))
+      end
+
+      it 'moves multiple steps up to the last point before the obstacle'
     end
   end
 end
