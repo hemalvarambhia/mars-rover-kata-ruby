@@ -1,0 +1,13 @@
+detectors:
+  IrresponsibleModule:
+    enabled: false
+
+  UncommunicativeParameterName:
+    exclude:
+      - "Coordinates"
+  UncommunicativeVariableName:
+    exclude:
+      - "Coordinates"
+  FeatureEnvy:
+    exclude:
+      - "Coordinates#=="
