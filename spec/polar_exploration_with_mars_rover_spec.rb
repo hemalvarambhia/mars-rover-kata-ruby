@@ -63,72 +63,64 @@ describe 'Polar exploration on Mars' do
       end
     end
   end
-end
 
-describe 'Moving forwards' do
-  include MarsRoverMatchers, MarsRoverSetUp
-  extend MarsRoverSetUp
+  context 'South Pole' do
+    describe 'Moving forwards' do
+      it 'moves to the same latitude but at the antimeridian, e.g. (0, -8) to (18, -8) and faces north' do
+        starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 0, y: -8))
+        mars_rover = mars_rover(starting_at: starting_location)
 
-  context 'at the south pole P(x, -9)' do
-    it 'moves to the same latitude but at the antimeridian, e.g. (0, -8) to (18, -8) and faces north' do
-      starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 0, y: -8))
-      mars_rover = mars_rover(starting_at: starting_location)
+        mars_rover.execute(['f'])
 
-      mars_rover.execute(['f'])
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: -8)).and be_facing('N')
+      end
 
-      expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: -8)).and be_facing('N')
+      it 'moves to the same latitude at the antimeridian, e.g. (3, -8) to (21, -8) and faces north' do
+        starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 3, y: -8))
+        mars_rover = mars_rover(starting_at: starting_location)
+
+        mars_rover.execute(['f'])
+
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 21, y: -8)).and be_facing('N')
+      end
+
+      it 'moves to the south pole at an antimeridian back to the prime meridian e.g. (18, -8) to (0, -8)' do
+        starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 18, y: -8))
+        mars_rover = mars_rover(starting_at: starting_location)
+
+        mars_rover.execute(['f'])
+
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 0, y: -8)).and be_facing('N')
+      end
+
+      example 'starting at the equator, at the prime meridian and ending up at the north pole' do
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 0))
+        mars_rover = mars_rover(starting_at: starting_location)
+
+        mars_rover.execute(%w{f f f f f f f f f})
+
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 8)).and be_facing('S')
+      end
     end
 
-    it 'moves to the same latitude at the antimeridian, e.g. (3, -8) to (21, -8) and faces north' do
-      starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 3, y: -8))
-      mars_rover = mars_rover(starting_at: starting_location)
+    describe 'Moving backwards' do
+      it 'moves to the antimeridian of the current meridian and continues to face south' do
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: -8))
+        mars_rover = mars_rover(starting_at: starting_location)
 
-      mars_rover.execute(['f'])
+        mars_rover.execute(['b'])
 
-      expect(mars_rover).to be_located_at(Coordinates.new(x: 21, y: -8)).and be_facing('N')
-    end
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: -8)).and be_facing('S')
+      end
 
-    it 'moves to the south pole at an antimeridian back to the prime meridian e.g. (18, -8) to (0, -8)' do
-      starting_location = Location.new(direction: 'S', coordinates: Coordinates.new(x: 18, y: -8))
-      mars_rover = mars_rover(starting_at: starting_location)
+      it 'moves to the meridian of the current antimeridian and then faces south' do
+        starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 18, y: -8))
+        mars_rover = mars_rover(starting_at: starting_location)
 
-      mars_rover.execute(['f'])
+        mars_rover.execute(['b'])
 
-      expect(mars_rover).to be_located_at(Coordinates.new(x: 0, y: -8)).and be_facing('N')
-    end
-
-    example 'starting at the equator, at the prime meridian and ending up at the north pole' do
-      starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: 0))
-      mars_rover = mars_rover(starting_at: starting_location)
-
-      mars_rover.execute(%w{f f f f f f f f f})
-
-      expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: 8)).and be_facing('S')
-    end
-  end
-end
-
-describe 'Moving backwards' do
-  include MarsRoverMatchers, MarsRoverSetUp
-  extend MarsRoverSetUp
-
-  context 'at south pole' do
-    it 'moves to the antimeridian of the current meridian and continues to face south' do
-      starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 0, y: -8))
-      mars_rover = mars_rover(starting_at: starting_location)
-
-      mars_rover.execute(['b'])
-
-      expect(mars_rover).to be_located_at(Coordinates.new(x: 18, y: -8)).and be_facing('S')
-    end
-
-    it 'moves to the meridian of the current antimeridian and then faces south' do
-      starting_location = Location.new(direction: 'N', coordinates: Coordinates.new(x: 18, y: -8))
-      mars_rover = mars_rover(starting_at: starting_location)
-
-      mars_rover.execute(['b'])
-
-      expect(mars_rover).to be_located_at(Coordinates.new(x: 0, y: -8)).and be_facing('S')
+        expect(mars_rover).to be_located_at(Coordinates.new(x: 0, y: -8)).and be_facing('S')
+      end
     end
   end
 end
