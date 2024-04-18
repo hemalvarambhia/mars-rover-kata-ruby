@@ -4,11 +4,11 @@ require 'planar_map'
 class Map
 
   def forwards(location)
-    map_for(location.forwards).forwards(location)
+    map_for(location.forwards(location.direction)).forwards(location)
   end
 
   def backwards(location)
-    map_for(location.backwards).backwards(location)
+    map_for(location.backwards(location.direction)).backwards(location)
   end
 
   def rotate_left(location)
