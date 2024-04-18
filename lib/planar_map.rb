@@ -16,7 +16,7 @@ class PlanarMap
   end
 
   def self.backwards(location, direction = location.direction)
-    forwards(location, invert(direction))
+    forwards(location, INVERT[direction])
   end
 
 
@@ -45,13 +45,11 @@ class PlanarMap
     )
   end
 
-  def self.invert(direction)
-    {
-      'N' => 'S',
-      'S' => 'N',
-      'E' => 'W',
-      'W' => 'E'
-    }[direction]
-  end
-  private_class_method :invert
+  INVERT = {
+    'N' => 'S',
+    'S' => 'N',
+    'E' => 'W',
+    'W' => 'E'
+  }
+  private_constant :INVERT
 end
