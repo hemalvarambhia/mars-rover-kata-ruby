@@ -53,4 +53,14 @@ class PlanarMap
       direction: TURN_RIGHT[location.direction]
     )
   end
+
+  def self.invert(direction)
+    {
+      'N' => 'S',
+      'S' => 'N',
+      'E' => 'W',
+      'W' => 'E'
+    }[direction]
+  end
+  private_class_method :invert
 end
