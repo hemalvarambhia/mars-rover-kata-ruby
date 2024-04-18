@@ -31,16 +31,7 @@ class Location
   end
 
   def backwards(direction = @direction)
-    case direction
-    when 'N'
-      Location.new(coordinates: Coordinates.new(x: x, y: y - 1), direction: @direction)
-    when 'E'
-      Location.new(coordinates: Coordinates.new(x: (x - 1) % 36, y: y), direction: @direction)
-    when 'S'
-      Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction)
-    when 'W'
-      Location.new(coordinates: Coordinates.new(x: (x + 1) % 36, y: y), direction: @direction)
-    end
+    forwards(INVERT[direction])
   end
 
   def inspect
@@ -54,4 +45,12 @@ class Location
   private
 
   def_delegators :@coordinates, :x, :y
+
+  INVERT = {
+    'N' => 'S',
+    'S' => 'N',
+    'E' => 'W',
+    'W' => 'E'
+  }
+  private_constant :INVERT
 end
