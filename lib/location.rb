@@ -17,8 +17,8 @@ class Location
     @direction = direction
   end
 
-  def forwards
-    case @direction
+  def forwards(direction = @direction)
+    case direction
     when 'N'
       Location.new(coordinates: Coordinates.new(x: x, y: y + 1), direction: @direction)
     when 'E'
@@ -30,8 +30,8 @@ class Location
     end
   end
 
-  def backwards
-    case @direction
+  def backwards(direction = @direction)
+    case direction
     when 'N'
       Location.new(coordinates: Coordinates.new(x: x, y: y - 1), direction: @direction)
     when 'E'
