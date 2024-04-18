@@ -2,29 +2,29 @@ require 'coordinates'
 require 'location'
 class PlanarMap
 
-  def self.forwards(location)
-    case location.direction
+  def self.forwards(location, direction = location.direction)
+    case direction
     when 'N'
-      Location.new(coordinates: Coordinates.new(x: location.x, y: location.y + 1), direction: location.direction)
+      Location.new(coordinates: Coordinates.new(x: location.x, y: location.y + 1), direction: direction)
     when 'E'
-      Location.new(coordinates: Coordinates.new(x: (location.x + 1) % 36, y: location.y), direction: location.direction)
+      Location.new(coordinates: Coordinates.new(x: (location.x + 1) % 36, y: location.y), direction: direction)
     when 'S'
-      Location.new(coordinates: Coordinates.new(x: location.x, y: location.y - 1), direction: location.direction)
+      Location.new(coordinates: Coordinates.new(x: location.x, y: location.y - 1), direction: direction)
     when 'W'
-      Location.new(coordinates: Coordinates.new(x: (location.x - 1) % 36, y: location.y), direction: location.direction)
+      Location.new(coordinates: Coordinates.new(x: (location.x - 1) % 36, y: location.y), direction: direction)
     end
   end
 
-  def self.backwards(location)
-    case location.direction
+  def self.backwards(location, direction = location.direction)
+    case direction
     when 'N'
-      Location.new(coordinates: Coordinates.new(x: location.x, y: location.y - 1), direction: location.direction)
+      Location.new(coordinates: Coordinates.new(x: location.x, y: location.y - 1), direction: direction)
     when 'E'
-      Location.new(coordinates: Coordinates.new(x: (location.x - 1) % 36, y: location.y), direction: location.direction)
+      Location.new(coordinates: Coordinates.new(x: (location.x - 1) % 36, y: location.y), direction: direction)
     when 'S'
-      Location.new(coordinates: Coordinates.new(x: location.x, y: location.y + 1), direction: location.direction)
+      Location.new(coordinates: Coordinates.new(x: location.x, y: location.y + 1), direction: direction)
     when 'W'
-      Location.new(coordinates: Coordinates.new(x: (location.x + 1) % 36, y: location.y), direction: location.direction)
+      Location.new(coordinates: Coordinates.new(x: (location.x + 1) % 36, y: location.y), direction: direction)
     end
   end
 
