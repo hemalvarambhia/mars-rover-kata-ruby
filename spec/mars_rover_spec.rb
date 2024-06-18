@@ -23,6 +23,15 @@ describe 'Operating a Mars Rover' do
 
     expect(mars_rover.current_position).to eq([0, 0])
   end
+
+  example 'has an initial position anywhere on the planet' do
+    pending('For Marya')
+    initial_position = [1, 1]
+    mars_rover = MarsRover.new(initial_position)
+
+    expect(mars_rover.current_position).to eq([1, 1])
+  end
+
   example 'has a direction it is facing'
 end
 
