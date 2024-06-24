@@ -2,12 +2,14 @@ require 'spec_helper'
 
 describe 'Operating a Mars Rover' do
   class MarsRover
+
     def initialize(initial_position)
       $logger.debug('initialize: initial_position \'' + initial_position&.to_s + '\'')
+      @initial_position = initial_position
     end
 
     def current_position
-      [0, 0]
+      @initial_position
     end
   end
 
@@ -27,7 +29,6 @@ describe 'Operating a Mars Rover' do
   end
 
   example 'has an initial position anywhere on the planet' do
-    pending('For Marya')
     initial_position = [1, 1]
     mars_rover = MarsRover.new(initial_position)
 
