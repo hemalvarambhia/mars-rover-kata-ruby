@@ -36,6 +36,7 @@ describe 'Operating a Mars Rover' do
   end
 
   example 'has a direction it is facing'
+    pending('for Hemal?')
 end
 
 describe 'Moving a Mars Rover' do
