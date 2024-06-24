@@ -20,13 +20,14 @@ GEM
 PLATFORMS
   arm64-darwin-21
   arm64-darwin-23
+  x86_64-linux
 
 DEPENDENCIES
   minitest
   rspec
 
 RUBY VERSION
-   ruby 3.3.1p55
+   ruby 3.3.2p78
 
 BUNDLED WITH
    2.3.23

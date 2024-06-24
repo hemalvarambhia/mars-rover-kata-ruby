@@ -17,3 +17,14 @@ You’re part of the team that explores Mars by sending remotely controlled vehi
 - Change roles (driver, navigator) after each TDD cycle.
 - No red phases while refactoring.
 - Be careful about edge cases and exceptions. We can not afford to lose a mars rover, just because the developers overlooked a null pointer.
+
+## Install
+
+If needed `snap install --classic ruby`.
+
+If you see the error `Your Ruby version is 3.3.2, but your Gemfile specified 3.3.1`, then try editing the Gemfile to use the appropriate version of ruby.
+
+```
+bundle install
+bundle exec rspec -cfd
+```
