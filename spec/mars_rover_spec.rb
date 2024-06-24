@@ -1,7 +1,9 @@
+require 'spec_helper'
+
 describe 'Operating a Mars Rover' do
   class MarsRover
     def initialize(initial_position)
-
+      $logger.debug('initialize: initial_position \'' + initial_position&.to_s + '\'')
     end
 
     def current_position
