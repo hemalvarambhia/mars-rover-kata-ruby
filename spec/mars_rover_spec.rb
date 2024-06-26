@@ -35,8 +35,14 @@ describe 'Operating a Mars Rover' do
     expect(mars_rover.current_position).to eq([1, 1])
   end
 
-  example 'has a direction it is facing'
-    pending('for Hemal?')
+  example 'has a direction it is facing' do
+    pending 'Marya to get this test passing'
+    irrelevant = [0, -1]
+    mars_rover = MarsRover.new(irrelevant)
+
+    expect(mars_rover.direction).to eq('N')
+  end
+
 end
 
 describe 'Moving a Mars Rover' do
