@@ -4,7 +4,6 @@ describe 'Operating a Mars Rover' do
   class MarsRover
 
     def initialize(initial_position)
-      $logger.debug('initialize: initial_position \'' + initial_position&.to_s + '\'')
       @initial_position = initial_position
     end
 
@@ -14,6 +13,10 @@ describe 'Operating a Mars Rover' do
 
     def direction
 
+    end
+
+    def inspect
+      "initialize: initial_position = #{@initial_position}"
     end
   end
 
