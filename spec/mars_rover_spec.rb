@@ -11,6 +11,10 @@ describe 'Operating a Mars Rover' do
     def current_position
       @initial_position
     end
+
+    def direction
+
+    end
   end
 
   before do
