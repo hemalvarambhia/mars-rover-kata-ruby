@@ -11,11 +11,11 @@ describe 'Operating a Mars Rover' do
     end
 
     def current_position
-      @initial_position
+      @current_position
     end
 
     def inspect
-      "initialize: initial_position = #{@initial_position}"
+      "initialize: initial_position = #{@current_position}"
     end
   end
 
