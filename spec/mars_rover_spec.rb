@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe 'Operating a Mars Rover' do
   class MarsRover
+    attr_reader :direction
 
     def initialize(initial_position, direction: 'N')
       @initial_position = initial_position
@@ -10,10 +11,6 @@ describe 'Operating a Mars Rover' do
 
     def current_position
       @initial_position
-    end
-
-    def direction
-      @direction
     end
 
     def inspect
