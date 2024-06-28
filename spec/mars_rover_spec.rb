@@ -3,9 +3,9 @@ require 'spec_helper'
 describe 'Operating a Mars Rover' do
   class MarsRover
 
-    def initialize(initial_position)
+    def initialize(initial_position, direction: 'N')
       @initial_position = initial_position
-      @direction = 'N'
+      @direction = direction
     end
 
     def current_position
@@ -51,9 +51,8 @@ describe 'Operating a Mars Rover' do
   end
 
   example 'has an initial direction it is facing' do
-    pending 'Hemal to get this test passing'
     irrelevant = [0, -1]
-    mars_rover = MarsRover.new(irrelevant)
+    mars_rover = MarsRover.new(irrelevant, direction: 'E')
 
     expect(mars_rover.direction).to eq('E')
   end
