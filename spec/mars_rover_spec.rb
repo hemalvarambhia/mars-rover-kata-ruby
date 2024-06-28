@@ -18,14 +18,6 @@ describe 'Operating a Mars Rover' do
     end
   end
 
-  before do
-    # before each
-  end
-
-  after do
-    # after each test
-  end
-
   example 'has an initial position' do
     initial_position = [0, 0]
     mars_rover = MarsRover.new(initial_position, direction: 'N')
