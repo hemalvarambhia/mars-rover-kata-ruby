@@ -4,7 +4,7 @@ describe 'Operating a Mars Rover' do
   class MarsRover
     attr_reader :direction
 
-    def initialize(initial_position, direction: 'N')
+    def initialize(initial_position, direction:)
       @initial_position = initial_position
       @direction = direction
     end
