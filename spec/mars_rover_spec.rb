@@ -6,6 +6,7 @@ describe 'Operating a Mars Rover' do
 
     def initialize(initial_position, direction:)
       @initial_position = initial_position
+      @current_position = initial_position
       @direction = direction
     end
 
