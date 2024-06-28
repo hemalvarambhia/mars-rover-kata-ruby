@@ -5,6 +5,7 @@ describe 'Operating a Mars Rover' do
 
     def initialize(initial_position)
       @initial_position = initial_position
+      @direction = 'N'
     end
 
     def current_position
@@ -12,7 +13,7 @@ describe 'Operating a Mars Rover' do
     end
 
     def direction
-
+      @direction
     end
 
     def inspect
@@ -43,7 +44,6 @@ describe 'Operating a Mars Rover' do
   end
 
   example 'has a direction it is facing' do
-    pending 'Marya to get this test passing'
     irrelevant = [0, -1]
     mars_rover = MarsRover.new(irrelevant)
 
