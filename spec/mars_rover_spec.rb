@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe 'Operating a Mars Rover' do
+  class CannotInitializeMarsRover
+  end
+
   class MarsRover
     attr_reader :current_position, :direction
 
