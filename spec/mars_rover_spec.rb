@@ -47,6 +47,7 @@ describe 'Operating a Mars Rover' do
 
   example 'cannot face anywhere outside N, E, S or W' do
     pending 'Marya to get test passing'
+    irrelevant = [0, -1]
     expect { MarsRover.new(irrelevant, direction: 'X') }.to raise_error(CannotInitializeMarsRover)
   end
 
