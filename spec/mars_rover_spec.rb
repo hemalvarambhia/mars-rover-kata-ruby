@@ -48,9 +48,15 @@ describe 'Operating a Mars Rover' do
     expect(mars_rover.direction).to eq('E')
   end
 
-  example 'cannot face anywhere outside N, E, S or W' do
+  example 'cannot face X' do
     irrelevant = [0, -1]
     expect { MarsRover.new(irrelevant, direction: 'X') }.to raise_error(CannotInitializeMarsRover)
+  end
+
+  example 'cannot face anywhere outside N, E, S or W' do
+    pending 'make this pass to improve direction test'
+    irrelevant = [0, -1]
+    expect { MarsRover.new(irrelevant, direction: 'Y') }.to raise_error(CannotInitializeMarsRover)
   end
 
 end
