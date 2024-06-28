@@ -15,7 +15,7 @@ describe 'Operating a Mars Rover' do
     end
 
     def inspect
-      "initialize: initial_position = #{@current_position}"
+      "A Mars rover currently positioned at #{@current_position} facing #{@direction}"
     end
   end
 
