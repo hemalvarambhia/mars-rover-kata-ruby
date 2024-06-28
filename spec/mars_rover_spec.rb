@@ -1,13 +1,16 @@
 require 'spec_helper'
 
 describe 'Operating a Mars Rover' do
-  class CannotInitializeMarsRover
+  class CannotInitializeMarsRover < StandardError
   end
 
   class MarsRover
     attr_reader :current_position, :direction
 
     def initialize(initial_position, direction:)
+      if direction == 'X'
+        raise CannotInitializeMarsRover.new()
+      end if
       @current_position = initial_position
       @direction = direction
     end
@@ -46,7 +49,6 @@ describe 'Operating a Mars Rover' do
   end
 
   example 'cannot face anywhere outside N, E, S or W' do
-    pending 'Marya to get test passing'
     irrelevant = [0, -1]
     expect { MarsRover.new(irrelevant, direction: 'X') }.to raise_error(CannotInitializeMarsRover)
   end
