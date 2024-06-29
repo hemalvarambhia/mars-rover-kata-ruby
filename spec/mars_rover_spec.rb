@@ -25,6 +25,10 @@ describe 'Operating a Mars Rover' do
       @direction = direction
     end
 
+    def execute(commands)
+
+    end
+
     def inspect
       "A Mars rover currently positioned at #{@current_position} facing #{@direction}"
     end
@@ -71,13 +75,12 @@ describe 'Operating a Mars Rover' do
 end
 
 describe 'Moving a Mars Rover' do
-  example 'moves forward' do
-    pending 'For Hemal'
+  it 'receives an array of commands from Earth' do
     initial_position = [0, 0]
     mars_rover = MarsRover.new(initial_position, direction: 'N')
-    mars_rover.move(1)
-    expect(mars_rover.current_position).to eq([0, 1])
+    expect(mars_rover).to respond_to(:execute).with(1)
   end
+
   example 'moves backwards'
   example 'moves forwards and then backwards'
 end
