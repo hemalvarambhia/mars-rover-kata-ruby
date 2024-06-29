@@ -71,7 +71,13 @@ describe 'Operating a Mars Rover' do
 end
 
 describe 'Moving a Mars Rover' do
-  example 'moves forward'
+  example 'moves forward' do
+    pending 'For Hemal'
+    initial_position = [0, 0]
+    mars_rover = MarsRover.new(initial_position, direction: 'N')
+    mars_rover.move(1)
+    expect(mars_rover.current_position).to eq([0, 1])
+  end
   example 'moves backwards'
   example 'moves forwards and then backwards'
 end
