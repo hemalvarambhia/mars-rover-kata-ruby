@@ -4,6 +4,9 @@ describe 'Operating a Mars Rover' do
   CannotInitializeMarsRover = Class.new(StandardError)
 
   class MarsRover
+    CARDINAL_DIRECTIONS = ['N', 'S', 'E', 'W']
+    private_constant :CARDINAL_DIRECTIONS
+
     @valid_directions = ['N', 'S', 'E', 'W']
     attr_reader :current_position, :direction
 
@@ -17,7 +20,7 @@ describe 'Operating a Mars Rover' do
     end
 
     def initialize(initial_position, direction: 'N')
-      unless MarsRover.valid_directions.include?(direction)
+      unless CARDINAL_DIRECTIONS.include?(direction)
         raise CannotInitializeMarsRover.new()
       end
       @current_position = initial_position
