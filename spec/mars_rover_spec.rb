@@ -11,7 +11,7 @@ describe 'Operating a Mars Rover' do
 
     def initialize(initial_position, direction: 'N')
       unless CARDINAL_DIRECTIONS.include?(direction)
-        raise CannotInitializeMarsRover.new()
+        raise CannotInitializeMarsRover.new
       end
       @current_position = initial_position
       @direction = direction
