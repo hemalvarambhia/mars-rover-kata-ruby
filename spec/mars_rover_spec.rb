@@ -7,17 +7,7 @@ describe 'Operating a Mars Rover' do
     CARDINAL_DIRECTIONS = ['N', 'S', 'E', 'W']
     private_constant :CARDINAL_DIRECTIONS
 
-    @valid_directions = ['N', 'S', 'E', 'W']
     attr_reader :current_position, :direction
-
-    class << self
-      attr_reader :valid_directions
-      private
-
-      def valid_directions=(value)
-        @valid_directions = value
-      end
-    end
 
     def initialize(initial_position, direction: 'N')
       unless CARDINAL_DIRECTIONS.include?(direction)
