@@ -5,12 +5,22 @@ describe 'Operating a Mars Rover' do
   end
 
   class MarsRover
+    @valid_directions = ['N', 'S', 'E', 'W']
     attr_reader :current_position, :direction
 
-    def initialize(initial_position, direction:)
-      if direction == 'X'
+    class << self
+      attr_reader :valid_directions
+      private
+
+      def valid_directions=(value)
+        @valid_directions = value
+      end
+    end
+
+    def initialize(initial_position, direction: 'N')
+      unless MarsRover.valid_directions.include?(direction)
         raise CannotInitializeMarsRover.new()
-      end if
+      end
       @current_position = initial_position
       @direction = direction
     end
@@ -54,7 +64,6 @@ describe 'Operating a Mars Rover' do
   end
 
   example 'cannot face anywhere outside N, E, S or W' do
-    pending 'make this pass to improve direction test'
     irrelevant = [0, -1]
     expect { MarsRover.new(irrelevant, direction: 'Y') }.to raise_error(CannotInitializeMarsRover)
   end
