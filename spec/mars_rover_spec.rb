@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe 'Operating a Mars Rover' do
-  class CannotInitializeMarsRover < StandardError
-  end
+  CannotInitializeMarsRover = Class.new(StandardError)
 
   class MarsRover
     @valid_directions = ['N', 'S', 'E', 'W']
