@@ -73,6 +73,14 @@ describe 'Moving a Mars Rover' do
     expect(mars_rover).to respond_to(:execute).with(1)
   end
 
+  it 'moves forwards when facing north' do
+    pending 'Marya to get test passing.'
+    initial_position = [0, 1]
+    mars_rover = MarsRover.new(initial_position, direction: 'N')
+
+    expect { mars_rover.execute(['f']) }.to change(mars_rover, :current_position).from([0, 1]).to([0, 2])
+  end
+
   example 'moves backwards'
   example 'moves forwards and then backwards'
 end
