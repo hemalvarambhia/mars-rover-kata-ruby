@@ -35,9 +35,18 @@ describe 'Operating a Mars Rover' do
 
     private :move_forward
 
+    def self.valid_elements?(input_array, valid_array)
+      input_array.all? { |element| valid_array.include?(element) }
+    end
+
     def execute(commands)
-      # TODO FIXME commands is not validated.
-      # It should be an array with specific valid elements 'f', 'b', 'l', 'r'
+      # Protect Mars Rover from obeying invalid commands. Input commands must
+      # be in an array, and they must be one of the CARDINAL_COMMANDS.
+      unless commands.is_a?(Array) &&
+        MarsRover.valid_elements?(commands, CARDINAL_COMMANDS)
+        raise CannotCommandMarsRover.new
+      end
+
       command = commands[0]
       case command
       when 'f'
@@ -119,14 +128,19 @@ describe 'Moving a Mars Rover' do
   end
 
   it 'does not change its position when there is an unsupported command' do
-    pending 'Marya to get the test passing'
     initial_position = [3, -1]
     mars_rover =  MarsRover.new(initial_position, direction: 'N')
-
-    expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :current_position).from([3, -1])
+    # This tests both the exception raised and that the instance did not change.
+    # TODO FIXME we need more validation tests.
+    # For example, this tests a case where the input direction is the default,
+    # and we need more than that.
+    expect { mars_rover.execute(['q']) }.to raise_error(CannotCommandMarsRover)
+    expect(mars_rover.current_position).to eq(initial_position)
+    expect(mars_rover.direction).to eq('N')
   end
 
   it 'moves backwards when facing north' do
+    pending 'For Hemal'
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: 'N')
     expect { mars_rover.execute(['b']) }.to change(mars_rover, :current_position).from([0, 1]).to([0, 0])
