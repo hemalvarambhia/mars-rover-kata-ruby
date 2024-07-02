@@ -18,6 +18,8 @@ describe 'Operating a Mars Rover' do
     end
 
     def execute(commands)
+      # TODO FIXME commands is not validated.
+      # It should be an array with specific valid elements 'f', 'b', 'l', 'r'
       @current_position = [0, 2]
     end
 
