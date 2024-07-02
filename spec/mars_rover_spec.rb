@@ -29,7 +29,6 @@ describe 'Operating a Mars Rover' do
         @current_position = [0, @current_position[1] + 1]
       when 'b'
         @current_position = [0, @current_position[1] - 1]
-      else
       end
     end
 
