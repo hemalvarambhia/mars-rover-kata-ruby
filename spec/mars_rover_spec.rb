@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe 'Operating a Mars Rover' do
   CannotInitializeMarsRover = Class.new(StandardError)
+  CannotCommandMarsRover = Class.new(StandardError)
 
   class MarsRover
     CARDINAL_DIRECTIONS = ['N', 'S', 'E', 'W']
