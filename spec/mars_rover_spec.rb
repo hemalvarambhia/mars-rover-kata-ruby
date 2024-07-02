@@ -27,6 +27,8 @@ describe 'Operating a Mars Rover' do
       case command
       when 'f'
       @current_position = [0, @current_position[1] + 1]
+      when 'b'
+        @current_position = [0, @current_position[1] - 1]
       else
       end
     end
@@ -96,7 +98,6 @@ describe 'Moving a Mars Rover' do
   end
 
   it 'moves backwards when facing north' do
-    pending 'For Hemal to implement'
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: 'N')
     expect { mars_rover.execute(['b']) }.to change(mars_rover, :current_position).from([0, 1]).to([0, 0])
