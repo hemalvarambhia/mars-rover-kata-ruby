@@ -105,6 +105,14 @@ describe 'Moving a Mars Rover' do
     expect { mars_rover.execute(['f']) }.to change(mars_rover, :current_position).from([1, -1]).to([1, -2])
   end
 
+  it 'does not change its position when there is an unsupported command' do
+    pending 'Marya to get the test passing'
+    initial_position = [3, -1]
+    mars_rover =  MarsRover.new(initial_position, direction: 'N')
+
+    expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :current_position).from([3, -1])
+  end
+
   it 'moves backwards when facing north' do
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: 'N')
