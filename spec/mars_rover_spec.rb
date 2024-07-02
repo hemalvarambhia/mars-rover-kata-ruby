@@ -18,7 +18,7 @@ describe 'Operating a Mars Rover' do
     end
 
     def execute(commands)
-
+      @current_position = [0, 2]
     end
 
     def inspect
@@ -74,7 +74,6 @@ describe 'Moving a Mars Rover' do
   end
 
   it 'moves forwards when facing north' do
-    pending 'Marya to get test passing.'
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: 'N')
 
