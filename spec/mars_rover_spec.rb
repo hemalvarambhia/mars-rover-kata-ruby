@@ -20,13 +20,28 @@ describe 'Operating a Mars Rover' do
       @direction = direction
     end
 
+    def move_forward
+      case @direction
+      when 'N'
+        @current_position = [@current_position[0], @current_position[1] + 1]
+      when 'E'
+        @current_position = [@current_position[0] + 1, @current_position[1]]
+      when 'S'
+        @current_position = [@current_position[0], @current_position[1] - 1]
+      when 'W'
+        @current_position = [@current_position[0] - 1, @current_position[1]]
+      end
+    end
+
+    private :move_forward
+
     def execute(commands)
       # TODO FIXME commands is not validated.
       # It should be an array with specific valid elements 'f', 'b', 'l', 'r'
       command = commands[0]
       case command
       when 'f'
-        @current_position = [0, @current_position[1] + 1]
+        move_forward
       when 'b'
         @current_position = [0, @current_position[1] - 1]
       end
