@@ -6,6 +6,8 @@ describe 'Operating a Mars Rover' do
   class MarsRover
     CARDINAL_DIRECTIONS = ['N', 'S', 'E', 'W']
     private_constant :CARDINAL_DIRECTIONS
+    CARDINAL_COMMANDS = ['f', 'b', 'l', 'r']
+    private_constant :CARDINAL_COMMANDS
 
     attr_reader :current_position, :direction
 
