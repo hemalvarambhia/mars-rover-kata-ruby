@@ -26,7 +26,7 @@ describe 'Operating a Mars Rover' do
       command = commands[0]
       case command
       when 'f'
-      @current_position = [0, @current_position[1] + 1]
+        @current_position = [0, @current_position[1] + 1]
       when 'b'
         @current_position = [0, @current_position[1] - 1]
       else
@@ -95,6 +95,14 @@ describe 'Moving a Mars Rover' do
     initial_position = [0, 2]
     mars_rover = MarsRover.new(initial_position, direction: 'N')
     expect { mars_rover.execute(['f']) }.to change(mars_rover, :current_position).from([0, 2]).to([0, 3])
+  end
+
+  it 'moves forwards when facing south from (-1, -1) to (-1, -2)' do
+    pending 'Marya to get the test passing'
+    initial_position = [-1, -1]
+    mars_rover =  MarsRover.new(initial_position, direction: 'S')
+
+    expect { mars_rover.execute(['f']) }.to change(mars_rover, :current_position).from([1, -1]).to([1, -2])
   end
 
   it 'moves backwards when facing north' do
