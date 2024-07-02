@@ -139,11 +139,33 @@ describe 'Moving a Mars Rover' do
     expect(mars_rover.direction).to eq('N')
   end
 
-  it 'moves backwards when facing north' do
+  it 'raises an error if the input is not an array' do
+    initial_position = [3, -1]
+    mars_rover =  MarsRover.new(initial_position, direction: 'N')
+    # This tests both the exception raised and that the instance did not change.
+    expect { mars_rover.execute('Hello World') }.to raise_error(CannotCommandMarsRover)
+    expect(mars_rover.current_position).to eq(initial_position)
+    expect(mars_rover.direction).to eq('N')
+  end
+
+  it 'raises an error if the input array is empty' do
     pending 'For Hemal'
+    initial_position = [3, -1]
+    mars_rover =  MarsRover.new(initial_position, direction: 'N')
+    expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
+  end
+
+  it 'moves backwards when facing north' do
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: 'N')
     expect { mars_rover.execute(['b']) }.to change(mars_rover, :current_position).from([0, 1]).to([0, 0])
+  end
+
+  it 'moves backwards when facing east' do
+    pending 'For Hemal'
+    initial_position = [0, 1]
+    mars_rover = MarsRover.new(initial_position, direction: 'E')
+    expect { mars_rover.execute(['b']) }.to change(mars_rover, :current_position).from([0, 1]).to([-1, 1])
   end
 
   example 'moves forwards and then backwards'
