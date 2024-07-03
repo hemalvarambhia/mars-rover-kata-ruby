@@ -1,0 +1,1 @@
+CannotInitializeMarsRover = Class.new(StandardError)
