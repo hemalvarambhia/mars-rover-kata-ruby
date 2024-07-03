@@ -33,7 +33,7 @@ class MarsRover
   private :move_forward
 
   def self.valid_elements?(commands)
-    commands.all? { |element| CARDINAL_COMMANDS.include?(element) } && ! commands.empty?
+    commands.all? { |command| CARDINAL_COMMANDS.include?(command) } && ! commands.empty?
   end
 
   def execute(commands)
