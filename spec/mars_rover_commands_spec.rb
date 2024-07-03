@@ -36,6 +36,16 @@ describe 'Moving a Mars Rover' do
     expect(mars_rover.direction).to eq('N')
   end
 
+  ['N', 'S', 'E', 'W'].each do |cardinal_direction|
+    example "does not change direction from #{cardinal_direction} when there is an unsupported command" do
+      initial_position = [3, -1]
+      mars_rover =  MarsRover.new(initial_position, direction: cardinal_direction)
+
+      expect { mars_rover.execute(['q']) }.to raise_error(CannotCommandMarsRover)
+      expect(expect(mars_rover.direction).to eq(cardinal_direction))
+    end
+  end
+
   it 'raises an error if the input is not an array' do
     initial_position = [3, -1]
     mars_rover =  MarsRover.new(initial_position, direction: 'N')
