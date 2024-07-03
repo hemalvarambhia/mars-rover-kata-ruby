@@ -46,7 +46,7 @@ describe 'Moving a Mars Rover' do
     end
   end
 
-  it 'raises an error if the input is not an array' do
+  it 'raises an error if the commands from Earth are not an array' do
     initial_position = [3, -1]
     mars_rover =  MarsRover.new(initial_position, direction: 'N')
     # This tests both the exception raised and that the instance did not change.
@@ -55,7 +55,7 @@ describe 'Moving a Mars Rover' do
     expect(mars_rover.direction).to eq('N')
   end
 
-  it 'raises an error if the input array is empty' do
+  it 'raises an error if no commands (an empty array) are sent from Earth' do
     initial_position = [3, -1]
     mars_rover =  MarsRover.new(initial_position, direction: 'N')
     expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
