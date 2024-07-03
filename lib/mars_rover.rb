@@ -30,6 +30,8 @@ class MarsRover
     end
   end
 
+  # I like this. I didn't know I could that. Normally, rubyists put the private section
+  # at the bottom of the class.
   private :move_forward
 
   def self.valid_commands?(commands)
