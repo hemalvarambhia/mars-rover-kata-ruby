@@ -46,7 +46,6 @@ describe 'Moving a Mars Rover' do
   end
 
   it 'raises an error if the input array is empty' do
-    pending 'For Hemal'
     initial_position = [3, -1]
     mars_rover =  MarsRover.new(initial_position, direction: 'N')
     expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)

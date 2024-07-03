@@ -33,7 +33,7 @@ class MarsRover
   private :move_forward
 
   def self.valid_elements?(input_array, valid_array)
-    input_array.all? { |element| valid_array.include?(element) }
+    input_array.all? { |element| valid_array.include?(element) } && ! input_array.empty?
   end
 
   def execute(commands)
