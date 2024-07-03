@@ -36,8 +36,12 @@ class MarsRover
 
   def self.valid_commands?(commands)
     commands.is_a?(Array) &&
-      commands.all? { |command| CARDINAL_COMMANDS.include?(command) } &&
+      commands.all? { |command| supported?(command) } &&
       ! commands.empty?
+  end
+
+  def self.supported?(command)
+    CARDINAL_COMMANDS.include?(command)
   end
 
   def execute(commands)
