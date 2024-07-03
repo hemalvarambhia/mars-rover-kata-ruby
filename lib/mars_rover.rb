@@ -32,7 +32,7 @@ class MarsRover
 
   private :move_forward
 
-  def self.valid_elements?(commands)
+  def self.valid_commands?(commands)
     commands.is_a?(Array) &&
       commands.all? { |command| CARDINAL_COMMANDS.include?(command) } &&
       ! commands.empty?
@@ -41,7 +41,7 @@ class MarsRover
   def execute(commands)
     # Protect Mars Rover from obeying invalid commands. Input commands must
     # be in an array, and they must be one of the CARDINAL_COMMANDS.
-    unless MarsRover.valid_elements?(commands)
+    unless MarsRover.valid_commands?(commands)
       raise CannotCommandMarsRover.new
     end
 
