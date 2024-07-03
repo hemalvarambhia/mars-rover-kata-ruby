@@ -58,7 +58,6 @@ describe 'Moving a Mars Rover' do
   end
 
   it 'moves backwards when facing east' do
-    pending 'For Hemal'
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: 'E')
     expect { mars_rover.execute(['b']) }.to change(mars_rover, :current_position).from([0, 1]).to([-1, 1])

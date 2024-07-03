@@ -56,7 +56,12 @@ class MarsRover
     when 'f'
       move_forward
     when 'b'
-      @current_position = [0, @current_position[1] - 1]
+      case @direction
+      when 'N'
+        @current_position = [0, @current_position[1] - 1]
+      when 'E'
+        @current_position = [-1, 1]
+      end
     end
   end
 
