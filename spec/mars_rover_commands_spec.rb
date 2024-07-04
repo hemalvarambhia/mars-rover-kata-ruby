@@ -73,5 +73,39 @@ describe 'Moving a Mars Rover' do
     expect { mars_rover.execute(['b']) }.to change(mars_rover, :current_position).from([0, 1]).to([-1, 1])
   end
 
-  example 'moves forwards and then backwards'
+  example 'moves forwards and then backwards' do
+    skip('implement test for moves forwards and then backwards')
+  end
+
+  example 'raises error if commands to execute is not an array of valid characters' do
+    # array should only consist of f, b, l, r
+    skip('implement valid characters for commands')
+  end
+
+  example 'raises error if commands to execute is an empty array' do
+    # Let the user know something went wrong if array of commands is empty.
+    # It seems likely that this would be a mistake that should be caught.
+    skip('implement valid array for commands')
+  end
+
+  example 'raises error if too many commands are sent' do
+    # We should limit the number of commands that can be sent
+    # And specify in the documentation what the limit is.
+    # Otherwise a user could send an arbitrary number of commands
+    # and possibly crash the system.
+    skip('implement too many commands')
+  end
+
+  example 'TODO: implement wrapping at edges?' do
+    # This requirement has not yet been met, and is not well defined.
+    # What do they really want here?
+    skip('implement wrapping?')
+  end
+
+  example 'TODO: implement obstacle detection?' do
+    # This requirement has not yet been met, and is not well defined.
+    # What do they really want here?
+    skip('implement obstacle detection?')
+  end
+
 end
