@@ -30,10 +30,6 @@ class MarsRover
     end
   end
 
-  # I like this. I didn't know I could that. Normally, rubyists put the private section
-  # at the bottom of the class.
-  private :move_forward
-
   def self.valid_commands?(commands)
     commands.is_a?(Array) &&
       commands.all? { |command| supported?(command) } &&
@@ -68,4 +64,9 @@ class MarsRover
   def inspect
     "A Mars rover currently positioned at #{@current_position} facing #{@direction}"
   end
+
+  # I like this. I didn't know I could that. Normally, rubyists put the private section
+  # at the bottom of the class.
+  private :move_forward
+
 end
