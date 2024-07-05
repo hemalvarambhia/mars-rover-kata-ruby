@@ -4,12 +4,33 @@ You’re part of the team that explores Mars by sending remotely controlled vehi
 
 ## Requirements
 
+### 2D Model
+
 - You are given the initial starting point (x,y) of a rover and the direction (N,S,E,W) it is facing.
+- You are given a maximum x value, minimum x value, maximum y value, and minimum y value, inclusive. The rover must remain within and include these maximum and minimum values in a Cartesian grid.
+- You are given an array of obstacle coordinates where the rover cannot travel. This is an array of (x, y) coordinates that you can think of as "filled". This may be an empty array, in which case there are no obstacles.
+- X and y coordinates must always be integral (negative, 0, or positive integers).
 - The rover receives a character array of commands.
 - Implement commands that move the rover forward/backward (f,b).
+- A rover must take integral steps in any direction: 1 step at a time increments or decrements x OR y (but never both).
 - Implement commands that turn the rover left/right (l,r).
-- Implement wrapping at edges. But be careful, planets are spheres.
-- Implement obstacle detection before each move to a new square. If a given sequence of commands encounters an obstacle, the rover moves up to the last possible point, aborts the sequence and reports the obstacle.
+- Implement wrapping at edges. If a rover encounters an edge, it magically teleports to the opposite side.
+- Implement obstacle detection before each move to a new square. If a given sequence of commands leads to an encounter with an obstacle, the rover moves up to the last possible accessible point, aborts the sequence, and reports the obstacle.
+- The rover should validate all inputs before proceeding. If any input is invalid, this probably means there was a transmission error, so the rover should raise an error and do nothing further until receiving new inputs. Note that this is not the same as obstacle detection; the rover does not know where an obstacle is until it is adjacent to one. For test purposes, we provide an array of obstacle coordinates that are used to check that the rover behaves correctly. (This implementation will need to be fleshed out further.)
+
+Example: If the rover is facing N at (x, y) set to (0, 0), and gets the array of commands ['r', 'f', 'f', 'l'], then it turns right (facing E), takes one step forward to (1, 0), takes another step forward to (2, 0), and then turns left to face N again. Thus it winds up facing N at position (2, 0) after this array of commands has been executed.
+
+Example: Suppose the maximum x value was 10, and the minimum x value was -10. And suppose the rover is at (10, 0) and is commanded to execute ['f']. Going forward would take the rover to x = 11. However, x = 11 is outside the range of allowed values. Therefore, the rover should magically be teleported to x = -10, at the opposite side of the coordinate grid ("wrapping").
+
+Example: Suppose the array of obstacles consists of [(0, 1)], the rover is at (0, 0) facing N, and the rover receives a command to execute ['f']. The rover cannot do this because there is an obstacle directly in its path. The rover should raise an error so that the controller can decide what to do.
+
+Example: If an array of commands is sent, the rover should execute each one in order. If the rover raises an error after attempting to execute a command, it should stop, and not execute any further commands.
+
+### 3D Model
+
+Treat planets as spheres.
+
+TBD
 
 ## Rules
 
