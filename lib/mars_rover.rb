@@ -4,8 +4,6 @@ require_relative 'cardinal_directions'
 
 class MarsRover
   include CardinalDirections
-  CARDINAL_DIRECTIONS = ['N', 'S', 'E', 'W']
-  private_constant :CARDINAL_DIRECTIONS
   CARDINAL_COMMANDS = ['f', 'b', 'l', 'r']
   private_constant :CARDINAL_COMMANDS
 
