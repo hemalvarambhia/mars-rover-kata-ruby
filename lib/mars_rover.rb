@@ -1,7 +1,9 @@
 require_relative 'errors/cannot_command_mars_rover'
 require_relative 'errors/cannot_initialize_mars_rover'
+require_relative 'cardinal_directions'
 
 class MarsRover
+  include CardinalDirections
   CARDINAL_DIRECTIONS = ['N', 'S', 'E', 'W']
   private_constant :CARDINAL_DIRECTIONS
   CARDINAL_COMMANDS = ['f', 'b', 'l', 'r']
@@ -13,6 +15,22 @@ class MarsRover
     unless CARDINAL_DIRECTIONS.include?(direction)
       raise CannotInitializeMarsRover.new
     end
+    new_direction = '';
+    case direction
+    when 'N'
+      new_direction = :north
+    when 'E'
+      new_direction = :east
+    when 'S'
+      new_direction = :south
+    when 'W'
+      new_direction = :west
+    end
+
+    unless CardinalDirections::ALL_DIRECTIONS.include?(new_direction)
+      raise CannotInitializeMarsRover.new
+    end
+
     @current_position = initial_position
     @direction = direction
   end
