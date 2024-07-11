@@ -4,19 +4,19 @@ describe 'Initializing a Mars Rover' do
 
   example 'has an initial position' do
     initial_position = [0, 0]
-    mars_rover = MarsRover.new(initial_position, direction: 'N')
+    mars_rover = MarsRover.new(initial_position, direction: :north)
 
     expect(mars_rover.current_position).to eq([0, 0])
   end
 
   example 'has an initial position anywhere on the planet' do
     initial_position = [1, 1]
-    mars_rover = MarsRover.new(initial_position, direction: 'N')
+    mars_rover = MarsRover.new(initial_position, direction: :north)
 
     expect(mars_rover.current_position).to eq([1, 1])
   end
 
-  ['N', 'S', 'E', 'W'].each do |cardinal_direction|
+  [:north, :south, :east, :west].each do |cardinal_direction|
     it 'has an initial direction it is facing' do
       irrelevant = [0, -1]
       mars_rover = MarsRover.new(irrelevant, direction: cardinal_direction)
@@ -32,7 +32,7 @@ describe 'Initializing a Mars Rover' do
 
   example 'cannot face anywhere outside N, E, S or W' do
     irrelevant = [0, -1]
-    expect { MarsRover.new(irrelevant, direction: 'Y') }.to raise_error(CannotInitializeMarsRover)
+    expect { MarsRover.new(irrelevant, direction: :something) }.to raise_error(CannotInitializeMarsRover)
   end
 
   example 'raises error if initial x position is not integer and initial y position is an integer' do

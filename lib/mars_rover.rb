@@ -11,23 +11,8 @@ class MarsRover
 
   attr_reader :current_position, :direction
 
-  def initialize(initial_position, direction: 'N')
-    unless CARDINAL_DIRECTIONS.include?(direction)
-      raise CannotInitializeMarsRover.new
-    end
-    new_direction = '';
-    case direction
-    when 'N'
-      new_direction = :north
-    when 'E'
-      new_direction = :east
-    when 'S'
-      new_direction = :south
-    when 'W'
-      new_direction = :west
-    end
-
-    unless CardinalDirections::ALL_DIRECTIONS.include?(new_direction)
+  def initialize(initial_position, direction: :north)
+    unless CardinalDirections::ALL_DIRECTIONS.include?(direction)
       raise CannotInitializeMarsRover.new
     end
 
@@ -37,13 +22,13 @@ class MarsRover
 
   def move_forward
     case @direction
-    when 'N'
+    when :north
       @current_position = [@current_position[0], @current_position[1] + 1]
-    when 'E'
+    when :east
       @current_position = [@current_position[0] + 1, @current_position[1]]
-    when 'S'
+    when :south
       @current_position = [@current_position[0], @current_position[1] - 1]
-    when 'W'
+    when :west
       @current_position = [@current_position[0] - 1, @current_position[1]]
     end
   end
@@ -71,9 +56,9 @@ class MarsRover
       move_forward
     when 'b'
       case @direction
-      when 'N'
+      when :north
         @current_position = [0, @current_position[1] - 1]
-      when 'E'
+      when :east
         @current_position = [-1, 1]
       end
     end
