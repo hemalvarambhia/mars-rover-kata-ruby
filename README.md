@@ -7,6 +7,7 @@ You’re part of the team that explores Mars by sending remotely controlled vehi
 ### 2D Model
 
 - You are given the initial starting point (x,y) of a rover and the direction (N,S,E,W) it is facing.
+- DEFINITIONS: when the rover moves E, this is defined as adding +1 step in the x-direction. When it moves W, this is defined as adding -1 step in the x-direction. When it moves N, this is defined as adding +1 in the y-direction. When it moves S, this is defined as adding -1 in the y-direction.
 - You are given a maximum x value, minimum x value, maximum y value, and minimum y value, inclusive. The rover must remain within and include these maximum and minimum values in a Cartesian grid.
 - You are given an array of obstacle coordinates where the rover cannot travel. This is an array of (x, y) coordinates that you can think of as "filled". This may be an empty array, in which case there are no obstacles.
 - X and y coordinates must always be integral (negative, 0, or positive integers).
