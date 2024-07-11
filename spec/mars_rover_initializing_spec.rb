@@ -16,18 +16,13 @@ describe 'Initializing a Mars Rover' do
     expect(mars_rover.current_position).to eq([1, 1])
   end
 
-  example 'has a direction it is facing' do
-    irrelevant = [0, -1]
-    mars_rover = MarsRover.new(irrelevant, direction: 'N')
+  ['N', 'S', 'E', 'W'].each do |cardinal_direction|
+    it 'has an initial direction it is facing' do
+      irrelevant = [0, -1]
+      mars_rover = MarsRover.new(irrelevant, direction: cardinal_direction)
 
-    expect(mars_rover.direction).to eq('N')
-  end
-
-  example 'has an initial direction it is facing' do
-    irrelevant = [0, -1]
-    mars_rover = MarsRover.new(irrelevant, direction: 'E')
-
-    expect(mars_rover.direction).to eq('E')
+      expect(mars_rover.direction).to eq(cardinal_direction)
+    end
   end
 
   example 'cannot face X' do
