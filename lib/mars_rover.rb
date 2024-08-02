@@ -8,7 +8,7 @@ class MarsRover
   CARDINAL_COMMANDS = ['f', 'b', 'l', 'r']
   private_constant :CARDINAL_COMMANDS
 
-  attr_reader :current_position, :direction
+  attr_reader :current_position, :direction, :current_coordinates
 
   def initialize(initial_position, direction: :north)
     unless CardinalDirections::ALL_DIRECTIONS.include?(direction)
