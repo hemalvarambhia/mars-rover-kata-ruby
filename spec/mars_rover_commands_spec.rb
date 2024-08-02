@@ -1,3 +1,4 @@
+require 'ostruct'
 describe 'Moving a Mars Rover' do
   it 'receives an array of commands from Earth' do
     initial_position = [0, 0]
@@ -8,13 +9,13 @@ describe 'Moving a Mars Rover' do
   it 'moves forwards when facing north' do
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: :north)
-    expect { mars_rover.execute(['f']) }.to change(mars_rover, :current_position).from([0, 1]).to([0, 2])
+    expect { mars_rover.execute(['f']) }.to change(mars_rover, :current_coordinates).from(OpenStruct.new(x: 0, y: 1)).to(OpenStruct.new(x: 0, y: 2))
   end
 
   it 'moves forwards when facing north from y=2' do
     initial_position = [0, 2]
     mars_rover = MarsRover.new(initial_position, direction: :north)
-    expect { mars_rover.execute(['f']) }.to change(mars_rover, :current_position).from([0, 2]).to([0, 3])
+    expect { mars_rover.execute(['f']) }.to change(mars_rover, :current_coordinates).from(OpenStruct.new(x: 0, y: 2)).to(OpenStruct.new(x: 0, y: 3))
   end
 
   it 'moves forwards when facing south from (-1, -1) to (-1, -2)' do
