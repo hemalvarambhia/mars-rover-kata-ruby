@@ -36,12 +36,20 @@ describe "Point" do
       point1 = Point.new(x: 1, y: 0)
       marya = 'Marya'
       expect(point1).not_to eq(marya)
+      expect(marya).not_to eq(point1)
     end
 
     it 'Points are not equal to OpenStruct even if they have same methods' do
       point = Point.new(x: 1, y: 0)
       ostruct = OpenStruct.new(x: 1, y: 0)
       expect(point).not_to eq(ostruct)
+      expect(ostruct).not_to eq(point)
+    end
+
+    it 'Points are not equal to null' do
+      point = Point.new(x: 1, y: 0)
+      expect(point).not_to eq(nil)
+      expect(nil).not_to eq(point)
     end
   end
 end
