@@ -13,6 +13,6 @@ class Point
   end
 
   def ==(other)
-    other.y == @y && other.x == @x
+    other.is_a?(Point) && other.y == @y && other.x == @x
   end
 end
