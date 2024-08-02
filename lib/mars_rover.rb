@@ -1,6 +1,7 @@
 require_relative 'errors/cannot_command_mars_rover'
 require_relative 'errors/cannot_initialize_mars_rover'
 require_relative 'cardinal_directions'
+require 'ostruct'
 
 class MarsRover
   include CardinalDirections
@@ -15,6 +16,7 @@ class MarsRover
     end
 
     @current_position = initial_position
+    @current_coordinates = OpenStruct.new(x: initial_position[0], y: initial_position[1])
     @direction = direction
   end
 
