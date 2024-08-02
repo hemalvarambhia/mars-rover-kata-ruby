@@ -16,5 +16,12 @@ describe "Point" do
       expect(point1).to eq(point2)
       expect(point2).to eq(point1)
     end
+    it 'points with different y coordinates are not equal' do
+      point1 = Point.new(x: 0, y: 1)
+      point2 = Point.new(x: 0, y: 0)
+
+      expect(point1).not_to eq(point2)
+      expect(point2).not_to eq(point1)
+    end
   end
 end

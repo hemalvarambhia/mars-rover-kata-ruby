@@ -13,6 +13,6 @@ class Point
   end
 
   def ==(other)
-    true
+    other.y == @y
   end
 end
