@@ -24,6 +24,7 @@ class MarsRover
     case @direction
     when :north
       @current_position = [@current_position[0], @current_position[1] + 1]
+      @current_coordinates = OpenStruct.new(x: @current_coordinates.x, y: @current_coordinates.y + 1)
     when :east
       @current_position = [@current_position[0] + 1, @current_position[1]]
     when :south
