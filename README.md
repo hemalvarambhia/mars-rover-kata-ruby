@@ -78,7 +78,7 @@ I have added a gem called `rubycritic` as one tool we could use in our sessions 
 to detect code smells. To use it in this problem, simply run the following
 
 ```ruby
-bundle exec rubycritic
+bundle exec rubycritic lib
 ```
 
 Your browser will pop up and a page will show with some feedback on code
