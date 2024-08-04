@@ -48,5 +48,26 @@ If you see the error `Your Ruby version is 3.3.2, but your Gemfile specified 3.3
 
 ```
 bundle install
+```
+
+## Running the Tests
+
+```ruby
 bundle exec rspec -cfd
 ```
+
+## Code Linting
+
+```ruby
+bundle exec rubocop
+```
+
+To correct any style error from the command line, run
+
+```ruby
+bundle exec rubocop -a
+```
+
+and commit any changes in the usual way. In some cases the corrections 
+have to be made manually. In this case, if you are new to ruby, 
+please speak to your local rubyist.
