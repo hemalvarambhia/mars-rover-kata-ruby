@@ -71,3 +71,15 @@ bundle exec rubocop -a
 and commit any changes in the usual way. In some cases the corrections 
 have to be made manually. In this case, if you are new to ruby, 
 please speak to your local rubyist.
+
+## Code Smell Detection
+
+I have added a gem called `rubycritic` as one tool we could use in our sessions together
+to detect code smells. To use it in this problem, simply run the following
+
+```ruby
+bundle exec rubycritic
+```
+
+Your browser will pop up and a page will show with some feedback on code
+quality.
