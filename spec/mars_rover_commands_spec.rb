@@ -28,6 +28,7 @@ describe 'Moving a Mars Rover' do
 
     move_forward = -> { mars_rover.execute(['f']) }
     expect(move_forward).to change(mars_rover, :y_coordinate).by -1
+    expect(move_forward).not_to change(mars_rover, :x_coordinate)
   end
 
   it 'does not change its position when there is an unsupported command' do
