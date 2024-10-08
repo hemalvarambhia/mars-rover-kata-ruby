@@ -9,13 +9,15 @@ describe 'Moving a Mars Rover' do
   it 'moves forwards when facing north' do
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: :north)
-    expect { mars_rover.execute(['f']) }.to change(mars_rover, :y_coordinate).by 1
+    expect { mars_rover.execute(['f']) }.to change(mars_rover, :y_coordinate).by(1)
+    expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :x_coordinate)
   end
 
   it 'moves forwards when facing north from y=2' do
     initial_position = [0, 2]
     mars_rover = MarsRover.new(initial_position, direction: :north)
     expect { mars_rover.execute(['f']) }.to change(mars_rover, :y_coordinate).by 1
+    expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :x_coordinate)
   end
 
   it 'moves forwards when facing south from (-1, -1) to (-1, -2)' do

@@ -20,6 +20,10 @@ class MarsRover
     @direction = direction
   end
 
+  def x_coordinate
+    @current_position[0]
+  end
+
   def y_coordinate
     @current_position[1]
   end
