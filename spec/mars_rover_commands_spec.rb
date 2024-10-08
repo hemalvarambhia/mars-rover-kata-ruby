@@ -76,6 +76,7 @@ describe 'Moving a Mars Rover' do
 
     move_backwards = -> { mars_rover.execute(['b']) }
     expect(move_backwards).to change(mars_rover, :y_coordinate).by -1
+    expect(move_backwards).not_to change(mars_rover, :x_coordinate)
   end
 
   it 'moves backwards when facing east' do
