@@ -27,6 +27,7 @@ describe 'Moving a Mars Rover' do
     mars_rover =  MarsRover.new(initial_position, direction: :south)
 
     expect { mars_rover.execute(['f']) }.to change(mars_rover, :current_position).from([-1, -1]).to([-1, -2])
+    expect { mars_rover.execute(['f']) }.to change(mars_rover, :y_coordinate).by -1
   end
 
   it 'does not change its position when there is an unsupported command' do
