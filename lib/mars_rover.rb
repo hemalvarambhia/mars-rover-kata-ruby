@@ -66,12 +66,7 @@ class MarsRover
     when 'f'
       move_forward
     when 'b'
-      case @direction
-      when :north
-        @current_position = [0, @current_position[1] - 1]
-      when :east
-        @current_position = [-1, 1]
-      end
+      move_backwards
     end
   end
 
@@ -83,4 +78,14 @@ class MarsRover
   # at the bottom of the class.
   private :move_forward
 
+  private
+
+  def move_backwards
+    case @direction
+    when :north
+      @current_position = [0, @current_position[1] - 1]
+    when :east
+      @current_position = [-1, 1]
+    end
+  end
 end
