@@ -2,6 +2,7 @@ require_relative 'errors/cannot_command_mars_rover'
 require_relative 'errors/cannot_initialize_mars_rover'
 require_relative 'cardinal_directions'
 require 'ostruct'
+require 'point'
 
 class MarsRover
   include CardinalDirections
