@@ -29,21 +29,6 @@ class MarsRover
     @current_position[1]
   end
 
-  def move_forward
-    case @direction
-    when :north
-      @current_position = [@current_position[0], @current_position[1] + 1]
-    when :east
-      @current_position = [@current_position[0] + 1, @current_position[1]]
-    when :south
-      @current_position = [@current_position[0], @current_position[1] - 1]
-    when :west
-      @current_position = [@current_position[0] - 1, @current_position[1]]
-    end
-
-    @current_coordinates = Point.new(x: @current_position[0], y: @current_position[1])
-  end
-
   def self.valid_commands?(commands)
     commands.is_a?(Array) &&
       commands.all? { |command| supported?(command) } &&
@@ -74,11 +59,22 @@ class MarsRover
     "A Mars rover currently positioned at #{@current_position} facing #{@direction}"
   end
 
-  # I like this. I didn't know I could that. Normally, rubyists put the private section
-  # at the bottom of the class.
-  private :move_forward
-
   private
+
+  def move_forward
+    case @direction
+    when :north
+      @current_position = [@current_position[0], @current_position[1] + 1]
+    when :east
+      @current_position = [@current_position[0] + 1, @current_position[1]]
+    when :south
+      @current_position = [@current_position[0], @current_position[1] - 1]
+    when :west
+      @current_position = [@current_position[0] - 1, @current_position[1]]
+    end
+
+    @current_coordinates = Point.new(x: @current_position[0], y: @current_position[1])
+  end
 
   def move_backwards
     case @direction
