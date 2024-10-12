@@ -25,14 +25,11 @@ describe 'Initializing a Mars Rover' do
     end
   end
 
-  example 'cannot face X' do
-    irrelevant = [0, -1]
-    expect { MarsRover.new(irrelevant, direction: 'X') }.to raise_error(CannotInitializeMarsRover)
-  end
-
-  example 'cannot face anywhere outside N, E, S or W' do
-    irrelevant = [0, -1]
-    expect { MarsRover.new(irrelevant, direction: :something) }.to raise_error(CannotInitializeMarsRover)
+  ['X', :something].each do |unsupported_direction|
+    example "cannot face anywhere outside N, E, S or W e.g. #{unsupported_direction}" do
+      irrelevant = [0, -1]
+      expect { MarsRover.new(irrelevant, direction: unsupported_direction) }.to raise_error(CannotInitializeMarsRover)
+    end
   end
 
   example 'raises error if initial x position is not integer and initial y position is an integer' do
