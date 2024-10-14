@@ -6,28 +6,30 @@ describe 'Moving a Mars Rover' do
     expect(mars_rover).to respond_to(:execute).with(1)
   end
 
-  it 'moves forwards when facing north' do
-    initial_position = [0, 1]
-    mars_rover = MarsRover.new(initial_position, direction: :north)
+  describe 'Moving forwards' do
+    it 'moves forwards when facing north' do
+      initial_position = [0, 1]
+      mars_rover = MarsRover.new(initial_position, direction: :north)
 
-    expect { mars_rover.execute(['f']) }.to change(mars_rover, :y_coordinate).by(1)
-    expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :x_coordinate)
-  end
+      expect { mars_rover.execute(['f']) }.to change(mars_rover, :y_coordinate).by(1)
+      expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :x_coordinate)
+    end
 
-  it 'moves forwards when facing north from y=2' do
-    initial_position = [0, 2]
-    mars_rover = MarsRover.new(initial_position, direction: :north)
+    it 'moves forwards when facing north from y=2' do
+      initial_position = [0, 2]
+      mars_rover = MarsRover.new(initial_position, direction: :north)
 
-    expect { mars_rover.execute(['f']) }.to change(mars_rover, :y_coordinate).by 1
-    expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :x_coordinate)
-  end
+      expect { mars_rover.execute(['f']) }.to change(mars_rover, :y_coordinate).by 1
+      expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :x_coordinate)
+    end
 
-  it 'moves forwards when facing south from (-1, -1) to (-1, -2)' do
-    initial_position = [-1, -1]
-    mars_rover =  MarsRover.new(initial_position, direction: :south)
+    it 'moves forwards when facing south from (-1, -1) to (-1, -2)' do
+      initial_position = [-1, -1]
+      mars_rover =  MarsRover.new(initial_position, direction: :south)
 
-    expect { mars_rover.execute(['f']) }.to change(mars_rover, :y_coordinate).by -1
-    expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :x_coordinate)
+      expect { mars_rover.execute(['f']) }.to change(mars_rover, :y_coordinate).by -1
+      expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :x_coordinate)
+    end
   end
 
   it 'does not change its position when there is an unsupported command' do
