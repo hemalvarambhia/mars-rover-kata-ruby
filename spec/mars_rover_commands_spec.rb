@@ -38,8 +38,8 @@ describe 'Moving a Mars Rover' do
     # For example, this tests a case where the input direction is the default,
     # and we need more than that.
     expect { mars_rover.execute(['q']) }.to raise_error(CannotCommandMarsRover)
-    expect(mars_rover.current_position).to eq(initial_position)
-    expect(mars_rover.direction).to eq(:north)
+    expect { execute_invalid_command(command: 'q', mars_rover: mars_rover) }.not_to change(mars_rover, :current_position)
+    expect { execute_invalid_command(command: 'q', mars_rover: mars_rover) }.not_to change(mars_rover, :direction)
   end
 
   [:north, :south, :east, :west].each do |cardinal_direction|
@@ -117,4 +117,14 @@ describe 'Moving a Mars Rover' do
     skip('implement obstacle detection?')
   end
 
+
+  private
+
+  def execute_invalid_command(command:, mars_rover:)
+    begin
+      mars_rover.execute([command])
+    rescue
+      # No op
+    end
+  end
 end
