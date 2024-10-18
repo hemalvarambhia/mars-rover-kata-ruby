@@ -47,8 +47,7 @@ describe 'Moving a Mars Rover' do
       initial_position = [3, -1]
       mars_rover =  MarsRover.new(initial_position, direction: cardinal_direction)
 
-      expect { mars_rover.execute(['q']) }.to raise_error(CannotCommandMarsRover)
-      expect(expect(mars_rover.direction).to eq(cardinal_direction))
+      expect { execute_invalid_command(command: 'q', mars_rover: mars_rover) }.not_to change(mars_rover, :direction)
     end
   end
 
