@@ -11,18 +11,18 @@ describe 'Moving a Mars Rover' do
       initial_position = [0, 1]
       mars_rover = MarsRover.new(initial_position, direction: :north)
 
-      change_only_y_coordinate =
-        change(mars_rover, :y_coordinate).by(1).and(change(mars_rover, :x_coordinate).by(0))
-      expect { mars_rover.execute(['f']) }.to change_only_y_coordinate
+      move_along_y_axis =
+        change(mars_rover, :y_coordinate).by(1).and(not_change(mars_rover, :x_coordinate))
+      expect { mars_rover.execute(['f']) }.to move_along_y_axis
     end
 
     it 'moves forwards from any position when facing north' do
       initial_position = [0, 2]
       mars_rover = MarsRover.new(initial_position, direction: :north)
 
-      change_only_y_coordinate =
-        (change(mars_rover, :y_coordinate).by(1)).and(change(mars_rover, :x_coordinate).by(0))
-      expect { mars_rover.execute(['f']) }.to change_only_y_coordinate
+      move_along_y_axis =
+        (change(mars_rover, :y_coordinate).by(1)).and(not_change(mars_rover, :x_coordinate))
+      expect { mars_rover.execute(['f']) }.to move_along_y_axis
     end
 
     it 'moves forwards from any position when facing south' do
@@ -132,5 +132,9 @@ describe 'Moving a Mars Rover' do
     rescue
       # No op
     end
+  end
+
+  def not_change(mars_rover, coordinate)
+    change(mars_rover, coordinate).by 0
   end
 end
