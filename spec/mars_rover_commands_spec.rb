@@ -19,8 +19,9 @@ describe 'Moving a Mars Rover' do
       initial_position = [0, 2]
       mars_rover = MarsRover.new(initial_position, direction: :north)
 
-      expect { mars_rover.execute(['f']) }.to change(mars_rover, :y_coordinate).by 1
-      expect { mars_rover.execute(['f']) }.not_to change(mars_rover, :x_coordinate)
+      change_only_y_coordinate =
+        (change(mars_rover, :y_coordinate).by(1)).and(change(mars_rover, :x_coordinate).by(0))
+      expect { mars_rover.execute(['f']) }.to change_only_y_coordinate
     end
 
     it 'moves forwards from any position when facing south' do
