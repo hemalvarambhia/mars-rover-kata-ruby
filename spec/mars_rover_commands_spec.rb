@@ -12,7 +12,7 @@ describe 'Moving a Mars Rover' do
       mars_rover = MarsRover.new(initial_position, direction: :north)
 
       expect { mars_rover.execute(['f']) }.to(
-        move_forward(mars_rover, displacement: OpenStruct.new(dx: 0, dy: 1))
+        move(mars_rover, displacement: OpenStruct.new(dx: 0, dy: 1))
       )
     end
 
@@ -21,7 +21,7 @@ describe 'Moving a Mars Rover' do
       mars_rover = MarsRover.new(initial_position, direction: :north)
 
       expect { mars_rover.execute(['f']) }.to(
-        move_forward(mars_rover, displacement: OpenStruct.new(dx: 0, dy: 1))
+        move(mars_rover, displacement: OpenStruct.new(dx: 0, dy: 1))
       )
     end
 
@@ -30,7 +30,7 @@ describe 'Moving a Mars Rover' do
       mars_rover =  MarsRover.new(initial_position, direction: :south)
 
       expect { mars_rover.execute(['f']) }.to(
-        move_forward(mars_rover, displacement: OpenStruct.new(dx: 0, dy: -1))
+        move(mars_rover, displacement: OpenStruct.new(dx: 0, dy: -1))
       )
     end
 
@@ -81,7 +81,7 @@ describe 'Moving a Mars Rover' do
     expect { mars_rover.execute(['b']) }.to change(mars_rover, :y_coordinate).by -1
     expect { mars_rover.execute(['b']) }.not_to change(mars_rover, :x_coordinate)
     expect { mars_rover.execute(['b']) }.to(
-      move_forward(mars_rover, displacement: OpenStruct.new(dx: 0, dy: -1))
+      move(mars_rover, displacement: OpenStruct.new(dx: 0, dy: -1))
     )
   end
 
@@ -138,7 +138,7 @@ describe 'Moving a Mars Rover' do
     end
   end
 
-  def move_forward(mars_rover, displacement:)
+  def move(mars_rover, displacement:)
     change(mars_rover, :y_coordinate).by(displacement.dy).and(change(mars_rover, :x_coordinate).by(displacement.dx))
   end
 end
