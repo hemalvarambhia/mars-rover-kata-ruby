@@ -66,7 +66,7 @@ class MarsRover
     when :north
       @current_position = [@current_position[0], @current_position[1] + 1]
     when :east
-      @current_position = [@current_position[0] + 1, @current_position[1]] # untested
+      @current_position = [@current_position[0] + 1, @current_position[1]]
     when :south
       @current_position = [@current_position[0], @current_position[1] - 1]
     when :west
