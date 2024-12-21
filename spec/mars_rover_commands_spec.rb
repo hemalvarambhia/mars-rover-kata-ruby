@@ -53,8 +53,7 @@ describe 'Moving a Mars Rover' do
     # TODO FIXME we need more validation tests.
     # For example, this tests a case where the input direction is the default,
     # and we need more than that.
-    expect { mars_rover.execute(['q']) }.to raise_error(CannotCommandMarsRover)
-    expect { execute_invalid_command(command: 'q', mars_rover: mars_rover) }.not_to change(mars_rover, :current_position)
+    expect { mars_rover.execute(['q']) }.to(raise_error(CannotCommandMarsRover).and(not_move(mars_rover)))
     expect { execute_invalid_command(command: 'q', mars_rover: mars_rover) }.not_to change(mars_rover, :direction)
   end
 
@@ -146,5 +145,9 @@ describe 'Moving a Mars Rover' do
 
   def move(mars_rover, displacement:)
     change(mars_rover, :y_coordinate).by(displacement.dy).and(change(mars_rover, :x_coordinate).by(displacement.dx))
+  end
+
+  def not_move(mars_rover)
+    change(mars_rover, :y_coordinate).by(0).and(change(mars_rover, :x_coordinate).by(0))
   end
 end
