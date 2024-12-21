@@ -141,12 +141,4 @@ describe 'Moving a Mars Rover' do
   def move_forward(mars_rover, displacement:)
     change(mars_rover, :y_coordinate).by(displacement.dy).and(change(mars_rover, :x_coordinate).by(displacement.dx))
   end
-
-  def move(mars_rover, along_y_axis_by:)
-    change(mars_rover, :y_coordinate).by(along_y_axis_by).and(not_change(mars_rover, :x_coordinate))
-  end
-
-  def not_change(mars_rover, coordinate)
-    change(mars_rover, coordinate).by 0
-  end
 end
