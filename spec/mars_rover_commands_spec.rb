@@ -20,7 +20,6 @@ describe 'Moving a Mars Rover' do
       initial_position = [0, 2]
       mars_rover = MarsRover.new(initial_position, direction: :north)
 
-      expect { mars_rover.execute(['f']) }.to move(mars_rover, along_y_axis_by: 1)
       expect { mars_rover.execute(['f']) }.to(
         move_forward(mars_rover, displacement: OpenStruct.new(dx: 0, dy: 1))
       )
