@@ -80,6 +80,9 @@ describe 'Moving a Mars Rover' do
 
     expect { mars_rover.execute(['b']) }.to change(mars_rover, :y_coordinate).by -1
     expect { mars_rover.execute(['b']) }.not_to change(mars_rover, :x_coordinate)
+    expect { mars_rover.execute(['b']) }.to(
+      move_forward(mars_rover, displacement: OpenStruct.new(dx: 0, dy: -1))
+    )
   end
 
   it 'moves backwards when facing east' do
