@@ -29,7 +29,9 @@ describe 'Moving a Mars Rover' do
       initial_position = [-1, -1]
       mars_rover =  MarsRover.new(initial_position, direction: :south)
 
-      expect { mars_rover.execute(['f']) }.to(move_forward(mars_rover, displacement: OpenStruct.new(dx: 0, dy: -1)))
+      expect { mars_rover.execute(['f']) }.to(
+        move_forward(mars_rover, displacement: OpenStruct.new(dx: 0, dy: -1))
+      )
     end
 
     it 'moves forwards when facing east'
@@ -134,7 +136,7 @@ describe 'Moving a Mars Rover' do
   end
 
   def move_forward(mars_rover, displacement:)
-    move(mars_rover, along_y_axis_by: displacement.dy)
+    change(mars_rover, :y_coordinate).by(displacement.dy).and(change(mars_rover, :x_coordinate).by(displacement.dx))
   end
 
   def move(mars_rover, along_y_axis_by:)
