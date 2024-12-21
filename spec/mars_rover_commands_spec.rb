@@ -34,7 +34,15 @@ describe 'Moving a Mars Rover' do
       )
     end
 
-    it 'moves forwards when facing east'
+    it 'moves forwards when facing east' do
+      initial_position = [0, 0]
+      mars_rover =  MarsRover.new(initial_position, direction: :east)
+
+      expect { mars_rover.execute(['f']) }.to(
+        move(mars_rover, displacement: OpenStruct.new(dx: 1, dy: 0))
+      )
+    end
+
     it 'moves forwards when facing west'
   end
 
