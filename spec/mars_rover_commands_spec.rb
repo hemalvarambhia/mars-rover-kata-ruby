@@ -63,8 +63,7 @@ describe 'Moving a Mars Rover' do
     initial_position = [3, -1]
     mars_rover =  MarsRover.new(initial_position, direction: :north)
     # This tests both the exception raised and that the instance did not change.
-    expect { mars_rover.execute('Hello World') }.to raise_error(CannotCommandMarsRover)
-    expect(mars_rover.current_position).to eq(initial_position)
+    expect { mars_rover.execute('Hello World') }.to not_move(mars_rover).and(raise_error(CannotCommandMarsRover))
     expect(mars_rover.direction).to eq(:north)
   end
 
