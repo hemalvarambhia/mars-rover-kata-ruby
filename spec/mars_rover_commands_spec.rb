@@ -1,6 +1,6 @@
 require 'ostruct'
 
-Displacement = Struct.new(:dx, :dy)
+Displacement = Data.define(:dx, :dy)
 
 describe 'Moving a Mars Rover' do
   it 'receives an array of commands from Earth' do
