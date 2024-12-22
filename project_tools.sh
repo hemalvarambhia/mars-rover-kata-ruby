@@ -4,5 +4,5 @@ function change_frequency() {
 }
 
 function complexity() {
-  cloc --by-file .
+  cloc . --by-file --not-match-d='.*\.idea.*'
 }
