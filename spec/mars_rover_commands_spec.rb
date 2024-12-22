@@ -36,7 +36,7 @@ describe 'Moving a Mars Rover' do
 
     it 'moves forwards when facing east' do
       initial_position = [0, 0]
-      mars_rover =  MarsRover.new(initial_position, direction: :east)
+      mars_rover = MarsRover.new(initial_position, direction: :east)
 
       expect { mars_rover.execute(['f']) }.to(
         move(mars_rover, displacement: OpenStruct.new(dx: 1, dy: 0))
@@ -49,7 +49,7 @@ describe 'Moving a Mars Rover' do
   [:north].each do |cardinal_direction|
     it "does not change its position or direction from #{cardinal_direction} when there is an unsupported command" do
       initial_position = [3, -1]
-      mars_rover =  MarsRover.new(initial_position, direction: cardinal_direction)
+      mars_rover = MarsRover.new(initial_position, direction: cardinal_direction)
       # This tests both the exception raised and that the instance did not change.
       # TODO FIXME we need more validation tests.
       # For example, this tests a case where the input direction is the default,
