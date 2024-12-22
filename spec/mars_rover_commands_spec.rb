@@ -15,7 +15,7 @@ describe 'Moving a Mars Rover' do
       mars_rover = MarsRover.new(initial_position, direction: :north)
 
       expect { mars_rover.execute(['f']) }.to(
-        move(mars_rover, displacement: OpenStruct.new(dx: 0, dy: 1))
+        move(mars_rover, displacement: Displacement.new(dx: 0, dy: 1))
       )
     end
 
@@ -24,7 +24,7 @@ describe 'Moving a Mars Rover' do
       mars_rover = MarsRover.new(initial_position, direction: :north)
 
       expect { mars_rover.execute(['f']) }.to(
-        move(mars_rover, displacement: OpenStruct.new(dx: 0, dy: 1))
+        move(mars_rover, displacement: Displacement.new(dx: 0, dy: 1))
       )
     end
 
