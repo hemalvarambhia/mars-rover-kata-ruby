@@ -33,7 +33,7 @@ describe 'Moving a Mars Rover' do
       mars_rover = MarsRover.new(initial_position, direction: :south)
 
       expect { mars_rover.execute(['f']) }.to(
-        move(mars_rover, displacement: OpenStruct.new(dx: 0, dy: -1))
+        move(mars_rover, displacement: Displacement.new(dx: 0, dy: -1))
       )
     end
 
@@ -42,7 +42,7 @@ describe 'Moving a Mars Rover' do
       mars_rover = MarsRover.new(initial_position, direction: :east)
 
       expect { mars_rover.execute(['f']) }.to(
-        move(mars_rover, displacement: OpenStruct.new(dx: 1, dy: 0))
+        move(mars_rover, displacement: Displacement.new(dx: 1, dy: 0))
       )
     end
 
@@ -51,7 +51,7 @@ describe 'Moving a Mars Rover' do
       mars_rover = MarsRover.new(initial_position, direction: :west)
 
       expect { mars_rover.execute(['f']) }.to(
-        move(mars_rover, displacement: OpenStruct.new(dx: -1, dy: 0))
+        move(mars_rover, displacement: Displacement.new(dx: -1, dy: 0))
       )
     end
   end
