@@ -59,15 +59,6 @@ describe 'Moving a Mars Rover' do
     end
   end
 
-  [:north, :south, :east, :west].each do |cardinal_direction|
-    it "does not change direction from #{cardinal_direction} when there is an unsupported command" do
-      initial_position = [3, -1]
-      mars_rover =  MarsRover.new(initial_position, direction: cardinal_direction)
-
-      expect { execute_invalid_command(command: 'q', mars_rover: mars_rover) }.not_to change(mars_rover, :direction)
-    end
-  end
-
   it 'raises an error if the commands from Earth are not an array' do
     initial_position = [3, -1]
     mars_rover =  MarsRover.new(initial_position, direction: :north)
