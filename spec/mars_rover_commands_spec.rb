@@ -64,6 +64,15 @@ describe 'Moving a Mars Rover' do
       )
     end
 
+    it 'moves backwards from any position when facing north' do
+      initial_position = [2, 1]
+      mars_rover = MarsRover.new(initial_position, direction: :north)
+
+      expect { mars_rover.execute(['b']) }.to(
+        move(mars_rover, displacement: Displacement.new(dx: 0, dy: -1))
+      )
+    end
+
     it 'moves backwards when facing east' do
       initial_position = [0, 1]
       mars_rover = MarsRover.new(initial_position, direction: :east)
