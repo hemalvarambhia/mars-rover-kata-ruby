@@ -1,5 +1,4 @@
-Displacement = Data.define(:dx, :dy)
-
+require_relative '../lib/displacement'
 describe 'Moving a Mars Rover' do
   it 'receives an array of commands from Earth' do
     initial_position = [0, 0]
