@@ -1,6 +1,6 @@
 require_relative 'errors/cannot_command_mars_rover'
 require_relative 'errors/cannot_initialize_mars_rover'
-require_relative 'cardinal_directions'
+require 'cardinal_directions'
 require 'point'
 
 class MarsRover
