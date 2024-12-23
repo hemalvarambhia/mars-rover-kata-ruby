@@ -71,7 +71,11 @@ describe 'Moving a Mars Rover' do
       expect { mars_rover.execute(['b']) }.to move(mars_rover, displacement: Displacement.new(dx: -1, dy: 0))
     end
 
-    it 'moves backwards when facing south'
+    it 'moves backwards when facing south' do
+      mars_rover = MarsRover.new([-1, -1], direction: :south)
+
+      expect { mars_rover.execute(['b']) }.to(move(mars_rover, displacement: Displacement.new(dx: 0, dy: 1)))
+    end
 
     it 'moves backwards when facing west'
   end
