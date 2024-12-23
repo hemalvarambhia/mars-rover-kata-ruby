@@ -89,37 +89,39 @@ describe 'Moving a Mars Rover' do
     end
   end
 
-  it 'raises an error if the commands from Earth are not an array' do
-    initial_position = [3, -1]
-    mars_rover =  MarsRover.new(initial_position, direction: :north)
-    # This tests both the exception raised and that the instance did not change.
-    expect { mars_rover.execute('Hello World') }.to not_move(mars_rover).and(raise_error(CannotCommandMarsRover))
-    expect(mars_rover.direction).to eq(:north)
-  end
+  describe 'Handling malformed commands' do
+    it 'raises an error if the commands from Earth are not an array' do
+      initial_position = [3, -1]
+      mars_rover =  MarsRover.new(initial_position, direction: :north)
+      # This tests both the exception raised and that the instance did not change.
+      expect { mars_rover.execute('Hello World') }.to not_move(mars_rover).and(raise_error(CannotCommandMarsRover))
+      expect(mars_rover.direction).to eq(:north)
+    end
 
-  it 'raises an error if no commands (an empty array) are sent from Earth' do
-    initial_position = [3, -1]
-    mars_rover =  MarsRover.new(initial_position, direction: :north)
-    expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
-  end
+    it 'raises an error if no commands (an empty array) are sent from Earth' do
+      initial_position = [3, -1]
+      mars_rover =  MarsRover.new(initial_position, direction: :north)
+      expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
+    end
 
-  example 'raises error if commands to execute is not an array of valid characters' do
-    # array should only consist of f, b, l, r
-    skip('implement valid characters for commands')
-  end
+    example 'raises error if commands to execute is not an array of valid characters' do
+      # array should only consist of f, b, l, r
+      skip('implement valid characters for commands')
+    end
 
-  example 'raises error if commands to execute is an empty array' do
-    # Let the user know something went wrong if array of commands is empty.
-    # It seems likely that this would be a mistake that should be caught.
-    skip('implement valid array for commands')
-  end
+    example 'raises error if commands to execute is an empty array' do
+      # Let the user know something went wrong if array of commands is empty.
+      # It seems likely that this would be a mistake that should be caught.
+      skip('implement valid array for commands')
+    end
 
-  example 'raises error if too many commands are sent' do
-    # We should limit the number of commands that can be sent
-    # And specify in the documentation what the limit is.
-    # Otherwise a user could send an arbitrary number of commands
-    # and possibly crash the system.
-    skip('implement too many commands')
+    example 'raises error if too many commands are sent' do
+      # We should limit the number of commands that can be sent
+      # And specify in the documentation what the limit is.
+      # Otherwise a user could send an arbitrary number of commands
+      # and possibly crash the system.
+      skip('implement too many commands')
+    end
   end
 
   example 'TODO: implement wrapping at edges?' do
