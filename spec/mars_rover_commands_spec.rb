@@ -70,6 +70,10 @@ describe 'Moving a Mars Rover' do
 
       expect { mars_rover.execute(['b']) }.to move(mars_rover, displacement: Displacement.new(dx: -1, dy: 0))
     end
+
+    it 'moves backwards when facing south'
+
+    it 'moves backwards when facing west'
   end
 
   example 'moves forwards and then backwards' do
