@@ -22,11 +22,11 @@ class MarsRover
   end
 
   def x_coordinate
-    Point.new(x: @current_position[0], y: @current_position[1]).x
+    @current_coordinates.x
   end
 
   def y_coordinate
-    Point.new(x: @current_position[0], y: @current_position[1]).y
+    @current_coordinates.y
   end
 
   def self.valid_commands?(commands)
