@@ -80,20 +80,20 @@ describe 'Moving a Mars Rover' do
     skip('implement test for moves forwards and then backwards')
   end
 
-  %i[north east south west].each do |cardinal_direction|
-    it "does not change its position or direction from #{cardinal_direction} when there is an unsupported command" do
-      initial_position = [3, -1]
-      mars_rover = MarsRover.new(initial_position, direction: cardinal_direction)
-      # This tests both the exception raised and that the instance did not change.
-      # TODO FIXME we need more validation tests.
-      # For example, this tests a case where the input direction is the default,
-      # and we need more than that.
-      expect { mars_rover.execute(['q']) }.to not_move(mars_rover).and(raise_error(CannotCommandMarsRover))
-      expect { execute_invalid_command(command: 'q', mars_rover: mars_rover) }.not_to change(mars_rover, :direction)
-    end
-  end
-
   describe 'Handling malformed commands' do
+    %i[north east south west].each do |cardinal_direction|
+      it "does not change its position or direction from #{cardinal_direction} when there is an unsupported command" do
+        initial_position = [3, -1]
+        mars_rover = MarsRover.new(initial_position, direction: cardinal_direction)
+        # This tests both the exception raised and that the instance did not change.
+        # TODO FIXME we need more validation tests.
+        # For example, this tests a case where the input direction is the default,
+        # and we need more than that.
+        expect { mars_rover.execute(['q']) }.to not_move(mars_rover).and(raise_error(CannotCommandMarsRover))
+        expect { execute_invalid_command(command: 'q', mars_rover: mars_rover) }.not_to change(mars_rover, :direction)
+      end
+    end
+
     it 'raises an error if the commands from Earth are not an array' do
       initial_position = [3, -1]
       mars_rover =  MarsRover.new(initial_position, direction: :north)
