@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+require 'ostruct'
 describe "Point" do
   it 'has an x-coordinate' do
     point = Point.new(x: 0, y: -1)
