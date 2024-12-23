@@ -76,8 +76,6 @@ class MarsRover
       @current_position = [@current_position[0] - 1, @current_position[1]]
       @current_coordinates = Point.new(x: @current_position[0], y: @current_position[1])
     end
-
-    @current_coordinates = Point.new(x: @current_position[0], y: @current_position[1])
   end
 
   def move_backwards
