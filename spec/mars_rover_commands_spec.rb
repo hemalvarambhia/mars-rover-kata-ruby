@@ -1,5 +1,3 @@
-require 'ostruct'
-
 Displacement = Data.define(:dx, :dy)
 
 describe 'Moving a Mars Rover' do
