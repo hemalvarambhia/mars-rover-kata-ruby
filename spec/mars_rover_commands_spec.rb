@@ -54,6 +54,28 @@ describe 'Moving a Mars Rover' do
     end
   end
 
+  describe 'Moving backwards' do
+    it 'moves backwards when facing north' do
+      initial_position = [0, 1]
+      mars_rover = MarsRover.new(initial_position, direction: :north)
+
+      expect { mars_rover.execute(['b']) }.to(
+        move(mars_rover, displacement: Displacement.new(dx: 0, dy: -1))
+      )
+    end
+
+    it 'moves backwards when facing east' do
+      initial_position = [0, 1]
+      mars_rover = MarsRover.new(initial_position, direction: :east)
+
+      expect { mars_rover.execute(['b']) }.to move(mars_rover, displacement: Displacement.new(dx: -1, dy: 0))
+    end
+  end
+
+  example 'moves forwards and then backwards' do
+    skip('implement test for moves forwards and then backwards')
+  end
+
   [:north].each do |cardinal_direction|
     it "does not change its position or direction from #{cardinal_direction} when there is an unsupported command" do
       initial_position = [3, -1]
@@ -79,28 +101,6 @@ describe 'Moving a Mars Rover' do
     initial_position = [3, -1]
     mars_rover =  MarsRover.new(initial_position, direction: :north)
     expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
-  end
-
-  describe 'Moving backwards' do
-    it 'moves backwards when facing north' do
-      initial_position = [0, 1]
-      mars_rover = MarsRover.new(initial_position, direction: :north)
-
-      expect { mars_rover.execute(['b']) }.to(
-        move(mars_rover, displacement: Displacement.new(dx: 0, dy: -1))
-      )
-    end
-
-    it 'moves backwards when facing east' do
-      initial_position = [0, 1]
-      mars_rover = MarsRover.new(initial_position, direction: :east)
-
-      expect { mars_rover.execute(['b']) }.to move(mars_rover, displacement: Displacement.new(dx: -1, dy: 0))
-    end
-  end
-
-  example 'moves forwards and then backwards' do
-    skip('implement test for moves forwards and then backwards')
   end
 
   example 'raises error if commands to execute is not an array of valid characters' do
