@@ -81,20 +81,22 @@ describe 'Moving a Mars Rover' do
     expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
   end
 
-  it 'moves backwards when facing north' do
-    initial_position = [0, 1]
-    mars_rover = MarsRover.new(initial_position, direction: :north)
+  describe 'Moving backwards' do
+    it 'moves backwards when facing north' do
+      initial_position = [0, 1]
+      mars_rover = MarsRover.new(initial_position, direction: :north)
 
-    expect { mars_rover.execute(['b']) }.to(
-      move(mars_rover, displacement: Displacement.new(dx: 0, dy: -1))
-    )
-  end
+      expect { mars_rover.execute(['b']) }.to(
+        move(mars_rover, displacement: Displacement.new(dx: 0, dy: -1))
+      )
+    end
 
-  it 'moves backwards when facing east' do
-    initial_position = [0, 1]
-    mars_rover = MarsRover.new(initial_position, direction: :east)
+    it 'moves backwards when facing east' do
+      initial_position = [0, 1]
+      mars_rover = MarsRover.new(initial_position, direction: :east)
 
-    expect { mars_rover.execute(['b']) }.to move(mars_rover, displacement: Displacement.new(dx: -1, dy: 0))
+      expect { mars_rover.execute(['b']) }.to move(mars_rover, displacement: Displacement.new(dx: -1, dy: 0))
+    end
   end
 
   example 'moves forwards and then backwards' do
