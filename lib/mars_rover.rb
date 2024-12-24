@@ -6,8 +6,6 @@ require 'point'
 
 class MarsRover
   include CardinalDirections
-  CARDINAL_COMMANDS = ['f', 'b', 'l', 'r']
-  private_constant :CARDINAL_COMMANDS
 
   attr_reader :direction, :current_coordinates
 
@@ -26,16 +24,6 @@ class MarsRover
 
   def y_coordinate
     @current_coordinates.y
-  end
-
-  def self.valid_commands?(commands)
-    commands.is_a?(Array) &&
-      commands.all? { |command| supported?(command) } &&
-      ! commands.empty?
-  end
-
-  def self.supported?(command)
-    CARDINAL_COMMANDS.include?(command)
   end
 
   def execute(commands)
@@ -86,5 +74,18 @@ class MarsRover
       displacement = Displacement.new(dx: 1, dy: 0)
       @current_coordinates += displacement
     end
+  end
+
+  CARDINAL_COMMANDS = ['f', 'b', 'l', 'r']
+  private_constant :CARDINAL_COMMANDS
+
+  def self.valid_commands?(commands)
+    commands.is_a?(Array) &&
+      commands.all? { |command| supported?(command) } &&
+      ! commands.empty?
+  end
+
+  def self.supported?(command)
+    CARDINAL_COMMANDS.include?(command)
   end
 end
