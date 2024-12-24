@@ -9,10 +9,10 @@ class MarsRover
 
   attr_reader :direction, :current_coordinates
 
-  def initialize(initial_position, direction: :north)
+  def initialize(initial_position, starting_point: Point.new(x: initial_position[0], y: initial_position[1]), direction: :north)
     raise CannotInitializeMarsRover.new unless supported?(direction)
 
-    @current_coordinates = Point.new(x: initial_position[0], y: initial_position[1])
+    @current_coordinates = starting_point
     @direction = direction
   end
 
