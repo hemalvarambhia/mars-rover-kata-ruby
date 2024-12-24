@@ -69,7 +69,7 @@ class MarsRover
     @current_coordinates += displacements[@direction]
   end
 
-  CARDINAL_COMMANDS = ['f', 'b', 'l', 'r']
+  CARDINAL_COMMANDS = %w[f b l r].freeze
   private_constant :CARDINAL_COMMANDS
 
   def self.valid_commands?(commands)
