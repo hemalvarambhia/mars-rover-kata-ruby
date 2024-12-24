@@ -74,6 +74,10 @@ please speak to your local rubyist.
 
 ## Code Smell Detection
 
+I've begun to use this branch as a test bed for trying out various code quality
+tools. Two are listed here.
+
+### Ruby Critic
 I have added a gem called `rubycritic` as one tool we could use in our sessions together
 to detect code smells. To use it in this problem, simply run the following
 
@@ -83,3 +87,19 @@ bundle exec rubycritic lib
 
 Your browser will pop up and a page will show with some feedback on code
 quality.
+
+### maat-scripts
+
+Adam Tornhill has carried out a lot of research on Code Quality,
+publishing two books in the process:
+1. [Your Code as a Crime Scene](https://pragprog.com/titles/atcrime2/your-code-as-a-crime-scene-second-edition/); and
+2. [Software Design X-rays](https://pragprog.com/titles/atevol/software-design-x-rays/)
+
+The second of these references some of his open source work, in particular
+[maat-scripts](https://github.com/adamtornhill/maat-scripts), and this branch has a shell script that runs
+the git complexity trends script. To experiment with it here, be sure to have installed python 3, and then:
+1. `git clone https://github.com/adamtornhill/maat-scripts` into a `projects` dir;
+2. `git fetch origin python3`;
+3. run its tests, making sure to `pip install` any dependencies it recommends;
+4. assuming the tests pass, `source code-quality-experiments/software-design-x-rays.sh` and you should be able to run complexity_trends on the terminal
+
