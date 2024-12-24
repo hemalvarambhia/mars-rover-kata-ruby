@@ -10,7 +10,7 @@ class MarsRover
   attr_reader :direction, :current_coordinates
 
   def initialize(initial_position, direction: :north)
-    unless CardinalDirections::ALL_DIRECTIONS.include?(direction)
+    unless supported?(direction)
       raise CannotInitializeMarsRover.new
     end
 
