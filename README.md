@@ -102,4 +102,5 @@ the git complexity trends script. To experiment with it here, be sure to have in
 2. `git fetch origin python3`;
 3. run its tests, making sure to `pip install` any dependencies it recommends;
 4. assuming the tests pass, `source code-quality-experiments/software-design-x-rays.sh` and you should be able to run complexity_trends on the terminal
+like so `complexity_trends > code-quality-experiments/trends.csv`.
 
