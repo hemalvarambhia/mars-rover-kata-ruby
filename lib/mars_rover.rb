@@ -27,9 +27,7 @@ class MarsRover
   def execute(commands)
     # Protect Mars Rover from obeying invalid commands. Input commands must
     # be in an array, and they must be one of the CARDINAL_COMMANDS.
-    unless MarsRover.valid_commands?(commands)
-      raise CannotCommandMarsRover.new
-    end
+    raise CannotCommandMarsRover.new unless MarsRover.valid_commands?(commands)
 
     command = commands[0]
     case command
