@@ -1,11 +1,24 @@
 require 'spec_helper'
 require 'ostruct'
+require_relative '../lib/displacement'
 describe "Point" do
   it 'has an x-coordinate' do
     point = Point.new(x: 0, y: -1)
 
     expect(point.x).to eq(0)
     expect(point.y).to eq(-1)
+  end
+
+  describe 'translating a point' do
+    it 'translates a point along the x-axis' do
+      starting_point = Point.new(x: 0, y: 1)
+
+      displacement = Displacement.new(dx: 1, dy: 0)
+      translated_point = starting_point.move(displacement)
+
+      expected = Point.new(x: 1, y: 1)
+      expect(translated_point).to eq(expected)
+    end
   end
 
   describe '#=' do
