@@ -63,17 +63,14 @@ class MarsRover
     case @direction
     when :north
       displacement = Displacement.new(dx: 0, dy: -1)
-      @current_coordinates += displacement
     when :east
       displacement = Displacement.new(dx: -1, dy: 0)
-      @current_coordinates += displacement
     when :south
       displacement = Displacement.new(dx: 0, dy: 1)
-      @current_coordinates += displacement
     when :west
       displacement = Displacement.new(dx: 1, dy: 0)
-      @current_coordinates += displacement
     end
+    @current_coordinates += displacement
   end
 
   CARDINAL_COMMANDS = ['f', 'b', 'l', 'r']
