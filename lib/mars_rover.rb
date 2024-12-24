@@ -74,13 +74,17 @@ class MarsRover
   def move_backwards
     case @direction
     when :north
-      @current_coordinates += Displacement.new(dx: 0, dy: -1)
+      displacement = Displacement.new(dx: 0, dy: -1)
+      @current_coordinates += displacement
     when :east
-      @current_coordinates += Displacement.new(dx: -1, dy: 0)
+      displacement = Displacement.new(dx: -1, dy: 0)
+      @current_coordinates += displacement
     when :south
-      @current_coordinates += Displacement.new(dx: 0, dy: 1)
+      displacement = Displacement.new(dx: 0, dy: 1)
+      @current_coordinates += displacement
     when :west
-      @current_coordinates += Displacement.new(dx: 1, dy: 0)
+      displacement = Displacement.new(dx: 1, dy: 0)
+      @current_coordinates += displacement
     end
   end
 end
