@@ -10,5 +10,5 @@ function complexity() {
 }
 
 function complexity_trend() {
-  python3 ~/projects/maat-scripts/miner/git_complexity_trend.py --start db1e201083a317bfba6694192c479dc4b55569e1 --end b55bce707daad1933bb165d5117fc74c75dac35a --file lib/mars_rover.rb
+  python3 ~/projects/maat-scripts/miner/git_complexity_trend.py --start 940009903d54da750dd25f65ff3375cc52469c9b --end 7fe6901f599004961fe51376818deae04ea6902b --file lib/mars_rover.rb
 }
