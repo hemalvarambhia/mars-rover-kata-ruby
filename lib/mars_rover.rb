@@ -29,13 +29,7 @@ class MarsRover
     # be in an array, and they must be one of the CARDINAL_COMMANDS.
     raise CannotCommandMarsRover.new unless MarsRover.valid_commands?(commands)
 
-    command = commands[0]
-    case command
-    when 'f'
-      move_forward
-    when 'b'
-      move_backwards
-    end
+    commands.each(&method(:run))
   end
 
   def inspect
@@ -43,6 +37,15 @@ class MarsRover
   end
 
   private
+
+  def run(command)
+    case command
+    when 'f'
+      move_forward
+    when 'b'
+      move_backwards
+    end
+  end
 
   def move_forward
     displacements = {

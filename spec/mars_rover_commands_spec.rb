@@ -51,6 +51,14 @@ describe 'Moving a Mars Rover' do
         move(mars_rover, displacement: Displacement.new(dx: -1, dy: 0))
       )
     end
+
+    it 'moves forwards multiple times' do
+      mars_rover = MarsRover.new([2, 1], direction: :south)
+
+      expect { mars_rover.execute(['f', 'f', 'f' ]) }.to(
+        move(mars_rover, displacement: Displacement.new(dx: 0, dy: -3))
+      )
+    end
   end
 
   describe 'Moving backwards' do
