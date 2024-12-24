@@ -14,7 +14,7 @@ describe "Point" do
       starting_point = Point.new(x: 0, y: 1)
 
       displacement = Displacement.new(dx: 1, dy: 0)
-      translated_point = starting_point.move(displacement)
+      translated_point = starting_point + displacement
 
       expected = Point.new(x: 1, y: 1)
       expect(translated_point).to eq(expected)
@@ -24,7 +24,7 @@ describe "Point" do
       starting_point = Point.new(x: 2, y: 1)
 
       displacement = Displacement.new(dx: 1, dy: 0)
-      translated_point = starting_point.move(displacement)
+      translated_point = starting_point + displacement
 
       expected = Point.new(x: 3, y: 1)
       expect(translated_point).to eq(expected)
@@ -33,7 +33,7 @@ describe "Point" do
     it 'translates any point along the y-axis' do
       starting_point = Point.new(x: 4, y: 1)
       displacement = Displacement.new(dx: 0, dy: 2)
-      translated_point = starting_point.move(displacement)
+      translated_point = starting_point + displacement
 
       expected = Point.new(x: 4, y: 3)
       expect(translated_point).to eq(expected)

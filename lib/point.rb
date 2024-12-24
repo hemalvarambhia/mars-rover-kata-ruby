@@ -8,7 +8,7 @@ class Point
     @y = y
   end
 
-  def move(displacement)
+  def +(displacement)
     Point.new(x: @x + displacement.dx, y: @y + displacement.dy)
   end
 
