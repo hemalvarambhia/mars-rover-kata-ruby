@@ -1,6 +1,7 @@
 require_relative 'errors/cannot_command_mars_rover'
 require_relative 'errors/cannot_initialize_mars_rover'
 require 'cardinal_directions'
+require 'displacement'
 require 'point'
 
 class MarsRover
@@ -62,9 +63,9 @@ class MarsRover
   def move_forward
     case @direction
     when :north
-      @current_coordinates = Point.new(x: @current_coordinates.x, y: @current_coordinates.y + 1)
+      @current_coordinates += Displacement.new(dx: 0, dy: 1)
     when :east
-      @current_coordinates = Point.new(x: @current_coordinates.x + 1, y: @current_coordinates.y)
+      @current_coordinates += Displacement.new(dx: 1, dy: 0)
     when :south
       @current_coordinates = Point.new(x: @current_coordinates.x, y: @current_coordinates.y - 1)
     when :west
