@@ -1,4 +1,5 @@
 # A Mars Rover can point in one of four possible directions, definied here.
+require 'displacement'
 module CardinalDirections
   ALL_DIRECTIONS = %i[north south east west].freeze
   private_constant :ALL_DIRECTIONS

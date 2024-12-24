@@ -1,7 +1,6 @@
 require_relative 'errors/cannot_command_mars_rover'
 require_relative 'errors/cannot_initialize_mars_rover'
 require 'cardinal_directions'
-require 'displacement'
 require 'point'
 
 class MarsRover
