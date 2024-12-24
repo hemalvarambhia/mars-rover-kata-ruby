@@ -61,16 +61,18 @@ class MarsRover
   private
 
   def move_forward
-    case @direction
-    when :north
-      displacement = Displacement.new(dx: 0, dy: 1)
-    when :east
-      displacement = Displacement.new(dx: 1, dy: 0)
-    when :south
-      displacement = Displacement.new(dx: 0, dy: -1)
-    when :west
-      displacement = Displacement.new(dx: -1, dy: 0)
-    end
+    displacement =
+      case @direction
+      when :north
+        Displacement.new(dx: 0, dy: 1)
+      when :east
+        Displacement.new(dx: 1, dy: 0)
+      when :south
+        Displacement.new(dx: 0, dy: -1)
+      when :west
+        Displacement.new(dx: -1, dy: 0)
+      end
+
     @current_coordinates += displacement
   end
 
