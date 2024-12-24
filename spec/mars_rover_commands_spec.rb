@@ -55,7 +55,7 @@ describe 'Moving a Mars Rover' do
     it 'moves forwards multiple times' do
       mars_rover = MarsRover.new([2, 1], direction: :south)
 
-      expect { mars_rover.execute(['f', 'f', 'f' ]) }.to(
+      expect { mars_rover.execute(%w[f f f]) }.to(
         move(mars_rover, displacement: Displacement.new(dx: 0, dy: -3))
       )
     end
