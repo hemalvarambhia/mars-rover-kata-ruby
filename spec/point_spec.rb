@@ -19,6 +19,16 @@ describe "Point" do
       expected = Point.new(x: 1, y: 1)
       expect(translated_point).to eq(expected)
     end
+
+    it 'translates any point along the x-axis' do
+      starting_point = Point.new(x: 2, y: 1)
+
+      displacement = Displacement.new(dx: 1, dy: 0)
+      translated_point = starting_point.move(displacement)
+
+      expected = Point.new(x: 3, y: 1)
+      expect(translated_point).to eq(expected)
+    end
   end
 
   describe '#=' do

@@ -9,7 +9,7 @@ class Point
   end
 
   def move(displacement)
-    Point.new(x: 1, y: 1)
+    Point.new(x: @x + displacement.dx, y: 1)
   end
 
   def inspect
