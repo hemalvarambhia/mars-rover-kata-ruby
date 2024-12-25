@@ -10,7 +10,9 @@ function complexity() {
 }
 
 function complexity_trend() {
-  python3 ~/projects/maat-scripts/miner/git_complexity_trend.py --start 940009903d54da750dd25f65ff3375cc52469c9b --end 9b75e1cb0d859e9b9742380a30c96c7911ef0eed --file lib/mars_rover.rb
+  starting_commit=940009903d54da750dd25f65ff3375cc52469c9b
+  finishing_commit=9b75e1cb0d859e9b9742380a30c96c7911ef0eed
+  python3 ~/projects/maat-scripts/miner/git_complexity_trend.py --start "$starting_commit" --end $finishing_commit --file lib/mars_rover.rb
 }
 
 function complexity_trend_of_point() {
