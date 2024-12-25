@@ -101,10 +101,11 @@ the git complexity trends script. To experiment with it here, be sure to have in
 1. `git clone https://github.com/adamtornhill/maat-scripts` into a `projects` dir;
 1. `cd projects/maat-scripts && git fetch origin python3`;
 1. `git checkout python3`;
-1. run its tests, making sure to `pip install` any dependencies it recommends, including:
+1. make sure to `pip install` any dependencies it recommends, including:
    - `ddt`;
    - `pipe`; and
    - `matplotlib`
+1. run its tests;
 1. assuming the tests pass, `source code-quality-experiments/software-design-x-rays.sh` and you should be able to run complexity_trends on the terminal
 like so `complexity_trends > code-quality-experiments/trends.csv`.
 
