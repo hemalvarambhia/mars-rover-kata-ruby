@@ -77,10 +77,6 @@ describe 'Moving a Mars Rover' do
     end
   end
 
-  def move(mars_rover, displacement:)
-    change(mars_rover, :y_coordinate).by(displacement.dy).and(change(mars_rover, :x_coordinate).by(displacement.dx))
-  end
-
   def not_move(mars_rover)
     change(mars_rover, :y_coordinate).by(0).and(change(mars_rover, :x_coordinate).by(0))
   end
