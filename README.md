@@ -99,8 +99,12 @@ The second of these references some of his open source work, in particular
 [maat-scripts](https://github.com/adamtornhill/maat-scripts), and this branch has a shell script that runs
 the git complexity trends script. To experiment with it here, be sure to have installed python 3, and then:
 1. `git clone https://github.com/adamtornhill/maat-scripts` into a `projects` dir;
-2. `git fetch origin python3`;
-3. run its tests, making sure to `pip install` any dependencies it recommends;
-4. assuming the tests pass, `source code-quality-experiments/software-design-x-rays.sh` and you should be able to run complexity_trends on the terminal
+1. `git fetch origin python3`;
+1. `git checkout python3`
+1. run its tests, making sure to `pip install` any dependencies it recommends, including:
+   - `ddt`;
+   - `pipe`; and
+   - `matplotlib`
+1. assuming the tests pass, `source code-quality-experiments/software-design-x-rays.sh` and you should be able to run complexity_trends on the terminal
 like so `complexity_trends > code-quality-experiments/trends.csv`.
 
