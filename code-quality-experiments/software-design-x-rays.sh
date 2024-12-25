@@ -11,7 +11,7 @@ function complexity() {
 
 function complexity_trend() {
   starting_commit=$(git log --format="%H" --diff-filter=A -- lib/mars_rover.rb)
-  finishing_commit=9b75e1cb0d859e9b9742380a30c96c7911ef0eed
+  finishing_commit=$(git log -1 --format="%H" -- lib/mars_rover.rb)
   python3 ~/projects/maat-scripts/miner/git_complexity_trend.py --start "$starting_commit" --end $finishing_commit --file lib/mars_rover.rb
 }
 
