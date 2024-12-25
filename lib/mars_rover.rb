@@ -43,6 +43,8 @@ class MarsRover
       move_forward
     when 'b'
       move_backwards
+    when 'l'
+      @direction = :west
     end
   end
 
