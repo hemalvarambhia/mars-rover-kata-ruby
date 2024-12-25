@@ -22,3 +22,8 @@ function proximity_analysis() {
   finishing_commit=$(git log -1 --format="%H" -- "$ruby_script")
   python3 ~/projects/maat-scripts/miner/git_proximity_analysis.py --start "$starting_commit" --end "$finishing_commit"
 }
+
+function plot() {
+  local csv=$1
+  python3 ~/projects/maat-scripts/plot/plot.py --file "$csv" --column 1
+}
