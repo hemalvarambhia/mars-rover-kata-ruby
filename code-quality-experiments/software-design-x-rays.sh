@@ -16,5 +16,6 @@ function complexity_trend() {
 }
 
 function complexity_trend_of_point() {
-    python3 ~/projects/maat-scripts/miner/git_complexity_trend.py --start 5e870dbc201b0ba1c36af11c05b967da985fcf80 --end 6c71b3c526534a74bfa9702c40b9557ae8ca9f5a --file lib/point.rb
+  starting_commit=5e870dbc201b0ba1c36af11c05b967da985fcf80
+  python3 ~/projects/maat-scripts/miner/git_complexity_trend.py --start $starting_commit --end 6c71b3c526534a74bfa9702c40b9557ae8ca9f5a --file lib/point.rb
 }
