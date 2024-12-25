@@ -100,7 +100,7 @@ The second of these references some of his open source work, in particular
 the git complexity trends script. To experiment with it here, be sure to have installed python 3, and then:
 1. `git clone https://github.com/adamtornhill/maat-scripts` into a `projects` dir;
 1. `cd projects/maat-scripts && git fetch origin python3`;
-1. `git checkout python3`
+1. `git checkout python3`;
 1. run its tests, making sure to `pip install` any dependencies it recommends, including:
    - `ddt`;
    - `pipe`; and
