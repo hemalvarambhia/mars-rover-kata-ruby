@@ -17,5 +17,6 @@ function complexity_trend() {
 
 function complexity_trend_of_point() {
   starting_commit=$(git log --format="%H" --diff-filter=A -- lib/point.rb)
-  python3 ~/projects/maat-scripts/miner/git_complexity_trend.py --start "$starting_commit" --end 6c71b3c526534a74bfa9702c40b9557ae8ca9f5a --file lib/point.rb
+  finishing_commit=$(git log -1 --format="%H" -- lib/point.rb)
+  python3 ~/projects/maat-scripts/miner/git_complexity_trend.py --start "$starting_commit" --end "$finishing_commit" --file lib/point.rb
 }
