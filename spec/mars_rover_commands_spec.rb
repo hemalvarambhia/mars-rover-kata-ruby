@@ -113,6 +113,13 @@ describe 'Moving a Mars Rover' do
     expect { mars_rover.execute(%w[f b b b]) }.to move(mars_rover, displacement: Displacement.new(dx: -2, dy: 0))
   end
 
+  describe 'Turning left' do
+    it 'turns left when facing north, meaning it now faces west'
+    it 'turns left when facing west, meaning it now faces south'
+    it 'turns left when facing south, meaning it now faces east'
+    it 'turns left when facing east, meaning it now faces north'
+  end
+
   describe 'Handling malformed commands' do
     %i[north east south west].each do |cardinal_direction|
       it "does not change its position or direction from #{cardinal_direction} when there is an unsupported command" do
