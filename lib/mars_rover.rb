@@ -47,13 +47,7 @@ class MarsRover
       rotate_left = {
         north: :west, west: :south, south: :east
       }
-      if @direction == :south
-        @direction = rotate_left[@direction]
-      elsif @direction == :west
-        @direction = rotate_left[@direction]
-      else
-        @direction = rotate_left[@direction]
-      end
+      @direction = rotate_left[@direction]
     end
   end
 
