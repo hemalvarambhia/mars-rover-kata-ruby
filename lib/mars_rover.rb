@@ -41,14 +41,12 @@ class MarsRover
     case command
     when 'f'
       command = :move_forward
-      send(command)
     when 'b'
       command = :move_backwards
-      send(command)
     when 'l'
       command = :turn_left
-      send(command)
     end
+    send(command)
   end
 
   def turn_left
