@@ -45,10 +45,10 @@ class MarsRover
       move_backwards
     when 'l'
       rotate_left = {
-        north: :west, west: :south
+        north: :west, west: :south, south: :east
       }
       if @direction == :south
-        @direction = :east
+        @direction = rotate_left[@direction]
       elsif @direction == :west
         @direction = rotate_left[@direction]
       else
