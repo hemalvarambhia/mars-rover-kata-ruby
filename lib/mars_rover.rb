@@ -38,6 +38,7 @@ class MarsRover
   private
 
   def run(command)
+    supported_commands = { 'f' => :move_forward, 'b' => :move_backwards, 'l' => :turn_left }
     case command
     when 'f'
       command = :move_forward
