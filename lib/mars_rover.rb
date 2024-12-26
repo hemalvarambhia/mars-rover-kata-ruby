@@ -44,7 +44,9 @@ class MarsRover
     when 'b'
       move_backwards
     when 'l'
-      if @direction == :west
+      if @direction == :south
+        @direction = :east
+      elsif @direction == :west
         @direction = :south
       else
         @direction = :west

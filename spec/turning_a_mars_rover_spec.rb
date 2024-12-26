@@ -10,6 +10,10 @@ describe 'Turning left' do
 
     expect { mars_rover.execute(['l']) }.to change(mars_rover, :direction).to(:south)
   end
-  it 'turns left when facing south, meaning it now faces east'
+  it 'turns left when facing south, meaning it now faces east' do
+    mars_rover = MarsRover.new([0, 0], direction: :south)
+
+    expect { mars_rover.execute(['l']) }.to change(mars_rover, :direction).to(:east)
+  end
   it 'turns left when facing east, meaning it now faces north'
 end
