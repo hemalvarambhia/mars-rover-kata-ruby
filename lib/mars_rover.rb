@@ -39,15 +39,8 @@ class MarsRover
 
   def run(command)
     supported_commands = { 'f' => :move_forward, 'b' => :move_backwards, 'l' => :turn_left }
-    case command
-    when 'f'
-      command = :move_forward
-    when 'b'
-      command = :move_backwards
-    when 'l'
-      command = :turn_left
-    end
-    send(command)
+
+    send(supported_commands[command])
   end
 
   def turn_left
