@@ -10,7 +10,7 @@ module CardinalDirections
 
   def rotate_left(direction)
     rotate_left = {
-      north: :west, west: :south, south: :east
+      north: :west, west: :south, south: :east, east: :north
     }
     rotate_left[direction]
   end
