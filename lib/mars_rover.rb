@@ -59,8 +59,7 @@ class MarsRover
   private_constant :CARDINAL_COMMANDS
 
   def self.valid_commands?(commands)
-    commands.is_a?(Array) &&  !commands.empty? &&
-      commands.all? { |command| supported?(command) }
+    commands.is_a?(Array) &&  !commands.empty? && commands.all? { |command| supported?(command) }
   end
 
   def self.supported?(command)
