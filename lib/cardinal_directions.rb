@@ -8,6 +8,13 @@ module CardinalDirections
     ALL_DIRECTIONS.include?(direction)
   end
 
+  def rotate_left(direction)
+    rotate_left = {
+      north: :west, west: :south, south: :east
+    }
+    rotate_left[direction]
+  end
+
   def forwards(direction)
     {
       north: Displacement.new(dx: 0, dy: 1),

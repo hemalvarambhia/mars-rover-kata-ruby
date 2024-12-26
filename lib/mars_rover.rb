@@ -49,10 +49,7 @@ class MarsRover
   end
 
   def turn_left
-    rotate_left = {
-      north: :west, west: :south, south: :east
-    }
-    @direction = rotate_left[@direction]
+    @direction = rotate_left(@direction)
   end
 
   def move_forward
