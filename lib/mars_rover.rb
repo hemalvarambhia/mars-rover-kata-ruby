@@ -44,11 +44,15 @@ class MarsRover
     when 'b'
       move_backwards
     when 'l'
-      rotate_left = {
-        north: :west, west: :south, south: :east
-      }
-      @direction = rotate_left[@direction]
+      turn_left
     end
+  end
+
+  def turn_left
+    rotate_left = {
+      north: :west, west: :south, south: :east
+    }
+    @direction = rotate_left[@direction]
   end
 
   def move_forward
