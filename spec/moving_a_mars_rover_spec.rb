@@ -28,8 +28,12 @@ describe 'Moving a Mars Rover' do
     end
 
     it 'moves forwards from any position when facing south' do
-      initial_position = [-1, -1]
-      mars_rover = MarsRover.new(initial_position, direction: :south)
+      mars_rover =
+        MarsRover.new(
+          nil,
+          starting_point: Point.new(x: -1, y: -1),
+          direction: :south
+        )
 
       expect { mars_rover.execute(['f']) }.to(
         move(mars_rover, displacement: Displacement.new(dx: 0, dy: -1))
