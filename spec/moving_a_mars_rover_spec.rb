@@ -2,8 +2,12 @@ require 'spec_helper'
 describe 'Moving a Mars Rover' do
   describe 'Moving forwards' do
     it 'moves forwards when facing north' do
-      initial_position = [0, 1]
-      mars_rover = MarsRover.new(initial_position, direction: :north)
+      mars_rover =
+        MarsRover.new(
+          nil,
+          starting_point: Point.new(x: 0, y: 1),
+          direction: :north
+        )
 
       expect { mars_rover.execute(['f']) }.to(
         move(mars_rover, displacement: Displacement.new(dx: 0, dy: 1))
