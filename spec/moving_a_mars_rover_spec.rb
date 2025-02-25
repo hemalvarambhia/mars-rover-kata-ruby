@@ -118,6 +118,6 @@ describe 'Moving a Mars Rover' do
   private
 
   def move(mars_rover, displacement:)
-    change(mars_rover, :y_coordinate).by(displacement.dy).and(change(mars_rover, :x_coordinate).by(displacement.dx))
+    change(mars_rover, :y_coordinate).by(displacement.dy).and change(mars_rover, :x_coordinate).by(displacement.dx)
   end
 end
