@@ -24,7 +24,7 @@ describe 'Moving a Mars Rover' do
     end
 
     it 'raises an error if the commands from Earth are not an array' do
-      mars_rover =  MarsRover.new(
+      mars_rover = MarsRover.new(
         nil,
         starting_point: Point.new(x: 3, y: 1),
         direction: :north
