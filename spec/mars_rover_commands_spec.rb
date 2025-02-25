@@ -24,8 +24,11 @@ describe 'Moving a Mars Rover' do
     end
 
     it 'raises an error if the commands from Earth are not an array' do
-      initial_position = [3, -1]
-      mars_rover =  MarsRover.new(initial_position, direction: :north)
+      mars_rover =  MarsRover.new(
+        nil,
+        starting_point: Point.new(x: 3, y: 1),
+        direction: :north
+      )
       # This tests both the exception raised and that the instance did not change.
       expect { mars_rover.execute('Hello World') }.to not_move(mars_rover).and(raise_error(CannotCommandMarsRover))
       expect(mars_rover.direction).to eq(:north)
