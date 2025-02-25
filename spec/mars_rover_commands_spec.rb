@@ -53,12 +53,6 @@ describe 'Moving a Mars Rover' do
       expect { mars_rover.execute(%w[x]) }.to not_move(mars_rover).and(raise_error(CannotCommandMarsRover))
     end
 
-    example 'raises error if commands to execute is an empty array' do
-      # Let the user know something went wrong if array of commands is empty.
-      # It seems likely that this would be a mistake that should be caught.
-      skip('implement valid array for commands')
-    end
-
     example 'raises error if too many commands are sent' do
       # We should limit the number of commands that can be sent
       # And specify in the documentation what the limit is.
