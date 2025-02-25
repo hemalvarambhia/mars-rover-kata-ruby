@@ -45,7 +45,12 @@ describe 'Moving a Mars Rover' do
 
     example 'raises error if commands to execute is not an array of valid characters' do
       # array should only consist of f, b, l, r
-      skip('implement valid characters for commands')
+      mars_rover = MarsRover.new(
+        nil,
+        starting_point: Point.new(x: 0, y: 0),
+        direction: :north
+      )
+      expect { mars_rover.execute(%w[x]) }.to not_move(mars_rover).and(raise_error(CannotCommandMarsRover))
     end
 
     example 'raises error if commands to execute is an empty array' do
