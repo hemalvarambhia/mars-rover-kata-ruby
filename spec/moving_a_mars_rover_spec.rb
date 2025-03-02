@@ -26,8 +26,7 @@ describe 'Moving a Mars Rover' do
     end
 
     it 'moves forwards when facing east' do
-      mars_rover =
-        MarsRover.new(starting_point: Point.new(x: 0, y: 0), direction: :east)
+      mars_rover = MarsRover.new(starting_point: Point.new(x: 0, y: 0), direction: :east)
 
       expect { mars_rover.execute(['f']) }.to(
         move(mars_rover, displacement: Displacement.new(dx: 1, dy: 0))
@@ -61,8 +60,7 @@ describe 'Moving a Mars Rover' do
     end
 
     it 'moves backwards from any position when facing north' do
-      mars_rover =
-        MarsRover.new(starting_point: Point.new(x: 2, y: 1), direction: :north)
+      mars_rover = MarsRover.new(starting_point: Point.new(x: 2, y: 1), direction: :north)
 
       expect { mars_rover.execute(['b']) }.to(
         move(mars_rover, displacement: Displacement.new(dx: 0, dy: -1))
@@ -76,11 +74,7 @@ describe 'Moving a Mars Rover' do
     end
 
     it 'moves backwards from any position when facing east' do
-      mars_rover =
-        MarsRover.new(
-          starting_point: Point.new(x: -1, y: 1),
-          direction: :east
-        )
+      mars_rover = MarsRover.new(starting_point: Point.new(x: -1, y: 1), direction: :east)
 
       expect { mars_rover.execute(['b']) }.to move(mars_rover, displacement: Displacement.new(dx: -1, dy: 0))
     end
