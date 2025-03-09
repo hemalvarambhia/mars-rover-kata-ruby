@@ -1,19 +1,16 @@
 require 'spec_helper'
 describe 'Moving a Mars Rover' do
   it 'receives an array of commands from Earth' do
-    initial_position = [0, 0]
-    mars_rover = MarsRover.new(initial_position, direction: :north)
+    initial_position = Point.new(x: 0, y: 0)
+    mars_rover = MarsRover.new(starting_point: initial_position, direction: :north)
+
     expect(mars_rover).to respond_to(:execute).with(1)
   end
 
   describe 'Handling malformed commands' do
     %i[north east south west].each do |cardinal_direction|
       it "does not change its position or direction from #{cardinal_direction} when there is an unsupported command" do
-        mars_rover = MarsRover.new(
-          nil,
-          starting_point: Point.new(x: 3, y: 1),
-          direction: cardinal_direction
-        )
+        mars_rover = MarsRover.new(starting_point: Point.new(x: 3, y: 1), direction: cardinal_direction)
         # This tests both the exception raised and that the instance did not change.
         # TODO FIXME we need more validation tests.
         # For example, this tests a case where the input direction is the default,
@@ -24,32 +21,23 @@ describe 'Moving a Mars Rover' do
     end
 
     it 'raises an error if the commands from Earth are not an array' do
-      mars_rover = MarsRover.new(
-        nil,
-        starting_point: Point.new(x: 3, y: 1),
-        direction: :north
-      )
+      mars_rover = MarsRover.new(starting_point: Point.new(x: 3, y: 1), direction: :north)
+
       # This tests both the exception raised and that the instance did not change.
       expect { mars_rover.execute('Hello World') }.to not_move(mars_rover).and(raise_error(CannotCommandMarsRover))
       expect(mars_rover.direction).to eq(:north)
     end
 
     it 'raises an error if no commands (an empty array) are sent from Earth' do
-      mars_rover = MarsRover.new(
-        nil,
-        starting_point: Point.new(x: 3, y: -1),
-        direction: :north
-      )
+      mars_rover = MarsRover.new(starting_point: Point.new(x: 3, y: -1), direction: :north)
+
       expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
     end
 
     example 'raises error if commands to execute is not an array of valid characters' do
       # array should only consist of f, b, l, r
-      mars_rover = MarsRover.new(
-        nil,
-        starting_point: Point.new(x: 0, y: 0),
-        direction: :north
-      )
+      mars_rover = MarsRover.new(starting_point: Point.new(x: 0, y: 0), direction: :north)
+
       expect { mars_rover.execute(%w[x]) }.to not_move(mars_rover).and(raise_error(CannotCommandMarsRover))
     end
 
