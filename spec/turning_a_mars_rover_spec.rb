@@ -27,3 +27,10 @@ describe 'Turning left' do
     MarsRover.new(starting_point: Point.new(x: 0, y: 0), direction:)
   end
 end
+
+describe 'Turning right' do
+  it 'turns right when facing north, meaning it now faces east'
+  it 'turns right when facing east, meaning it now faces south'
+  it 'turns right when facing south, meaning it now faces west'
+  it 'turns right when facing west, meaning it now faces north'
+end
