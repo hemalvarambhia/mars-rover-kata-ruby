@@ -3,10 +3,7 @@ require 'spec_helper'
 describe 'Initializing a Mars Rover' do
 
   example 'has an initial position' do
-    mars_rover = MarsRover.new(
-      starting_point: Point.new(x: 0, y: 0),
-      direction: :north
-    )
+    mars_rover = MarsRover.new(starting_point: Point.new(x: 0, y: 0), direction: :north)
 
     expect(mars_rover.x_coordinate).to eq(0)
     expect(mars_rover.y_coordinate).to eq(0)
