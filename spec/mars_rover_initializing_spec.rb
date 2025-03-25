@@ -18,8 +18,7 @@ describe 'Initializing a Mars Rover' do
 
   [:north, :south, :east, :west].each do |cardinal_direction|
     it 'has an initial direction it is facing' do
-      irrelevant = [0, -1]
-      mars_rover = MarsRover.new(irrelevant, direction: cardinal_direction)
+      mars_rover = MarsRover.new(starting_point: nil, direction: cardinal_direction)
 
       expect(mars_rover.direction).to eq(cardinal_direction)
     end
@@ -27,8 +26,7 @@ describe 'Initializing a Mars Rover' do
 
   ['X', :something].each do |unsupported_direction|
     example "cannot face anywhere outside N, E, S or W e.g. #{unsupported_direction}" do
-      irrelevant = [0, -1]
-      expect { MarsRover.new(irrelevant, direction: unsupported_direction) }.to raise_error(CannotInitializeMarsRover)
+      expect { MarsRover.new(starting_point: nil, direction: unsupported_direction) }.to raise_error(CannotInitializeMarsRover)
     end
   end
 
