@@ -10,8 +10,7 @@ describe 'Initializing a Mars Rover' do
   end
 
   example 'has an initial position anywhere on the planet' do
-    initial_position = [1, 1]
-    mars_rover = MarsRover.new(initial_position, direction: :north)
+    mars_rover = MarsRover.new(starting_point: Point.new(x: 1, y: 1), direction: :north)
 
     expect(mars_rover.x_coordinate).to eq(1)
     expect(mars_rover.y_coordinate).to eq(1)
