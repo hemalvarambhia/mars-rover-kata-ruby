@@ -38,7 +38,8 @@ describe 'Moving a Mars Rover' do
     # For example, this tests a case where the input direction is the default,
     # and we need more than that.
     expect { mars_rover.execute(['q']) }.to raise_error(CannotCommandMarsRover)
-    expect(mars_rover.current_position).to eq(initial_position)
+    expect(mars_rover.current_position_object.x).to eq(3)
+    expect(mars_rover.current_position_object.y).to eq(-1)
     expect(mars_rover.direction).to eq(:north)
   end
 
