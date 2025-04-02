@@ -10,24 +10,24 @@ describe 'Moving a Mars Rover' do
     initial_position = Position.new(x: 0, y: 1)
     mars_rover = MarsRover.new(initial_position, direction: :north)
     mars_rover.execute(['f'])
-    expect(mars_rover.current_position_object.x).to eq(0)
-    expect(mars_rover.current_position_object.y).to eq(2)
+    expect(mars_rover.current_position.x).to eq(0)
+    expect(mars_rover.current_position.y).to eq(2)
   end
 
   it 'moves forwards when facing north from y=2' do
     initial_position = [0, 2]
     mars_rover = MarsRover.new(initial_position, direction: :north)
     mars_rover.execute(['f'])
-    expect(mars_rover.current_position_object.x).to eq(0)
-    expect(mars_rover.current_position_object.y).to eq(3)
+    expect(mars_rover.current_position.x).to eq(0)
+    expect(mars_rover.current_position.y).to eq(3)
   end
 
   it 'moves forwards when facing south from (-1, -1) to (-1, -2)' do
     initial_position = [-1, -1]
     mars_rover = MarsRover.new(initial_position, direction: :south)
     mars_rover.execute(['f'])
-    expect(mars_rover.current_position_object.x).to eq(-1)
-    expect(mars_rover.current_position_object.y).to eq(-2)
+    expect(mars_rover.current_position.x).to eq(-1)
+    expect(mars_rover.current_position.y).to eq(-2)
   end
 
   it 'does not change its position when there is an unsupported command' do
@@ -38,8 +38,8 @@ describe 'Moving a Mars Rover' do
     # For example, this tests a case where the input direction is the default,
     # and we need more than that.
     expect { mars_rover.execute(['q']) }.to raise_error(CannotCommandMarsRover)
-    expect(mars_rover.current_position_object.x).to eq(3)
-    expect(mars_rover.current_position_object.y).to eq(-1)
+    expect(mars_rover.current_position.x).to eq(3)
+    expect(mars_rover.current_position.y).to eq(-1)
     expect(mars_rover.direction).to eq(:north)
   end
 
@@ -58,8 +58,8 @@ describe 'Moving a Mars Rover' do
     mars_rover = MarsRover.new(initial_position, direction: :north)
     # This tests both the exception raised and that the instance did not change.
     expect { mars_rover.execute('Hello World') }.to raise_error(CannotCommandMarsRover)
-    expect(mars_rover.current_position_object.x).to eq(3)
-    expect(mars_rover.current_position_object.y).to eq(-1)
+    expect(mars_rover.current_position.x).to eq(3)
+    expect(mars_rover.current_position.y).to eq(-1)
     expect(mars_rover.direction).to eq(:north)
   end
 
@@ -73,16 +73,16 @@ describe 'Moving a Mars Rover' do
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: :north)
     mars_rover.execute(['b'])
-    expect(mars_rover.current_position_object.x).to eq(0)
-    expect(mars_rover.current_position_object.y).to eq(0)
+    expect(mars_rover.current_position.x).to eq(0)
+    expect(mars_rover.current_position.y).to eq(0)
   end
 
   it 'moves backwards when facing east' do
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: :east)
     mars_rover.execute(['b'])
-    expect(mars_rover.current_position_object.x).to eq(-1)
-    expect(mars_rover.current_position_object.y).to eq(1)
+    expect(mars_rover.current_position.x).to eq(-1)
+    expect(mars_rover.current_position.y).to eq(1)
   end
 
   example 'moves forwards and then backwards' do
