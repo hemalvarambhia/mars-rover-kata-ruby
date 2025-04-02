@@ -24,7 +24,7 @@ class MarsRover
   CARDINAL_COMMANDS = %w[f b l r]
   private_constant :CARDINAL_COMMANDS
 
-  attr_reader :current_position, :direction, :current_coordinates
+  attr_reader :direction, :current_coordinates
 
   def initialize(initial_position, direction: :north)
     raise CannotInitializeMarsRover.new unless CardinalDirections::ALL_DIRECTIONS.include?(direction)
