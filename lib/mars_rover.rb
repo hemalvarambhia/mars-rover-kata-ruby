@@ -50,7 +50,7 @@ class MarsRover
       @current_position = [@current_position[0] - 1, @current_position[1]]
     end
 
-    @current_coordinates = OpenStruct.new(x: @current_position[0], y: @current_position[1])
+    @current_coordinates = Position.new(x: @current_position[0], y: @current_position[1])
   end
 
   def self.valid_commands?(commands)
