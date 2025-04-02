@@ -79,7 +79,9 @@ describe 'Moving a Mars Rover' do
   it 'moves backwards when facing east' do
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: :east)
-    expect { mars_rover.execute(['b']) }.to change(mars_rover, :current_position).from([0, 1]).to([-1, 1])
+    mars_rover.execute(['b'])
+    expect(mars_rover.current_position_object.x).to eq(-1)
+    expect(mars_rover.current_position_object.y).to eq(1)
   end
 
   example 'moves forwards and then backwards' do
