@@ -13,7 +13,7 @@ describe 'Initializing a Mars Rover' do
     initial_position = [1, 1]
     mars_rover = MarsRover.new(initial_position, direction: :north)
 
-    expect(mars_rover.current_position).to eq([1, 1])
+    expect(mars_rover.current_position_object.to_a).to eq([1, 1])
   end
 
   [:north, :south, :east, :west].each do |cardinal_direction|
