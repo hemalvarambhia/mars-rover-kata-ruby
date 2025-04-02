@@ -25,8 +25,9 @@ describe 'Moving a Mars Rover' do
   it 'moves forwards when facing south from (-1, -1) to (-1, -2)' do
     initial_position = [-1, -1]
     mars_rover = MarsRover.new(initial_position, direction: :south)
-
-    expect { mars_rover.execute(['f']) }.to change(mars_rover, :current_position).from([-1, -1]).to([-1, -2])
+    mars_rover.execute(['f'])
+    expect(mars_rover.current_position_object.x).to eq(-1)
+    expect(mars_rover.current_position_object.y).to eq(-2)
   end
 
   it 'does not change its position when there is an unsupported command' do
