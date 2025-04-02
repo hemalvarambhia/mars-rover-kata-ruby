@@ -1,7 +1,6 @@
 require_relative 'errors/cannot_command_mars_rover'
 require_relative 'errors/cannot_initialize_mars_rover'
 require_relative 'cardinal_directions'
-require 'ostruct'
 
 Position = Data.define(:x, :y) do
   def to_a
