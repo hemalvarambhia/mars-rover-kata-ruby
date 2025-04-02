@@ -5,17 +5,15 @@ require 'ostruct'
 
 class MarsRover
   include CardinalDirections
-  CARDINAL_COMMANDS = ['f', 'b', 'l', 'r']
+  CARDINAL_COMMANDS = %w[f b l r]
   private_constant :CARDINAL_COMMANDS
 
   attr_reader :current_position, :direction, :current_coordinates
 
   def initialize(initial_position, direction: :north)
-    unless CardinalDirections::ALL_DIRECTIONS.include?(direction)
-      raise CannotInitializeMarsRover.new
-    end
+    raise CannotInitializeMarsRover.new unless CardinalDirections::ALL_DIRECTIONS.include?(direction)
 
-    @current_position = initial_position
+    @current_position = initial_position.to_a
     @current_coordinates = OpenStruct.new(x: initial_position[0], y: initial_position[1])
     @direction = direction
   end
@@ -38,7 +36,7 @@ class MarsRover
   def self.valid_commands?(commands)
     commands.is_a?(Array) &&
       commands.all? { |command| supported?(command) } &&
-      ! commands.empty?
+      !commands.empty?
   end
 
   def self.supported?(command)
@@ -48,9 +46,7 @@ class MarsRover
   def execute(commands)
     # Protect Mars Rover from obeying invalid commands. Input commands must
     # be in an array, and they must be one of the CARDINAL_COMMANDS.
-    unless MarsRover.valid_commands?(commands)
-      raise CannotCommandMarsRover.new
-    end
+    raise CannotCommandMarsRover.new unless MarsRover.valid_commands?(commands)
 
     command = commands[0]
     case command
@@ -73,5 +69,4 @@ class MarsRover
   # I like this. I didn't know I could that. Normally, rubyists put the private section
   # at the bottom of the class.
   private :move_forward
-
 end
