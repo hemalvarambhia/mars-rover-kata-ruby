@@ -8,7 +8,18 @@ describe 'Moving a Mars Rover' do
 
   it 'moves forwards when facing north' do
     Position = Data.define(:x, :y) do
-      def self.hey
+      def to_a
+        [x, y]
+      end
+
+      def [](index)
+        if index == 0
+          x
+        elsif index == 1
+          y
+        else
+          raise RuntimeError("No such index as #{index}")
+        end
       end
     end
     initial_position = [0, 1]
