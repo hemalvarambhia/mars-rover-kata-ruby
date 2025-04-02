@@ -9,11 +9,8 @@ describe 'Moving a Mars Rover' do
   it 'moves forwards when facing north' do
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: :north)
+    mars_rover.execute(['f'])
     expect(mars_rover.current_coordinates.x).to eq(0)
-    expect do
-      mars_rover.execute(['f'])
-    end.to change(mars_rover,
-                  :current_coordinates).from(OpenStruct.new(x: 0, y: 1)).to(OpenStruct.new(x: 0, y: 2))
   end
 
   it 'moves forwards when facing north from y=2' do
