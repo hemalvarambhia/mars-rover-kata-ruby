@@ -1,22 +1,21 @@
 require 'spec_helper'
 
 describe 'Initializing a Mars Rover' do
-
   example 'has an initial position' do
     initial_position = [0, 0]
     mars_rover = MarsRover.new(initial_position, direction: :north)
 
-    expect(mars_rover.current_position_object.to_a).to eq([0, 0])
+    expect(mars_rover.current_position.to_a).to eq([0, 0])
   end
 
   example 'has an initial position anywhere on the planet' do
     initial_position = [1, 1]
     mars_rover = MarsRover.new(initial_position, direction: :north)
 
-    expect(mars_rover.current_position_object.to_a).to eq([1, 1])
+    expect(mars_rover.current_position.to_a).to eq([1, 1])
   end
 
-  [:north, :south, :east, :west].each do |cardinal_direction|
+  %i[north south east west].each do |cardinal_direction|
     it 'has an initial direction it is facing' do
       irrelevant = [0, -1]
       mars_rover = MarsRover.new(irrelevant, direction: cardinal_direction)
@@ -63,7 +62,7 @@ describe 'Initializing a Mars Rover' do
   end
 
   example 'raises error if initial position is not an array with 2 integer elements' do
-    # TODO FIXME. Starting to wonder if we should refactor our 2-int "position" array into something more human friendly
+    # TODO: FIXME. Starting to wonder if we should refactor our 2-int "position" array into something more human friendly
     # before continuing
     skip('implement validation for initial position')
   end
@@ -84,5 +83,4 @@ describe 'Initializing a Mars Rover' do
     # for wrapping makes me think not.
     skip('requirements discussion for negative x and y values')
   end
-
 end
