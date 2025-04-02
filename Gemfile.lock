@@ -148,7 +148,7 @@ DEPENDENCIES
   rubycritic
 
 RUBY VERSION
-   ruby 3.3.4p94
+   ruby 3.4.1p0
 
 BUNDLED WITH
    2.3.23
