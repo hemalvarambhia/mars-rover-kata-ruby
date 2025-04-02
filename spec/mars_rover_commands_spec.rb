@@ -22,7 +22,7 @@ describe 'Moving a Mars Rover' do
         end
       end
     end
-    initial_position = [0, 1]
+    initial_position = Position.new(x: 0, y: 1)
     mars_rover = MarsRover.new(initial_position, direction: :north)
     mars_rover.execute(['f'])
     expect(mars_rover.current_coordinates.x).to eq(0)
