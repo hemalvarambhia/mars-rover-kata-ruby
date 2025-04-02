@@ -3,6 +3,22 @@ require_relative 'errors/cannot_initialize_mars_rover'
 require_relative 'cardinal_directions'
 require 'ostruct'
 
+    Position = Data.define(:x, :y) do
+      def to_a
+        [x, y]
+      end
+
+      def [](index)
+        if index == 0
+          x
+        elsif index == 1
+          y
+        else
+          raise RuntimeError("No such index as #{index}")
+        end
+      end
+    end
+
 class MarsRover
   include CardinalDirections
   CARDINAL_COMMANDS = %w[f b l r]
@@ -19,6 +35,7 @@ class MarsRover
   end
 
   def current_position_object
+    Position
   end
 
   def move_forward
