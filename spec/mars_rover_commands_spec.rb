@@ -7,15 +7,6 @@ describe 'Moving a Mars Rover' do
   end
 
   it 'moves forwards when facing north' do
-    Position = Data.define(:x, :y) do
-      def self.from(x:, y:)
-        new(x:, y:)
-      end
-
-      def to_a
-        [x, y]
-      end
-    end
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: :north)
     mars_rover.execute(['f'])
