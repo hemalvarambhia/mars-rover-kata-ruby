@@ -11,6 +11,10 @@ describe 'Moving a Mars Rover' do
       def self.from(x:, y:)
         new(x:, y:)
       end
+
+      def to_a
+        [x, y]
+      end
     end
     initial_position = [0, 1]
     mars_rover = MarsRover.new(initial_position, direction: :north)
