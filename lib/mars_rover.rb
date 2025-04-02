@@ -35,10 +35,6 @@ class MarsRover
   end
 
   def position
-    current_position
-  end
-
-  def current_position
     Position.new(x: @current_coordinates.x, y: @current_coordinates.y)
   end
 
