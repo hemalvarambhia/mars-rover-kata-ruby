@@ -18,6 +18,9 @@ class MarsRover
     @direction = direction
   end
 
+  def current_position_object
+  end
+
   def move_forward
     case @direction
     when :north
