@@ -34,6 +34,10 @@ class MarsRover
     @direction = direction
   end
 
+  def current_position
+    current_position_object
+  end
+
   def current_position_object
     Position.new(x: @current_coordinates.x, y: @current_coordinates.y)
   end
