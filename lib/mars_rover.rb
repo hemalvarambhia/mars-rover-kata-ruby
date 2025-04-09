@@ -94,11 +94,11 @@ class MarsRover
       when :north
         @position = @position.move(:south)
       when :east
-        @position = @position.translate(:west)
+        @position = @position.move(:west)
       when :south
-        @position = @position.translate(:north)
+        @position = @position.move(:north)
       when :west
-        @position = @position.translate(:east)
+        @position = @position.move(:east)
       end
     end
   end
