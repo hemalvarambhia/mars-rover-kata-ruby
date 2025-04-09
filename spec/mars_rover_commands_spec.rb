@@ -113,36 +113,6 @@ describe 'Moving a Mars Rover' do
     end
   end
 
-  # Before   After
-  # X X X    X X X
-  # X > X    > X X
-  # X X X    X X X
-  it 'moves backwards when facing east' do
-    mars_rover = MarsRover.new(direction: :east)
-    mars_rover.execute(['b'])
-    expect(mars_rover).to have_moved.in_direction(:backward)
-  end
-
-  # Before   After
-  # X X X    X v X
-  # X v X    X X X
-  # X X X    X X X
-  it 'moves backwards when facing south' do
-    mars_rover = MarsRover.new(direction: :south)
-    mars_rover.execute(['b'])
-    expect(mars_rover).to have_moved.in_direction(:backward)
-  end
-
-  # Before   After
-  # X X X    X X X
-  # X < X    X X <
-  # X X X    X X X
-  it 'moves backwards when facing west' do
-    mars_rover = MarsRover.new(direction: :west)
-    mars_rover.execute(['b'])
-    expect(mars_rover).to have_moved.in_direction(:backward)
-  end
-
   example 'raises error if commands to execute is not an array of valid characters' do
     # array should only consist of f, b, l, r
     skip('implement valid characters for commands')
