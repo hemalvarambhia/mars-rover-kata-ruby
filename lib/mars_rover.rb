@@ -38,15 +38,25 @@ Position = Data.define(:x, :y) do
   end
 end
 
+# Represents valid orientations for a Mars Rover
+# @api private
 class Orientation
+  # Returns array of valid cardinal directions that a Mars Rover can face
+  # @return [Array<Symbol>] Array containing :north, :east, :south, :west
   def self.all
-    [:north, :east, :south, :west]
+    %i[north east south west]
   end
 
+  # Checks if an orientation is valid
+  # @param orientation [Symbol] The orientation to validate
+  # @return [Boolean] true if orientation is one of :north, :east, :south, :west
   def self.valid?(orientation)
     all.include?(orientation)
   end
 
+  # Checks if an orientation is invalid
+  # @param orientation [Symbol] The orientation to validate
+  # @return [Boolean] true if orientation is not one of :north, :east, :south, :west
   def self.invalid?(orientation)
     !valid?(orientation)
   end
