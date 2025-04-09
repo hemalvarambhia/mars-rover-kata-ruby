@@ -16,6 +16,19 @@ Position = Data.define(:x, :y) do
       raise RuntimeError("No such index as #{index}")
     end
   end
+
+  def translate(direction)
+    case direction
+    when :north
+      with(y: y + 1)
+    when :east
+      with(x: x + 1)
+    when :south
+      with(y: y - 1)
+    when :west
+      with(x: x - 1)
+    end
+  end
 end
 
 class MarsRover
