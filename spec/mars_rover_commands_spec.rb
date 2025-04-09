@@ -146,8 +146,7 @@ describe 'Moving a Mars Rover' do
     initial_position = Position.new(x: 0, y: 0)
     mars_rover = MarsRover.new(initial_position, direction: :west)
     mars_rover.execute(['b'])
-    expect(mars_rover.position.x).to eq(1)
-    expect(mars_rover.position.y).to eq(0)
+    expect(mars_rover).to have_moved.in_direction(:backward)
   end
 
   example 'raises error if commands to execute is not an array of valid characters' do
