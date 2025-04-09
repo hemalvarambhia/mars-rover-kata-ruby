@@ -29,6 +29,10 @@ Position = Data.define(:x, :y) do
       with(x: x - 1)
     end
   end
+
+  def to_s
+    "(#{x}, #{y})"
+  end
 end
 
 class MarsRover
