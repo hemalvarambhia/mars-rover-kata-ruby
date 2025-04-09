@@ -112,7 +112,7 @@ describe 'Moving a Mars Rover' do
     end
 
     failure_message do |mars_rover|
-      "expected the Mars rover to have moved #{@direction} from (0, 0) to #{Position.origin.translate(mars_rover.direction)} but it moved to #{mars_rover.position}"
+      "expected the Mars rover to have moved #{@direction} from #{Position.origin} to #{Position.origin.translate(mars_rover.direction)} but it moved to #{mars_rover.position}"
     end
   end
 
