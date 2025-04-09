@@ -78,7 +78,6 @@ class MarsRover
       when :north
         @current_coordinates = @current_coordinates.translate(:south)
       when :east
-        @current_position = [-1, 1]
         @current_coordinates = @current_coordinates.translate(:west)
       end
     end
