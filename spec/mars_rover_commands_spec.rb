@@ -23,7 +23,7 @@ describe 'Moving a Mars Rover' do
 
   it 'moves forwards when facing south from (-1, -1) to (-1, -2)' do
     initial_position = Position.new(x: -1, y: -1)
-    mars_rover = MarsRover.new(initial_position, direction: :south)
+    mars_rover = MarsRover.new(initial_position, orientation: :south)
     mars_rover.execute(['f'])
     expect(mars_rover.position.x).to eq(-1)
     expect(mars_rover.position.y).to eq(-2)
