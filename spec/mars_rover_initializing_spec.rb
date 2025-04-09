@@ -26,12 +26,12 @@ describe 'Initializing a Mars Rover' do
 
   example 'cannot face X' do
     irrelevant = [0, -1]
-    expect { MarsRover.new(irrelevant, direction: 'X') }.to raise_error(CannotInitializeMarsRover)
+    expect { MarsRover.new(irrelevant, orientation: 'X') }.to raise_error(CannotInitializeMarsRover)
   end
 
   example 'cannot face anywhere outside N, E, S or W' do
     irrelevant = [0, -1]
-    expect { MarsRover.new(irrelevant, direction: :something) }.to raise_error(CannotInitializeMarsRover)
+    expect { MarsRover.new(irrelevant, orientation: :something) }.to raise_error(CannotInitializeMarsRover)
   end
 
   example 'raises error if initial x position is not integer and initial y position is an integer' do
