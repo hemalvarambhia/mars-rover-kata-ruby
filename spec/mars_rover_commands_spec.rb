@@ -1,7 +1,7 @@
 describe 'Moving a Mars Rover' do
   it 'receives an array of commands from Earth' do
     initial_position = Position.new(x: 0, y: 0)
-    mars_rover = MarsRover.new(initial_position, direction: :north)
+    mars_rover = MarsRover.new(initial_position, orientation: :north)
     expect(mars_rover).to respond_to(:execute).with(1)
   end
 
