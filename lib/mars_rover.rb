@@ -44,17 +44,14 @@ class MarsRover
   CARDINAL_COMMANDS = %w[f b l r]
   private_constant :CARDINAL_COMMANDS
 
-  attr_reader :direction, :position
+  attr_reader :direction, :position, :orientation
 
   def initialize(initial_position = Position.origin, orientation: :north)
     raise CannotInitializeMarsRover.new unless CardinalDirections::ALL_DIRECTIONS.include?(orientation)
 
     @position = Position.new(x: initial_position[0], y: initial_position[1])
     @direction = orientation
-  end
-
-  def orientation
-    @direction
+    @orientation = orientation
   end
 
   def move_forward
