@@ -55,16 +55,12 @@ class MarsRover
   end
 
   def opposite_orientation(orientation)
-    case orientation
-    when :north
-      :south
-    when :east
-      :west
-    when :south
-      :north
-    when :west
-      :east
-    end
+    {
+      north: :south,
+      east: :west,
+      south: :north,
+      west: :east
+    }.fetch(orientation)
   end
 
   def execute(commands)
