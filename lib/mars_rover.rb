@@ -53,7 +53,7 @@ class MarsRover
     @direction = direction
     if orientation.nil? && direction
       @orientation = direction
-    else
+    elsif orientation && direction.nil?
       raise CannotInitializeMarsRover.new unless CardinalDirections::ALL_DIRECTIONS.include?(orientation)
 
       @orientation = orientation
