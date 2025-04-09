@@ -64,7 +64,7 @@ describe 'Moving a Mars Rover' do
 
   it 'raises an error if no commands (an empty array) are sent from Earth' do
     initial_position = Position.origin
-    mars_rover = MarsRover.new(initial_position, direction: :north)
+    mars_rover = MarsRover.new(initial_position, orientation: :north)
     expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
   end
 
