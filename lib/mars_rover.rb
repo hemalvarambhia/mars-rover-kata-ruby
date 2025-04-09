@@ -51,16 +51,7 @@ class MarsRover
   end
 
   def move_forward
-    case @direction
-    when :north
-      @current_coordinates = @current_coordinates.translate(:north)
-    when :east
-      @current_coordinates = @current_coordinates.translate(:east)
-    when :south
-      @current_coordinates = @current_coordinates.translate(:south)
-    when :west
-      @current_coordinates = @current_coordinates.translate(:west)
-    end
+    @current_coordinates = @current_coordinates.translate(@direction)
   end
 
   def self.valid_commands?(commands)
