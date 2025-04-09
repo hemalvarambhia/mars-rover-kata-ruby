@@ -74,6 +74,8 @@ class MarsRover
         @position = @position.translate(:south)
       when :east
         @position = @position.translate(:west)
+      when :south
+        @position = @position.translate(:north)
       end
     end
   end
