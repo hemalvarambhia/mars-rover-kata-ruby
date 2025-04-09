@@ -73,8 +73,7 @@ describe 'Moving a Mars Rover' do
   # X ^ X    X X X
   # X X X    X ^ X
   it 'moves backwards when facing north' do
-    initial_position = Position.origin
-    mars_rover = MarsRover.new(initial_position, direction: :north)
+    mars_rover = MarsRover.new(direction: :north)
     mars_rover.execute(['b'])
     expect(mars_rover).to have_moved.in_direction(:backward)
   end
