@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe 'Initializing a Mars Rover' do
-  example 'has an initial position' do
-    initial_position = [0, 0]
-    mars_rover = MarsRover.new(initial_position, orientation: :north)
+  example 'defaults to the origin position' do
+    mars_rover = MarsRover.new(orientation: :north)
 
     expect(mars_rover.position.to_a).to eq([0, 0])
   end
