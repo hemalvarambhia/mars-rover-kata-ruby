@@ -76,11 +76,11 @@ class MarsRover
     when 'b'
       case @direction
       when :north
-        @current_coordinates = @current_coordinates.translate(:south)
         @current_position = [0, @current_position[1] - 1]
+        @current_coordinates = @current_coordinates.translate(:south)
       when :east
         @current_position = [-1, 1]
-        @current_coordinates = Position.new(x: @current_position[0], y: @current_position[1])
+        @current_coordinates = @current_coordinates.translate(:west)
       end
     end
   end
