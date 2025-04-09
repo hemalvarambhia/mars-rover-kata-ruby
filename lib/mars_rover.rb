@@ -51,7 +51,7 @@ class MarsRover
 
     @position = Position.new(x: initial_position[0], y: initial_position[1])
     @direction = direction
-    if orientation.nil?
+    if orientation.nil? && direction
       @orientation = direction
     else
       raise CannotInitializeMarsRover.new unless CardinalDirections::ALL_DIRECTIONS.include?(orientation)
