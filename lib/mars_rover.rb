@@ -39,6 +39,16 @@ Position = Data.define(:x, :y) do
   end
 end
 
+class Orientation
+  def self.valid?(orientation)
+    CardinalDirections::ALL_DIRECTIONS.include?(orientation)
+  end
+
+  def self.invalid?(orientation)
+    !valid?(orientation)
+  end
+end
+
 class MarsRover
   include CardinalDirections
   CARDINAL_COMMANDS = %w[f b l r]
@@ -47,6 +57,7 @@ class MarsRover
   attr_reader :position, :orientation
 
   def initialize(initial_position = Position.origin, orientation: :north)
+    raise CannotInitializeMarsRover.new if Orientation.invalid?(orientation)
     raise CannotInitializeMarsRover.new unless CardinalDirections::ALL_DIRECTIONS.include?(orientation)
 
     @position = Position.new(x: initial_position[0], y: initial_position[1])
