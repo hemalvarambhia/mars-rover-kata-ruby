@@ -9,8 +9,7 @@ describe 'Initializing a Mars Rover' do
   example 'has an initial position anywhere on the planet' do
     initial_position = [1, 1]
     mars_rover = MarsRover.new(initial_position, orientation: :north)
-
-    expect(mars_rover.position.to_a).to eq([1, 1])
+    expect(mars_rover.position).to eq(Position.new(x: 1, y: 1))
   end
 
   %i[north south east west].each do |orientation|
