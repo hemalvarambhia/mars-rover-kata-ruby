@@ -41,7 +41,6 @@ class MarsRover
   def initialize(initial_position, direction: :north)
     raise CannotInitializeMarsRover.new unless CardinalDirections::ALL_DIRECTIONS.include?(direction)
 
-    @current_position = initial_position.to_a
     @current_coordinates = Position.new(x: initial_position[0], y: initial_position[1])
     @direction = direction
   end
