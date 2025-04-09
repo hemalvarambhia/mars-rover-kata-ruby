@@ -20,7 +20,7 @@ describe 'Initializing a Mars Rover' do
       irrelevant = [0, -1]
       mars_rover = MarsRover.new(irrelevant, orientation: cardinal_direction)
 
-      expect(mars_rover.direction).to eq(cardinal_direction)
+      expect(mars_rover.orientation).to eq(cardinal_direction)
     end
   end
 
