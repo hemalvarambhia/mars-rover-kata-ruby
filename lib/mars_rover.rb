@@ -45,7 +45,7 @@ class Orientation
   end
 
   def self.valid?(orientation)
-    CardinalDirections::ALL_DIRECTIONS.include?(orientation)
+    all.include?(orientation)
   end
 
   def self.invalid?(orientation)
