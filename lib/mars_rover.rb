@@ -47,17 +47,10 @@ class MarsRover
   attr_reader :direction, :position
 
   def initialize(initial_position = Position.origin, direction: :north, orientation: nil)
-    raise CannotInitializeMarsRover.new unless CardinalDirections::ALL_DIRECTIONS.include?(direction)
+    raise CannotInitializeMarsRover.new unless CardinalDirections::ALL_DIRECTIONS.include?(orientation || direction)
 
     @position = Position.new(x: initial_position[0], y: initial_position[1])
-    @direction = direction
-    if orientation.nil? && direction
-      @orientation = direction
-    elsif orientation && direction.nil?
-      raise CannotInitializeMarsRover.new unless CardinalDirections::ALL_DIRECTIONS.include?(orientation)
-
-      @orientation = orientation
-    end
+    @direction = orientation || direction
   end
 
   def move_forward
