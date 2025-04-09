@@ -53,13 +53,13 @@ class MarsRover
   def move_forward
     case @direction
     when :north
-      @current_coordinates = @current_coordinates.with(y: @current_coordinates.y + 1)
+      @current_coordinates = @current_coordinates.translate(:north)
     when :east
-      @current_coordinates = @current_coordinates.with(x: @current_coordinates.x + 1)
+      @current_coordinates = @current_coordinates.translate(:east)
     when :south
-      @current_coordinates = @current_coordinates.with(y: @current_coordinates.y - 1)
+      @current_coordinates = @current_coordinates.translate(:south)
     when :west
-      @current_coordinates = @current_coordinates.with(x: @current_coordinates.x - 1)
+      @current_coordinates = @current_coordinates.translate(:west)
     end
   end
 
