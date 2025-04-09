@@ -69,15 +69,15 @@ describe 'Moving a Mars Rover' do
   end
 
   # Before   After
+  # X X X    X X X
   # X ^ X    X X X
   # X X X    X ^ X
-  # X X X    X X X
   it 'moves backwards when facing north' do
-    initial_position = Position.new(x: 0, y: 1)
+    initial_position = Position.new(x: 0, y: 0)
     mars_rover = MarsRover.new(initial_position, direction: :north)
     mars_rover.execute(['b'])
     expect(mars_rover.position.x).to eq(0)
-    expect(mars_rover.position.y).to eq(0)
+    expect(mars_rover.position.y).to eq(-1)
   end
 
   # Before   After
