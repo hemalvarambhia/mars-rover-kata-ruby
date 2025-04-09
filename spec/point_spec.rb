@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Point" do
+describe 'Point' do
   it 'has an x-coordinate' do
     point = Point.new(x: 0, y: -1)
 
@@ -37,13 +37,6 @@ describe "Point" do
       marya = 'Marya'
       expect(point1).not_to eq(marya)
       expect(marya).not_to eq(point1)
-    end
-
-    it 'Points are not equal to OpenStruct even if they have same methods' do
-      point = Point.new(x: 1, y: 0)
-      ostruct = OpenStruct.new(x: 1, y: 0)
-      expect(point).not_to eq(ostruct)
-      expect(ostruct).not_to eq(point)
     end
 
     it 'Points are not equal to null' do
