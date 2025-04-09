@@ -36,21 +36,17 @@ class MarsRover
   CARDINAL_COMMANDS = %w[f b l r]
   private_constant :CARDINAL_COMMANDS
 
-  attr_reader :direction, :current_coordinates
+  attr_reader :direction, :position
 
   def initialize(initial_position, direction: :north)
     raise CannotInitializeMarsRover.new unless CardinalDirections::ALL_DIRECTIONS.include?(direction)
 
-    @current_coordinates = Position.new(x: initial_position[0], y: initial_position[1])
+    @position = Position.new(x: initial_position[0], y: initial_position[1])
     @direction = direction
   end
 
-  def position
-    @current_coordinates
-  end
-
   def move_forward
-    @current_coordinates = @current_coordinates.translate(@direction)
+    @position = @position.translate(@direction)
   end
 
   def self.valid_commands?(commands)
@@ -75,15 +71,15 @@ class MarsRover
     when 'b'
       case @direction
       when :north
-        @current_coordinates = @current_coordinates.translate(:south)
+        @position = @position.translate(:south)
       when :east
-        @current_coordinates = @current_coordinates.translate(:west)
+        @position = @position.translate(:west)
       end
     end
   end
 
   def inspect
-    "A Mars rover currently positioned at #{@current_coordinates} facing #{@direction}"
+    "A Mars rover currently positioned at #{@position} facing #{@direction}"
   end
 
   # I like this. I didn't know I could that. Normally, rubyists put the private section
