@@ -10,7 +10,7 @@ describe 'Initializing a Mars Rover' do
 
   example 'has an initial position anywhere on the planet' do
     initial_position = [1, 1]
-    mars_rover = MarsRover.new(initial_position, direction: :north)
+    mars_rover = MarsRover.new(initial_position, orientation: :north)
 
     expect(mars_rover.position.to_a).to eq([1, 1])
   end
