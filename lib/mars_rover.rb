@@ -94,9 +94,9 @@ class MarsRover
       when :north
         @position = @position.move(opposite_orientation(orientation))
       when :east
-        @position = @position.move(:west)
+        @position = @position.move(opposite_orientation(orientation))
       when :south
-        @position = @position.move(:north)
+        @position = @position.move(opposite_orientation(orientation))
       when :west
         @position = @position.move(:east)
       end
