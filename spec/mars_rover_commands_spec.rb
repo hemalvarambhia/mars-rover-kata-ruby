@@ -45,7 +45,7 @@ describe 'Moving a Mars Rover' do
   %i[north south east west].each do |cardinal_direction|
     it "does not change direction from #{cardinal_direction} when there is an unsupported command" do
       initial_position = Position.new(x: 3, y: -1)
-      mars_rover = MarsRover.new(initial_position, direction: cardinal_direction)
+      mars_rover = MarsRover.new(initial_position, orientation: cardinal_direction)
 
       expect { mars_rover.execute(['q']) }.to raise_error(CannotCommandMarsRover)
       expect(expect(mars_rover.direction).to(eq(cardinal_direction)))
