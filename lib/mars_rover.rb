@@ -3,6 +3,10 @@ require_relative 'errors/cannot_initialize_mars_rover'
 require_relative 'cardinal_directions'
 
 Position = Data.define(:x, :y) do
+  def self.origin
+    new(x: 0, y: 0)
+  end
+
   def to_a
     [x, y]
   end
