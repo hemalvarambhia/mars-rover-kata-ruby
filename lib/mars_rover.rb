@@ -57,6 +57,10 @@ class MarsRover
     @position = @position.move(orientation)
   end
 
+  def move_backward
+    @position = @position.move(opposite_orientation(orientation))
+  end
+
   def self.valid_commands?(commands)
     commands.is_a?(Array) &&
       commands.all? { |command| supported?(command) } &&
