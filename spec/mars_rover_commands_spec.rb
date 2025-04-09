@@ -31,7 +31,7 @@ describe 'Moving a Mars Rover' do
 
   it 'does not change its position when there is an unsupported command' do
     initial_position = Position.new(x: 3, y: -1)
-    mars_rover = MarsRover.new(initial_position, direction: :north)
+    mars_rover = MarsRover.new(initial_position, orientation: :north)
     # This tests both the exception raised and that the instance did not change.
     # TODO FIXME we need more validation tests.
     # For example, this tests a case where the input direction is the default,
