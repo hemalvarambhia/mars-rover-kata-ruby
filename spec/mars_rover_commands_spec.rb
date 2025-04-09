@@ -76,7 +76,8 @@ describe 'Moving a Mars Rover' do
     initial_position = Position.new(x: 0, y: 0)
     mars_rover = MarsRover.new(initial_position, direction: :north)
     mars_rover.execute(['b'])
-    expect(mars_rover).to have_moved.in_direction(:backward)
+    expect(mars_rover.position.x).to eq(0)
+    expect(mars_rover.position.y).to eq(-1)
   end
 
   RSpec::Matchers.define :have_moved do
