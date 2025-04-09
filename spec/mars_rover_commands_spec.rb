@@ -105,9 +105,9 @@ describe 'Moving a Mars Rover' do
     end
   end
 
-  %i[north south east west].each do |cardinal_direction|
-    it "moves backwards when facing #{cardinal_direction}" do
-      mars_rover = MarsRover.new(direction: cardinal_direction)
+  %i[north south east west].each do |orientation|
+    it "moves backwards when facing #{orientation}" do
+      mars_rover = MarsRover.new(direction: orientation)
       mars_rover.execute(['b'])
       expect(mars_rover).to have_moved.in_direction(:backward)
     end
