@@ -68,16 +68,6 @@ describe 'Moving a Mars Rover' do
     expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
   end
 
-  # Before   After
-  # X X X    X X X
-  # X ^ X    X X X
-  # X X X    X ^ X
-  it 'moves backwards when facing north' do
-    mars_rover = MarsRover.new(direction: :north)
-    mars_rover.execute(['b'])
-    expect(mars_rover).to have_moved.in_direction(:backward)
-  end
-
   RSpec::Matchers.define :have_moved do
     match do |mars_rover|
       case @direction
@@ -112,6 +102,14 @@ describe 'Moving a Mars Rover' do
 
     failure_message do |mars_rover|
       "expected the Mars rover to have moved #{@direction} from #{Position.origin} to #{Position.origin.translate(mars_rover.direction)} but it moved to #{mars_rover.position}"
+    end
+  end
+
+  %i[north south east west].each do |cardinal_direction|
+    it "moves backwards when facing #{cardinal_direction}" do
+      mars_rover = MarsRover.new(direction: cardinal_direction)
+      mars_rover.execute(['b'])
+      expect(mars_rover).to have_moved.in_direction(:backward)
     end
   end
 
