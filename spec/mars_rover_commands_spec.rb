@@ -110,7 +110,7 @@ describe 'Moving a Mars Rover' do
     end
 
     failure_message do |mars_rover|
-      "expected the Mars rover to have moved #{direction} but it didn't"
+      "expected the Mars rover to have moved #{direction} but it moved to #{mars_rover.position}"
     end
   end
 
