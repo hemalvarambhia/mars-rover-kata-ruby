@@ -59,7 +59,7 @@ describe 'Moving a Mars Rover' do
     expect { mars_rover.execute('Hello World') }.to raise_error(CannotCommandMarsRover)
     expect(mars_rover.position.x).to eq(3)
     expect(mars_rover.position.y).to eq(-1)
-    expect(mars_rover.direction).to eq(:north)
+    expect(mars_rover.orientation).to eq(:north)
   end
 
   it 'raises an error if no commands (an empty array) are sent from Earth' do
