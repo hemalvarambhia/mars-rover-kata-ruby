@@ -1,4 +1,5 @@
-# In spec/spec_helper.rb or spec/rails_helper.rb
+# frozen_string_literal: true
+
 require 'logger'
 require_relative '../lib/errors/cannot_command_mars_rover'
 require_relative '../lib/errors/cannot_initialize_mars_rover'
