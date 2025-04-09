@@ -54,7 +54,6 @@ class Orientation
 end
 
 class MarsRover
-  include CardinalDirections
   CARDINAL_COMMANDS = %w[f b l r]
   private_constant :CARDINAL_COMMANDS
 
