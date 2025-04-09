@@ -1,4 +1,3 @@
-require 'ostruct'
 describe 'Moving a Mars Rover' do
   it 'receives an array of commands from Earth' do
     initial_position = [0, 0]
