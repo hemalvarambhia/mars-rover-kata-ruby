@@ -44,6 +44,7 @@ class MarsRover
       @current_coordinates = @current_coordinates.with(y: @current_coordinates.y + 1)
     when :east
       @current_position = [@current_position[0] + 1, @current_position[1]]
+      @current_coordinates = @current_coordinates.with(x: @current_coordinates.x + 1)
     when :south
       @current_position = [@current_position[0], @current_position[1] - 1]
     when :west
