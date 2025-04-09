@@ -94,7 +94,7 @@ class MarsRover
     when 'f'
       move_forward
     when 'b'
-      @position = @position.move(opposite_orientation(orientation))
+      move_backward
     end
   end
 
