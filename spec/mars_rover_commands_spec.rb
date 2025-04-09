@@ -48,7 +48,7 @@ describe 'Moving a Mars Rover' do
       mars_rover = MarsRover.new(initial_position, orientation: cardinal_direction)
 
       expect { mars_rover.execute(['q']) }.to raise_error(CannotCommandMarsRover)
-      expect(expect(mars_rover.direction).to(eq(cardinal_direction)))
+      expect(mars_rover.orientation).to eq(cardinal_direction)
     end
   end
 
