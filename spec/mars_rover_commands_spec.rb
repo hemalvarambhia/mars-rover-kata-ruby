@@ -82,6 +82,7 @@ describe 'Moving a Mars Rover' do
   end
 
   RSpec::Matchers.define :have_moved do |direction|
+    @direction = direction
     match do |mars_rover|
       case direction
       when :forward
@@ -110,7 +111,7 @@ describe 'Moving a Mars Rover' do
     end
 
     failure_message do |mars_rover|
-      "expected the Mars rover to have moved #{direction} from (0, 0) to #{Position.new(x: 0, y: 0).translate(direction)} but it moved to #{mars_rover.position}"
+      "expected the Mars rover to have moved #{@direction} from (0, 0) to #{Position.new(x: 0, y: 0).translate(@direction)} but it moved to #{mars_rover.position}"
     end
   end
 
