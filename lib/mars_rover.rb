@@ -21,8 +21,8 @@ Position = Data.define(:x, :y) do
     end
   end
 
-  def translate(direction)
-    case direction
+  def translate(orientation)
+    case orientation
     when :north
       with(y: y + 1)
     when :east
