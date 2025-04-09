@@ -21,8 +21,8 @@ Position = Data.define(:x, :y) do
     end
   end
 
-  def translate(direction)
-    case direction
+  def translate(orientation)
+    case orientation
     when :north
       with(y: y + 1)
     when :east
@@ -50,7 +50,6 @@ class MarsRover
     raise CannotInitializeMarsRover.new unless CardinalDirections::ALL_DIRECTIONS.include?(orientation)
 
     @position = Position.new(x: initial_position[0], y: initial_position[1])
-    @direction = orientation
     @orientation = orientation
   end
 
@@ -78,7 +77,7 @@ class MarsRover
     when 'f'
       move_forward
     when 'b'
-      case @direction
+      case @orientation
       when :north
         @position = @position.translate(:south)
       when :east
@@ -92,7 +91,7 @@ class MarsRover
   end
 
   def inspect
-    "A Mars rover currently positioned at #{@position} facing #{@direction}"
+    "A Mars rover currently positioned at #{@position} facing #{@orientation}"
   end
 
   # I like this. I didn't know I could that. Normally, rubyists put the private section
