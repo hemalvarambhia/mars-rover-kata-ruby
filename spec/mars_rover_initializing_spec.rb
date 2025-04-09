@@ -15,12 +15,12 @@ describe 'Initializing a Mars Rover' do
     expect(mars_rover.position.to_a).to eq([1, 1])
   end
 
-  %i[north south east west].each do |cardinal_direction|
+  %i[north south east west].each do |orientation|
     it 'has an initial direction it is facing' do
       irrelevant = [0, -1]
-      mars_rover = MarsRover.new(irrelevant, orientation: cardinal_direction)
+      mars_rover = MarsRover.new(irrelevant, orientation:)
 
-      expect(mars_rover.orientation).to eq(cardinal_direction)
+      expect(mars_rover.orientation).to eq(orientation)
     end
   end
 
