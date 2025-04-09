@@ -67,6 +67,19 @@ class MarsRover
     CARDINAL_COMMANDS.include?(command)
   end
 
+  def opposite_orientation(orientation)
+    case orientation
+    when :north
+      :south
+    when :east
+      :west
+    when :south
+      :north
+    when :west
+      :east
+    end
+  end
+
   def execute(commands)
     # Protect Mars Rover from obeying invalid commands. Input commands must
     # be in an array, and they must be one of the CARDINAL_COMMANDS.
