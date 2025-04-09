@@ -1,6 +1,6 @@
 describe 'Moving a Mars Rover' do
   it 'receives an array of commands from Earth' do
-    initial_position = [0, 0]
+    initial_position = Position.new(x: 0, y: 0)
     mars_rover = MarsRover.new(initial_position, direction: :north)
     expect(mars_rover).to respond_to(:execute).with(1)
   end
@@ -63,13 +63,13 @@ describe 'Moving a Mars Rover' do
   end
 
   it 'raises an error if no commands (an empty array) are sent from Earth' do
-    initial_position = [3, -1]
+    initial_position = Position.new(x: 3, y: -1)
     mars_rover = MarsRover.new(initial_position, direction: :north)
     expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
   end
 
   it 'moves backwards when facing north' do
-    initial_position = [0, 1]
+    initial_position = Position.new(x: 0, y: 1)
     mars_rover = MarsRover.new(initial_position, direction: :north)
     mars_rover.execute(['b'])
     expect(mars_rover.position.x).to eq(0)
@@ -77,7 +77,7 @@ describe 'Moving a Mars Rover' do
   end
 
   it 'moves backwards when facing east' do
-    initial_position = [0, 1]
+    initial_position = Position.new(x: 0, y: 1)
     mars_rover = MarsRover.new(initial_position, direction: :east)
     mars_rover.execute(['b'])
     expect(mars_rover.position.x).to eq(-1)
