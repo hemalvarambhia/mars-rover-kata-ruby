@@ -34,19 +34,6 @@ Position = Data.define(:x, :y) do
     end
   end
 
-  def translate(orientation)
-    case orientation
-    when :north
-      with(y: y + 1)
-    when :east
-      with(x: x + 1)
-    when :south
-      with(y: y - 1)
-    when :west
-      with(x: x - 1)
-    end
-  end
-
   def to_s
     "(#{x}, #{y})"
   end
