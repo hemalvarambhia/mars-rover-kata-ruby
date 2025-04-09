@@ -40,6 +40,10 @@ Position = Data.define(:x, :y) do
 end
 
 class Orientation
+  def self.all
+    [:north, :east, :south, :west]
+  end
+
   def self.valid?(orientation)
     CardinalDirections::ALL_DIRECTIONS.include?(orientation)
   end
