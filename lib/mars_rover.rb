@@ -53,6 +53,10 @@ class MarsRover
     @direction = orientation
   end
 
+  def orientation
+    @direction
+  end
+
   def move_forward
     @position = @position.translate(@direction)
   end
