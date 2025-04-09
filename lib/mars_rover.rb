@@ -55,7 +55,7 @@ class MarsRover
   end
 
   def move_forward
-    @position = @position.translate(@direction)
+    @position = @position.translate(@orientation)
   end
 
   def self.valid_commands?(commands)
