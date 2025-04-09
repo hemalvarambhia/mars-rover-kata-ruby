@@ -78,7 +78,7 @@ class MarsRover
     when 'f'
       move_forward
     when 'b'
-      case @direction
+      case @orientation
       when :north
         @position = @position.translate(:south)
       when :east
@@ -92,7 +92,7 @@ class MarsRover
   end
 
   def inspect
-    "A Mars rover currently positioned at #{@position} facing #{@direction}"
+    "A Mars rover currently positioned at #{@position} facing #{@orientation}"
   end
 
   # I like this. I didn't know I could that. Normally, rubyists put the private section
