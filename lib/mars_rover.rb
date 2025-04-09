@@ -34,7 +34,7 @@ class MarsRover
   end
 
   def position
-    Position.new(x: @current_coordinates.x, y: @current_coordinates.y)
+    @current_coordinates
   end
 
   def move_forward
