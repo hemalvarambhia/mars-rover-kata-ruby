@@ -107,7 +107,7 @@ describe 'Moving a Mars Rover' do
 
   %i[north south east west].each do |orientation|
     it "moves backwards when facing #{orientation}" do
-      mars_rover = MarsRover.new(direction: orientation)
+      mars_rover = MarsRover.new(orientation:)
       mars_rover.execute(['b'])
       expect(mars_rover).to have_moved.in_direction(:backward)
     end
