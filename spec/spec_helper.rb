@@ -2,7 +2,6 @@
 require 'logger'
 require_relative '../lib/errors/cannot_command_mars_rover'
 require_relative '../lib/errors/cannot_initialize_mars_rover'
-require_relative '../lib/point'
 require_relative '../lib/mars_rover'
 
 RSpec.configure do |config|
