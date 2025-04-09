@@ -54,7 +54,7 @@ class MarsRover
   end
 
   def move_forward
-    @position = @position.translate(@orientation)
+    @position = @position.translate(orientation)
   end
 
   def self.valid_commands?(commands)
@@ -77,7 +77,7 @@ class MarsRover
     when 'f'
       move_forward
     when 'b'
-      case @orientation
+      case orientation
       when :north
         @position = @position.translate(:south)
       when :east
