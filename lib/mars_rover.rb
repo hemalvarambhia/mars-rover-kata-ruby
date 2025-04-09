@@ -50,6 +50,7 @@ class MarsRover
       @current_coordinates = @current_coordinates.with(y: @current_coordinates.y - 1)
     when :west
       @current_position = [@current_position[0] - 1, @current_position[1]]
+      @current_coordinates = @current_coordinates.with(x: @current_coordinates.x - 1)
     end
 
     @current_coordinates = Position.new(x: @current_position[0], y: @current_position[1])
