@@ -1,45 +1,6 @@
 require_relative 'errors/cannot_command_mars_rover'
 require_relative 'errors/cannot_initialize_mars_rover'
-
-Position = Data.define(:x, :y) do
-  def self.origin
-    new(x: 0, y: 0)
-  end
-
-  def to_a
-    [x, y]
-  end
-
-  def [](index)
-    if index == 0
-      x
-    elsif index == 1
-      y
-    else
-      raise RuntimeError("No such index as #{index}")
-    end
-  end
-
-  def move(orientation)
-    case orientation
-    when :north
-      with(y: y + 1)
-    when :east
-      with(x: x + 1)
-    when :south
-      with(y: y - 1)
-    when :west
-      with(x: x - 1)
-    end
-  end
-
-  def to_s
-    "(#{x}, #{y})"
-  end
-end
-
-# Represents valid orientations for a Mars Rover
-# @api private
+require_relative 'position'
 class Orientation
   # Returns array of valid cardinal directions that a Mars Rover can face
   # @return [Array<Symbol>] Array containing :north, :east, :south, :west
