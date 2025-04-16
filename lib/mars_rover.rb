@@ -69,7 +69,7 @@ class MarsRover
 
   def execute(commands)
     raise CannotCommandMarsRover if commands.empty?
-    raise CannotCommandMarsRover.new if MarsRover.invalid_commands?(commands)
+    raise CannotCommandMarsRover if MarsRover.invalid_commands?(commands)
 
     command = commands[0]
     case command
