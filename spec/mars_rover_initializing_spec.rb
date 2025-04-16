@@ -25,7 +25,7 @@ describe 'Initializing a Mars Rover' do
     expect { MarsRover.new(orientation: 'X') }.to raise_error(CannotInitializeMarsRover)
   end
 
-  example 'cannot face anywhere outside N, E, S or W' do
+  it 'cannot face anywhere outside N, E, S or W' do
     expect { MarsRover.new(orientation: :something) }.to raise_error(CannotInitializeMarsRover)
   end
 
