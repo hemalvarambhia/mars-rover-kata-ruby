@@ -41,4 +41,8 @@ Position = Data.define(:x, :y) do
       position
     end
   end
+
+  def invalid?
+    to_a.length != 2 || !to_a.all? { |element| element.is_a?(Integer) }
+  end
 end
