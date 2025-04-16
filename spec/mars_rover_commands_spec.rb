@@ -111,28 +111,17 @@ describe 'Moving a Mars Rover' do
     end
   end
 
-  it 'turns left when facing north' do
-    mars_rover = MarsRover.new(orientation: :north)
-    mars_rover.execute(['l'])
-    expect(mars_rover.orientation).to eq(:west)
-  end
-
-  it 'turns left when facing west' do
-    mars_rover = MarsRover.new(orientation: :west)
-    mars_rover.execute(['l'])
-    expect(mars_rover.orientation).to eq(:south)
-  end
-
-  it 'turns left when facing south' do
-    mars_rover = MarsRover.new(orientation: :south)
-    mars_rover.execute(['l'])
-    expect(mars_rover.orientation).to eq(:east)
-  end
-
-  it 'turns left when facing east' do
-    mars_rover = MarsRover.new(orientation: :east)
-    mars_rover.execute(['l'])
-    expect(mars_rover.orientation).to eq(:north)
+  {
+    north: :west,
+    west: :south,
+    south: :east,
+    east: :north
+  }.each do |starting_orientation, ending_orientation|
+    it "turns left when facing #{starting_orientation}" do
+      mars_rover = MarsRover.new(orientation: starting_orientation)
+      mars_rover.execute(['l'])
+      expect(mars_rover.orientation).to eq(ending_orientation)
+    end
   end
 
   example 'raises error if commands to execute is not an array of valid characters' do
