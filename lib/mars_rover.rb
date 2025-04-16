@@ -75,7 +75,16 @@ class MarsRover
     when 'b'
       move_backward
     when 'l'
-      @orientation = :west if @orientation == :north
+      case @orientation
+      when :north
+        @orientation = :west
+      when :west
+        @orientation = :south
+      when :south
+        @orientation = :east
+      when :east
+        @orientation = :north
+      end
     end
   end
 
