@@ -81,19 +81,19 @@ class MarsRover
       turn_left
     end
   end
-      
+
   def turn_left
-      case @orientation
-      when :north
-        @orientation = :west
-      when :west
-        @orientation = :south
-      when :south
-        @orientation = :east
-      when :east
-        @orientation = :north
-      end
-      end
+    case @orientation
+    when :north
+      @orientation = :west
+    when :west
+      @orientation = :south
+    when :south
+      @orientation = :east
+    when :east
+      @orientation = :north
+    end
+  end
 
   def inspect
     "A Mars rover currently positioned at #{@position} facing #{@orientation}"
