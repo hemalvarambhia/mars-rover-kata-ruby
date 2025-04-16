@@ -1,5 +1,6 @@
 require_relative 'errors/cannot_command_mars_rover'
 require_relative 'errors/cannot_initialize_mars_rover'
+require_relative 'errors/too_many_commands'
 require_relative 'position'
 class Orientation
   # Returns array of valid cardinal directions that a Mars Rover can face
@@ -29,11 +30,12 @@ class MarsRover
 
   attr_reader :position, :orientation
 
-  def initialize(initial_position = Position.origin, orientation: :north)
+  def initialize(initial_position = Position.origin, orientation: :north, maximum_number_of_commands: 10)
     raise CannotInitializeMarsRover if Orientation.invalid?(orientation)
 
     @position = Position.new(x: initial_position[0], y: initial_position[1])
     @orientation = orientation
+    @maximum_number_of_commands = maximum_number_of_commands
   end
 
   def move_forward
@@ -70,6 +72,7 @@ class MarsRover
   def execute(commands)
     raise CannotCommandMarsRover if commands.empty?
     raise CannotCommandMarsRover if MarsRover.invalid_commands?(commands)
+    raise TooManyCommands if commands.length > @maximum_number_of_commands
 
     command = commands[0]
     case command

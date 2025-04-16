@@ -131,18 +131,13 @@ describe 'Moving a Mars Rover' do
   end
 
   it 'raises error if commands to execute is an empty array' do
-    # Let the user know something went wrong if array of commands is empty.
-    # It seems likely that this would be a mistake that should be caught.
     mars_rover = MarsRover.new
     expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
   end
 
-  example 'raises error if too many commands are sent' do
-    # We should limit the number of commands that can be sent
-    # And specify in the documentation what the limit is.
-    # Otherwise a user could send an arbitrary number of commands
-    # and possibly crash the system.
-    skip('implement too many commands')
+  it 'raises error if too many commands are sent' do
+    mars_rover = MarsRover.new(maximum_number_of_commands: 10)
+    expect { mars_rover.execute(['f'] * 11) }.to raise_error(TooManyCommands)
   end
 
   example 'TODO: implement wrapping at edges?' do
