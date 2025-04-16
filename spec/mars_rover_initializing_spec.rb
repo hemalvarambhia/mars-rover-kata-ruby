@@ -29,8 +29,8 @@ describe 'Initializing a Mars Rover' do
     expect { MarsRover.new(orientation: :something) }.to raise_error(CannotInitializeMarsRover)
   end
 
-  example 'raises error if initial x position is not integer and initial y position is an integer' do
-    skip('implement validation for initial x position is not integer')
+  it 'raises error if initial x position is not integer' do
+    expect { MarsRover.new([1.5, 2]) }.to raise_error(CannotInitializeMarsRover)
   end
 
   example 'raises error if initial y position is not integer and initial x position is an integer' do

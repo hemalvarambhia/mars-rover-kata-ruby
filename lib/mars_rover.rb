@@ -35,6 +35,7 @@ class MarsRover
 
   def initialize(initial_position = Position.origin, orientation: :north, maximum_number_of_commands: 10)
     raise CannotInitializeMarsRover if Orientation.invalid?(orientation)
+    raise CannotInitializeMarsRover if initial_position.to_a.first.is_a?(Float)
 
     @position = Position.new(x: initial_position[0], y: initial_position[1])
     @orientation = orientation
