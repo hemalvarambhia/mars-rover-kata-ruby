@@ -129,6 +129,12 @@ describe 'Moving a Mars Rover' do
     expect(mars_rover.orientation).to eq(:east)
   end
 
+  it 'turns left when facing east' do
+    mars_rover = MarsRover.new(orientation: :east)
+    mars_rover.execute(['l'])
+    expect(mars_rover.orientation).to eq(:north)
+  end
+
   example 'raises error if commands to execute is not an array of valid characters' do
     # array should only consist of f, b, l, r
     skip('implement valid characters for commands')
