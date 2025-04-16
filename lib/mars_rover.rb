@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 require_relative 'errors/cannot_command_mars_rover'
 require_relative 'errors/cannot_initialize_mars_rover'
 require_relative 'errors/too_many_commands'
 require_relative 'position'
+
 class Orientation
   # Returns array of valid cardinal directions that a Mars Rover can face
   # @return [Array<Symbol>] Array containing :north, :east, :south, :west
