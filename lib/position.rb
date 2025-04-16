@@ -33,4 +33,12 @@ Position = Data.define(:x, :y) do
   def to_s
     "(#{x}, #{y})"
   end
+
+  def self.from_array_or_position(position)
+    if position.is_a?(Array)
+      new(x: position[0], y: position[1])
+    else
+      position
+    end
+  end
 end

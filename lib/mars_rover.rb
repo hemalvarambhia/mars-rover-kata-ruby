@@ -37,7 +37,7 @@ class MarsRover
     raise CannotInitializeMarsRover if Orientation.invalid?(orientation)
     raise CannotInitializeMarsRover if initial_position.to_a.first.is_a?(Float)
 
-    @position = Position.new(x: initial_position[0], y: initial_position[1])
+    @position = Position.from_array_or_position(initial_position)
     @orientation = orientation
     @maximum_number_of_commands = maximum_number_of_commands
   end
