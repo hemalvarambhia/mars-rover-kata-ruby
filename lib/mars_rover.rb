@@ -44,6 +44,10 @@ class MarsRover
     @position = @position.move(opposite_orientation(orientation))
   end
 
+  def self.invalid_commands?(commands)
+    !valid_commands?(commands)
+  end
+
   def self.valid_commands?(commands)
     commands.is_a?(Array) &&
       commands.all? { |command| supported?(command) } &&
@@ -65,7 +69,7 @@ class MarsRover
 
   def execute(commands)
     raise CannotCommandMarsRover.new if commands.empty?
-    raise CannotCommandMarsRover.new unless MarsRover.valid_commands?(commands)
+    raise CannotCommandMarsRover.new if MarsRover.invalid_commands?(commands)
 
     command = commands[0]
     case command
