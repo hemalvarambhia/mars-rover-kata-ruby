@@ -34,10 +34,10 @@ class MarsRover
   attr_reader :position, :orientation
 
   def initialize(initial_position = Position.origin, orientation: :north, maximum_number_of_commands: 10)
-    raise CannotInitializeMarsRover if Orientation.invalid?(orientation)
-    raise CannotInitializeMarsRover if initial_position.to_a.first.is_a?(Float)
-
     @position = Position.from_array_or_position(initial_position)
+    raise CannotInitializeMarsRover if Orientation.invalid?(orientation)
+    raise CannotInitializeMarsRover if @position.to_a.first.is_a?(Float)
+
     @orientation = orientation
     @maximum_number_of_commands = maximum_number_of_commands
   end
