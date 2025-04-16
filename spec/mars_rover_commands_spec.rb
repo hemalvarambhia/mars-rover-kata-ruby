@@ -138,6 +138,7 @@ describe 'Moving a Mars Rover' do
   it 'raises error if too many commands are sent' do
     mars_rover = MarsRover.new(maximum_number_of_commands: 10)
     expect { mars_rover.execute(['f'] * 11) }.to raise_error(TooManyCommands)
+    expect { mars_rover.execute(['f'] * 10) }.not_to raise_error
   end
 
   example 'TODO: implement wrapping at edges?' do
