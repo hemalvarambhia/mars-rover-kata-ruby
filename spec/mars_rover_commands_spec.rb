@@ -130,10 +130,11 @@ describe 'Moving a Mars Rover' do
     expect { mars_rover.execute(invalid_commands) }.to raise_error(CannotCommandMarsRover)
   end
 
-  example 'raises error if commands to execute is an empty array' do
+  it 'raises error if commands to execute is an empty array' do
     # Let the user know something went wrong if array of commands is empty.
     # It seems likely that this would be a mistake that should be caught.
-    skip('implement valid array for commands')
+    mars_rover = MarsRover.new
+    expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
   end
 
   example 'raises error if too many commands are sent' do
