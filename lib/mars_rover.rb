@@ -27,11 +27,11 @@ class MarsRover
   end
 
   def move_forward
-    @position = @position.move(orientation)
+    @position = @position.move(@orientation)
   end
 
   def move_backward
-    @position = @position.move(opposite_orientation(orientation))
+    @position = @position.move(opposite_orientation(@orientation))
   end
 
   def self.invalid_commands?(commands)
