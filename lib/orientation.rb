@@ -40,12 +40,6 @@ Orientation = Data.define(:orientation) do
   # @example Convert :north to :north
   #   Orientation.from_symbol_or_string(:north) #=> :north
   def self.from_symbol_or_string(orientation)
-    if orientation.is_a?(Symbol)
-      orientation
-    elsif orientation.is_a?(String)
-      orientation.to_sym
-    else
-      raise ArgumentError, "Invalid orientation: #{orientation}"
-    end
+    new(orientation.to_sym)
   end
 end
