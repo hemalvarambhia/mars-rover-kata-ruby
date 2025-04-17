@@ -64,16 +64,7 @@ class MarsRover
   end
 
   def turn_left
-    case @orientation.to_sym
-    when :north
-      @orientation = Orientation.new(:west)
-    when :west
-      @orientation = Orientation.new(:south)
-    when :south
-      @orientation = Orientation.new(:east)
-    when :east
-      @orientation = Orientation.new(:north)
-    end
+    @orientation = @orientation.rotate_left
   end
 
   def inspect
