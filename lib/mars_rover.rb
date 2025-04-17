@@ -52,6 +52,8 @@ class MarsRover
       move_backward
     when 'l'
       turn_left
+    when 'r'
+      turn_right
     end
   end
 
