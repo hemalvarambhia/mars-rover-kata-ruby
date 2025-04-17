@@ -159,6 +159,8 @@ describe 'Moving a Mars Rover' do
 
   it 'executes a series of commands' do
     mars_rover = MarsRover.new(orientation: :north)
+    commands = %w[f b]
+    mars_rover.execute(commands)
     expect(mars_rover.orientation).to eq(:north)
     expect(mars_rover.position).to eq(Position.origin)
   end

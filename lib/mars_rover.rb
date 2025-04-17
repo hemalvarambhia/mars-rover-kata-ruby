@@ -44,16 +44,17 @@ class MarsRover
     raise CannotCommandMarsRover if MarsRover.invalid_commands?(commands)
     raise TooManyCommands if commands.length > @maximum_number_of_commands
 
-    command = commands[0]
-    case command
-    when 'f'
-      move_forward
-    when 'b'
-      move_backward
-    when 'l'
-      turn_left
-    when 'r'
-      turn_right
+    commands.each do |command|
+      case command
+      when 'f'
+        move_forward
+      when 'b'
+        move_backward
+      when 'l'
+        turn_left
+      when 'r'
+        turn_right
+      end
     end
   end
 
