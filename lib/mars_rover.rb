@@ -74,15 +74,15 @@ class MarsRover
   end
 
   def turn_left
-    case @orientation
+    case @orientation.to_sym
     when :north
-      @orientation = :west
+      @orientation = Orientation.new(:west)
     when :west
-      @orientation = :south
+      @orientation = Orientation.new(:south)
     when :south
-      @orientation = :east
+      @orientation = Orientation.new(:east)
     when :east
-      @orientation = :north
+      @orientation = Orientation.new(:north)
     end
   end
 
