@@ -25,14 +25,6 @@ class MarsRover
     @orientation.to_sym
   end
 
-  def move_forward
-    @position = @position.move(@orientation)
-  end
-
-  def move_backward
-    @position = @position.move(@orientation.opposite)
-  end
-
   def self.invalid_commands?(commands)
     !valid_commands?(commands)
   end
@@ -63,8 +55,20 @@ class MarsRover
     end
   end
 
+  def move_forward
+    @position = @position.move(@orientation)
+  end
+
+  def move_backward
+    @position = @position.move(@orientation.opposite)
+  end
+
   def turn_left
     @orientation = @orientation.rotate_left
+  end
+
+  def turn_right
+    @orientation = @orientation.rotate_right
   end
 
   def inspect
