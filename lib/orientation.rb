@@ -34,6 +34,11 @@ class Orientation
     !valid?(orientation)
   end
 
+  # Converts a symbol or string to a valid orientation
+  # @param orientation [Symbol, String] The orientation to convert
+  # @return [Symbol] The converted orientation
+  # @example Convert :north to :north
+  #   Orientation.from_symbol_or_string(:north) #=> :north
   def self.from_symbol_or_string(orientation)
     if orientation.is_a?(Symbol)
       orientation
