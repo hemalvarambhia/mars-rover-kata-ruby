@@ -62,10 +62,6 @@ Orientation = Data.define(:orientation) do
     orientation.to_sym
   end
 
-  def deconstruct_keys
-    { orientation: }
-  end
-
   def to_sym
     orientation
   end
