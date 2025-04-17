@@ -65,4 +65,20 @@ Orientation = Data.define(:orientation) do
   def to_sym
     orientation
   end
+
+  def north?
+    orientation == :north
+  end
+
+  def east?
+    orientation == :east
+  end
+
+  def south?
+    orientation == :south
+  end
+
+  def west?
+    orientation == :west
+  end
 end
