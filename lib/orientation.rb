@@ -109,4 +109,17 @@ Orientation = Data.define(:orientation) do
       with(orientation: :north)
     end
   end
+
+  def rotate_right
+    case orientation.to_sym
+    when :north
+      with(orientation: :east)
+    when :east
+      with(orientation: :south)
+    when :south
+      with(orientation: :west)
+    when :west
+      with(orientation: :north)
+    end
+  end
 end
