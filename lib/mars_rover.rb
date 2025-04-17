@@ -30,7 +30,7 @@ class MarsRover
   end
 
   def move_backward
-    @position = @position.move(@orientation.opposite.to_sym)
+    @position = @position.move(@orientation.opposite)
   end
 
   def self.invalid_commands?(commands)
