@@ -46,4 +46,12 @@ Orientation = Data.define(:orientation) do
   def invalid?
     self.class.invalid?(orientation)
   end
+
+  def ==(other)
+    orientation == other.to_sym
+  end
+
+  def to_sym
+    orientation
+  end
 end
