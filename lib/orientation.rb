@@ -39,6 +39,8 @@ class Orientation
       orientation
     elsif orientation.is_a?(String)
       orientation.to_sym
+    else
+      raise ArgumentError, "Invalid orientation: #{orientation}"
     end
   end
 end
