@@ -8,7 +8,7 @@ Position = Data.define(:x, :y) do
   end
 
   def [](index)
-    if index == 0
+    if index.zero?
       x
     elsif index == 1
       y
