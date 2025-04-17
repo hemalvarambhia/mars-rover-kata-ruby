@@ -54,7 +54,7 @@ class MarsRover
       east: :west,
       south: :north,
       west: :east
-    }.fetch(@orientation.to_sym)
+    }.fetch(orientation.to_sym)
   end
 
   def execute(commands)
