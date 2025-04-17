@@ -33,4 +33,12 @@ class Orientation
   def self.invalid?(orientation)
     !valid?(orientation)
   end
+
+  def self.from_symbol_or_string(orientation)
+    if orientation.is_a?(Symbol)
+      orientation
+    elsif orientation.is_a?(String)
+      orientation.to_sym
+    end
+  end
 end
