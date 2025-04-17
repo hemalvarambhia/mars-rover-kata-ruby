@@ -27,6 +27,8 @@ Position = Data.define(:x, :y) do
       with(y: y - 1)
     when :west
       with(x: x - 1)
+    else
+      raise RuntimeError("Invalid orientation: #{orientation}")
     end
   end
 
