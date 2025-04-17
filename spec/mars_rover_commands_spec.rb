@@ -157,6 +157,12 @@ describe 'Moving a Mars Rover' do
     expect { mars_rover.execute(['f'] * 10) }.not_to raise_error
   end
 
+  it 'executes a series of commands' do
+    mars_rover = MarsRover.new(orientation: :north)
+    expect(mars_rover.orientation).to eq(:north)
+    expect(mars_rover.position).to eq(Position.origin)
+  end
+
   example 'TODO: implement wrapping at edges?' do
     # This requirement has not yet been met, and is not well defined.
     # What do they really want here?
