@@ -47,15 +47,6 @@ class MarsRover
     CARDINAL_COMMANDS.include?(command)
   end
 
-  def opposite_orientation(orientation)
-    {
-      north: :south,
-      east: :west,
-      south: :north,
-      west: :east
-    }.fetch(orientation.to_sym)
-  end
-
   def execute(commands)
     raise CannotCommandMarsRover if commands.empty?
     raise CannotCommandMarsRover if MarsRover.invalid_commands?(commands)
