@@ -127,6 +127,19 @@ describe 'Moving a Mars Rover' do
     end
   end
 
+  {
+    north: :east,
+    west: :north,
+    south: :west,
+    east: :south
+  }.each do |starting_orientation, ending_orientation|
+    it "turns right when facing #{starting_orientation}" do
+      mars_rover = MarsRover.new(orientation: starting_orientation)
+      mars_rover.execute(['r'])
+      expect(mars_rover.orientation).to eq(ending_orientation)
+    end
+  end
+
   it 'raises error if commands to execute is not an array of valid characters' do
     mars_rover = MarsRover.new
     invalid_commands = %w[x y z]
