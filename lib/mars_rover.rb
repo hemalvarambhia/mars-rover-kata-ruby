@@ -4,28 +4,7 @@ require_relative 'errors/cannot_command_mars_rover'
 require_relative 'errors/cannot_initialize_mars_rover'
 require_relative 'errors/too_many_commands'
 require_relative 'position'
-
-class Orientation
-  # Returns array of valid cardinal directions that a Mars Rover can face
-  # @return [Array<Symbol>] Array containing :north, :east, :south, :west
-  def self.all
-    %i[north east south west]
-  end
-
-  # Checks if an orientation is valid
-  # @param orientation [Symbol] The orientation to validate
-  # @return [Boolean] true if orientation is one of :north, :east, :south, :west
-  def self.valid?(orientation)
-    all.include?(orientation)
-  end
-
-  # Checks if an orientation is invalid
-  # @param orientation [Symbol] The orientation to validate
-  # @return [Boolean] true if orientation is not one of :north, :east, :south, :west
-  def self.invalid?(orientation)
-    !valid?(orientation)
-  end
-end
+require_relative 'orientation'
 
 class MarsRover
   CARDINAL_COMMANDS = %w[f b l r]
