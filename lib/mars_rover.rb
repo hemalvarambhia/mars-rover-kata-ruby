@@ -18,7 +18,6 @@ class MarsRover
     raise CannotInitializeMarsRover if @orientation.invalid?
     raise CannotInitializeMarsRover if @position.invalid?
 
-    @orientation = orientation
     @maximum_number_of_commands = maximum_number_of_commands
   end
 
