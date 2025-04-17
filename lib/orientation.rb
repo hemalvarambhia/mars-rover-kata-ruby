@@ -58,7 +58,7 @@ Orientation = Data.define(:orientation) do
     end
   end
 
-  def deconstruct
+  def deconstruct(*)
     orientation.to_sym
   end
 
