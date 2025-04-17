@@ -19,13 +19,13 @@ Position = Data.define(:x, :y) do
 
   def move(orientation)
     case orientation
-    when :north
+    in :north
       with(y: y + 1)
-    when :east
+    in :east
       with(x: x + 1)
-    when :south
+    in :south
       with(y: y - 1)
-    when :west
+    in :west
       with(x: x - 1)
     else
       raise "Invalid orientation: #{orientation}"
