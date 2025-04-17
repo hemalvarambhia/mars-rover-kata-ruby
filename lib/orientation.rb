@@ -3,7 +3,7 @@
 # The Orientation class handles validation and provides access to valid cardinal directions
 # that a Mars Rover can face. It ensures that orientations are restricted to the four
 # cardinal directions: north, east, south, and west.
-class Orientation
+Orientation = Data.define(:orientation) do
   # Returns array of valid cardinal directions that a Mars Rover can face
   # @return [Array<Symbol>] Array containing :north, :east, :south, :west
   # @example Get all valid orientations
