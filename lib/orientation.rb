@@ -58,15 +58,12 @@ Orientation = Data.define(:orientation) do
     end
   end
 
-  def ===(other)
-    case other
-    when Symbol
-      orientation == other
-    when Orientation
-      orientation == other.orientation
-    else
-      false
-    end
+  def deconstruct
+    [orientation]
+  end
+
+  def deconstruct_keys
+    { orientation: }
   end
 
   def to_sym
