@@ -10,7 +10,7 @@ class MarsRover
   CARDINAL_COMMANDS = %w[f b l r]
   private_constant :CARDINAL_COMMANDS
 
-  attr_reader :position, :orientation
+  attr_reader :position
 
   def initialize(initial_position = Position.origin, orientation: :north, maximum_number_of_commands: 10)
     @orientation = Orientation.from_symbol_or_string(orientation)
@@ -20,6 +20,10 @@ class MarsRover
 
     @orientation = orientation
     @maximum_number_of_commands = maximum_number_of_commands
+  end
+
+  def orientation
+    @orientation.to_sym
   end
 
   def move_forward
