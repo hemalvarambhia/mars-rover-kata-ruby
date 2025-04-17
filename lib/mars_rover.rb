@@ -87,7 +87,7 @@ class MarsRover
   end
 
   def inspect
-    "A Mars rover currently positioned at #{@position} facing #{@orientation}"
+    "A Mars rover currently positioned at #{@position} facing #{@orientation.to_sym}"
   end
 
   # I like this. I didn't know I could that. Normally, rubyists put the private section
