@@ -83,16 +83,30 @@ Orientation = Data.define(:orientation) do
   end
 
   def opposite
-    if north?
+    case orientation.to_sym
+    when :north
       with(orientation: :south)
-    elsif east?
+    when :east
       with(orientation: :west)
-    elsif south?
+    when :south
       with(orientation: :north)
-    elsif west?
+    when :west
       with(orientation: :east)
     else
       raise "Invalid orientation: #{orientation}"
+    end
+  end
+
+  def rotate_left
+    case orientation.to_sym
+    when :north
+      with(orientation: :west)
+    when :west
+      with(orientation: :south)
+    when :south
+      with(orientation: :east)
+    when :east
+      with(orientation: :north)
     end
   end
 end
