@@ -42,4 +42,8 @@ Orientation = Data.define(:orientation) do
   def self.from_symbol_or_string(orientation)
     new(orientation.to_sym)
   end
+
+  def invalid?
+    self.class.invalid?(orientation)
+  end
 end
