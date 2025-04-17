@@ -81,4 +81,19 @@ Orientation = Data.define(:orientation) do
   def west?
     orientation == :west
   end
+
+  def opposite
+    case orientation
+    when :north
+      :south
+    when :east
+      :west
+    when :south
+      :north
+    when :west
+      :east
+    else
+      raise "Invalid orientation: #{orientation}"
+    end
+  end
 end
