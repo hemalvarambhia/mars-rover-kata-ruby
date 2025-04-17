@@ -18,7 +18,7 @@ Position = Data.define(:x, :y) do
   end
 
   def move(orientation)
-    case orientation
+    case orientation.to_sym
     in :north
       with(y: y + 1)
     in :east

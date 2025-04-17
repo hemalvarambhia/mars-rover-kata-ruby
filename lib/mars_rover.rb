@@ -26,7 +26,7 @@ class MarsRover
   end
 
   def move_forward
-    @position = @position.move(@orientation.to_sym)
+    @position = @position.move(@orientation)
   end
 
   def move_backward
