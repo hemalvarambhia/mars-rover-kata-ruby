@@ -48,7 +48,14 @@ Orientation = Data.define(:orientation) do
   end
 
   def ==(other)
-    orientation == other.to_sym
+    case other
+    when Symbol
+      orientation == other
+    when Orientation
+      orientation == other.orientation
+    else
+      false
+    end
   end
 
   def to_sym

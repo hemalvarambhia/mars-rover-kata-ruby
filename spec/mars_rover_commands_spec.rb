@@ -38,6 +38,7 @@ describe 'Moving a Mars Rover' do
     expect { mars_rover.execute(['q']) }.to raise_error(CannotCommandMarsRover)
     expect(mars_rover.position.x).to eq(3)
     expect(mars_rover.position.y).to eq(-1)
+
     expect(mars_rover.orientation).to eq(:north)
   end
 
