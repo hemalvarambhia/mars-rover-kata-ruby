@@ -1,0 +1,31 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Mars Rover Kata - Project Structure
+
+This is a Ruby implementation of the Mars Rover Kata, following a clean object-oriented design.
+
+## Core Components
+
+The main implementation files are located in the `lib` directory:
+
+- [mars_rover.rb](mdc:lib/mars_rover.rb) - The main Mars Rover class that handles rover movement and commands
+- [orientation.rb](mdc:lib/orientation.rb) - Manages the rover's orientation (North, South, East, West)
+- [position.rb](mdc:lib/position.rb) - Handles the rover's position coordinates on the grid
+
+## Tests
+
+The test suite is in the `spec` directory:
+
+- [mars_rover_commands_spec.rb](mdc:spec/mars_rover_commands_spec.rb) - Tests for rover movement commands
+- [mars_rover_initializing_spec.rb](mdc:spec/mars_rover_initializing_spec.rb) - Tests for rover initialization
+- [spec_helper.rb](mdc:spec/spec_helper.rb) - RSpec configuration and test helpers
+
+## Development
+
+The project uses:
+- RSpec for testing
+- [Gemfile](mdc:Gemfile) for dependency management
+- [tcr.sh](mdc:tcr.sh) for test && commit || revert workflow

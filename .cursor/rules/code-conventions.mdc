@@ -1,0 +1,38 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Code Conventions and Design Patterns
+
+## Ruby Style Guide
+
+This project follows Ruby best practices and conventions:
+
+- Classes are defined in separate files under `lib/`
+- File names use snake_case
+- Test files are suffixed with `_spec.rb`
+- Tests are organized by functionality
+- Each class has a single responsibility
+
+## Object-Oriented Design
+
+The Mars Rover implementation uses these key OO principles:
+
+1. **Single Responsibility Principle**
+   - [position.rb](mdc:lib/position.rb) handles only position-related logic
+   - [orientation.rb](mdc:lib/orientation.rb) manages only directional concerns
+   - [mars_rover.rb](mdc:lib/mars_rover.rb) orchestrates the overall behavior
+
+2. **Encapsulation**
+   - Each class manages its own internal state
+   - Public interfaces are clearly defined
+   - Implementation details are hidden
+
+## Testing Approach
+
+- Tests are written using RSpec
+- Organized by feature/functionality
+- Follow the Given-When-Then pattern
+- Use descriptive context blocks
+- Test both happy path and edge cases
