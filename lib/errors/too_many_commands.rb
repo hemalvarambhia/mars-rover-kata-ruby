@@ -6,6 +6,10 @@ class TooManyCommands < StandardError
     @commands = commands
   end
 
+  def self.from_commands(commands)
+    new(message: 'Too many commands', commands:)
+  end
+
   def to_formatted_h
     {
       message:,
