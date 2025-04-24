@@ -6,8 +6,27 @@ require_relative 'errors/too_many_commands'
 require_relative 'position'
 require_relative 'orientation'
 
+# The MarsRover class represents a rover that can move on a 2D grid and rotate in cardinal directions.
+#
+# The rover keeps track of its position and orientation, and can execute movement commands.
+# Valid commands are:
+# - 'f': Move forward one space in the current direction
+# - 'b': Move backward one space from the current direction
+# - 'l': Rotate 90 degrees left/counterclockwise
+# - 'r': Rotate 90 degrees right/clockwise
+#
+# @example Create and command a rover
+#   rover = MarsRover.new([0,0], orientation: :north)
+#   rover.execute(['f', 'r', 'f']) # Moves forward, turns right, moves forward
+#
+# @example Create with custom max commands
+#   rover = MarsRover.new(maximum_number_of_commands: 20)
+#
+# @raise [CannotInitializeMarsRover] If the initial position or orientation is invalid
+# @raise [CannotCommandMarsRover] If commands are empty or invalid
+# @raise [TooManyCommands] If number of commands exceeds the maximum allowed
 class MarsRover
-  CARDINAL_COMMANDS = %w[f b l r]
+  CARDINAL_COMMANDS = %w[f b l r].freeze
   private_constant :CARDINAL_COMMANDS
 
   attr_reader :position
