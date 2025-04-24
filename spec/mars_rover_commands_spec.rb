@@ -145,6 +145,7 @@ describe 'Moving a Mars Rover' do
     invalid_commands = %w[x y z]
     expect { mars_rover.execute(invalid_commands) }.to raise_error(CannotCommandMarsRover) do |error|
       expect(error.message).to eq('Cannot command Mars Rover')
+      expect(error.to_formatted_h).to eq({ message: 'Cannot command Mars Rover', commands: invalid_commands })
     end
   end
 
