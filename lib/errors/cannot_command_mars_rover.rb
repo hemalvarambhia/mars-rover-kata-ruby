@@ -6,6 +6,10 @@ class CannotCommandMarsRover < StandardError
     @commands = commands
   end
 
+  def self.from(commands:)
+    new(commands:)
+  end
+
   def to_formatted_h
     {
       message:,
