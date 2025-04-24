@@ -151,7 +151,10 @@ describe 'Moving a Mars Rover' do
 
   it 'raises error if commands to execute is an empty array' do
     mars_rover = MarsRover.new
-    expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover)
+    expect { mars_rover.execute([]) }.to raise_error(CannotCommandMarsRover) do |error|
+      expect(error.message).to eq('Cannot command Mars Rover')
+      expect(error.to_formatted_h).to eq({ message: 'Cannot command Mars Rover', commands: [] })
+    end
   end
 
   it 'raises error if too many commands are sent' do
