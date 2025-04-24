@@ -155,6 +155,7 @@ describe 'Moving a Mars Rover' do
     mars_rover = MarsRover.new(maximum_number_of_commands: 10)
     expect { mars_rover.execute(['f'] * 11) }.to raise_error(TooManyCommands) do |error|
       expect(error.message).to eq('Too many commands')
+      expect(error.to_formatted_h).to eq({})
     end
     expect { mars_rover.execute(['f'] * 10) }.not_to raise_error
   end
