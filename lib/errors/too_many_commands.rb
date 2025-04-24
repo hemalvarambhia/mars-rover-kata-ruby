@@ -9,7 +9,7 @@ class TooManyCommands < StandardError
   def to_formatted_h
     {
       message:,
-      commands: []
+      commands: @commands
     }
   end
 end
