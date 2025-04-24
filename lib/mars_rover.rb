@@ -60,7 +60,7 @@ class MarsRover
 
   def execute(commands)
     raise CannotCommandMarsRover.from(commands:) if commands.empty?
-    raise CannotCommandMarsRover if MarsRover.invalid_commands?(commands)
+    raise CannotCommandMarsRover.from(commands:) if MarsRover.invalid_commands?(commands)
     raise TooManyCommands.from(commands:) if commands.length > @maximum_number_of_commands
 
     commands.each do |command|
