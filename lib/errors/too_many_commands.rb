@@ -6,7 +6,7 @@ class TooManyCommands < StandardError
     @commands = commands
   end
 
-  def self.from_commands(commands)
+  def self.from(commands:)
     new(commands:)
   end
 
