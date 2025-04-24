@@ -143,7 +143,9 @@ describe 'Moving a Mars Rover' do
   it 'raises error if commands to execute is not an array of valid characters' do
     mars_rover = MarsRover.new
     invalid_commands = %w[x y z]
-    expect { mars_rover.execute(invalid_commands) }.to raise_error(CannotCommandMarsRover)
+    expect { mars_rover.execute(invalid_commands) }.to raise_error(CannotCommandMarsRover) do |error|
+      expect(error.message).to eq('Cannot command Mars Rover')
+    end
   end
 
   it 'raises error if commands to execute is an empty array' do
