@@ -10,6 +10,7 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
+  config.fail_fast = false
 end
 
 require_relative '../lib/rover'
