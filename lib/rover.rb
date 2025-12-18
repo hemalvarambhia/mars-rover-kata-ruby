@@ -1,15 +1,24 @@
 # Mars Rover - remotely controlled vehicle for Mars exploration
 
+require_relative 'coordinates'
+
 class Rover
   VALID_DIRECTIONS = %i[north south east west].freeze
 
-  attr_reader :x, :y, :direction
+  attr_reader :direction
 
   def initialize(x:, y:, direction:)
     validate_direction!(direction)
-    @x = x
-    @y = y
+    @coordinates = Coordinates.new(x, y)
     @direction = direction
+  end
+
+  def x
+    @coordinates.x
+  end
+
+  def y
+    @coordinates.y
   end
 
   private
