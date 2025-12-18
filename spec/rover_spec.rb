@@ -32,6 +32,11 @@ RSpec.describe Rover do
       expect { Rover.new(coordinates: Coordinates.new(0, 0), direction: :northeast) }
         .to raise_error(ArgumentError, /invalid direction/i)
     end
+
+    it 'rejects nil coordinates' do
+      expect { Rover.new(coordinates: nil, direction: :north) }
+        .to raise_error(ArgumentError, /coordinates cannot be nil/i)
+    end
   end
 end
 

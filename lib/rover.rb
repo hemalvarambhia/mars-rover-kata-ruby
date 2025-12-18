@@ -8,6 +8,8 @@ class Rover
   attr_reader :direction
 
   def initialize(coordinates:, direction:)
+    raise ArgumentError, "Coordinates cannot be nil" if coordinates.nil?
+
     validate_direction!(direction)
     @coordinates = coordinates
     @direction = direction
