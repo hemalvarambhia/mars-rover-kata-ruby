@@ -1,6 +1,7 @@
 # Tests for Rover initialization and behavior
 
 require 'spec_helper'
+require_relative '../lib/rover'
 
 RSpec.describe Rover do
   describe 'initialization' do
