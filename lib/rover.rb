@@ -7,9 +7,9 @@ class Rover
 
   attr_reader :direction
 
-  def initialize(x:, y:, direction:)
+  def initialize(coordinates:, direction:)
     validate_direction!(direction)
-    @coordinates = Coordinates.new(x, y)
+    @coordinates = coordinates
     @direction = direction
   end
 
