@@ -1,6 +1,7 @@
 # Tests for Coordinates value object
 
 require 'spec_helper'
+require_relative '../lib/coordinates'
 
 RSpec.describe Coordinates do
   describe 'initialization' do
