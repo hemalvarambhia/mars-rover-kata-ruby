@@ -21,7 +21,7 @@ class Rover
     @coordinates.y
   end
 
-  def receive_commands(commands)
+  def execute_commands(commands)
     raise ArgumentError, 'Commands must be an array' unless commands.is_a?(Array)
 
     valid_commands = %w[f b l r]

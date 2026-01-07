@@ -45,29 +45,29 @@ RSpec.describe Rover do
   describe 'receiving commands' do
     it 'accepts a character array of commands' do
       rover = Rover.new(coordinates: Coordinates.new(0, 0), direction: :north)
-      expect { rover.receive_commands(%w[f b l r]) }.not_to raise_error
+      expect { rover.execute_commands(%w[f b l r]) }.not_to raise_error
     end
 
     it 'accepts an empty array of commands' do
       rover = Rover.new(coordinates: Coordinates.new(0, 0), direction: :north)
-      expect { rover.receive_commands([]) }.not_to raise_error
+      expect { rover.execute_commands([]) }.not_to raise_error
     end
 
     it 'rejects nil commands' do
       rover = Rover.new(coordinates: Coordinates.new(0, 0), direction: :north)
-      expect { rover.receive_commands(nil) }
+      expect { rover.execute_commands(nil) }
         .to raise_error(ArgumentError, /commands must be an array/i)
     end
 
     it 'rejects non-array commands' do
       rover = Rover.new(coordinates: Coordinates.new(0, 0), direction: :north)
-      expect { rover.receive_commands('fblr') }
+      expect { rover.execute_commands('fblr') }
         .to raise_error(ArgumentError, /commands must be an array/i)
     end
 
     it 'rejects unsupported commands' do
       rover = Rover.new(coordinates: Coordinates.new(0, 0), direction: :north)
-      expect { rover.receive_commands(%w[f x b]) }
+      expect { rover.execute_commands(%w[f x b]) }
         .to raise_error(ArgumentError, /unsupported command: x/i)
     end
   end
