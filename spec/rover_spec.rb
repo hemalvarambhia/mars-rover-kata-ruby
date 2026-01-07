@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Tests for Rover initialization and behavior
 
 require 'spec_helper'

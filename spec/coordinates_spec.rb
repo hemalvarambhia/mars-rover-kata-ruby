@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Tests for Coordinates value object
 
 require 'spec_helper'
@@ -20,4 +22,3 @@ RSpec.describe Coordinates do
     end
   end
 end
-

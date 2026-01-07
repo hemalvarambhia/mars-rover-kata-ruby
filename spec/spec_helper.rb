@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # RSpec configuration for Mars Rover tests
 
 RSpec.configure do |config|
