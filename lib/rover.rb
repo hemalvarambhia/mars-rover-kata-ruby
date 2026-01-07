@@ -21,6 +21,15 @@ class Rover
     @coordinates.y
   end
 
+  def receive_commands(commands)
+    raise ArgumentError, 'Commands must be an array' unless commands.is_a?(Array)
+
+    valid_commands = %w[f b l r]
+    commands.each do |cmd|
+      raise ArgumentError, "Unsupported command: #{cmd}" unless valid_commands.include?(cmd)
+    end
+  end
+
   private
 
   def validate_direction!(direction)
