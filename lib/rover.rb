@@ -1,9 +1,6 @@
 # Mars Rover - remotely controlled vehicle for Mars exploration
 
-require_relative 'coordinates'
-
 class Rover
-  VALID_DIRECTIONS = %i[north south east west].freeze
 
   attr_reader :direction
 
@@ -26,9 +23,9 @@ class Rover
   private
 
   def validate_direction!(direction)
-    return if VALID_DIRECTIONS.include?(direction)
+    valid_directions = %i[north south east west]
+    return if valid_directions.include?(direction)
 
     raise ArgumentError, "Invalid direction: #{direction}"
   end
 end
-

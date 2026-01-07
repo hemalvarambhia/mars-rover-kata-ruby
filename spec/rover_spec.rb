@@ -1,6 +1,7 @@
 # Tests for Rover initialization and behavior
 
 require 'spec_helper'
+require_relative '../lib/coordinates'
 require_relative '../lib/rover'
 
 RSpec.describe Rover do
@@ -39,4 +40,3 @@ RSpec.describe Rover do
     end
   end
 end
-

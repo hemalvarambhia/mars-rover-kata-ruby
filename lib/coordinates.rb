@@ -1,11 +1,3 @@
-# Represents a position in 2D space
+# Value object representing x,y position on Mars grid
 
-class Coordinates
-  attr_reader :x, :y
-
-  def initialize(x, y)
-    @x = x
-    @y = y
-  end
-end
-
+Coordinates = Data.define(:x, :y)
