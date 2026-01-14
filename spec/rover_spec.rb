@@ -49,13 +49,13 @@ RSpec.describe Rover do
         { direction: :south, start: Coordinates.new(0, 1), expected: Coordinates.new(0, 0) },
         { direction: :east,  start: Coordinates.new(0, 0), expected: Coordinates.new(1, 0) },
         { direction: :west,  start: Coordinates.new(1, 0), expected: Coordinates.new(0, 0) }
-      ].each do |tc|
-        it "moves when facing #{tc[:direction]}" do
-          rover = Rover.new(coordinates: tc[:start], direction: tc[:direction])
+      ].each do |scenario|
+        it "moves when facing #{scenario[:direction]}" do
+          rover = Rover.new(coordinates: scenario[:start], direction: scenario[:direction])
 
           rover.execute_commands(['f'])
 
-          expect(Coordinates.new(rover.x, rover.y)).to eq(tc[:expected])
+          expect(Coordinates.new(rover.x, rover.y)).to eq(scenario[:expected])
         end
       end
     end
@@ -66,13 +66,13 @@ RSpec.describe Rover do
         { direction: :south, start: Coordinates.new(0, 0), expected: Coordinates.new(0, 1) },
         { direction: :east,  start: Coordinates.new(1, 0), expected: Coordinates.new(0, 0) },
         { direction: :west,  start: Coordinates.new(0, 0), expected: Coordinates.new(1, 0) }
-      ].each do |tc|
-        it "moves when facing #{tc[:direction]}" do
-          rover = Rover.new(coordinates: tc[:start], direction: tc[:direction])
+      ].each do |scenario|
+        it "moves when facing #{scenario[:direction]}" do
+          rover = Rover.new(coordinates: scenario[:start], direction: scenario[:direction])
 
           rover.execute_commands(['b'])
 
-          expect(Coordinates.new(rover.x, rover.y)).to eq(tc[:expected])
+          expect(Coordinates.new(rover.x, rover.y)).to eq(scenario[:expected])
         end
       end
     end
