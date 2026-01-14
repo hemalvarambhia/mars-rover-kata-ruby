@@ -21,9 +21,11 @@ class Rover
     @coordinates.y
   end
 
-  def execute(commands)
+  def execute_commands(commands)
+    raise ArgumentError, 'Commands must be an array' unless commands.is_a?(Array)
+
     validate_commands!(commands)
-    commands.each_char do |command|
+    commands.each do |command|
       case command
       when 'f' then move_forward
       when 'b' then move_backward
@@ -34,10 +36,12 @@ class Rover
   private
 
   def validate_commands!(commands)
-    commands.each_char do |command|
-      next if %w[f b].include?(command)
+    valid = %w[f b l r]
+    commands.each do |command|
+      next if valid.include?(command)
 
-      raise ArgumentError, "Invalid command '#{command}'. Valid commands: f (forward), b (backward)"
+      raise ArgumentError,
+            "Invalid command '#{command}'. Valid commands: f (forward), b (backward), l (left), r (right)"
     end
   end
 

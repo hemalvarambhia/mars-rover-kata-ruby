@@ -42,7 +42,7 @@ RSpec.describe Rover do
     end
   end
 
-  describe '#execute' do
+  describe '#execute_commands' do
     describe 'forward command' do
       [
         { direction: :north, start: Coordinates.new(0, 0), expected: Coordinates.new(0, 1) },
@@ -53,7 +53,7 @@ RSpec.describe Rover do
         it "moves when facing #{tc[:direction]}" do
           rover = Rover.new(coordinates: tc[:start], direction: tc[:direction])
 
-          rover.execute('f')
+          rover.execute_commands(['f'])
 
           expect(Coordinates.new(rover.x, rover.y)).to eq(tc[:expected])
         end
@@ -70,7 +70,7 @@ RSpec.describe Rover do
         it "moves when facing #{tc[:direction]}" do
           rover = Rover.new(coordinates: tc[:start], direction: tc[:direction])
 
-          rover.execute('b')
+          rover.execute_commands(['b'])
 
           expect(Coordinates.new(rover.x, rover.y)).to eq(tc[:expected])
         end
@@ -81,7 +81,7 @@ RSpec.describe Rover do
       it 'executes commands in sequence' do
         rover = Rover.new(coordinates: Coordinates.new(0, 0), direction: :north)
 
-        rover.execute('ffb')
+        rover.execute_commands(%w[f f b])
 
         expect(rover.y).to eq(1)
         expect(rover.x).to eq(0)
@@ -89,10 +89,10 @@ RSpec.describe Rover do
     end
 
     describe 'empty commands' do
-      it 'does nothing with empty string' do
+      it 'does nothing with empty array' do
         rover = Rover.new(coordinates: Coordinates.new(5, 5), direction: :north)
 
-        rover.execute('')
+        rover.execute_commands([])
 
         expect(rover.x).to eq(5)
         expect(rover.y).to eq(5)
@@ -100,17 +100,37 @@ RSpec.describe Rover do
     end
 
     describe 'command validation' do
+      it 'accepts all valid commands' do
+        rover = Rover.new(coordinates: Coordinates.new(0, 0), direction: :north)
+
+        expect { rover.execute_commands(%w[f b l r]) }.not_to raise_error
+      end
+
+      it 'rejects nil commands' do
+        rover = Rover.new(coordinates: Coordinates.new(0, 0), direction: :north)
+
+        expect { rover.execute_commands(nil) }
+          .to raise_error(ArgumentError, /commands must be an array/i)
+      end
+
+      it 'rejects non-array commands' do
+        rover = Rover.new(coordinates: Coordinates.new(0, 0), direction: :north)
+
+        expect { rover.execute_commands('fblr') }
+          .to raise_error(ArgumentError, /commands must be an array/i)
+      end
+
       it 'rejects invalid commands with helpful error' do
         rover = Rover.new(coordinates: Coordinates.new(0, 0), direction: :north)
 
-        expect { rover.execute('x') }
-          .to raise_error(ArgumentError, "Invalid command 'x'. Valid commands: f (forward), b (backward)")
+        expect { rover.execute_commands(['x']) }
+          .to raise_error(ArgumentError, /Invalid command 'x'.*Valid commands:.*f.*b.*l.*r/)
       end
 
       it 'rejects invalid command in sequence before executing any' do
         rover = Rover.new(coordinates: Coordinates.new(0, 0), direction: :north)
 
-        expect { rover.execute('fx') }.to raise_error(ArgumentError)
+        expect { rover.execute_commands(%w[f x]) }.to raise_error(ArgumentError)
         expect(rover.y).to eq(0)
       end
     end
