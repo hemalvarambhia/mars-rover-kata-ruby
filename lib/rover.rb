@@ -21,7 +21,43 @@ class Rover
     @coordinates.y
   end
 
+  def execute(commands)
+    validate_commands!(commands)
+    commands.each_char do |command|
+      case command
+      when 'f' then move_forward
+      when 'b' then move_backward
+      end
+    end
+  end
+
   private
+
+  def validate_commands!(commands)
+    commands.each_char do |command|
+      next if %w[f b].include?(command)
+
+      raise ArgumentError, "Invalid command '#{command}'. Valid commands: f (forward), b (backward)"
+    end
+  end
+
+  def move_forward
+    case @direction
+    when :north then @coordinates = Coordinates.new(@coordinates.x, @coordinates.y + 1)
+    when :south then @coordinates = Coordinates.new(@coordinates.x, @coordinates.y - 1)
+    when :east then @coordinates = Coordinates.new(@coordinates.x + 1, @coordinates.y)
+    when :west then @coordinates = Coordinates.new(@coordinates.x - 1, @coordinates.y)
+    end
+  end
+
+  def move_backward
+    case @direction
+    when :north then @coordinates = Coordinates.new(@coordinates.x, @coordinates.y - 1)
+    when :south then @coordinates = Coordinates.new(@coordinates.x, @coordinates.y + 1)
+    when :east then @coordinates = Coordinates.new(@coordinates.x - 1, @coordinates.y)
+    when :west then @coordinates = Coordinates.new(@coordinates.x + 1, @coordinates.y)
+    end
+  end
 
   def validate_direction!(direction)
     valid_directions = %i[north south east west]
