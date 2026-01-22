@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'direction'
-
 # Mars Rover - remotely controlled vehicle for Mars exploration
 class Rover
   attr_reader :direction
@@ -9,7 +7,6 @@ class Rover
   def initialize(coordinates:, direction:)
     raise ArgumentError, 'Coordinates cannot be nil' if coordinates.nil?
 
-    validate_direction!(direction)
     @coordinates = coordinates
     @direction = direction
   end
@@ -47,18 +44,12 @@ class Rover
   end
 
   def move_forward
-    delta_x, delta_y = Direction.delta_for(@direction)
+    delta_x, delta_y = @direction.delta
     @coordinates = @coordinates.translate(delta_x, delta_y)
   end
 
   def move_backward
-    delta_x, delta_y = Direction.delta_for(@direction)
+    delta_x, delta_y = @direction.delta
     @coordinates = @coordinates.translate(-delta_x, -delta_y)
-  end
-
-  def validate_direction!(direction)
-    return if Direction.valid?(direction)
-
-    raise ArgumentError, "Invalid direction: #{direction}"
   end
 end
