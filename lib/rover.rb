@@ -3,6 +3,13 @@
 # Mars Rover - remotely controlled vehicle for Mars exploration
 
 class Rover
+  MOVEMENT_DELTAS = {
+    north: [0, 1],
+    south: [0, -1],
+    east: [1, 0],
+    west: [-1, 0]
+  }.freeze
+
   attr_reader :direction
 
   def initialize(coordinates:, direction:)
@@ -22,8 +29,6 @@ class Rover
   end
 
   def execute_commands(commands)
-    raise ArgumentError, 'Commands must be an array' unless commands.is_a?(Array)
-
     validate_commands!(commands)
     commands.each do |command|
       case command
@@ -36,6 +41,8 @@ class Rover
   private
 
   def validate_commands!(commands)
+    raise ArgumentError, 'Commands must be an array' unless commands.is_a?(Array)
+
     valid = %w[f b l r]
     commands.each do |command|
       next if valid.include?(command)
@@ -46,21 +53,13 @@ class Rover
   end
 
   def move_forward
-    case @direction
-    when :north then @coordinates = Coordinates.new(@coordinates.x, @coordinates.y + 1)
-    when :south then @coordinates = Coordinates.new(@coordinates.x, @coordinates.y - 1)
-    when :east then @coordinates = Coordinates.new(@coordinates.x + 1, @coordinates.y)
-    when :west then @coordinates = Coordinates.new(@coordinates.x - 1, @coordinates.y)
-    end
+    delta_x, delta_y = MOVEMENT_DELTAS[@direction]
+    @coordinates = Coordinates.new(@coordinates.x + delta_x, @coordinates.y + delta_y)
   end
 
   def move_backward
-    case @direction
-    when :north then @coordinates = Coordinates.new(@coordinates.x, @coordinates.y - 1)
-    when :south then @coordinates = Coordinates.new(@coordinates.x, @coordinates.y + 1)
-    when :east then @coordinates = Coordinates.new(@coordinates.x - 1, @coordinates.y)
-    when :west then @coordinates = Coordinates.new(@coordinates.x + 1, @coordinates.y)
-    end
+    delta_x, delta_y = MOVEMENT_DELTAS[@direction]
+    @coordinates = Coordinates.new(@coordinates.x - delta_x, @coordinates.y - delta_y)
   end
 
   def validate_direction!(direction)

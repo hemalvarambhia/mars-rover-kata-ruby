@@ -55,7 +55,7 @@ RSpec.describe Rover do
 
           rover.execute_commands(['f'])
 
-          expect(Coordinates.new(rover.x, rover.y)).to eq(scenario[:expected])
+          expect(rover).to be_located_at(scenario[:expected])
         end
       end
     end
@@ -72,7 +72,7 @@ RSpec.describe Rover do
 
           rover.execute_commands(['b'])
 
-          expect(Coordinates.new(rover.x, rover.y)).to eq(scenario[:expected])
+          expect(rover).to be_located_at(scenario[:expected])
         end
       end
     end
@@ -83,19 +83,17 @@ RSpec.describe Rover do
 
         rover.execute_commands(%w[f f b])
 
-        expect(rover.y).to eq(1)
-        expect(rover.x).to eq(0)
+        expect(rover).to be_located_at(Coordinates.new(0, 1))
       end
     end
 
-    describe 'empty commands' do
+    describe 'no commands' do
       it 'does nothing with empty array' do
         rover = Rover.new(coordinates: Coordinates.new(5, 5), direction: :north)
 
         rover.execute_commands([])
 
-        expect(rover.x).to eq(5)
-        expect(rover.y).to eq(5)
+        expect(rover).to be_located_at(Coordinates.new(5, 5))
       end
     end
 
