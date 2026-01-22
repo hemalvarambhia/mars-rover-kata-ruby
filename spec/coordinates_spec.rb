@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Tests for Coordinates value object
 
 require 'spec_helper'
@@ -19,5 +21,30 @@ RSpec.describe Coordinates do
       expect(coords).not_to respond_to(:y=)
     end
   end
-end
 
+  describe '#translate' do
+    it 'returns new Coordinates with offset applied' do
+      coords = Coordinates.new(3, 5)
+
+      result = coords.translate(1, 2)
+
+      expect(result).to eq(Coordinates.new(4, 7))
+    end
+
+    it 'handles negative deltas' do
+      coords = Coordinates.new(3, 5)
+
+      result = coords.translate(-1, -2)
+
+      expect(result).to eq(Coordinates.new(2, 3))
+    end
+
+    it 'does not modify original coordinates' do
+      coords = Coordinates.new(3, 5)
+
+      coords.translate(1, 2)
+
+      expect(coords).to eq(Coordinates.new(3, 5))
+    end
+  end
+end
